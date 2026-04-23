@@ -1,0 +1,1623 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../built-in-functions.rst:6
+msgid "Built-in Functions"
+msgstr ""
+
+#: ../../../built-in-functions.rst:8
+msgid ""
+"Vyper provides a collection of built-in functions available in the global "
+"namespace of all contracts."
+msgstr ""
+
+#: ../../../built-in-functions.rst:11
+msgid "Bitwise Operations"
+msgstr ""
+
+#: ../../../built-in-functions.rst:16
+msgid ""
+"Return ``x`` with the bits shifted ``_shift`` places. A positive ``_shift`` "
+"value equals a left shift, a negative value is a right shift."
+msgstr ""
+
+#: ../../../built-in-functions.rst:18
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint256, y: int128) -> uint256:\n"
+"    return shift(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:25
+msgid ""
+">>> ExampleContract.foo(2, 8)\n"
+"512"
+msgstr ""
+
+#: ../../../built-in-functions.rst:32
+msgid ""
+"This function has been deprecated from version 0.3.8 onwards. Please use the "
+"``<<`` and ``>>`` operators instead."
+msgstr ""
+
+#: ../../../built-in-functions.rst:36
+msgid ""
+"The functions ``bitwise_and``, ``bitwise_or``, ``bitwise_xor`` and "
+"``bitwise_not`` have been deprecated from version 0.3.4., and removed in "
+"version 0.4.2. Please use their operator versions instead: ``&``, ``|``, "
+"``^``, ``~``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:40
+msgid "Chain Interaction"
+msgstr ""
+
+#: ../../../built-in-functions.rst:43
+msgid ""
+"Vyper has four built-ins for contract creation; the first three contract "
+"creation built-ins rely on the code to deploy already being stored on-chain, "
+"but differ in call vs deploy overhead, and whether or not they invoke the "
+"constructor of the contract to be deployed. The following list provides a "
+"short summary of the differences between them."
+msgstr ""
+
+#: ../../../built-in-functions.rst:48
+msgid "``create_minimal_proxy_to(target: address, ...)``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:46
+msgid "Creates an immutable proxy to ``target``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:47
+msgid ""
+"Expensive to call (incurs a single ``DELEGATECALL`` overhead on every "
+"invocation), cheap to create (since it only deploys ``EIP-1167`` forwarder "
+"bytecode)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:48 ../../../built-in-functions.rst:53
+msgid "Does not have the ability to call a constructor"
+msgstr ""
+
+#: ../../../built-in-functions.rst:49
+msgid ""
+"Does **not** check that there is code at ``target`` (allows one to deploy "
+"proxies counterfactually)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:53
+msgid "``create_copy_of(target: address, ...)``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:51
+msgid "Creates a byte-for-byte copy of runtime code stored at ``target``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:52 ../../../built-in-functions.rst:57
+msgid ""
+"Cheap to call (no ``DELEGATECALL`` overhead), expensive to create (200 gas "
+"per deployed byte)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:54 ../../../built-in-functions.rst:59
+msgid "Performs an ``EXTCODESIZE`` check to check there is code at ``target``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:58
+msgid "``create_from_blueprint(target: address, ...)``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:56
+msgid "Deploys a contract using the initcode stored at ``target``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:58
+msgid ""
+"Invokes constructor, requires a special \"blueprint\" contract to be deployed"
+msgstr ""
+
+#: ../../../built-in-functions.rst:61
+msgid "``raw_create(initcode: Bytes[...], ...)```"
+msgstr ""
+
+#: ../../../built-in-functions.rst:61
+msgid ""
+"Low-level create. Takes the given initcode, along with the arguments to be "
+"abi-encoded, and deploys the initcode after concatenating the abi-encoded "
+"arguments."
+msgstr ""
+
+#: ../../../built-in-functions.rst:65
+msgid ""
+"Deploys a small, EIP1167-compliant \"minimal proxy contract\" that "
+"duplicates the logic of the contract at ``target``, but has its own state "
+"since every call to ``target`` is made using ``DELEGATECALL`` to ``target``. "
+"To the end user, this should be indistinguishable from an independently "
+"deployed contract with the same code as ``target``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:68
+msgid "``target``: Address of the contract to proxy to"
+msgstr ""
+
+#: ../../../built-in-functions.rst:69 ../../../built-in-functions.rst:99
+#: ../../../built-in-functions.rst:122 ../../../built-in-functions.rst:163
+msgid ""
+"``value``: The wei value to send to the new contract address (Optional, "
+"default 0)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:70 ../../../built-in-functions.rst:100
+#: ../../../built-in-functions.rst:125 ../../../built-in-functions.rst:165
+msgid ""
+"``revert_on_failure``: If ``False``, instead of reverting when the create "
+"operation fails, return the zero address (Optional, default ``True``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:71 ../../../built-in-functions.rst:101
+#: ../../../built-in-functions.rst:126 ../../../built-in-functions.rst:166
+msgid ""
+"``salt``: A ``bytes32`` value utilized by the deterministic ``CREATE2`` "
+"opcode (Optional, if not supplied, ``CREATE`` is used)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:73
+msgid ""
+"Returns the address of the newly created proxy contract. If the create "
+"operation fails (for instance, in the case of a ``CREATE2`` collision), "
+"execution will revert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:75
+msgid ""
+"@external\n"
+"def foo(target: address) -> address:\n"
+"    return create_minimal_proxy_to(target)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:83
+msgid ""
+"It is very important that the deployed contract at ``target`` is code you "
+"know and trust, and does not implement the ``selfdestruct`` opcode or have "
+"upgradeable code as this will affect the operation of the proxy contract."
+msgstr ""
+
+#: ../../../built-in-functions.rst:87
+msgid ""
+"There is no runtime check that there is code already deployed at ``target`` "
+"(since a proxy may be deployed counterfactually). Most applications may want "
+"to insert this check."
+msgstr ""
+
+#: ../../../built-in-functions.rst:91
+msgid "Before version 0.3.4, this function was named ``create_forwarder_to``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:96
+msgid ""
+"Create a physical copy of the runtime code at ``target``. The code at "
+"``target`` is byte-for-byte copied into a newly deployed contract."
+msgstr ""
+
+#: ../../../built-in-functions.rst:98
+msgid "``target``: Address of the contract to copy"
+msgstr ""
+
+#: ../../../built-in-functions.rst:103
+msgid ""
+"Returns the address of the created contract. If the create operation fails "
+"(for instance, in the case of a ``CREATE2`` collision), execution will "
+"revert. If there is no code at ``target``, execution will revert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:105
+msgid ""
+"@external\n"
+"def foo(target: address) -> address:\n"
+"    return create_copy_of(target)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:113
+msgid ""
+"The implementation of ``create_copy_of`` assumes that the code at ``target`` "
+"is smaller than 16MB. While this is much larger than the EIP-170 constraint "
+"of 24KB, it is a conservative size limit intended to future-proof deployer "
+"contracts in case the EIP-170 constraint is lifted. If the code at "
+"``target`` is larger than 16MB, the behavior of ``create_copy_of`` is "
+"undefined."
+msgstr ""
+
+#: ../../../built-in-functions.rst:118
+msgid ""
+"Copy the code of ``target`` into memory and execute it as initcode. In other "
+"words, this operation interprets the code at ``target`` not as regular "
+"runtime code, but directly as initcode. The ``*args`` are interpreted as "
+"constructor arguments, and are ABI-encoded and included when executing the "
+"initcode."
+msgstr ""
+
+#: ../../../built-in-functions.rst:120
+msgid "``target``: Address of the blueprint to invoke"
+msgstr ""
+
+#: ../../../built-in-functions.rst:121 ../../../built-in-functions.rst:164
+msgid "``*args``: Constructor arguments to forward to the initcode."
+msgstr ""
+
+#: ../../../built-in-functions.rst:123
+msgid ""
+"``raw_args``: If ``True``, ``*args`` must be a single ``Bytes[...]`` "
+"argument, which will be interpreted as a raw bytes buffer to forward to the "
+"create operation (which is useful for instance, if pre- ABI-encoded data is "
+"passed in from elsewhere). (Optional, default ``False``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:124
+msgid ""
+"``code_offset``: The offset to start the ``EXTCODECOPY`` from (Optional, "
+"default 3)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:128
+msgid ""
+"Returns the address of the created contract. If the create operation fails "
+"(for instance, in the case of a ``CREATE2`` collision), execution will "
+"revert. If ``code_offset >= target.codesize`` (ex. if there is no code at "
+"``target``), execution will revert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:130
+msgid ""
+"@external\n"
+"def foo(blueprint: address) -> address:\n"
+"    arg1: uint256 = 18\n"
+"    arg2: String[32] = \"some string\"\n"
+"    return create_from_blueprint(blueprint, arg1, arg2, code_offset=1)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:140
+msgid ""
+"To properly deploy a blueprint contract, special deploy bytecode must be "
+"used. The output of ``vyper -f blueprint_bytecode`` will produce bytecode "
+"which deploys an ERC-5202 compatible blueprint."
+msgstr ""
+
+#: ../../../built-in-functions.rst:144
+msgid ""
+"Prior to Vyper version ``0.4.0``, the ``code_offset`` parameter defaulted to "
+"``0``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:148
+msgid ""
+"It is recommended to deploy blueprints with an `ERC-5202 <https://eips."
+"ethereum.org/EIPS/eip-5202>`_ preamble like ``0xFE7100`` to guard them from "
+"being called as regular contracts. This is particularly important for "
+"factories where the constructor has side effects (including "
+"``SELFDESTRUCT``!), as those could get executed by *anybody* calling the "
+"blueprint contract directly. The ``code_offset=`` kwarg is provided (and "
+"defaults to the ERC-5202 default of 3) to enable this pattern:"
+msgstr ""
+
+#: ../../../built-in-functions.rst:150
+msgid ""
+"@external\n"
+"def foo(blueprint: address) -> address:\n"
+"    # `blueprint` is a blueprint contract with some known preamble b\"abcd..."
+"\"\n"
+"    return create_from_blueprint(blueprint, code_offset=<preamble length>)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:160
+msgid ""
+"Create a contract using the given ``initcode``. Provides low-level access to "
+"the ``CREATE`` and ``CREATE2`` opcodes."
+msgstr ""
+
+#: ../../../built-in-functions.rst:162
+msgid "``initcode``: Initcode bytes"
+msgstr ""
+
+#: ../../../built-in-functions.rst:168
+msgid ""
+"Returns the address of the created contract. If the create operation fails "
+"(for instance, in the case of a ``CREATE2`` collision), execution will "
+"revert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:170
+msgid ""
+"@external\n"
+"def foo() -> address:\n"
+"    # create the bytes of an empty vyper contract\n"
+"    return "
+"raw_create(x\"0x61000361000f6000396100036000f35f5ffd855820cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6038000a1657679706572830004020033\")"
+msgstr ""
+
+#: ../../../built-in-functions.rst:180
+msgid "Call to the specified Ethereum address."
+msgstr ""
+
+#: ../../../built-in-functions.rst:182
+msgid "``to``: Destination address to call to"
+msgstr ""
+
+#: ../../../built-in-functions.rst:183
+msgid "``data``: Data to send to the destination address"
+msgstr ""
+
+#: ../../../built-in-functions.rst:184
+msgid ""
+"``max_outsize``: Maximum length of the bytes array returned from the call. "
+"If the returned call data exceeds this length, only this number of bytes is "
+"returned. (Optional, default ``0``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:185
+msgid ""
+"``gas``: The amount of gas to attach to the call. (Optional, defaults to "
+"``msg.gas``)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:186
+msgid ""
+"``value``: The wei value to send to the address (Optional, default ``0``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:187
+msgid ""
+"``is_delegate_call``: If ``True``, the call will be sent as ``DELEGATECALL`` "
+"(Optional, default ``False``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:188
+msgid ""
+"``is_static_call``: If ``True``, the call will be sent as ``STATICCALL`` "
+"(Optional, default ``False``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:189
+msgid ""
+"``revert_on_failure``: If ``True``, the call will revert on a failure, "
+"otherwise ``success`` will be returned (Optional, default ``True``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:193
+msgid ""
+"Returns the data returned by the call as a ``Bytes`` list, with "
+"``max_outsize`` as the max length. The actual size of the returned data may "
+"be less than ``max_outsize``. You can use ``len`` to obtain the actual size."
+msgstr ""
+
+#: ../../../built-in-functions.rst:195
+msgid "Returns nothing if ``max_outsize`` is omitted or set to ``0``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:197
+msgid ""
+"Returns ``success`` in a tuple with return value if ``revert_on_failure`` is "
+"set to ``False``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:199
+msgid ""
+"@external\n"
+"@payable\n"
+"def foo(_target: address) -> Bytes[32]:\n"
+"    response: Bytes[32] = raw_call(_target, method_id(\"someMethodName()\"), "
+"max_outsize=32, value=msg.value)\n"
+"    return response\n"
+"\n"
+"@external\n"
+"@payable\n"
+"def bar(_target: address) -> Bytes[32]:\n"
+"    success: bool = False\n"
+"    response: Bytes[32] = b\"\"\n"
+"    x: uint256 = 123\n"
+"    success, response = raw_call(\n"
+"        _target,\n"
+"        abi_encode(x, method_id=method_id(\"someMethodName(uint256)\")),\n"
+"        max_outsize=32,\n"
+"        value=msg.value,\n"
+"        revert_on_failure=False\n"
+"        )\n"
+"    assert success\n"
+"    return response"
+msgstr ""
+
+#: ../../../built-in-functions.rst:225
+msgid ""
+"Regarding \"forwarding all gas\", note that, while Vyper will provide ``msg."
+"gas`` to the call, in practice, there are some subtleties around forwarding "
+"all remaining gas on the EVM which are out of scope of this documentation "
+"and could be subject to change. For instance, see the language in EIP-150 "
+"around \"all but one 64th\"."
+msgstr ""
+
+#: ../../../built-in-functions.rst:229
+msgid ""
+"Provides low level access to the ``LOG`` opcodes, emitting a log without "
+"having to specify an ABI type."
+msgstr ""
+
+#: ../../../built-in-functions.rst:231
+msgid ""
+"``topics``: List of ``bytes32`` log topics. The length of this array "
+"determines which opcode is used."
+msgstr ""
+
+#: ../../../built-in-functions.rst:232
+msgid ""
+"``data``: Unindexed event data to include in the log. May be given as "
+"``Bytes`` or ``bytes32``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:234
+msgid ""
+"@external\n"
+"def foo(_topic: bytes32, _data: Bytes[100]):\n"
+"    raw_log([_topic], _data)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:242
+msgid ""
+"Provides low level access to the ``REVERT`` opcode, reverting execution with "
+"the specified data returned."
+msgstr ""
+
+#: ../../../built-in-functions.rst:244
+msgid "``data``: Data representing the error message causing the revert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:246
+msgid ""
+"@external\n"
+"def foo(_data: Bytes[100]):\n"
+"    raw_revert(_data)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:254
+msgid ""
+"Trigger the ``SELFDESTRUCT`` opcode (``0xFF``), causing the contract to be "
+"destroyed."
+msgstr ""
+
+#: ../../../built-in-functions.rst:256
+msgid "``to``: Address to forward the contract's ether balance to"
+msgstr ""
+
+#: ../../../built-in-functions.rst:260
+msgid ""
+"This method deletes the contract from the blockchain. All non-ether assets "
+"associated with this contract are \"burned\" and the contract is no longer "
+"accessible."
+msgstr ""
+
+#: ../../../built-in-functions.rst:264
+msgid ""
+"This function has been deprecated from version 0.3.8 onwards. The underlying "
+"opcode will eventually undergo breaking changes, and its use is not "
+"recommended."
+msgstr ""
+
+#: ../../../built-in-functions.rst:266
+msgid ""
+"@external\n"
+"def do_the_needful():\n"
+"    selfdestruct(msg.sender)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:274
+msgid "Send ether from the contract to the specified Ethereum address."
+msgstr ""
+
+#: ../../../built-in-functions.rst:276
+msgid "``to``: The destination address to send ether to"
+msgstr ""
+
+#: ../../../built-in-functions.rst:277
+msgid "``value``: The wei value to send to the address"
+msgstr ""
+
+#: ../../../built-in-functions.rst:278
+msgid ""
+"``gas``: The amount of gas (the \"stipend\") to attach to the call. If not "
+"set, the stipend defaults to 0."
+msgstr ""
+
+#: ../../../built-in-functions.rst:282
+msgid "The amount to send is always specified in ``wei``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:284
+msgid ""
+"@external\n"
+"def foo(_receiver: address, _amount: uint256, gas: uint256):\n"
+"    send(_receiver, _amount, gas=gas)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:291
+msgid "Cryptography"
+msgstr ""
+
+#: ../../../built-in-functions.rst:295
+msgid "Take two points on the Alt-BN128 curve and add them together."
+msgstr ""
+
+#: ../../../built-in-functions.rst:297
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint256[2], y: uint256[2]) -> uint256[2]:\n"
+"    return ecadd(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:304
+msgid ""
+">>> ExampleContract.foo([1, 2], [1, 2])\n"
+"[\n"
+"    1368015179489954701390400359078579693043519447331113978918064868415326638035,\n"
+"    9918110051302171585080402603319702774565515993150576347155970296011118125764,\n"
+"]"
+msgstr ""
+
+#: ../../../built-in-functions.rst:314
+msgid ""
+"Take a point on the Alt-BN128 curve (``p``) and a scalar value (``s``), and "
+"return the result of adding the point to itself ``s`` times, i.e. ``p * s``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:316
+msgid "``point``: Point to be multiplied"
+msgstr ""
+
+#: ../../../built-in-functions.rst:317
+msgid "``scalar``: Scalar value"
+msgstr ""
+
+#: ../../../built-in-functions.rst:319
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(point: uint256[2], scalar: uint256) -> uint256[2]:\n"
+"    return ecmul(point, scalar)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:326
+msgid ""
+">>> ExampleContract.foo([1, 2], 3)\n"
+"[\n"
+"    3353031288059533942658390886683067124040920775575537747144343083137631628272,\n"
+"    19321533766552368860946552437480515441416830039777911637913418824951667761761,\n"
+"]"
+msgstr ""
+
+#: ../../../built-in-functions.rst:336
+msgid ""
+"Recover the address associated with the public key from the given elliptic "
+"curve signature."
+msgstr ""
+
+#: ../../../built-in-functions.rst:338
+msgid "``r``: first 32 bytes of signature"
+msgstr ""
+
+#: ../../../built-in-functions.rst:339
+msgid "``s``: second 32 bytes of signature"
+msgstr ""
+
+#: ../../../built-in-functions.rst:340
+msgid "``v``: final 1 byte of signature"
+msgstr ""
+
+#: ../../../built-in-functions.rst:342
+msgid "Returns the associated address, or ``empty(address)`` on error."
+msgstr ""
+
+#: ../../../built-in-functions.rst:346
+msgid ""
+"Prior to Vyper ``0.3.10``, the ``ecrecover`` function could return an "
+"undefined (possibly nonzero) value for invalid inputs to ``ecrecover``. For "
+"more information, please see `GHSA-f5x6-7qgp-jhf3 <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-f5x6-7qgp-jhf3>`_."
+msgstr ""
+
+#: ../../../built-in-functions.rst:348
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(hash: bytes32, v: uint8, r:bytes32, s:bytes32) -> address:\n"
+"    return ecrecover(hash, v, r, s)\n"
+"\n"
+"\n"
+"@external\n"
+"@view\n"
+"def foo(hash: bytes32, v: uint256, r:uint256, s:uint256) -> address:\n"
+"    return ecrecover(hash, v, r, s)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:360
+msgid ""
+">>> ExampleContract."
+"foo('0x6c9c5e133b8aafb2ea74f524a5263495e7ae5701c7248805f7b511d973dc7055',\n"
+"     28,\n"
+"     78616903610408968922803823221221116251138855211764625814919875002740131251724,\n"
+"     37668412420813231458864536126575229553064045345107737433087067088194345044408\n"
+"    )\n"
+"'0x9eE53ad38Bb67d745223a4257D7d48cE973FeB7A'"
+msgstr ""
+
+#: ../../../built-in-functions.rst:371
+msgid "Return a ``keccak256`` hash of the given value."
+msgstr ""
+
+#: ../../../built-in-functions.rst:373 ../../../built-in-functions.rst:391
+msgid ""
+"``_value``: Value to hash. Can be a ``String``, ``Bytes``, or ``bytes32``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:375
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(_value: Bytes[100]) -> bytes32\n"
+"    return keccak256(_value)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:382
+msgid ""
+">>> ExampleContract.foo(b\"potato\")\n"
+"0x9e159dfcfe557cc1ca6c716e87af98fdcb94cd8c832386d0429b2b7bec02754f"
+msgstr ""
+
+#: ../../../built-in-functions.rst:389
+msgid "Return a ``sha256`` (SHA2 256-bit output) hash of the given value."
+msgstr ""
+
+#: ../../../built-in-functions.rst:393
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(_value: Bytes[100]) -> bytes32\n"
+"    return sha256(_value)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:400
+msgid ""
+">>> ExampleContract.foo(b\"potato\")\n"
+"0xe91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec"
+msgstr ""
+
+#: ../../../built-in-functions.rst:406
+msgid "Data Manipulation"
+msgstr ""
+
+#: ../../../built-in-functions.rst:410
+msgid ""
+"Take 2 or more bytes arrays of type ``bytesM``, ``Bytes`` or ``String`` and "
+"combine them into a single value."
+msgstr ""
+
+#: ../../../built-in-functions.rst:412
+msgid ""
+"If the input arguments are ``String`` the return type is ``String``.  "
+"Otherwise the return type is ``Bytes``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:414
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: String[5], b: String[5], c: String[5]) -> String[100]:\n"
+"    return concat(a, \" \", b, \" \", c, \"!\")"
+msgstr ""
+
+#: ../../../built-in-functions.rst:421
+msgid ""
+">>> ExampleContract.foo(\"why\",\"hello\",\"there\")\n"
+"\"why hello there!\""
+msgstr ""
+
+#: ../../../built-in-functions.rst:428
+msgid "Converts a variable or literal from one type to another."
+msgstr ""
+
+#: ../../../built-in-functions.rst:430
+msgid "``value``: Value to convert"
+msgstr ""
+
+#: ../../../built-in-functions.rst:431
+msgid ""
+"``type_``: The destination type to convert to (e.g., ``bool``, ``decimal``, "
+"``int128``, ``uint256`` or ``bytes32``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:433
+msgid "Returns a value of the type specified by ``type_``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:435
+msgid ""
+"For more details on available type conversions, see :ref:`type_conversions`."
+msgstr ""
+
+#: ../../../built-in-functions.rst:439
+msgid "Returns an unsigned integer's string representation."
+msgstr ""
+
+#: ../../../built-in-functions.rst:441
+msgid "``value``: Unsigned integer to convert."
+msgstr ""
+
+#: ../../../built-in-functions.rst:443
+msgid "Returns the string representation of ``value``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:445
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(b: uint256) -> String[78]:\n"
+"    return uint2str(b)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:452
+msgid ""
+">>> ExampleContract.foo(420)\n"
+"\"420\""
+msgstr ""
+
+#: ../../../built-in-functions.rst:459
+msgid "Extract a value from a ``Bytes`` list."
+msgstr ""
+
+#: ../../../built-in-functions.rst:461
+msgid "``b``: ``Bytes`` list to extract from"
+msgstr ""
+
+#: ../../../built-in-functions.rst:462
+msgid "``start``: Start point to extract from"
+msgstr ""
+
+#: ../../../built-in-functions.rst:463
+msgid ""
+"``output_type``: Type of output (``bytesM``, ``integer``, or ``address``). "
+"Defaults to ``bytes32``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:465 ../../../built-in-functions.rst:964
+msgid "Returns a value of the type specified by ``output_type``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:467
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(b: Bytes[32]) -> address:\n"
+"    return extract32(b, 0, output_type=address)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:474
+msgid ""
+">>> ExampleContract."
+"foo(\"0x0000000000000000000000009f8F72aA9304c8B593d555F12eF6589cC3A579A2\")\n"
+"\"0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2\""
+msgstr ""
+
+#: ../../../built-in-functions.rst:481
+msgid "Copy a list of bytes and return a specified slice."
+msgstr ""
+
+#: ../../../built-in-functions.rst:483
+msgid "``b``: value being sliced"
+msgstr ""
+
+#: ../../../built-in-functions.rst:484
+msgid "``start``: start position of the slice"
+msgstr ""
+
+#: ../../../built-in-functions.rst:485
+msgid "``length``: length of the slice"
+msgstr ""
+
+#: ../../../built-in-functions.rst:487
+msgid ""
+"If the value being sliced is a ``Bytes`` or ``bytes32``, the return type is "
+"``Bytes``.  If it is a ``String``, the return type is ``String``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:489
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(s: String[32]) -> String[5]:\n"
+"    return slice(s, 4, 5)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:496
+msgid ""
+">>> ExampleContract.foo(\"why hello! how are you?\")\n"
+"\"hello\""
+msgstr ""
+
+#: ../../../built-in-functions.rst:502
+msgid "Math"
+msgstr ""
+
+#: ../../../built-in-functions.rst:506
+msgid "Return the absolute value of a signed integer."
+msgstr ""
+
+#: ../../../built-in-functions.rst:508
+msgid "``value``: Integer to return the absolute value of"
+msgstr ""
+
+#: ../../../built-in-functions.rst:510
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(value: int256) -> int256:\n"
+"    return abs(value)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:517
+msgid ""
+">>> ExampleContract.foo(-31337)\n"
+"31337"
+msgstr ""
+
+#: ../../../built-in-functions.rst:524
+msgid "Round a decimal up to the nearest integer."
+msgstr ""
+
+#: ../../../built-in-functions.rst:526
+msgid "``value``: Decimal value to round up"
+msgstr ""
+
+#: ../../../built-in-functions.rst:528
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: decimal) -> int256:\n"
+"    return ceil(x)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:535
+msgid ""
+">>> ExampleContract.foo(3.1337)\n"
+"4"
+msgstr ""
+
+#: ../../../built-in-functions.rst:542
+msgid "Returns the smallest non-zero value for a decimal type."
+msgstr ""
+
+#: ../../../built-in-functions.rst:544
+msgid "``typename``: Name of the decimal type (currently only ``decimal``)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:546
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> decimal:\n"
+"    return epsilon(decimal)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:553
+msgid ""
+">>> ExampleContract.foo()\n"
+"Decimal('1E-10')"
+msgstr ""
+
+#: ../../../built-in-functions.rst:560
+msgid "Round a decimal down to the nearest integer."
+msgstr ""
+
+#: ../../../built-in-functions.rst:562
+msgid "``value``: Decimal value to round down"
+msgstr ""
+
+#: ../../../built-in-functions.rst:564
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: decimal) -> int256:\n"
+"    return floor(x)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:571
+msgid ""
+">>> ExampleContract.foo(3.1337)\n"
+"3"
+msgstr ""
+
+#: ../../../built-in-functions.rst:578
+msgid ""
+"Return the greater value of ``a`` and ``b``. The input values may be any "
+"numeric type as long as they are both of the same type.  The output value is "
+"of the same type as the input values."
+msgstr ""
+
+#: ../../../built-in-functions.rst:580
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: uint256, b: uint256) -> uint256:\n"
+"    return max(a, b)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:587
+msgid ""
+">>> ExampleContract.foo(23, 42)\n"
+"42"
+msgstr ""
+
+#: ../../../built-in-functions.rst:594
+msgid ""
+"Returns the maximum value of the numeric type specified by ``type_`` (e.g., "
+"``int128``, ``uint256``, ``decimal``)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:596
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> int256:\n"
+"    return max_value(int256)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:603
+msgid ""
+">>> ExampleContract.foo()\n"
+"57896044618658097711785492504343953926634992332820282019728792003956564819967"
+msgstr ""
+
+#: ../../../built-in-functions.rst:610
+msgid ""
+"Returns the lesser value of ``a`` and ``b``. The input values may be any "
+"numeric type as long as they are both of the same type.  The output value is "
+"of the same type as the input values."
+msgstr ""
+
+#: ../../../built-in-functions.rst:612
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: uint256, b: uint256) -> uint256:\n"
+"    return min(a, b)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:619
+msgid ""
+">>> ExampleContract.foo(23, 42)\n"
+"23"
+msgstr ""
+
+#: ../../../built-in-functions.rst:626
+msgid ""
+"Returns the minimum value of the numeric type specified by ``type_`` (e.g., "
+"``int128``, ``uint256``, ``decimal``)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:628
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> int256:\n"
+"    return min_value(int256)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:635
+msgid ""
+">>> ExampleContract.foo()\n"
+"-57896044618658097711785492504343953926634992332820282019728792003956564819968"
+msgstr ""
+
+#: ../../../built-in-functions.rst:642
+msgid "Return the result of ``a ** b % (2 ** 256)``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:644
+msgid "This method is used to perform exponentiation without overflow checks."
+msgstr ""
+
+#: ../../../built-in-functions.rst:646
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: uint256, b: uint256) -> uint256:\n"
+"    return pow_mod256(a, b)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:653
+msgid ""
+">>> ExampleContract.foo(2, 3)\n"
+"8\n"
+">>> ExampleContract.foo(100, 100)\n"
+"59041770658110225754900818312084884949620587934026984283048776718299468660736"
+msgstr ""
+
+#: ../../../built-in-functions.rst:662
+msgid ""
+"Return the square root of the provided decimal number, using the Babylonian "
+"square root algorithm. The rounding mode is to round down to the nearest "
+"epsilon. For instance, ``sqrt(0.9999999998) == 0.9999999998``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:664
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(d: decimal) -> decimal:\n"
+"    return sqrt(d)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:671
+msgid ""
+">>> ExampleContract.foo(9.0)\n"
+"3.0"
+msgstr ""
+
+#: ../../../built-in-functions.rst:678
+msgid ""
+"Return the (integer) square root of the provided integer number, using the "
+"Babylonian square root algorithm. The rounding mode is to round down to the "
+"nearest integer. For instance, ``isqrt(101) == 10``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:680
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint256) -> uint256:\n"
+"    return isqrt(x)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:687
+msgid ""
+">>> ExampleContract.foo(101)\n"
+"10"
+msgstr ""
+
+#: ../../../built-in-functions.rst:694
+msgid ""
+"Return the modulo of ``(a + b) % c``. Reverts if ``c == 0``. As this built-"
+"in function is intended to provides access to the underlying ``ADDMOD`` "
+"opcode, all intermediate calculations of this operation are not subject to "
+"the ``2 ** 256`` modulo according to the EVM specifications."
+msgstr ""
+
+#: ../../../built-in-functions.rst:696
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: uint256, b: uint256, c: uint256) -> uint256:\n"
+"    return uint256_addmod(a, b, c)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:703
+msgid ""
+">>> (6 + 13) % 8\n"
+"3\n"
+">>> ExampleContract.foo(6, 13, 8)\n"
+"3"
+msgstr ""
+
+#: ../../../built-in-functions.rst:712
+msgid ""
+"Return the modulo from ``(a * b) % c``. Reverts if ``c == 0``. As this built-"
+"in function is intended to provides access to the underlying ``MULMOD`` "
+"opcode, all intermediate calculations of this operation are not subject to "
+"the ``2 ** 256`` modulo according to the EVM specifications."
+msgstr ""
+
+#: ../../../built-in-functions.rst:714
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(a: uint256, b: uint256, c: uint256) -> uint256:\n"
+"    return uint256_mulmod(a, b, c)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:721
+msgid ""
+">>> (11 * 2) % 5\n"
+"2\n"
+">>> ExampleContract.foo(11, 2, 5)\n"
+"2"
+msgstr ""
+
+#: ../../../built-in-functions.rst:730
+msgid ""
+"Add ``x`` and ``y``, without checking for overflow. ``x`` and ``y`` must "
+"both be integers of the same type. If the result exceeds the bounds of the "
+"input type, it will be wrapped."
+msgstr ""
+
+#: ../../../built-in-functions.rst:732
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint8, y: uint8) -> uint8:\n"
+"    return unsafe_add(x, y)\n"
+"\n"
+"@external\n"
+"@view\n"
+"def bar(x: int8, y: int8) -> int8:\n"
+"    return unsafe_add(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:745
+msgid ""
+">>> ExampleContract.foo(1, 1)\n"
+"2\n"
+"\n"
+">>> ExampleContract.foo(255, 255)\n"
+"254\n"
+"\n"
+">>> ExampleContract.bar(127, 127)\n"
+"-2"
+msgstr ""
+
+#: ../../../built-in-functions.rst:757
+msgid ""
+"Performance note: for the native word types of the EVM ``uint256`` and "
+"``int256``, this will compile to a single ``ADD`` instruction, since the EVM "
+"natively wraps addition on 256-bit words."
+msgstr ""
+
+#: ../../../built-in-functions.rst:761
+msgid ""
+"Subtract ``x`` and ``y``, without checking for overflow. ``x`` and ``y`` "
+"must both be integers of the same type. If the result underflows the bounds "
+"of the input type, it will be wrapped."
+msgstr ""
+
+#: ../../../built-in-functions.rst:763
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint8, y: uint8) -> uint8:\n"
+"    return unsafe_sub(x, y)\n"
+"\n"
+"@external\n"
+"@view\n"
+"def bar(x: int8, y: int8) -> int8:\n"
+"    return unsafe_sub(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:776
+msgid ""
+">>> ExampleContract.foo(4, 3)\n"
+"1\n"
+"\n"
+">>> ExampleContract.foo(0, 1)\n"
+"255\n"
+"\n"
+">>> ExampleContract.bar(-128, 1)\n"
+"127"
+msgstr ""
+
+#: ../../../built-in-functions.rst:788
+msgid ""
+"Performance note: for the native word types of the EVM ``uint256`` and "
+"``int256``, this will compile to a single ``SUB`` instruction, since the EVM "
+"natively wraps subtraction on 256-bit words."
+msgstr ""
+
+#: ../../../built-in-functions.rst:793
+msgid ""
+"Multiply ``x`` and ``y``, without checking for overflow. ``x`` and ``y`` "
+"must both be integers of the same type. If the result exceeds the bounds of "
+"the input type, it will be wrapped."
+msgstr ""
+
+#: ../../../built-in-functions.rst:795
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint8, y: uint8) -> uint8:\n"
+"    return unsafe_mul(x, y)\n"
+"\n"
+"@external\n"
+"@view\n"
+"def bar(x: int8, y: int8) -> int8:\n"
+"    return unsafe_mul(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:808
+msgid ""
+">>> ExampleContract.foo(1, 1)\n"
+"1\n"
+"\n"
+">>> ExampleContract.foo(255, 255)\n"
+"1\n"
+"\n"
+">>> ExampleContract.bar(-128, -128)\n"
+"0\n"
+"\n"
+">>> ExampleContract.bar(127, -128)\n"
+"-128"
+msgstr ""
+
+#: ../../../built-in-functions.rst:823
+msgid ""
+"Performance note: for the native word types of the EVM ``uint256`` and "
+"``int256``, this will compile to a single ``MUL`` instruction, since the EVM "
+"natively wraps multiplication on 256-bit words."
+msgstr ""
+
+#: ../../../built-in-functions.rst:828
+msgid ""
+"Divide ``x`` and ``y``, without checking for division-by-zero. ``x`` and "
+"``y`` must both be integers of the same type. If the denominator is zero, "
+"the result will (following EVM semantics) be zero."
+msgstr ""
+
+#: ../../../built-in-functions.rst:830
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(x: uint8, y: uint8) -> uint8:\n"
+"    return unsafe_div(x, y)\n"
+"\n"
+"@external\n"
+"@view\n"
+"def bar(x: int8, y: int8) -> int8:\n"
+"    return unsafe_div(x, y)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:843
+msgid ""
+">>> ExampleContract.foo(1, 1)\n"
+"1\n"
+"\n"
+">>> ExampleContract.foo(1, 0)\n"
+"0\n"
+"\n"
+">>> ExampleContract.bar(-128, -1)\n"
+"-128"
+msgstr ""
+
+#: ../../../built-in-functions.rst:855
+msgid ""
+"Performance note: this will compile to a single ``SDIV`` or ``DIV`` "
+"instruction, depending on if the inputs are signed or unsigned "
+"(respectively)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:859
+msgid "Utilities"
+msgstr ""
+
+#: ../../../built-in-functions.rst:863
+msgid ""
+"Take an amount of ether currency specified by a number and a unit and return "
+"the integer quantity of wei equivalent to that amount."
+msgstr ""
+
+#: ../../../built-in-functions.rst:865
+msgid ""
+"``_value``: Value for the ether unit. Any numeric type may be used, however, "
+"the value cannot be negative."
+msgstr ""
+
+#: ../../../built-in-functions.rst:866
+msgid ""
+"``unit``: Ether unit name (e.g. ``\"wei\"``, ``\"ether\"``, ``\"gwei\"``, "
+"etc.) indicating the denomination of ``_value``. Must be given as a literal "
+"string."
+msgstr ""
+
+#: ../../../built-in-functions.rst:868
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(s: String[32]) -> uint256:\n"
+"    return as_wei_value(1.337, \"ether\")"
+msgstr ""
+
+#: ../../../built-in-functions.rst:875
+msgid ""
+">>> ExampleContract.foo(1)\n"
+"1337000000000000000"
+msgstr ""
+
+#: ../../../built-in-functions.rst:881
+msgid ""
+"When ``as_wei_value`` is given some ``decimal``, the result might be rounded "
+"down to the nearest integer, for example, the following is true: "
+"``as_wei_value(12.2, \"wei\") == 12``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:886
+msgid "Return the hash of the block at the specified height."
+msgstr ""
+
+#: ../../../built-in-functions.rst:890
+msgid ""
+"The EVM only provides access to the most recent 256 blocks. This function "
+"reverts if the block number is greater than or equal to the current block "
+"number or more than 256 blocks behind the current block."
+msgstr ""
+
+#: ../../../built-in-functions.rst:892
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> bytes32:\n"
+"    return blockhash(block.number - 16)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:899
+msgid ""
+">>> ExampleContract.foo()\n"
+"0xf3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+msgstr ""
+
+#: ../../../built-in-functions.rst:906
+msgid ""
+"Return the versioned hash of the ``index``-th BLOB associated with the "
+"current transaction."
+msgstr ""
+
+#: ../../../built-in-functions.rst:910
+msgid ""
+"A versioned hash consists of a single byte representing the version "
+"(currently ``0x01``), followed by the last 31 bytes of the ``SHA256`` hash "
+"of the KZG commitment (`EIP-4844 <https://eips.ethereum.org/EIPS/"
+"eip-4844>`_). For the case ``index >= len(tx.blob_versioned_hashes)``, "
+"``blobhash(index: uint256)`` returns ``empty(bytes32)``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:912
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(index: uint256) -> bytes32:\n"
+"    return blobhash(index)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:919
+msgid ""
+">>> ExampleContract.foo(0)\n"
+"0xfd28610fb309939bfec12b6db7c4525446f596a5a5a66b8e2cb510b45b2bbeb5\n"
+"\n"
+">>> ExampleContract.foo(6)\n"
+"0x0000000000000000000000000000000000000000000000000000000000000000"
+msgstr ""
+
+#: ../../../built-in-functions.rst:930
+msgid ""
+"Return a value which is the default (zero-ed) value of its type. Useful for "
+"initializing new memory variables."
+msgstr ""
+
+#: ../../../built-in-functions.rst:932
+msgid ""
+"``typename``: Name of the type, except ``HashMap[_KeyType, _ValueType]``"
+msgstr ""
+
+#: ../../../built-in-functions.rst:934
+msgid ""
+"@external\n"
+"@view\n"
+"def foo():\n"
+"    x: uint256[2][5] = empty(uint256[2][5])"
+msgstr ""
+
+#: ../../../built-in-functions.rst:943
+msgid ""
+"Return the length of a given ``Bytes``, ``String`` or ``DynArray[_Type, "
+"_Integer]``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:945
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(s: String[32]) -> uint256:\n"
+"    return len(s)"
+msgstr ""
+
+#: ../../../built-in-functions.rst:952
+msgid ""
+">>> ExampleContract.foo(\"hello\")\n"
+"5"
+msgstr ""
+
+#: ../../../built-in-functions.rst:959
+msgid ""
+"Takes a function declaration and returns its method_id (used in data field "
+"to call it)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:961
+msgid "``method``: Method declaration as given as a literal string"
+msgstr ""
+
+#: ../../../built-in-functions.rst:962
+msgid ""
+"``output_type``: The type of output (``Bytes[4]`` or ``bytes4``). Defaults "
+"to ``Bytes[4]``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:966
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> Bytes[4]:\n"
+"    return method_id('transfer(address,uint256)', output_type=Bytes[4])"
+msgstr ""
+
+#: ../../../built-in-functions.rst:973
+msgid ""
+">>> ExampleContract.foo()\n"
+"0xa9059cbb"
+msgstr ""
+
+#: ../../../built-in-functions.rst:980
+msgid ""
+"Takes a variable number of args as input, and returns the ABIv2-encoded "
+"bytestring. Used for packing arguments to raw_call, EIP712 and other cases "
+"where a consistent and efficient serialization method is needed. Once this "
+"function has seen more use we provisionally plan to put it into the "
+"``ethereum.abi`` namespace."
+msgstr ""
+
+#: ../../../built-in-functions.rst:983
+msgid "``*args``: Arbitrary arguments"
+msgstr ""
+
+#: ../../../built-in-functions.rst:984
+msgid ""
+"``ensure_tuple``: If set to True, ensures that even a single argument is "
+"encoded as a tuple. In other words, ``bytes`` gets encoded as ``(bytes,)``, "
+"and ``(bytes,)`` gets encoded as ``((bytes,),)`` This is the calling "
+"convention for Vyper and Solidity functions. Except for very specific use "
+"cases, this should be set to True. Must be a literal."
+msgstr ""
+
+#: ../../../built-in-functions.rst:985
+msgid ""
+"``method_id``: A literal hex or Bytes[4] value to append to the beginning of "
+"the abi-encoded bytestring."
+msgstr ""
+
+#: ../../../built-in-functions.rst:987
+msgid ""
+"Returns a bytestring whose max length is determined by the arguments. For "
+"example, encoding a ``Bytes[32]`` results in a ``Bytes[64]`` (first word is "
+"the length of the bytestring variable)."
+msgstr ""
+
+#: ../../../built-in-functions.rst:989
+msgid ""
+"@external\n"
+"@view\n"
+"def foo() -> Bytes[132]:\n"
+"    x: uint256 = 1\n"
+"    y: Bytes[32] = b\"234\"\n"
+"    return abi_encode(x, y, method_id=method_id(\"foo()\"))"
+msgstr ""
+
+#: ../../../built-in-functions.rst:998
+msgid ""
+">>> ExampleContract.foo().hex()\n"
+"\"c2985578\"\n"
+"\"0000000000000000000000000000000000000000000000000000000000000001\"\n"
+"\"0000000000000000000000000000000000000000000000000000000000000040\"\n"
+"\"0000000000000000000000000000000000000000000000000000000000000003\"\n"
+"\"3233340000000000000000000000000000000000000000000000000000000000\""
+msgstr ""
+
+#: ../../../built-in-functions.rst:1008
+msgid "Prior to v0.4.0, this function was named ``_abi_encode``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1013
+msgid ""
+"Takes a byte array as input, and returns the decoded values according to the "
+"specified output types. Used for unpacking ABIv2-encoded values. Once this "
+"function has seen more use we provisionally plan to put it into the "
+"``ethereum.abi`` namespace."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1016
+msgid ""
+"``b``: A byte array of a length that is between the minimum and maximum "
+"ABIv2 size bounds of the ``output type``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1017
+msgid ""
+"``output_type``: Name of the output type, or tuple of output types, to be "
+"decoded."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1018
+msgid ""
+"``unwrap_tuple``: If set to True, the input is decoded as a tuple even if "
+"only one output type is specified. In other words, ``abi_decode(b, "
+"Bytes[32])`` gets decoded as ``(Bytes[32],)``. This is the convention for "
+"ABIv2-encoded values generated by Vyper and Solidity functions. Except for "
+"very specific use cases, this should be set to True. Must be a literal."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1020
+msgid "Returns the decoded value(s), with type as specified by `output_type`."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1022
+msgid ""
+"@external\n"
+"@view\n"
+"def foo(someInput: Bytes[128]) -> (uint256, Bytes[32]):\n"
+"    x: uint256 = empty(uint256)\n"
+"    y: Bytes[32] = empty(Bytes[32])\n"
+"    x, y =  abi_decode(someInput, (uint256, Bytes[32]))\n"
+"    return x, y"
+msgstr ""
+
+#: ../../../built-in-functions.rst:1033
+msgid "Prior to v0.4.0, this function was named ``_abi_decode``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1038
+msgid ""
+"\"prints\" the arguments by issuing a static call to the \"console\" "
+"address, ``0x000000000000000000636F6E736F6C652E6C6F67``. This is supported "
+"by some smart contract development frameworks."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1040
+msgid ""
+"The default mode works natively with titanoboa. For hardhat-style "
+"frameworks, use ``hardhat_compat=True)``."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1044
+msgid ""
+"Issuing of the static call is *NOT* mode-dependent (that is, it is not "
+"removed from production code), although the compiler will issue a warning "
+"whenever ``print`` is used."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1047
+msgid ""
+"In Vyper, as of v0.4.0, the order of argument evaluation of builtins is not "
+"defined. That means that the compiler may choose to reorder evaluation of "
+"arguments. For example, ``extract32(x(), y())`` may yield unexpected results "
+"if ``x()`` and ``y()`` both touch the same data. For this reason, it is best "
+"to avoid calling functions with side-effects inside of builtins. For more "
+"information, see `GHSA-g2xh-c426-v8mf <https://github.com/vyperlang/vyper/"
+"security/advisories/GHSA-g2xh-c426-v8mf>`_ and `issue #4019 <https://github."
+"com/vyperlang/vyper/issues/4019>`_."
+msgstr ""
+
+#: ../../../built-in-functions.rst:1
+msgid "function"
+msgstr ""
+
+#: ../../../built-in-functions.rst:1
+msgid "built-in;"
+msgstr ""
