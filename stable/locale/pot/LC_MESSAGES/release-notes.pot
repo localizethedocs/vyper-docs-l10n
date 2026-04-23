@@ -1,0 +1,6736 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../release-notes.rst:4
+msgid "Release Notes"
+msgstr ""
+
+#: ../../../release-notes.rst:20
+msgid "v0.4.3 (\"Buttermilk Racer\")"
+msgstr ""
+
+#: ../../../release-notes.rst:23
+msgid "Date released: 2025-06-19"
+msgstr ""
+
+#: ../../../release-notes.rst:25
+msgid ""
+"v0.4.3 introduces the ``@raw_return`` decorator which allows contracts to "
+"return bytes directly without ABI-encoding, which enables new proxy contract "
+"use cases. The default EVM version has been updated to ``prague``, and "
+"several improvements have been made to the Venom optimizer pipeline."
+msgstr ""
+
+#: ../../../release-notes.rst:28 ../../../release-notes.rst:205
+msgid "Breaking changes"
+msgstr ""
+
+#: ../../../release-notes.rst:29
+msgid ""
+"feat[tool]!: make ``prague`` the default evm version (`#4633 <https://github."
+"com/vyperlang/vyper/pull/4633>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:32 ../../../release-notes.rst:82
+#: ../../../release-notes.rst:212
+msgid "Other new features and improvements"
+msgstr ""
+
+#: ../../../release-notes.rst:33
+msgid ""
+"feat[lang]: ``@raw_return`` decorator (`#4568 <https://github.com/vyperlang/"
+"vyper/pull/4568>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:34
+msgid ""
+"fix[lang]: disallow ``@raw_return`` in interfaces (`#4700 <https://github."
+"com/vyperlang/vyper/pull/4700>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:37 ../../../release-notes.rst:93
+#: ../../../release-notes.rst:223
+msgid "Tooling / CLI"
+msgstr ""
+
+#: ../../../release-notes.rst:38
+msgid ""
+"fix[tool]: fix invalid quotes in ``-f cfg`` output (`#4672 <https://github."
+"com/vyperlang/vyper/pull/4672>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:39
+msgid ""
+"fix[tool]: add metadata for ctor functions (`#4668 <https://github.com/"
+"vyperlang/vyper/pull/4668>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:42 ../../../release-notes.rst:123
+#: ../../../release-notes.rst:280
+msgid "Venom improvements"
+msgstr ""
+
+#: ../../../release-notes.rst:43
+msgid ""
+"fix[venom]: fix incorrect write reordering in ``DFTPass`` (`#4695 <https://"
+"github.com/vyperlang/vyper/pull/4695>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:44
+msgid ""
+"feat[venom]: rewrite grammar to LALR(1) (`#4687 <https://github.com/"
+"vyperlang/vyper/pull/4687>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:45
+msgid ""
+"fix[venom]: reduce single-use expansion (`#4667 <https://github.com/"
+"vyperlang/vyper/pull/4667>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:46
+msgid ""
+"fix[venom]: fix function inliner ``clone`` function (`#4696 <https://github."
+"com/vyperlang/vyper/pull/4696>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:49 ../../../release-notes.rst:168
+#: ../../../release-notes.rst:330 ../../../release-notes.rst:492
+msgid "Docs"
+msgstr ""
+
+#: ../../../release-notes.rst:50
+msgid ""
+"feat[docs]: add docs for ``@raw_return`` decorator (`#4699 <https://github."
+"com/vyperlang/vyper/pull/4699>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:51
+msgid ""
+"fix[docs]: clarify ``n_slots`` requirement in custom layout file (`#4641 "
+"<https://github.com/vyperlang/vyper/pull/4641>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:52
+msgid ""
+"fix[docs]: fix build status in README.md (`#4680 <https://github.com/"
+"vyperlang/vyper/pull/4680>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:53
+msgid ""
+"chore[docs]: document the copy maxbound heuristic reasoning (`#4593 <https://"
+"github.com/vyperlang/vyper/pull/4593>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:56 ../../../release-notes.rst:176
+msgid "Test suite and CI improvements"
+msgstr ""
+
+#: ../../../release-notes.rst:57
+msgid ""
+"refactor[test]: rename venom ``param`` instruction in tests (`#4689 <https://"
+"github.com/vyperlang/vyper/pull/4689>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:58
+msgid ""
+"chore[ci]: update gitignore (`#4690 <https://github.com/vyperlang/vyper/"
+"pull/4690>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:61
+msgid "v0.4.2 (\"Lernaean Hydra\")"
+msgstr ""
+
+#: ../../../release-notes.rst:64
+msgid "Date released: 2025-05-31"
+msgstr ""
+
+#: ../../../release-notes.rst:66
+msgid ""
+"v0.4.2 includes a new ``raw_create()`` builtin which allows users to build "
+"more generic factories in Vyper. It also moves the ``sqrt()`` builtin to a "
+"pure Vyper module, involving a refactor which will allow more stdlib "
+"functionality to be written in Vyper in the future."
+msgstr ""
+
+#: ../../../release-notes.rst:68
+msgid ""
+"Additionally, Venom has undergone more improvements, including a CSE "
+"elimination pass, dead-store elimination pass, as well as moving more items "
+"in the calling convention to the stack in the venom pipeline. Benchmark "
+"contracts are now typically 5% smaller."
+msgstr ""
+
+#: ../../../release-notes.rst:70
+msgid "Two low severity GHSAs have been patched in this release."
+msgstr ""
+
+#: ../../../release-notes.rst:73
+msgid "Breaking and notable changes"
+msgstr ""
+
+#: ../../../release-notes.rst:74
+msgid ""
+"feat[lang]!: move sqrt to new stdlib ``math`` module (`#4520 <https://github."
+"com/vyperlang/vyper/pull/4520>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:75
+msgid ""
+"fix[lang]!: ban calling nonreentrant functions from nonreentrant functions "
+"(`#4574 <https://github.com/vyperlang/vyper/pull/4574>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:76
+msgid ""
+"fix[lang]!: forbid calling ``__default__`` (`#4371 <https://github.com/"
+"vyperlang/vyper/pull/4371>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:77
+msgid ""
+"feat[lang]!: remove deprecated bitwise builtins (`#4552 <https://github.com/"
+"vyperlang/vyper/pull/4552>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:78
+msgid ""
+"feat[tool]!: rename ``--venom`` to ``--venom-experimental`` (`#4662 <https://"
+"github.com/vyperlang/vyper/pull/4662>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:79
+msgid ""
+"refactor[tool]!: update storage layout format (`#4495 <https://github.com/"
+"vyperlang/vyper/pull/4495>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:83
+msgid ""
+"feat[lang]: nonreentrancy by default (`#4563 <https://github.com/vyperlang/"
+"vyper/pull/4563>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:84
+msgid ""
+"feat[lang]: add ``raw_create()`` builtin (`#4204 <https://github.com/"
+"vyperlang/vyper/pull/4204>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:85
+msgid ""
+"feat[lang]: remove one-warning limit from builtins (`#4542 <https://github."
+"com/vyperlang/vyper/pull/4542>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:86
+msgid ""
+"feat[lang]: enable bitwise ops for ``bytesM`` types (`#4538 <https://github."
+"com/vyperlang/vyper/pull/4538>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:87
+msgid ""
+"fix[lang]: extend ``as_wei_value`` to all numeric types (`#3498 <https://"
+"github.com/vyperlang/vyper/pull/3498>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:88
+msgid ""
+"feat[lang]: bubble up create revertdata (`#4540 <https://github.com/"
+"vyperlang/vyper/pull/4540>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:89
+msgid ""
+"fix[codegen]: fix overcopying of bytes in ``make_setter`` (`#4419 <https://"
+"github.com/vyperlang/vyper/pull/4419>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:90
+msgid ""
+"fix[ux]: don't warn for logs with 0 positional args (`#4501 <https://github."
+"com/vyperlang/vyper/pull/4501>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:94
+msgid ""
+"feat[tool]: add settings dict to ``combined_json`` output (`#4541 <https://"
+"github.com/vyperlang/vyper/pull/4541>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:95
+msgid ""
+"fix[tool]: fix output bundle construction (`#4654 <https://github.com/"
+"vyperlang/vyper/pull/4654>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:96
+msgid ""
+"feat[tool]: add venom artifacts into ``solc_json`` output (`#4637 <https://"
+"github.com/vyperlang/vyper/pull/4637>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:99 ../../../release-notes.rst:239
+#: ../../../release-notes.rst:524
+msgid "Bugfixes"
+msgstr ""
+
+#: ../../../release-notes.rst:100
+msgid ""
+"fix[codegen]: disallow ``slice()`` with length 0 for ad-hoc locations "
+"(`#4645 <https://github.com/vyperlang/vyper/pull/4645>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:101
+msgid ""
+"fix[codegen]: fix bytes copying routines for 0-length case (`#4649 <https://"
+"github.com/vyperlang/vyper/pull/4649>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:102
+msgid ""
+"fix[codegen]: fix removal of side effects in concat (`#4644 <https://github."
+"com/vyperlang/vyper/pull/4644>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:103
+msgid ""
+"fix[codegen]: interleaved effects eval for some builtins (`#4156 <https://"
+"github.com/vyperlang/vyper/pull/4156>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:104
+msgid ""
+"fix[lang]: block modules in structs (`#4566 <https://github.com/vyperlang/"
+"vyper/pull/4566>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:105
+msgid ""
+"fix[lang]: filter oob array access during folding (`#4571 <https://github."
+"com/vyperlang/vyper/pull/4571>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:106
+msgid ""
+"fix[lang]: disallow some builtins in ``pure`` functions (`#3157 <https://"
+"github.com/vyperlang/vyper/pull/3157>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:107
+msgid ""
+"fix[lang]: only reserve builtins at the top level (`#4578 <https://github."
+"com/vyperlang/vyper/pull/4578>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:108
+msgid ""
+"fix[tool]: fix layout export with nonreentrancy pragma on (`#4621 <https://"
+"github.com/vyperlang/vyper/pull/4621>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:109
+msgid ""
+"fix[lang]: disallow staticcall in pure context (`#4619 <https://github.com/"
+"vyperlang/vyper/pull/4619>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:110
+msgid ""
+"fix[lang]: disallow duplicate getter annotations (`#4623 <https://github.com/"
+"vyperlang/vyper/pull/4623>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:111
+msgid ""
+"fix[lang]: disable nonreentrant behavior of immutable and constant getters "
+"(`#4622 <https://github.com/vyperlang/vyper/pull/4622>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:112
+msgid ""
+"fix[lang]: fix invalid memory read in ``raw_create`` (`#4624 <https://github."
+"com/vyperlang/vyper/pull/4624>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:113
+msgid ""
+"fix[parser]: block value assignment in for targets (`#4492 <https://github."
+"com/vyperlang/vyper/pull/4492>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:114
+msgid ""
+"fix[ux]: fold ``keccak`` and ``sha256`` of constant hexbytes (`#4536 "
+"<https://github.com/vyperlang/vyper/pull/4536>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:115
+msgid ""
+"fix[ux]: typechecking for loop annotation of list variable (`#4550 <https://"
+"github.com/vyperlang/vyper/pull/4550>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:118 ../../../release-notes.rst:273
+#: ../../../release-notes.rst:562
+msgid "Patched security advisories (GHSAs)"
+msgstr ""
+
+#: ../../../release-notes.rst:119
+msgid ""
+"``concat()`` builtin may elide side-effects for zero-length arguments (`GHSA-"
+"vgf2-gvx8-xwc3 <https://github.com/vyperlang/vyper/security/advisories/GHSA-"
+"vgf2-gvx8-xwc3>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:120
+msgid ""
+"``slice()`` may elide side-effects when output length is 0 (`GHSA-4w26-8p97-"
+"f4jp <https://github.com/vyperlang/vyper/security/advisories/GHSA-4w26-8p97-"
+"f4jp>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:124
+msgid ""
+"feat[venom]: add dead store elimination pass (`#4556 <https://github.com/"
+"vyperlang/vyper/pull/4556>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:125
+msgid ""
+"feat[venom]: generalize DSE to more locations (`#4652 <https://github.com/"
+"vyperlang/vyper/pull/4652>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:126
+msgid ""
+"feat[venom]: improve memmerge pass (`#4422 <https://github.com/vyperlang/"
+"vyper/pull/4422>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:127
+msgid ""
+"feat[venom]: implement new calling convention (`#4482 <https://github.com/"
+"vyperlang/vyper/pull/4482>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:128
+msgid ""
+"perf[venom]: improve CSE elimination speed (`#4607 <https://github.com/"
+"vyperlang/vyper/pull/4607>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:129
+msgid ""
+"feat[venom]: disable legacy optimizer in venom pipeline (`#4411 <https://"
+"github.com/vyperlang/vyper/pull/4411>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:130
+msgid ""
+"feat[venom]: mark loads as non-volatile (`#4388 <https://github.com/"
+"vyperlang/vyper/pull/4388>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:131
+msgid ""
+"feat[venom]: improve ``dload``/``mstore`` merging (`#4570 <https://github."
+"com/vyperlang/vyper/pull/4570>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:132
+msgid ""
+"refactor[venom]: add dom walk property (`#4546 <https://github.com/vyperlang/"
+"vyper/pull/4546>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:133
+msgid ""
+"feat[venom]: add memory SSA analysis (`#4555 <https://github.com/vyperlang/"
+"vyper/pull/4555>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:134
+msgid ""
+"feat[venom]: improvements for iszero handling and memmerge (`#4469 <https://"
+"github.com/vyperlang/vyper/pull/4469>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:135
+msgid ""
+"refactor[venom]: update more passes to use ``InstUpdater`` (`#4516 <https://"
+"github.com/vyperlang/vyper/pull/4516>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:136
+msgid ""
+"fix[venom]: fix var defined check for unreachable blocks (`#4518 <https://"
+"github.com/vyperlang/vyper/pull/4518>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:137
+msgid ""
+"feat[venom]: tune function inliner (`#4584 <https://github.com/vyperlang/"
+"vyper/pull/4584>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:138
+msgid ""
+"feat[venom]: add assert optimizer (`#4585 <https://github.com/vyperlang/"
+"vyper/pull/4585>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:139
+msgid ""
+"fix[venom]: revert-to-assert should invalidate dfg (`#4586 <https://github."
+"com/vyperlang/vyper/pull/4586>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:140
+msgid ""
+"feat[venom]: add common subexpression elimination (`#4241 <https://github."
+"com/vyperlang/vyper/pull/4241>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:141
+msgid ""
+"fix[venom]: fix ``.name`` invalidation in ``MakeSSA`` (`#4545 <https://"
+"github.com/vyperlang/vyper/pull/4545>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:142
+msgid ""
+"refactor[venom]: add annotation to ``append_instruction`` (`#4583 <https://"
+"github.com/vyperlang/vyper/pull/4583>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:143
+msgid ""
+"fix[venom]: fix handling of params in ``venom_to_assembly`` (`#4587 <https://"
+"github.com/vyperlang/vyper/pull/4587>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:144
+msgid ""
+"refactor[venom]: extract liveness and cfg data structures (`#4595 <https://"
+"github.com/vyperlang/vyper/pull/4595>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:145
+msgid ""
+"fix[venom]: fix ``DominatorTreeAnalysis.dominates()`` (`#4615 <https://"
+"github.com/vyperlang/vyper/pull/4615>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:146
+msgid ""
+"fix[venom]: fix callsite phis after inlining (`#4666 <https://github.com/"
+"vyperlang/vyper/pull/4666>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:147
+msgid ""
+"refactor[venom]: rename \"store\"-related passes (`#4627 <https://github.com/"
+"vyperlang/vyper/pull/4627>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:148
+msgid ""
+"feat[venom]: add phi simplification pass (`#4628 <https://github.com/"
+"vyperlang/vyper/pull/4628>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:149
+msgid ""
+"feat[venom]: add ``calloca`` instruction (`#4376 <https://github.com/"
+"vyperlang/vyper/pull/4376>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:150
+msgid ""
+"feat[venom]: allow SCCP to run without removing allocas (`#4655 <https://"
+"github.com/vyperlang/vyper/pull/4655>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:151
+msgid ""
+"feat[venom]: improve phi elimination pass (`#4635 <https://github.com/"
+"vyperlang/vyper/pull/4635>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:152
+msgid ""
+"feat[venom]: allow labels to be assigned to variables (`#4514 <https://"
+"github.com/vyperlang/vyper/pull/4514>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:153
+msgid ""
+"perf[venom]: optimize time spent in ``SimplifyCFG`` (`#4658 <https://github."
+"com/vyperlang/vyper/pull/4658>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:154
+msgid ""
+"feat[venom]: remove ``dload`` from list of volatile instructions (`#4659 "
+"<https://github.com/vyperlang/vyper/pull/4659>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:155
+msgid ""
+"perf[venom]: improve performance of ``MakeSSA`` (`#4491 <https://github.com/"
+"vyperlang/vyper/pull/4491>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:156
+msgid ""
+"feat[test]: add tests for venom dload lowering pass (`#4471 <https://github."
+"com/vyperlang/vyper/pull/4471>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:157
+msgid ""
+"feat[venom]: add varname freshener (`#4484 <https://github.com/vyperlang/"
+"vyper/pull/4484>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:158
+msgid ""
+"refactor[test]: add more tests with hevm venom harness (`#4493 <https://"
+"github.com/vyperlang/vyper/pull/4493>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:159
+msgid ""
+"feat[venom]: add basic semantic check machinery to venom (`#4483 <https://"
+"github.com/vyperlang/vyper/pull/4483>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:160
+msgid ""
+"fix[venom]: fix sccp resolution of truthy ``jnz`` (`#4505 <https://github."
+"com/vyperlang/vyper/pull/4505>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:161
+msgid ""
+"feat[test]: add hevm to ``get_contract`` harness (`#4499 <https://github.com/"
+"vyperlang/vyper/pull/4499>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:162
+msgid ""
+"feat[venom]: parse hex literals in text format  (`#4532 <https://github.com/"
+"vyperlang/vyper/pull/4532>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:163
+msgid ""
+"refactor[venom]: simplify ``SimplifyCFG`` pass (`#4528 <https://github.com/"
+"vyperlang/vyper/pull/4528>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:164
+msgid ""
+"refactor[venom]: use ``InstUpdater`` in more passes (`#4508 <https://github."
+"com/vyperlang/vyper/pull/4508>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:165
+msgid ""
+"feat[venom]: make ``revert`` a bb terminator (`#4529 <https://github.com/"
+"vyperlang/vyper/pull/4529>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:169
+msgid ""
+"fix[docs]: update ``skip_contract_check`` docs (`#4511 <https://github.com/"
+"vyperlang/vyper/pull/4511>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:170
+msgid ""
+"fix[docs]: fix venom examples (`#4475 <https://github.com/vyperlang/vyper/"
+"pull/4475>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:171
+msgid ""
+"chore[docs]: remove dead link from internal documentation (`#4543 <https://"
+"github.com/vyperlang/vyper/pull/4543>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:172
+msgid ""
+"feat[docs]: document order of evalution of arguments of ``log``  (`#4617 "
+"<https://github.com/vyperlang/vyper/pull/4617>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:173
+msgid ""
+"fix[docs]: fix code block rst formatting (`#4618 <https://github.com/"
+"vyperlang/vyper/pull/4618>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:177
+msgid ""
+"feat[lang]: remove ``@external`` decorator from builtin interfaces (`#4562 "
+"<https://github.com/vyperlang/vyper/pull/4562>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:178
+msgid ""
+"fix[test]: fix warnings in thirdparty tests (`#4547 <https://github.com/"
+"vyperlang/vyper/pull/4547>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:179
+msgid ""
+"chore[tool]: widen version bounds for ``packaging`` (`#4590 <https://github."
+"com/vyperlang/vyper/pull/4590>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:180
+msgid ""
+"refactor[test]: remove ``selfdestruct`` from example contracts (`#4537 "
+"<https://github.com/vyperlang/vyper/pull/4537>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:181
+msgid ""
+"fix[ci]: suppress hypothesis health check (`#4533 <https://github.com/"
+"vyperlang/vyper/pull/4533>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:182
+msgid ""
+"feat[test]: add more example contracts (`#4500 <https://github.com/vyperlang/"
+"vyper/pull/4500>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:183
+msgid ""
+"feat[test]: add negative hevm tests (`#4504 <https://github.com/vyperlang/"
+"vyper/pull/4504>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:184
+msgid ""
+"chore[tool]: widen version bounds for ``asttokens`` (`#4592 <https://github."
+"com/vyperlang/vyper/pull/4592>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:185
+msgid ""
+"chore[test]: add test for struct member names (`#3527 <https://github.com/"
+"vyperlang/vyper/pull/3527>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:188 ../../../release-notes.rst:366
+msgid "Misc / Refactor"
+msgstr ""
+
+#: ../../../release-notes.rst:189
+msgid ""
+"refactor[parser]: refactor pragma parsing (`#4530 <https://github.com/"
+"vyperlang/vyper/pull/4530>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:190
+msgid ""
+"refactor[parser]: put settings on Module AST node (`#4569 <https://github."
+"com/vyperlang/vyper/pull/4569>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:191
+msgid ""
+"chore[lang]: remove ``sha3`` and ``importlib_metadata`` imports (`#4588 "
+"<https://github.com/vyperlang/vyper/pull/4588>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:192
+msgid ""
+"refactor[stdlib]: refactor ``math.sqrt`` implementation (`#4575 <https://"
+"github.com/vyperlang/vyper/pull/4575>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:193
+msgid ""
+"refactor[codegen]: refactor ``get_type_for_exact_size()`` (`#4632 <https://"
+"github.com/vyperlang/vyper/pull/4632>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:194
+msgid ""
+"refactor[lang]: refactor decorator parsing (`#4490 <https://github.com/"
+"vyperlang/vyper/pull/4490>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:197
+msgid "v0.4.1 (\"Tokara Habu\")"
+msgstr ""
+
+#: ../../../release-notes.rst:200
+msgid "Date released: 2025-03-01"
+msgstr ""
+
+#: ../../../release-notes.rst:202
+msgid ""
+"v0.4.1 is primarily a polishing release, focusing on bug fixes, UX "
+"improvements, and security-related fixes (with four low-to-moderate severity "
+"GHSA reports published). However, a substantial amount of effort has also "
+"been invested in improving the Venom pipeline, resulting in better "
+"performance and code generation from the Venom pipeline. Venom can be "
+"enabled by passing the ``--venom`` or ``--experimental-codegen`` flag to the "
+"Vyper compiler (they are aliases of each other). Venom code can now also be "
+"compiled directly, using the ``venom`` binary (included in this release)."
+msgstr ""
+
+#: ../../../release-notes.rst:206
+msgid ""
+"feat[lang]!: make ``@external`` modifier optional in ``.vyi`` files (`#4178 "
+"<https://github.com/vyperlang/vyper/pull/4178>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:207
+msgid ""
+"feat[codegen]!: check ``returndatasize`` even when ``skip_contract_check`` "
+"is set (`#4148 <https://github.com/vyperlang/vyper/pull/4148>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:208
+msgid ""
+"fix[stdlib]!: fix ``IERC4626`` signatures (`#4425 <https://github.com/"
+"vyperlang/vyper/pull/4425>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:209
+msgid ""
+"fix[lang]!: disallow absolute relative imports (`#4268 <https://github.com/"
+"vyperlang/vyper/pull/4268>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:213
+msgid ""
+"feat[lang]: add ``module.__at__()`` to cast to interface (`#4090 <https://"
+"github.com/vyperlang/vyper/pull/4090>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:214
+msgid ""
+"feat[lang]: use keyword arguments for event instantiation (`#4257 <https://"
+"github.com/vyperlang/vyper/pull/4257>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:215
+msgid ""
+"feat[lang]: add native hex string literals (`#4271 <https://github.com/"
+"vyperlang/vyper/pull/4271>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:216
+msgid ""
+"feat[lang]: introduce ``mana`` as an alias for ``gas`` (`#3713 <https://"
+"github.com/vyperlang/vyper/pull/3713>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:217
+msgid ""
+"feat[lang]: support top level ``\"abi\"`` key in json interfaces (`#4279 "
+"<https://github.com/vyperlang/vyper/pull/4279>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:218
+msgid ""
+"feat[lang]: support flags from imported interfaces (`#4253 <https://github."
+"com/vyperlang/vyper/pull/4253>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:219
+msgid ""
+"feat[ux]: allow \"compiling\" ``.vyi`` files (`#4290 <https://github.com/"
+"vyperlang/vyper/pull/4290>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:220
+msgid ""
+"feat[ux]: improve hint for events kwarg upgrade (`#4275 <https://github.com/"
+"vyperlang/vyper/pull/4275>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:224
+msgid ""
+"feat[tool]: add ``-Werror`` and ``-Wnone`` options (`#4447 <https://github."
+"com/vyperlang/vyper/pull/4447>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:225
+msgid ""
+"feat[tool]: support storage layouts via ``json`` and ``.vyz`` inputs (`#4370 "
+"<https://github.com/vyperlang/vyper/pull/4370>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:226
+msgid ""
+"feat[tool]: add integrity hash to initcode (`#4234 <https://github.com/"
+"vyperlang/vyper/pull/4234>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:227
+msgid ""
+"fix[ci]: fix commithash calculation for pypi release (`#4309 <https://github."
+"com/vyperlang/vyper/pull/4309>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:228
+msgid ""
+"fix[tool]: include structs in ``-f interface`` output (`#4294 <https://"
+"github.com/vyperlang/vyper/pull/4294>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:229
+msgid ""
+"feat[tool]: separate import resolution pass (`#4229 <https://github.com/"
+"vyperlang/vyper/pull/4229>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:230
+msgid ""
+"feat[tool]: add all imported modules to ``-f annotated_ast`` output (`#4209 "
+"<https://github.com/vyperlang/vyper/pull/4209>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:231
+msgid ""
+"fix[tool]: add missing internal functions to metadata (`#4328 <https://"
+"github.com/vyperlang/vyper/pull/4328>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:232
+msgid ""
+"fix[tool]: update VarAccess pickle implementation (`#4270 <https://github."
+"com/vyperlang/vyper/pull/4270>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:233
+msgid ""
+"fix[tool]: fix output formats for .vyz files (`#4338 <https://github.com/"
+"vyperlang/vyper/pull/4338>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:234
+msgid ""
+"fix[tool]: add missing user errors to error map  (`#4286 <https://github.com/"
+"vyperlang/vyper/pull/4286>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:235
+msgid ""
+"fix[ci]: fix README encoding in ``setup.py`` (`#4348 <https://github.com/"
+"vyperlang/vyper/pull/4348>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:236
+msgid ""
+"refactor[tool]: refactor ``compile_from_zip()`` (`#4366 <https://github.com/"
+"vyperlang/vyper/pull/4366>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:240
+msgid ""
+"fix[lang]: add ``raw_log()`` constancy check (`#4201 <https://github.com/"
+"vyperlang/vyper/pull/4201>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:241
+msgid ""
+"fix[lang]: use folded node for typechecking (`#4365 <https://github.com/"
+"vyperlang/vyper/pull/4365>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:242
+msgid ""
+"fix[ux]: fix error message for \"staticall\" typo (`#4438 <https://github."
+"com/vyperlang/vyper/pull/4438>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:243
+msgid ""
+"fix[lang]: fix certain varinfo comparisons (`#4164 <https://github.com/"
+"vyperlang/vyper/pull/4164>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:244
+msgid ""
+"fix[codegen]: fix ``abi_encode`` buffer size in external calls (`#4202 "
+"<https://github.com/vyperlang/vyper/pull/4202>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:245
+msgid ""
+"fix[lang]: fix ``==`` and ``!=`` bytesM folding (`#4254 <https://github.com/"
+"vyperlang/vyper/pull/4254>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:246
+msgid ""
+"fix[lang]: fix ``.vyi`` function body check (`#4177 <https://github.com/"
+"vyperlang/vyper/pull/4177>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:247
+msgid ""
+"fix[venom]: invalid jump error (`#4214 <https://github.com/vyperlang/vyper/"
+"pull/4214>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:248
+msgid ""
+"fix[lang]: fix precedence in floordiv hint (`#4203 <https://github.com/"
+"vyperlang/vyper/pull/4203>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:249
+msgid ""
+"fix[lang]: define rounding mode for sqrt (`#4486 <https://github.com/"
+"vyperlang/vyper/pull/4486>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:250
+msgid ""
+"fix[codegen]: disable augassign with overlap (`#4487 <https://github.com/"
+"vyperlang/vyper/pull/4487>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:251
+msgid ""
+"fix[codegen]: relax the filter for augassign oob check (`#4497 <https://"
+"github.com/vyperlang/vyper/pull/4497>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:252
+msgid ""
+"fix[lang]: fix panic in call cycle detection (`#4200 <https://github.com/"
+"vyperlang/vyper/pull/4200>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:253
+msgid ""
+"fix[tool]: update ``InterfaceT.__str__`` implementation (`#4205 <https://"
+"github.com/vyperlang/vyper/pull/4205>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:254
+msgid ""
+"fix[tool]: fix classification of AST nodes (`#4210 <https://github.com/"
+"vyperlang/vyper/pull/4210>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:255
+msgid ""
+"fix[tool]: keep ``experimentalCodegen`` blank in standard json input (`#4216 "
+"<https://github.com/vyperlang/vyper/pull/4216>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:256
+msgid ""
+"fix[ux]: fix relpath compiler panic on windows (`#4228 <https://github.com/"
+"vyperlang/vyper/pull/4228>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:257
+msgid ""
+"fix[ux]: fix empty hints in error messages (`#4351 <https://github.com/"
+"vyperlang/vyper/pull/4351>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:258
+msgid ""
+"fix[ux]: fix validation for ``abi_encode()`` ``method_id`` kwarg (`#4369 "
+"<https://github.com/vyperlang/vyper/pull/4369>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:259
+msgid ""
+"fix[ux]: fix false positive for overflow in type checker (`#4385 <https://"
+"github.com/vyperlang/vyper/pull/4385>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:260
+msgid ""
+"fix[ux]: add missing filename to syntax exceptions (`#4343 <https://github."
+"com/vyperlang/vyper/pull/4343>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:261
+msgid ""
+"fix[ux]: improve error message on failed imports (`#4409 <https://github.com/"
+"vyperlang/vyper/pull/4409>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:262
+msgid ""
+"fix[parser]: fix bad tokenization of hex strings (`#4406 <https://github.com/"
+"vyperlang/vyper/pull/4406>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:263
+msgid ""
+"fix[lang]: fix encoding of string literals (`#3091 <https://github.com/"
+"vyperlang/vyper/pull/3091>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:264
+msgid ""
+"fix[codegen]: fix assertions for certain precompiles (`#4451 <https://github."
+"com/vyperlang/vyper/pull/4451>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:265
+msgid ""
+"fix[lang]: allow ``print()`` schema larger than 32 bytes (`#4456 <https://"
+"github.com/vyperlang/vyper/pull/4456>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:266
+msgid ""
+"fix[codegen]: fix iteration over constant literals (`#4462 <https://github."
+"com/vyperlang/vyper/pull/4462>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:267
+msgid ""
+"fix[codegen]: fix gas usage of iterators (`#4485 <https://github.com/"
+"vyperlang/vyper/pull/4485>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:268
+msgid ""
+"fix[codegen]: cache result of iter eval (`#4488 <https://github.com/"
+"vyperlang/vyper/pull/4488>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:269
+msgid ""
+"fix[lang]: fix recursive interface imports (`#4303 <https://github.com/"
+"vyperlang/vyper/pull/4303>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:270
+msgid ""
+"fix[tool]: roll back OS used to build binaries (`#4494 <https://github.com/"
+"vyperlang/vyper/pull/4494>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:274
+msgid ""
+"success of certain precompiles not checked (`GHSA-vgf2-gvx8-xwc3 <https://"
+"github.com/vyperlang/vyper/security/advisories/GHSA-vgf2-gvx8-xwc3>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:275
+msgid ""
+"AugAssign evaluation order causing OOB write within object (`GHSA-4w26-8p97-"
+"f4jp <https://github.com/vyperlang/vyper/security/advisories/GHSA-4w26-8p97-"
+"f4jp>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:276
+msgid ""
+"``sqrt`` doesn't define rounding behavior (`GHSA-2p94-8669-xg86 <https://"
+"github.com/vyperlang/vyper/security/advisories/GHSA-2p94-8669-xg86>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:277
+msgid ""
+"multiple eval in ``for`` list iterator (`GHSA-h33q-mhmp-8p67 <https://github."
+"com/vyperlang/vyper/security/advisories/GHSA-h33q-mhmp-8p67>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:281
+msgid ""
+"feat[venom]: add venom parser (`#4381 <https://github.com/vyperlang/vyper/"
+"pull/4381>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:282
+msgid ""
+"feat[venom]: new ``DFTPass`` algorithm (`#4255 <https://github.com/vyperlang/"
+"vyper/pull/4255>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:283
+msgid ""
+"feat[venom]: only ``stack_reorder`` before join points (`#4247 <https://"
+"github.com/vyperlang/vyper/pull/4247>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:284
+msgid ""
+"feat[venom]: add function inliner (`#4478 <https://github.com/vyperlang/"
+"vyper/pull/4478>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:285
+msgid ""
+"feat[venom]: add binop optimizations (`#4281 <https://github.com/vyperlang/"
+"vyper/pull/4281>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:286
+msgid ""
+"feat[venom]: offset instruction (`#4180 <https://github.com/vyperlang/vyper/"
+"pull/4180>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:287
+msgid ""
+"feat[venom]: make dft-pass commutative aware (`#4358 <https://github.com/"
+"vyperlang/vyper/pull/4358>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:288
+msgid ""
+"perf[venom]: add ``OrderedSet.last()`` (`#4236 <https://github.com/vyperlang/"
+"vyper/pull/4236>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:289
+msgid ""
+"feat[venom]: improve liveness computation time (`#4086 <https://github.com/"
+"vyperlang/vyper/pull/4086>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:290
+msgid ""
+"fix[venom]: fix invalid ``phi``s after SCCP (`#4181 <https://github.com/"
+"vyperlang/vyper/pull/4181>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:291
+msgid ""
+"fix[venom]: clean up sccp pass (`#4261 <https://github.com/vyperlang/vyper/"
+"pull/4261>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:292
+msgid ""
+"refactor[venom]: remove ``dup_requirements`` analysis (`#4262 <https://"
+"github.com/vyperlang/vyper/pull/4262>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:293
+msgid ""
+"fix[venom]: remove duplicate volatile instructions (`#4263 <https://github."
+"com/vyperlang/vyper/pull/4263>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:294
+msgid ""
+"fix[venom]: fix ``_stack_reorder()`` routine (`#4220 <https://github.com/"
+"vyperlang/vyper/pull/4220>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:295
+msgid ""
+"feat[venom]: store expansion pass (`#4068 <https://github.com/vyperlang/"
+"vyper/pull/4068>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:296
+msgid ""
+"feat[venom]: add effects to instructions (`#4264 <https://github.com/"
+"vyperlang/vyper/pull/4264>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:297
+msgid ""
+"feat[venom]: add small heuristic for cleaning input stack (`#4251 <https://"
+"github.com/vyperlang/vyper/pull/4251>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:298
+msgid ""
+"refactor[venom]: refactor module structure (`#4295 <https://github.com/"
+"vyperlang/vyper/pull/4295>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:299
+msgid ""
+"refactor[venom]: refactor sccp pass to use dfg (`#4329 <https://github.com/"
+"vyperlang/vyper/pull/4329>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:300
+msgid ""
+"refactor[venom]: update translator for ``deploy`` instruction (`#4318 "
+"<https://github.com/vyperlang/vyper/pull/4318>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:301
+msgid ""
+"feat[venom]: make cfg scheduler \"stack aware\" (`#4356 <https://github.com/"
+"vyperlang/vyper/pull/4356>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:302
+msgid ""
+"feat[venom]: improve liveness computation (`#4330 <https://github.com/"
+"vyperlang/vyper/pull/4330>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:303
+msgid ""
+"refactor[venom]: optimize lattice evaluation (`#4368 <https://github.com/"
+"vyperlang/vyper/pull/4368>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:304
+msgid ""
+"perf[venom]: improve OrderedSet operations (`#4246 <https://github.com/"
+"vyperlang/vyper/pull/4246>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:305
+msgid ""
+"fix[venom]: promote additional memory locations to variables (`#4039 "
+"<https://github.com/vyperlang/vyper/pull/4039>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:306
+msgid ""
+"feat[venom]: add codesize optimization pass (`#4333 <https://github.com/"
+"vyperlang/vyper/pull/4333>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:307
+msgid ""
+"fix[venom]: fix unused variables pass (`#4259 <https://github.com/vyperlang/"
+"vyper/pull/4259>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:308
+msgid ""
+"refactor[venom]: move commutative instruction set (`#4307 <https://github."
+"com/vyperlang/vyper/pull/4307>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:309
+msgid ""
+"fix[venom]: add ``make_ssa`` pass after algebraic optimizations (`#4292 "
+"<https://github.com/vyperlang/vyper/pull/4292>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:310
+msgid ""
+"feat[venom]: reduce legacy opts when venom is enabled (`#4336 <https://"
+"github.com/vyperlang/vyper/pull/4336>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:311
+msgid ""
+"fix[venom]: fix duplicate allocas (`#4321 <https://github.com/vyperlang/"
+"vyper/pull/4321>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:312
+msgid ""
+"fix[venom]: add missing extcodesize+hash effects (`#4373 <https://github.com/"
+"vyperlang/vyper/pull/4373>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:313
+msgid ""
+"refactor[ux]: add ``venom`` as ``experimental-codegen`` alias (`#4337 "
+"<https://github.com/vyperlang/vyper/pull/4337>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:314
+msgid ""
+"feat[venom]: allow alphanumeric variables and source comments (`#4403 "
+"<https://github.com/vyperlang/vyper/pull/4403>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:315
+msgid ""
+"feat[venom]: cleanup variable version handling (`#4404 <https://github.com/"
+"vyperlang/vyper/pull/4404>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:316
+msgid ""
+"feat[venom]: merge memory writes (`#4341 <https://github.com/vyperlang/vyper/"
+"pull/4341>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:317
+msgid ""
+"refactor[venom]: make venom repr parseable (`#4402 <https://github.com/"
+"vyperlang/vyper/pull/4402>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:318
+msgid ""
+"feat[venom]: propagate ``dload`` instruction to venom (`#4410 <https://"
+"github.com/vyperlang/vyper/pull/4410>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:319
+msgid ""
+"feat[venom]: remove special cases in store elimination (`#4413 <https://"
+"github.com/vyperlang/vyper/pull/4413>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:320
+msgid ""
+"feat[venom]: update text format for data section (`#4414 <https://github.com/"
+"vyperlang/vyper/pull/4414>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:321
+msgid ""
+"feat[venom]: add load elimination pass (`#4265 <https://github.com/vyperlang/"
+"vyper/pull/4265>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:322
+msgid ""
+"fix[venom]: fix ``MakeSSA`` with existing phis (`#4423 <https://github.com/"
+"vyperlang/vyper/pull/4423>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:323
+msgid ""
+"refactor[venom]: refactor mem2var (`#4421 <https://github.com/vyperlang/"
+"vyper/pull/4421>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:324
+msgid ""
+"fix[venom]: fix store elimination pass (`#4428 <https://github.com/vyperlang/"
+"vyper/pull/4428>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:325
+msgid ""
+"refactor[venom]: add ``make_nop()`` helper function (`#4470 <https://github."
+"com/vyperlang/vyper/pull/4470>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:326
+msgid ""
+"feat[venom]: improve load elimination (`#4407 <https://github.com/vyperlang/"
+"vyper/pull/4407>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:327
+msgid ""
+"refactor[venom]: replace ``bb.mark_for_removal`` with ``make_nop`` (`#4474 "
+"<https://github.com/vyperlang/vyper/pull/4474>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:331
+msgid ""
+"chore[docs]: add ``method_id`` to ``abi_encode`` signature (`#4355 <https://"
+"github.com/vyperlang/vyper/pull/4355>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:332
+msgid ""
+"chore[docs]: mention the ``--venom`` flag in venom docs (`#4353 <https://"
+"github.com/vyperlang/vyper/pull/4353>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:333
+msgid ""
+"feat[docs]: add bug bounty program to security policy (`#4230 <https://"
+"github.com/vyperlang/vyper/pull/4230>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:334
+msgid ""
+"feat[docs]: add installation via pipx and uv (`#4274 <https://github.com/"
+"vyperlang/vyper/pull/4274>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:335
+msgid ""
+"chore[docs]: add binary installation methods (`#4258 <https://github.com/"
+"vyperlang/vyper/pull/4258>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:336
+msgid ""
+"chore[docs]: update ``sourceMap`` field descriptions (`#4170 <https://github."
+"com/vyperlang/vyper/pull/4170>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:337
+msgid ""
+"chore[docs]: remove experimental note for cancun (`#4183 <https://github.com/"
+"vyperlang/vyper/pull/4183>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:338
+msgid ""
+"chore[venom]: expand venom docs (`#4314 <https://github.com/vyperlang/vyper/"
+"pull/4314>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:339
+msgid ""
+"chore[docs]: abi function signature for default arguments (`#4415 <https://"
+"github.com/vyperlang/vyper/pull/4415>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:340
+msgid ""
+"feat[docs]: add Telegram badge to README.md (`#4342 <https://github.com/"
+"vyperlang/vyper/pull/4342>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:341
+msgid ""
+"chore[docs]: update readme about testing (`#4448 <https://github.com/"
+"vyperlang/vyper/pull/4448>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:342
+msgid ""
+"chore[docs]: ``nonpayable`` ``internal`` function behaviour (`#4416 <https://"
+"github.com/vyperlang/vyper/pull/4416>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:343
+msgid ""
+"chore[docs]: add ``FUNDING.json`` for drips funding (`#4167 <https://github."
+"com/vyperlang/vyper/pull/4167>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:344
+msgid ""
+"chore[docs]: add giveth to ``FUNDING.yml`` (`#4466 <https://github.com/"
+"vyperlang/vyper/pull/4466>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:345
+msgid ""
+"chore[tool]: update ``FUNDING.json`` for optimism RPGF (`#4218 <https://"
+"github.com/vyperlang/vyper/pull/4218>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:346
+msgid ""
+"chore[tool]: mention that output format is comma separated (`#4467 <https://"
+"github.com/vyperlang/vyper/pull/4467>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:349
+msgid "Test suite improvements"
+msgstr ""
+
+#: ../../../release-notes.rst:350
+msgid ""
+"refactor[venom]: add new venom test machinery (`#4401 <https://github.com/"
+"vyperlang/vyper/pull/4401>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:351
+msgid ""
+"feat[ci]: use ``coverage combine`` to reduce codecov uploads (`#4452 "
+"<https://github.com/vyperlang/vyper/pull/4452>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:352
+msgid ""
+"feat[test]: add hevm harness for venom passes (`#4460 <https://github.com/"
+"vyperlang/vyper/pull/4460>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:353
+msgid ""
+"fix[test]: fix test in grammar fuzzer (`#4150 <https://github.com/vyperlang/"
+"vyper/pull/4150>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:354
+msgid ""
+"chore[test]: fix a type hint (`#4173 <https://github.com/vyperlang/vyper/"
+"pull/4173>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:355
+msgid ""
+"chore[ci]: add auto-labeling workflow (`#4276 <https://github.com/vyperlang/"
+"vyper/pull/4276>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:356
+msgid ""
+"fix[test]: fix some clamper tests (`#4300 <https://github.com/vyperlang/"
+"vyper/pull/4300>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:357
+msgid ""
+"refactor[test]: add some sanity checks to ``abi_decode`` tests (`#4096 "
+"<https://github.com/vyperlang/vyper/pull/4096>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:358
+msgid ""
+"chore[ci]: enable Python ``3.13`` tests (`#4386 <https://github.com/"
+"vyperlang/vyper/pull/4386>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:359
+msgid ""
+"chore[ci]: update codecov github action to v5 (`#4437 <https://github.com/"
+"vyperlang/vyper/pull/4437>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:360
+msgid ""
+"chore[ci]: bump upload-artifact action to v4 (`#4445 <https://github.com/"
+"vyperlang/vyper/pull/4445>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:361
+msgid ""
+"chore[ci]: separate codecov upload into separate job (`#4455 <https://github."
+"com/vyperlang/vyper/pull/4455>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:362
+msgid ""
+"chore[ci]: improve coverage jobs (`#4457 <https://github.com/vyperlang/vyper/"
+"pull/4457>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:363
+msgid ""
+"chore[ci]: update ubuntu image for ``build`` job (`#4473 <https://github.com/"
+"vyperlang/vyper/pull/4473>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:367
+msgid ""
+"refactor[parser]: remove ``ASTTokens`` (`#4364 <https://github.com/vyperlang/"
+"vyper/pull/4364>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:368
+msgid ""
+"refactor[codegen]: remove redundant ``IRnode.from_list`` (`#4151 <https://"
+"github.com/vyperlang/vyper/pull/4151>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:369
+msgid ""
+"feat[ux]: move exception hint to the end of the message (`#4154 <https://"
+"github.com/vyperlang/vyper/pull/4154>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:370
+msgid ""
+"fix[ux]: improve error message for bad hex literals (`#4244 <https://github."
+"com/vyperlang/vyper/pull/4244>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:371
+msgid ""
+"refactor[lang]: remove translated fields for constant nodes (`#4287 <https://"
+"github.com/vyperlang/vyper/pull/4287>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:372
+msgid ""
+"refactor[ux]: refactor preparser (`#4293 <https://github.com/vyperlang/vyper/"
+"pull/4293>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:373
+msgid ""
+"refactor[codegen]: add profiling utils (`#4412 <https://github.com/vyperlang/"
+"vyper/pull/4412>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:374
+msgid ""
+"refactor[lang]: remove VyperNode ``__hash__()`` and ``__eq__()`` "
+"implementations (`#4433 <https://github.com/vyperlang/vyper/pull/4433>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:378
+msgid "v0.4.0 (\"Nagini\")"
+msgstr ""
+
+#: ../../../release-notes.rst:381
+msgid "Date released: 2024-06-20"
+msgstr ""
+
+#: ../../../release-notes.rst:383
+msgid ""
+"v0.4.0 represents a major overhaul to the Vyper language. Notably, it "
+"overhauls the import system and adds support for code reuse. It also adds a "
+"new, experimental backend to Vyper which lays the foundation for improved "
+"analysis, optimization and integration with third party tools."
+msgstr ""
+
+#: ../../../release-notes.rst:386
+msgid "Breaking Changes"
+msgstr ""
+
+#: ../../../release-notes.rst:387
+msgid ""
+"feat[tool]!: make cancun the default evm version (`#4029 <https://github.com/"
+"vyperlang/vyper/pull/4029>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:388
+msgid ""
+"feat[lang]: remove named reentrancy locks (`#3769 <https://github.com/"
+"vyperlang/vyper/pull/3769>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:389
+msgid ""
+"feat[lang]!: change the signature of ``block.prevrandao`` (`#3879 <https://"
+"github.com/vyperlang/vyper/pull/3879>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:390
+msgid ""
+"feat[lang]!: change ABI type of ``decimal`` to ``int168`` (`#3696 <https://"
+"github.com/vyperlang/vyper/pull/3696>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:391
+msgid ""
+"feat[lang]: rename ``_abi_encode`` and ``_abi_decode`` (`#4097 <https://"
+"github.com/vyperlang/vyper/pull/4097>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:392
+msgid ""
+"feat[lang]!: add feature flag for decimals (`#3930 <https://github.com/"
+"vyperlang/vyper/pull/3930>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:393
+msgid ""
+"feat[lang]!: make internal decorator optional (`#4040 <https://github.com/"
+"vyperlang/vyper/pull/4040>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:394
+msgid ""
+"feat[lang]: protect external calls with keyword (`#2938 <https://github.com/"
+"vyperlang/vyper/pull/2938>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:395
+msgid ""
+"introduce floordiv, ban regular div for integers (`#2937 <https://github.com/"
+"vyperlang/vyper/pull/2937>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:396
+msgid ""
+"feat[lang]: use keyword arguments for struct instantiation (`#3777 <https://"
+"github.com/vyperlang/vyper/pull/3777>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:397
+msgid ""
+"feat: require type annotations for loop variables (`#3596 <https://github."
+"com/vyperlang/vyper/pull/3596>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:398
+msgid ""
+"feat: replace ``enum`` with ``flag`` keyword (`#3697 <https://github.com/"
+"vyperlang/vyper/pull/3697>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:399
+msgid ""
+"feat: remove builtin constants (`#3350 <https://github.com/vyperlang/vyper/"
+"pull/3350>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:400
+msgid ""
+"feat: drop istanbul and berlin support (`#3843 <https://github.com/vyperlang/"
+"vyper/pull/3843>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:401
+msgid ""
+"feat: allow range with two arguments and bound (`#3679 <https://github.com/"
+"vyperlang/vyper/pull/3679>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:402
+msgid ""
+"fix[codegen]: range bound check for signed integers (`#3814 <https://github."
+"com/vyperlang/vyper/pull/3814>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:403
+msgid ""
+"feat: default code offset = 3 (`#3454 <https://github.com/vyperlang/vyper/"
+"pull/3454>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:404
+msgid ""
+"feat: rename ``vyper.interfaces`` to ``ethereum.ercs`` (`#3741 <https://"
+"github.com/vyperlang/vyper/pull/3741>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:405
+msgid ""
+"chore: add prefix to ERC interfaces (`#3804 <https://github.com/vyperlang/"
+"vyper/pull/3804>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:406
+msgid ""
+"chore[ux]: compute natspec as part of standard pipeline (`#3946 <https://"
+"github.com/vyperlang/vyper/pull/3946>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:407
+msgid ""
+"feat: deprecate ``vyper-serve`` (`#3666 <https://github.com/vyperlang/vyper/"
+"pull/3666>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:410
+msgid "Module system"
+msgstr ""
+
+#: ../../../release-notes.rst:411
+msgid ""
+"refactor: internal handling of imports (`#3655 <https://github.com/vyperlang/"
+"vyper/pull/3655>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:412
+msgid ""
+"feat: implement \"stateless\" modules (`#3663 <https://github.com/vyperlang/"
+"vyper/pull/3663>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:413
+msgid ""
+"feat[lang]: export interfaces (`#3919 <https://github.com/vyperlang/vyper/"
+"pull/3919>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:414
+msgid ""
+"feat[lang]: singleton modules with ownership hierarchy (`#3729 <https://"
+"github.com/vyperlang/vyper/pull/3729>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:415
+msgid ""
+"feat[lang]: implement function exports (`#3786 <https://github.com/vyperlang/"
+"vyper/pull/3786>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:416
+msgid ""
+"feat[lang]: auto-export events in ABI (`#3808 <https://github.com/vyperlang/"
+"vyper/pull/3808>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:417
+msgid ""
+"fix: allow using interface defs from imported modules (`#3725 <https://"
+"github.com/vyperlang/vyper/pull/3725>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:418
+msgid ""
+"feat: add support for constants in imported modules (`#3726 <https://github."
+"com/vyperlang/vyper/pull/3726>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:419
+msgid ""
+"fix[lang]: prevent modules as storage variables (`#4088 <https://github.com/"
+"vyperlang/vyper/pull/4088>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:420
+msgid ""
+"fix[ux]: improve initializer hint for unimported modules (`#4145 <https://"
+"github.com/vyperlang/vyper/pull/4145>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:421
+msgid ""
+"feat: add python ``sys.path`` to vyper path (`#3763 <https://github.com/"
+"vyperlang/vyper/pull/3763>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:422
+msgid ""
+"feat[ux]: improve error message for importing ERC20 (`#3816 <https://github."
+"com/vyperlang/vyper/pull/3816>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:423
+msgid ""
+"fix[lang]: fix importing of flag types (`#3871 <https://github.com/vyperlang/"
+"vyper/pull/3871>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:424
+msgid ""
+"feat: search path resolution for cli (`#3694 <https://github.com/vyperlang/"
+"vyper/pull/3694>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:425
+msgid ""
+"fix[lang]: transitive exports (`#3888 <https://github.com/vyperlang/vyper/"
+"pull/3888>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:426
+msgid ""
+"fix[ux]: error messages relating to initializer issues (`#3831 <https://"
+"github.com/vyperlang/vyper/pull/3831>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:427
+msgid ""
+"fix[lang]: recursion in ``uses`` analysis for nonreentrant functions (`#3971 "
+"<https://github.com/vyperlang/vyper/pull/3971>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:428
+msgid ""
+"fix[ux]: fix ``uses`` error message (`#3926 <https://github.com/vyperlang/"
+"vyper/pull/3926>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:429
+msgid ""
+"fix[lang]: fix ``uses`` analysis for nonreentrant functions (`#3927 <https://"
+"github.com/vyperlang/vyper/pull/3927>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:430
+msgid ""
+"fix[lang]: fix a hint in global initializer check (`#4089 <https://github."
+"com/vyperlang/vyper/pull/4089>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:431
+msgid ""
+"fix[lang]: builtin type comparisons (`#3956 <https://github.com/vyperlang/"
+"vyper/pull/3956>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:432
+msgid ""
+"fix[tool]: fix ``combined_json`` output for CLI (`#3901 <https://github.com/"
+"vyperlang/vyper/pull/3901>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:433
+msgid ""
+"fix[tool]: compile multiple files (`#4053 <https://github.com/vyperlang/"
+"vyper/pull/4053>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:434
+msgid ""
+"refactor: reimplement AST folding (`#3669 <https://github.com/vyperlang/"
+"vyper/pull/3669>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:435
+msgid ""
+"refactor: constant folding (`#3719 <https://github.com/vyperlang/vyper/"
+"pull/3719>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:436
+msgid ""
+"fix[lang]: typecheck hashmap indexes with folding (`#4007 <https://github."
+"com/vyperlang/vyper/pull/4007>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:437
+msgid ""
+"fix[lang]: fix array index checks when the subscript is folded (`#3924 "
+"<https://github.com/vyperlang/vyper/pull/3924>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:438
+msgid ""
+"fix[lang]: pure access analysis (`#3895 <https://github.com/vyperlang/vyper/"
+"pull/3895>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:441
+msgid "Venom"
+msgstr ""
+
+#: ../../../release-notes.rst:442
+msgid ""
+"feat: implement new IR for vyper (venom IR) (`#3659 <https://github.com/"
+"vyperlang/vyper/pull/3659>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:443
+msgid ""
+"feat[ir]: add ``make_ssa`` pass to venom pipeline (`#3825 <https://github."
+"com/vyperlang/vyper/pull/3825>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:444
+msgid ""
+"feat[venom]: implement ``mem2var`` and ``sccp`` passes (`#3941 <https://"
+"github.com/vyperlang/vyper/pull/3941>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:445
+msgid ""
+"feat[venom]: add store elimination pass (`#4021 <https://github.com/"
+"vyperlang/vyper/pull/4021>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:446
+msgid ""
+"feat[venom]: add ``extract_literals`` pass (`#4067 <https://github.com/"
+"vyperlang/vyper/pull/4067>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:447
+msgid ""
+"feat[venom]: optimize branching (`#4049 <https://github.com/vyperlang/vyper/"
+"pull/4049>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:448
+msgid ""
+"feat[venom]: avoid last ``swap`` for commutative ops (`#4048 <https://github."
+"com/vyperlang/vyper/pull/4048>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:449
+msgid ""
+"feat[venom]: \"pickaxe\" stack scheduler optimization (`#3951 <https://"
+"github.com/vyperlang/vyper/pull/3951>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:450
+msgid ""
+"feat[venom]: add algebraic optimization pass (`#4054 <https://github.com/"
+"vyperlang/vyper/pull/4054>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:451
+msgid ""
+"feat: Implement target constrained venom jump instruction (`#3687 <https://"
+"github.com/vyperlang/vyper/pull/3687>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:452
+msgid ""
+"feat: remove ``deploy`` instruction from venom (`#3703 <https://github.com/"
+"vyperlang/vyper/pull/3703>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:453
+msgid ""
+"fix[venom]: liveness analysis in some loops (`#3732 <https://github.com/"
+"vyperlang/vyper/pull/3732>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:454
+msgid ""
+"feat: add more venom instructions (`#3733 <https://github.com/vyperlang/"
+"vyper/pull/3733>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:455
+msgid ""
+"refactor[venom]: use venom pass instances (`#3908 <https://github.com/"
+"vyperlang/vyper/pull/3908>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:456
+msgid ""
+"refactor[venom]: refactor venom operand classes (`#3915 <https://github.com/"
+"vyperlang/vyper/pull/3915>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:457
+msgid ""
+"refactor[venom]: introduce ``IRContext`` and ``IRAnalysisCache`` (`#3983 "
+"<https://github.com/vyperlang/vyper/pull/3983>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:458
+msgid ""
+"feat: add utility functions to ``OrderedSet`` (`#3833 <https://github.com/"
+"vyperlang/vyper/pull/3833>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:459
+msgid ""
+"feat[venom]: optimize ``get_basic_block()`` (`#4002 <https://github.com/"
+"vyperlang/vyper/pull/4002>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:460
+msgid ""
+"fix[venom]: fix branch eliminator cases in sccp (`#4003 <https://github.com/"
+"vyperlang/vyper/pull/4003>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:461
+msgid ""
+"fix[codegen]: same symbol jumpdest merge (`#3982 <https://github.com/"
+"vyperlang/vyper/pull/3982>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:462
+msgid ""
+"fix[venom]: fix eval of ``exp`` in sccp (`#4009 <https://github.com/"
+"vyperlang/vyper/pull/4009>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:463
+msgid ""
+"refactor[venom]: remove unused method in ``make_ssa.py`` (`#4012 <https://"
+"github.com/vyperlang/vyper/pull/4012>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:464
+msgid ""
+"fix[venom]: fix return opcode handling in mem2var (`#4011 <https://github."
+"com/vyperlang/vyper/pull/4011>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:465
+msgid ""
+"fix[venom]: fix ``cfg`` output format (`#4010 <https://github.com/vyperlang/"
+"vyper/pull/4010>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:466
+msgid ""
+"chore[venom]: fix output formatting of data segment in ``IRContext`` (`#4016 "
+"<https://github.com/vyperlang/vyper/pull/4016>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:467
+msgid ""
+"feat[venom]: optimize mem2var and store/variable elimination pass sequences "
+"(`#4032 <https://github.com/vyperlang/vyper/pull/4032>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:468
+msgid ""
+"fix[venom]: fix some sccp evaluations (`#4028 <https://github.com/vyperlang/"
+"vyper/pull/4028>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:469
+msgid ""
+"fix[venom]: add ``unique_symbols`` check to venom pipeline (`#4149 <https://"
+"github.com/vyperlang/vyper/pull/4149>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:470
+msgid ""
+"feat[venom]: remove redundant store elimination pass (`#4036 <https://github."
+"com/vyperlang/vyper/pull/4036>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:471
+msgid ""
+"fix[venom]: remove some dead code in ``venom_to_assembly`` (`#4042 <https://"
+"github.com/vyperlang/vyper/pull/4042>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:472
+msgid ""
+"feat[venom]: improve unused variable removal pass (`#4055 <https://github."
+"com/vyperlang/vyper/pull/4055>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:473
+msgid ""
+"fix[venom]: remove liveness requests (`#4058 <https://github.com/vyperlang/"
+"vyper/pull/4058>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:474
+msgid ""
+"fix[venom]: fix list of volatile instructions (`#4065 <https://github.com/"
+"vyperlang/vyper/pull/4065>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:475
+msgid ""
+"fix[venom]: remove dominator tree invalidation for store elimination pass "
+"(`#4069 <https://github.com/vyperlang/vyper/pull/4069>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:476
+msgid ""
+"fix[venom]: move loop invariant assertion to entry block (`#4098 <https://"
+"github.com/vyperlang/vyper/pull/4098>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:477
+msgid ""
+"fix[venom]: clear ``out_vars`` during calculation (`#4129 <https://github."
+"com/vyperlang/vyper/pull/4129>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:478
+msgid ""
+"fix[venom]: alloca for default arguments (`#4155 <https://github.com/"
+"vyperlang/vyper/pull/4155>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:479
+msgid ""
+"Refactor ctx.add_instruction() and friends (`#3685 <https://github.com/"
+"vyperlang/vyper/pull/3685>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:480
+msgid ""
+"fix: type annotation of helper function (`#3702 <https://github.com/"
+"vyperlang/vyper/pull/3702>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:481
+msgid ""
+"feat[ir]: emit ``djump`` in dense selector table (`#3849 <https://github.com/"
+"vyperlang/vyper/pull/3849>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:482
+msgid ""
+"chore: move venom tests to ``tests/unit/compiler`` (`#3684 <https://github."
+"com/vyperlang/vyper/pull/3684>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:485
+msgid "Other new features"
+msgstr ""
+
+#: ../../../release-notes.rst:486
+msgid ""
+"feat[lang]: add ``blobhash()`` builtin (`#3962 <https://github.com/vyperlang/"
+"vyper/pull/3962>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:487
+msgid ""
+"feat[lang]: support ``block.blobbasefee`` (`#3945 <https://github.com/"
+"vyperlang/vyper/pull/3945>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:488
+msgid ""
+"feat[lang]: add ``revert_on_failure`` kwarg for create builtins (`#3844 "
+"<https://github.com/vyperlang/vyper/pull/3844>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:489
+msgid ""
+"feat[lang]: allow downcasting of bytestrings (`#3832 <https://github.com/"
+"vyperlang/vyper/pull/3832>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:493
+msgid ""
+"chore[docs]: add docs for v0.4.0 features (`#3947 <https://github.com/"
+"vyperlang/vyper/pull/3947>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:494
+msgid ""
+"chore[docs]: ``implements`` does not check event declarations (`#4052 "
+"<https://github.com/vyperlang/vyper/pull/4052>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:495
+msgid ""
+"docs: adopt a new theme: ``shibuya`` (`#3754 <https://github.com/vyperlang/"
+"vyper/pull/3754>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:496
+msgid ""
+"chore[docs]: add evaluation order warning for builtins (`#4158 <https://"
+"github.com/vyperlang/vyper/pull/4158>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:497
+msgid ""
+"Update ``FUNDING.yml`` (`#3636 <https://github.com/vyperlang/vyper/"
+"pull/3636>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:498
+msgid ""
+"docs: fix nit in v0.3.10 release notes (`#3638 <https://github.com/vyperlang/"
+"vyper/pull/3638>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:499
+msgid ""
+"docs: add note on ``pragma`` parsing (`#3640 <https://github.com/vyperlang/"
+"vyper/pull/3640>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:500
+msgid ""
+"docs: retire security@vyperlang.org (`#3660 <https://github.com/vyperlang/"
+"vyper/pull/3660>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:501
+msgid ""
+"feat[docs]: add more detail to modules docs (`#4087 <https://github.com/"
+"vyperlang/vyper/pull/4087>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:502
+msgid ""
+"docs: update resources section (`#3656 <https://github.com/vyperlang/vyper/"
+"pull/3656>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:503
+msgid ""
+"docs: add script to help working on the compiler (`#3674 <https://github.com/"
+"vyperlang/vyper/pull/3674>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:504
+msgid ""
+"docs: add warnings at the top of all example token contracts (`#3676 "
+"<https://github.com/vyperlang/vyper/pull/3676>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:505
+msgid ""
+"docs: typo in ``on_chain_market_maker.vy`` (`#3677 <https://github.com/"
+"vyperlang/vyper/pull/3677>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:506
+msgid ""
+"docs: clarify ``address.codehash`` for empty account (`#3711 <https://github."
+"com/vyperlang/vyper/pull/3711>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:507
+msgid ""
+"docs: indexed arguments for events are limited (`#3715 <https://github.com/"
+"vyperlang/vyper/pull/3715>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:508
+msgid ""
+"docs: Fix typos (`#3747 <https://github.com/vyperlang/vyper/pull/3747>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:509
+msgid ""
+"docs: Upgrade dependencies and fixes (`#3745 <https://github.com/vyperlang/"
+"vyper/pull/3745>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:510
+msgid ""
+"docs: add missing cli flags (`#3736 <https://github.com/vyperlang/vyper/"
+"pull/3736>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:511
+msgid ""
+"chore: fix formatting and docs for new struct instantiation syntax (`#3792 "
+"<https://github.com/vyperlang/vyper/pull/3792>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:512
+msgid ""
+"docs: floordiv (`#3797 <https://github.com/vyperlang/vyper/pull/3797>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:513
+msgid ""
+"docs: add missing ``annotated_ast`` flag (`#3813 <https://github.com/"
+"vyperlang/vyper/pull/3813>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:514
+msgid ""
+"docs: update logo in readme, remove competition reference (`#3837 <https://"
+"github.com/vyperlang/vyper/pull/3837>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:515
+msgid ""
+"docs: add rationale for floordiv rounding behavior (`#3845 <https://github."
+"com/vyperlang/vyper/pull/3845>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:516
+msgid ""
+"chore[docs]: amend ``revert_on_failure`` kwarg docs for create builtins "
+"(`#3921 <https://github.com/vyperlang/vyper/pull/3921>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:517
+msgid ""
+"fix[docs]: fix clipped ``endAuction`` method in example section (`#3969 "
+"<https://github.com/vyperlang/vyper/pull/3969>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:518
+msgid ""
+"refactor[docs]: refactor security policy (`#3981 <https://github.com/"
+"vyperlang/vyper/pull/3981>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:519
+msgid ""
+"fix: edit link to style guide (`#3658 <https://github.com/vyperlang/vyper/"
+"pull/3658>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:520
+msgid ""
+"Add Vyper online compiler tooling (`#3680 <https://github.com/vyperlang/"
+"vyper/pull/3680>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:521
+msgid ""
+"chore: fix typos (`#3749 <https://github.com/vyperlang/vyper/pull/3749>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:525
+msgid ""
+"fix[codegen]: fix ``raw_log()`` when topics are non-literals (`#3977 "
+"<https://github.com/vyperlang/vyper/pull/3977>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:526
+msgid ""
+"fix[codegen]: fix transient codegen for ``slice`` and ``extract32`` (`#3874 "
+"<https://github.com/vyperlang/vyper/pull/3874>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:527
+msgid ""
+"fix[codegen]: bounds check for signed index accesses (`#3817 <https://github."
+"com/vyperlang/vyper/pull/3817>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:528
+msgid ""
+"fix: disallow ``value=`` passing for delegate and static raw_calls (`#3755 "
+"<https://github.com/vyperlang/vyper/pull/3755>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:529
+msgid ""
+"fix[codegen]: fix double evals in sqrt, slice, blueprint (`#3976 <https://"
+"github.com/vyperlang/vyper/pull/3976>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:530
+msgid ""
+"fix[codegen]: fix double eval in dynarray append/pop (`#4030 <https://github."
+"com/vyperlang/vyper/pull/4030>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:531
+msgid ""
+"fix[codegen]: fix double eval of start in range expr (`#4033 <https://github."
+"com/vyperlang/vyper/pull/4033>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:532
+msgid ""
+"fix[codegen]: overflow check in ``slice()`` (`#3818 <https://github.com/"
+"vyperlang/vyper/pull/3818>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:533
+msgid ""
+"fix: concat buffer bug (`#3738 <https://github.com/vyperlang/vyper/"
+"pull/3738>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:534
+msgid ""
+"fix[codegen]: fix ``make_setter`` overlap with internal calls (`#4037 "
+"<https://github.com/vyperlang/vyper/pull/4037>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:535
+msgid ""
+"fix[codegen]: fix ``make_setter`` overlap in ``dynarray_append`` (`#4059 "
+"<https://github.com/vyperlang/vyper/pull/4059>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:536
+msgid ""
+"fix[codegen]: ``make_setter`` overlap in the presence of ``staticcall`` "
+"(`#4128 <https://github.com/vyperlang/vyper/pull/4128>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:537
+msgid ""
+"fix[codegen]: fix ``_abi_decode`` buffer overflow (`#3925 <https://github."
+"com/vyperlang/vyper/pull/3925>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:538
+msgid ""
+"fix[codegen]: zero-length dynarray ``abi_decode`` validation (`#4060 "
+"<https://github.com/vyperlang/vyper/pull/4060>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:539
+msgid ""
+"fix[codegen]: recursive dynarray oob check (`#4091 <https://github.com/"
+"vyperlang/vyper/pull/4091>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:540
+msgid ""
+"fix[codegen]: add back in ``returndatasize`` check (`#4144 <https://github."
+"com/vyperlang/vyper/pull/4144>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:541
+msgid ""
+"fix: block memory allocation overflow (`#3639 <https://github.com/vyperlang/"
+"vyper/pull/3639>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:542
+msgid ""
+"fix[codegen]: panic on potential eval order issue for some builtins (`#4157 "
+"<https://github.com/vyperlang/vyper/pull/4157>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:543
+msgid ""
+"fix[codegen]: panic on potential subscript eval order issue (`#4159 <https://"
+"github.com/vyperlang/vyper/pull/4159>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:544
+msgid ""
+"add comptime check for uint2str input (`#3671 <https://github.com/vyperlang/"
+"vyper/pull/3671>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:545
+msgid ""
+"fix: dead code analysis inside for loops (`#3731 <https://github.com/"
+"vyperlang/vyper/pull/3731>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:546
+msgid ""
+"fix[ir]: fix a latent bug in ``sha3_64`` codegen (`#4063 <https://github.com/"
+"vyperlang/vyper/pull/4063>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:547
+msgid ""
+"fix: ``opcodes`` and ``opcodes_runtime`` outputs (`#3735 <https://github.com/"
+"vyperlang/vyper/pull/3735>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:548
+msgid ""
+"fix: bad assertion in expr.py (`#3758 <https://github.com/vyperlang/vyper/"
+"pull/3758>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:549
+msgid ""
+"fix: iterator modification analysis (`#3764 <https://github.com/vyperlang/"
+"vyper/pull/3764>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:550
+msgid ""
+"feat: allow constant interfaces (`#3718 <https://github.com/vyperlang/vyper/"
+"pull/3718>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:551
+msgid ""
+"fix: assembly dead code eliminator (`#3791 <https://github.com/vyperlang/"
+"vyper/pull/3791>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:552
+msgid ""
+"fix: prevent range over decimal (`#3798 <https://github.com/vyperlang/vyper/"
+"pull/3798>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:553
+msgid ""
+"fix: mutability check for interface implements (`#3805 <https://github.com/"
+"vyperlang/vyper/pull/3805>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:554
+msgid ""
+"fix[codegen]: fix non-memory reason strings (`#3877 <https://github.com/"
+"vyperlang/vyper/pull/3877>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:555
+msgid ""
+"fix[ux]: fix compiler hang for large exponentiations (`#3893 <https://github."
+"com/vyperlang/vyper/pull/3893>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:556
+msgid ""
+"fix[lang]: allow type expressions inside pure functions (`#3906 <https://"
+"github.com/vyperlang/vyper/pull/3906>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:557
+msgid ""
+"fix[ux]: raise ``VersionException`` with source info (`#3920 <https://github."
+"com/vyperlang/vyper/pull/3920>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:558
+msgid ""
+"fix[lang]: fix ``pow`` folding when args are not literals (`#3949 <https://"
+"github.com/vyperlang/vyper/pull/3949>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:559
+msgid ""
+"fix[codegen]: fix some hardcoded references to ``STORAGE`` location (`#4015 "
+"<https://github.com/vyperlang/vyper/pull/4015>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:564
+msgid ""
+"Bounds check on built-in ``slice()`` function can be overflowed (`GHSA-9x7f-"
+"gwxq-6f2c <https://github.com/vyperlang/vyper/security/advisories/GHSA-9x7f-"
+"gwxq-6f2c>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:565
+msgid ""
+"``concat`` built-in can corrupt memory (`GHSA-2q8v-3gqq-4f8p <https://github."
+"com/vyperlang/vyper/security/advisories/GHSA-2q8v-3gqq-4f8p>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:566
+msgid ""
+"``raw_call`` ``value=`` kwargs not disabled for static and delegate calls "
+"(`GHSA-x2c2-q32w-4w6m <https://github.com/vyperlang/vyper/security/"
+"advisories/GHSA-x2c2-q32w-4w6m>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:567
+msgid ""
+"negative array index bounds checks (`GHSA-52xq-j7v9-v4v2 <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-52xq-j7v9-v4v2>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:568
+msgid ""
+"``range(start, start + N)`` reverts for negative numbers (`GHSA-ppx5-q359-"
+"pvwj <https://github.com/vyperlang/vyper/security/advisories/GHSA-ppx5-q359-"
+"pvwj>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:569
+msgid ""
+"incorrect topic logging in ``raw_log`` (`GHSA-xchq-w5r3-4wg3 <https://github."
+"com/vyperlang/vyper/security/advisories/GHSA-xchq-w5r3-4wg3>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:570
+msgid ""
+"double eval of the ``slice`` start/length args in certain cases (`GHSA-r56x-"
+"j438-vw5m <https://github.com/vyperlang/vyper/security/advisories/GHSA-r56x-"
+"j438-vw5m>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:571
+msgid ""
+"multiple eval of ``sqrt()`` built in argument (`GHSA-5jrj-52x8-m64h <https://"
+"github.com/vyperlang/vyper/security/advisories/GHSA-5jrj-52x8-m64h>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:572
+msgid ""
+"double eval of raw_args in ``create_from_blueprint`` (`GHSA-3whq-64q2-qfj6 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-3whq-64q2-"
+"qfj6>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:573
+msgid ""
+"``sha3`` codegen bug (`GHSA-6845-xw22-ffxv <https://github.com/vyperlang/"
+"vyper/security/advisories/GHSA-6845-xw22-ffxv>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:574
+msgid ""
+"``extract32`` can read dirty memory (`GHSA-4hwq-4cpm-8vmx <https://github."
+"com/vyperlang/vyper/security/advisories/GHSA-4hwq-4cpm-8vmx>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:575
+msgid ""
+"``_abi_decode`` Memory Overflow (`GHSA-9p8r-4xp4-gw5w <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-9p8r-4xp4-gw5w>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:576
+msgid ""
+"External calls can overflow return data to return input buffer (`GHSA-"
+"gp3w-2v2m-p686 <https://github.com/vyperlang/vyper/security/advisories/GHSA-"
+"gp3w-2v2m-p686>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:579
+msgid "Tooling"
+msgstr ""
+
+#: ../../../release-notes.rst:580
+msgid ""
+"feat[tool]: archive format (`#3891 <https://github.com/vyperlang/vyper/"
+"pull/3891>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:581
+msgid ""
+"feat[tool]: add source map for constructors (`#4008 <https://github.com/"
+"vyperlang/vyper/pull/4008>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:582
+msgid ""
+"feat: add short options ``-v`` and ``-O`` to the CLI (`#3695 <https://github."
+"com/vyperlang/vyper/pull/3695>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:583
+msgid ""
+"feat: Add ``bb`` and ``bb_runtime`` output options  (`#3700 <https://github."
+"com/vyperlang/vyper/pull/3700>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:584
+msgid ""
+"fix: remove hex-ir from format cli options list (`#3657 <https://github.com/"
+"vyperlang/vyper/pull/3657>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:585
+msgid ""
+"fix: pickleability of ``CompilerData`` (`#3803 <https://github.com/vyperlang/"
+"vyper/pull/3803>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:586
+msgid ""
+"feat[tool]: validate AST nodes early in the pipeline (`#3809 <https://github."
+"com/vyperlang/vyper/pull/3809>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:587
+msgid ""
+"feat[tool]: delay global constraint check (`#3810 <https://github.com/"
+"vyperlang/vyper/pull/3810>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:588
+msgid ""
+"feat[tool]: export variable read/write access (`#3790 <https://github.com/"
+"vyperlang/vyper/pull/3790>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:589
+msgid ""
+"feat[tool]: improvements to AST annotation (`#3829 <https://github.com/"
+"vyperlang/vyper/pull/3829>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:590
+msgid ""
+"feat[tool]: add ``node_id`` map to source map (`#3811 <https://github.com/"
+"vyperlang/vyper/pull/3811>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:591
+msgid ""
+"chore[tool]: add help text for ``hex-ir`` CLI flag (`#3942 <https://github."
+"com/vyperlang/vyper/pull/3942>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:592
+msgid ""
+"refactor[tool]: refactor storage layout export (`#3789 <https://github.com/"
+"vyperlang/vyper/pull/3789>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:593
+msgid ""
+"fix[tool]: fix cross-compilation issues, add windows CI (`#4014 <https://"
+"github.com/vyperlang/vyper/pull/4014>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:594
+msgid ""
+"fix[tool]: star option in ``outputSelection`` (`#4094 <https://github.com/"
+"vyperlang/vyper/pull/4094>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:597
+msgid "Performance"
+msgstr ""
+
+#: ../../../release-notes.rst:598
+msgid ""
+"perf: lazy eval of f-strings in IRnode ctor (`#3602 <https://github.com/"
+"vyperlang/vyper/pull/3602>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:599
+msgid ""
+"perf: levenshtein optimization (`#3780 <https://github.com/vyperlang/vyper/"
+"pull/3780>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:600
+msgid ""
+"feat: frontend optimizations (`#3781 <https://github.com/vyperlang/vyper/"
+"pull/3781>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:601
+msgid ""
+"feat: optimize ``VyperNode.deepcopy`` (`#3784 <https://github.com/vyperlang/"
+"vyper/pull/3784>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:602
+msgid ""
+"feat: more frontend optimizations (`#3785 <https://github.com/vyperlang/"
+"vyper/pull/3785>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:603
+msgid ""
+"perf: reimplement ``IRnode.__deepcopy__`` (`#3761 <https://github.com/"
+"vyperlang/vyper/pull/3761>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:606
+msgid "Testing suite improvements"
+msgstr ""
+
+#: ../../../release-notes.rst:607
+msgid ""
+"refactor[test]: bypass ``eth-tester`` and interface with evm backend "
+"directly (`#3846 <https://github.com/vyperlang/vyper/pull/3846>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:608
+msgid ""
+"feat: Refactor assert_tx_failed into a context (`#3706 <https://github.com/"
+"vyperlang/vyper/pull/3706>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:609
+msgid ""
+"feat[test]: implement ``abi_decode`` spec test (`#4095 <https://github.com/"
+"vyperlang/vyper/pull/4095>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:610
+msgid ""
+"feat[test]: add more coverage to ``abi_decode`` fuzzer tests (`#4153 "
+"<https://github.com/vyperlang/vyper/pull/4153>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:611
+msgid ""
+"feat[ci]: enable cancun testing (`#3861 <https://github.com/vyperlang/vyper/"
+"pull/3861>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:612
+msgid ""
+"fix: add missing test for memory allocation overflow (`#3650 <https://github."
+"com/vyperlang/vyper/pull/3650>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:613
+msgid ""
+"chore: fix test for ``slice`` (`#3633 <https://github.com/vyperlang/vyper/"
+"pull/3633>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:614
+msgid ""
+"add abi_types unit tests (`#3662 <https://github.com/vyperlang/vyper/"
+"pull/3662>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:615
+msgid ""
+"refactor: test directory structure (`#3664 <https://github.com/vyperlang/"
+"vyper/pull/3664>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:616
+msgid ""
+"chore: test all output formats (`#3683 <https://github.com/vyperlang/vyper/"
+"pull/3683>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:617
+msgid ""
+"chore: deduplicate test files (`#3773 <https://github.com/vyperlang/vyper/"
+"pull/3773>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:618
+msgid ""
+"feat[test]: add more transient storage tests (`#3883 <https://github.com/"
+"vyperlang/vyper/pull/3883>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:619
+msgid ""
+"chore[ci]: fix apt-get failure in era pipeline (`#3821 <https://github.com/"
+"vyperlang/vyper/pull/3821>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:620
+msgid ""
+"chore[ci]: enable python3.12 tests (`#3860 <https://github.com/vyperlang/"
+"vyper/pull/3860>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:621
+msgid ""
+"chore[ci]: refactor jobs to use gh actions (`#3863 <https://github.com/"
+"vyperlang/vyper/pull/3863>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:622
+msgid ""
+"chore[ci]: use ``--dist worksteal`` from latest ``xdist`` (`#3869 <https://"
+"github.com/vyperlang/vyper/pull/3869>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:623
+msgid ""
+"chore: run mypy as part of lint rule in Makefile (`#3771 <https://github.com/"
+"vyperlang/vyper/pull/3771>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:624
+msgid ""
+"chore[test]: always specify the evm backend (`#4006 <https://github.com/"
+"vyperlang/vyper/pull/4006>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:625
+msgid ""
+"chore: update lint dependencies (`#3704 <https://github.com/vyperlang/vyper/"
+"pull/3704>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:626
+msgid ""
+"chore: add color to mypy output (`#3793 <https://github.com/vyperlang/vyper/"
+"pull/3793>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:627
+msgid ""
+"chore: remove tox rules for lint commands (`#3826 <https://github.com/"
+"vyperlang/vyper/pull/3826>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:628
+msgid ""
+"chore[ci]: roll back GH actions/artifacts version (`#3838 <https://github."
+"com/vyperlang/vyper/pull/3838>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:629
+msgid ""
+"chore: Upgrade GitHub action dependencies (`#3807 <https://github.com/"
+"vyperlang/vyper/pull/3807>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:630
+msgid ""
+"chore[ci]: pin eth-abi for decode regression (`#3834 <https://github.com/"
+"vyperlang/vyper/pull/3834>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:631
+msgid ""
+"fix[ci]: release artifacts (`#3839 <https://github.com/vyperlang/vyper/"
+"pull/3839>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:632
+msgid ""
+"chore[ci]: merge mypy job into lint (`#3840 <https://github.com/vyperlang/"
+"vyper/pull/3840>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:633
+msgid ""
+"test: parametrize CI over EVM versions (`#3842 <https://github.com/vyperlang/"
+"vyper/pull/3842>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:634
+msgid ""
+"feat[ci]: add PR title validation (`#3887 <https://github.com/vyperlang/"
+"vyper/pull/3887>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:635
+msgid ""
+"fix[test]: fix failure in grammar fuzzing (`#3892 <https://github.com/"
+"vyperlang/vyper/pull/3892>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:636
+msgid ""
+"feat[test]: add ``xfail_strict``, clean up ``setup.cfg`` (`#3889 <https://"
+"github.com/vyperlang/vyper/pull/3889>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:637
+msgid ""
+"fix[ci]: pin hexbytes to pre-1.0.0 (`#3903 <https://github.com/vyperlang/"
+"vyper/pull/3903>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:638
+msgid ""
+"chore[test]: update hexbytes version and tests (`#3904 <https://github.com/"
+"vyperlang/vyper/pull/3904>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:639
+msgid ""
+"fix[test]: fix a bad bound in decimal fuzzing (`#3909 <https://github.com/"
+"vyperlang/vyper/pull/3909>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:640
+msgid ""
+"fix[test]: fix a boundary case in decimal fuzzing (`#3918 <https://github."
+"com/vyperlang/vyper/pull/3918>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:641
+msgid ""
+"feat[ci]: update pypi release pipeline to use OIDC (`#3912 <https://github."
+"com/vyperlang/vyper/pull/3912>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:642
+msgid ""
+"chore[ci]: reconfigure single commit validation (`#3937 <https://github.com/"
+"vyperlang/vyper/pull/3937>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:643
+msgid ""
+"chore[ci]: downgrade codecov action to v3 (`#3940 <https://github.com/"
+"vyperlang/vyper/pull/3940>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:644
+msgid ""
+"feat[ci]: add codecov configuration (`#4057 <https://github.com/vyperlang/"
+"vyper/pull/4057>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:645
+msgid ""
+"feat[test]: remove memory mocker (`#4005 <https://github.com/vyperlang/vyper/"
+"pull/4005>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:646
+msgid ""
+"refactor[test]: change fixture scope in examples (`#3995 <https://github.com/"
+"vyperlang/vyper/pull/3995>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:647
+msgid ""
+"fix[test]: fix call graph stability fuzzer (`#4064 <https://github.com/"
+"vyperlang/vyper/pull/4064>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:648
+msgid ""
+"chore[test]: add macos to test matrix (`#4025 <https://github.com/vyperlang/"
+"vyper/pull/4025>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:649
+msgid ""
+"refactor[test]: change default expected exception type (`#4004 <https://"
+"github.com/vyperlang/vyper/pull/4004>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:652
+msgid "Misc / refactor"
+msgstr ""
+
+#: ../../../release-notes.rst:653
+msgid ""
+"feat[ir]: add ``eval_once`` sanity fences to more builtins (`#3835 <https://"
+"github.com/vyperlang/vyper/pull/3835>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:654
+msgid ""
+"fix: reorder compilation of branches in stmt.py (`#3603 <https://github.com/"
+"vyperlang/vyper/pull/3603>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:655
+msgid ""
+"refactor[codegen]: make settings into a global object (`#3929 <https://"
+"github.com/vyperlang/vyper/pull/3929>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:656
+msgid ""
+"chore: improve exception handling in IR generation (`#3705 <https://github."
+"com/vyperlang/vyper/pull/3705>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:657
+msgid ""
+"refactor: merge ``annotation.py`` and ``local.py`` (`#3456 <https://github."
+"com/vyperlang/vyper/pull/3456>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:658
+msgid ""
+"chore[ux]: remove deprecated python AST classes (`#3998 <https://github.com/"
+"vyperlang/vyper/pull/3998>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:659
+msgid ""
+"refactor[ux]: remove deprecated ``VyperNode`` properties (`#3999 <https://"
+"github.com/vyperlang/vyper/pull/3999>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:660
+msgid ""
+"feat: remove Index AST node (`#3757 <https://github.com/vyperlang/vyper/"
+"pull/3757>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:661
+msgid ""
+"refactor: for loop target parsing (`#3724 <https://github.com/vyperlang/"
+"vyper/pull/3724>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:662
+msgid ""
+"chore: improve diagnostics for invalid for loop annotation (`#3721 <https://"
+"github.com/vyperlang/vyper/pull/3721>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:663
+msgid ""
+"refactor: builtin functions inherit from ``VyperType`` (`#3559 <https://"
+"github.com/vyperlang/vyper/pull/3559>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:664
+msgid ""
+"fix: remove .keyword from Call AST node (`#3689 <https://github.com/"
+"vyperlang/vyper/pull/3689>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:665
+msgid ""
+"improvement: assert descriptions in Crowdfund finalize() and participate() "
+"(`#3064 <https://github.com/vyperlang/vyper/pull/3064>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:666
+msgid ""
+"feat: improve panics in IR generation (`#3708 <https://github.com/vyperlang/"
+"vyper/pull/3708>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:667
+msgid ""
+"feat: improve warnings, refactor ``vyper_warn()`` (`#3800 <https://github."
+"com/vyperlang/vyper/pull/3800>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:668
+msgid ""
+"fix[ir]: unique symbol name (`#3848 <https://github.com/vyperlang/vyper/"
+"pull/3848>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:669
+msgid ""
+"refactor: remove duplicate terminus checking code (`#3541 <https://github."
+"com/vyperlang/vyper/pull/3541>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:670
+msgid ""
+"refactor: ``ExprVisitor`` type validation (`#3739 <https://github.com/"
+"vyperlang/vyper/pull/3739>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:671
+msgid ""
+"chore: improve exception for type validation (`#3759 <https://github.com/"
+"vyperlang/vyper/pull/3759>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:672
+msgid ""
+"fix: fuzz test not updated to use TypeMismatch (`#3768 <https://github.com/"
+"vyperlang/vyper/pull/3768>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:673
+msgid ""
+"chore: fix StringEnum._generate_next_value_ signature (`#3770 <https://"
+"github.com/vyperlang/vyper/pull/3770>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:674
+msgid ""
+"chore: improve some error messages (`#3775 <https://github.com/vyperlang/"
+"vyper/pull/3775>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:675
+msgid ""
+"refactor: ``get_search_paths()`` for vyper cli (`#3778 <https://github.com/"
+"vyperlang/vyper/pull/3778>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:676
+msgid ""
+"chore: replace occurrences of 'enum' by 'flag' (`#3794 <https://github.com/"
+"vyperlang/vyper/pull/3794>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:677
+msgid ""
+"chore: add another borrowship test (`#3802 <https://github.com/vyperlang/"
+"vyper/pull/3802>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:678
+msgid ""
+"chore[ux]: improve an exports error message (`#3822 <https://github.com/"
+"vyperlang/vyper/pull/3822>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:679
+msgid ""
+"chore: improve codegen test coverage report (`#3824 <https://github.com/"
+"vyperlang/vyper/pull/3824>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:680
+msgid ""
+"chore: improve syntax error messages (`#3885 <https://github.com/vyperlang/"
+"vyper/pull/3885>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:681
+msgid ""
+"chore[tool]: remove ``vyper-serve`` from ``setup.py`` (`#3936 <https://"
+"github.com/vyperlang/vyper/pull/3936>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:682
+msgid ""
+"fix[ux]: replace standard strings with f-strings (`#3953 <https://github.com/"
+"vyperlang/vyper/pull/3953>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:683
+msgid ""
+"chore[ir]: sanity check types in for range codegen (`#3968 <https://github."
+"com/vyperlang/vyper/pull/3968>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:686
+msgid "v0.3.10 (\"Black Adder\")"
+msgstr ""
+
+#: ../../../release-notes.rst:689
+msgid "Date released: 2023-10-04"
+msgstr ""
+
+#: ../../../release-notes.rst:691
+msgid ""
+"v0.3.10 is a performance focused release that additionally ships numerous "
+"bugfixes. It adds a ``codesize`` optimization mode (`#3493 <https://github."
+"com/vyperlang/vyper/pull/3493>`_), adds new vyper-specific ``#pragma`` "
+"directives  (`#3493 <https://github.com/vyperlang/vyper/pull/3493>`_), uses "
+"Cancun's ``MCOPY`` opcode for some compiler generated code (`#3483 <https://"
+"github.com/vyperlang/vyper/pull/3483>`_), and generates selector tables "
+"which now feature O(1) performance (`#3496 <https://github.com/vyperlang/"
+"vyper/pull/3496>`_)."
+msgstr ""
+
+#: ../../../release-notes.rst:694 ../../../release-notes.rst:857
+#: ../../../release-notes.rst:985 ../../../release-notes.rst:1027
+#: ../../../release-notes.rst:1067 ../../../release-notes.rst:1350
+msgid "Breaking changes:"
+msgstr ""
+
+#: ../../../release-notes.rst:696
+msgid ""
+"add runtime code layout to initcode (`#3584 <https://github.com/vyperlang/"
+"vyper/pull/3584>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:697
+msgid ""
+"drop evm versions through istanbul (`#3470 <https://github.com/vyperlang/"
+"vyper/pull/3470>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:698
+msgid ""
+"remove vyper signature from runtime (`#3471 <https://github.com/vyperlang/"
+"vyper/pull/3471>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:699
+msgid ""
+"only allow valid identifiers to be nonreentrant keys (`#3605 <https://github."
+"com/vyperlang/vyper/pull/3605>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:702 ../../../release-notes.rst:759
+#: ../../../release-notes.rst:862 ../../../release-notes.rst:918
+#: ../../../release-notes.rst:932 ../../../release-notes.rst:991
+#: ../../../release-notes.rst:1031 ../../../release-notes.rst:1072
+#: ../../../release-notes.rst:1100 ../../../release-notes.rst:1150
+#: ../../../release-notes.rst:1164 ../../../release-notes.rst:1216
+#: ../../../release-notes.rst:1241 ../../../release-notes.rst:1257
+#: ../../../release-notes.rst:1278 ../../../release-notes.rst:1303
+#: ../../../release-notes.rst:1320
+msgid "Non-breaking changes and improvements:"
+msgstr ""
+
+#: ../../../release-notes.rst:704
+msgid ""
+"O(1) selector tables (`#3496 <https://github.com/vyperlang/vyper/"
+"pull/3496>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:705
+msgid ""
+"implement bound= in ranges (`#3537 <https://github.com/vyperlang/vyper/"
+"pull/3537>`_, `#3551 <https://github.com/vyperlang/vyper/pull/3551>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:706
+msgid ""
+"add optimization mode to vyper compiler (`#3493 <https://github.com/"
+"vyperlang/vyper/pull/3493>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:707
+msgid ""
+"improve batch copy performance (`#3483 <https://github.com/vyperlang/vyper/"
+"pull/3483>`_, `#3499 <https://github.com/vyperlang/vyper/pull/3499>`_, "
+"`#3525 <https://github.com/vyperlang/vyper/pull/3525>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:710 ../../../release-notes.rst:780
+msgid "Notable fixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:712
+msgid ""
+"fix ``ecrecover()`` behavior when signature is invalid (`GHSA-f5x6-7qgp-jhf3 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-f5x6-7qgp-"
+"jhf3>`_, `#3586 <https://github.com/vyperlang/vyper/pull/3586>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:713
+msgid ""
+"fix: order of evaluation for some builtins (`#3583 <https://github.com/"
+"vyperlang/vyper/pull/3583>`_, `#3587 <https://github.com/vyperlang/vyper/"
+"pull/3587>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:714
+msgid ""
+"fix: memory allocation in certain builtins using ``msize`` (`#3610 <https://"
+"github.com/vyperlang/vyper/pull/3610>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:715
+msgid ""
+"fix: ``_abi_decode()`` input validation in certain complex expressions "
+"(`#3626 <https://github.com/vyperlang/vyper/pull/3626>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:716
+msgid ""
+"fix: pycryptodome for arm builds (`#3485 <https://github.com/vyperlang/vyper/"
+"pull/3485>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:717
+msgid ""
+"let params of internal functions be mutable (`#3473 <https://github.com/"
+"vyperlang/vyper/pull/3473>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:718
+msgid ""
+"typechecking of folded builtins in (`#3490 <https://github.com/vyperlang/"
+"vyper/pull/3490>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:719
+msgid ""
+"update tload/tstore opcodes per latest 1153 EIP spec (`#3484 <https://github."
+"com/vyperlang/vyper/pull/3484>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:720
+msgid ""
+"fix: raw_call type when max_outsize=0 is set (`#3572 <https://github.com/"
+"vyperlang/vyper/pull/3572>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:721
+msgid ""
+"fix: implements check for indexed event arguments (`#3570 <https://github."
+"com/vyperlang/vyper/pull/3570>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:722
+msgid ""
+"fix: type-checking for ``_abi_decode()`` arguments (`#3626 <https://github."
+"com/vyperlang/vyper/pull/3623>`__)"
+msgstr ""
+
+#: ../../../release-notes.rst:725 ../../../release-notes.rst:791
+msgid "Other docs updates, chores and fixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:727
+msgid ""
+"relax restrictions on internal function signatures (`#3573 <https://github."
+"com/vyperlang/vyper/pull/3573>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:728
+msgid ""
+"note on security advisory in release notes for versions ``0.2.15``, "
+"``0.2.16``, and ``0.3.0`` (`#3553 <https://github.com/vyperlang/vyper/"
+"pull/3553>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:729
+msgid ""
+"fix: yanked version in release notes (`#3545 <https://github.com/vyperlang/"
+"vyper/pull/3545>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:730
+msgid ""
+"update release notes on yanked versions (`#3547 <https://github.com/"
+"vyperlang/vyper/pull/3547>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:731
+msgid ""
+"improve error message for conflicting methods IDs (`#3491 <https://github."
+"com/vyperlang/vyper/pull/3491>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:732
+msgid ""
+"document epsilon builtin (`#3552 <https://github.com/vyperlang/vyper/"
+"pull/3552>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:733
+msgid ""
+"relax version pragma parsing (`#3511 <https://github.com/vyperlang/vyper/"
+"pull/3511>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:734
+msgid ""
+"fix: issue with finding installed packages in editable mode (`#3510 <https://"
+"github.com/vyperlang/vyper/pull/3510>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:735
+msgid ""
+"add note on security advisory for ``ecrecover`` in docs (`#3539 <https://"
+"github.com/vyperlang/vyper/pull/3539>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:736
+msgid ""
+"add ``asm`` option to cli help (`#3585 <https://github.com/vyperlang/vyper/"
+"pull/3585>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:737
+msgid ""
+"add message to error map for repeat range check (`#3542 <https://github.com/"
+"vyperlang/vyper/pull/3542>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:738
+msgid ""
+"fix: public constant arrays (`#3536 <https://github.com/vyperlang/vyper/"
+"pull/3536>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:742
+msgid "v0.3.9 (\"Common Adder\")"
+msgstr ""
+
+#: ../../../release-notes.rst:744
+msgid "Date released: 2023-05-29"
+msgstr ""
+
+#: ../../../release-notes.rst:746
+msgid ""
+"This is a patch release fix for v0.3.8. @bout3fiddy discovered a codesize "
+"regression for blueprint contracts in v0.3.8 which is fixed in this release. "
+"@bout3fiddy also discovered a runtime performance (gas) regression for "
+"default functions in v0.3.8 which is fixed in this release."
+msgstr ""
+
+#: ../../../release-notes.rst:748 ../../../release-notes.rst:1048
+#: ../../../release-notes.rst:1081 ../../../release-notes.rst:1109
+#: ../../../release-notes.rst:1224 ../../../release-notes.rst:1246
+#: ../../../release-notes.rst:1267 ../../../release-notes.rst:1289
+#: ../../../release-notes.rst:1309 ../../../release-notes.rst:1326
+#: ../../../release-notes.rst:1337
+msgid "Fixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:750
+msgid ""
+"initcode codesize blowup (`#3450 <https://github.com/vyperlang/vyper/"
+"pull/3450>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:751
+msgid ""
+"add back global calldatasize check for contracts with default fn (`#3463 "
+"<https://github.com/vyperlang/vyper/pull/3463>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:755
+msgid "v0.3.8"
+msgstr ""
+
+#: ../../../release-notes.rst:757
+msgid "Date released: 2023-05-23"
+msgstr ""
+
+#: ../../../release-notes.rst:761
+msgid ""
+"``transient`` storage keyword (`#3373 <https://github.com/vyperlang/vyper/"
+"pull/3373>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:762
+msgid ""
+"ternary operators (`#3398 <https://github.com/vyperlang/vyper/pull/3398>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:763
+msgid ""
+"``raw_revert()`` builtin (`#3136 <https://github.com/vyperlang/vyper/"
+"pull/3136>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:764
+msgid ""
+"shift operators (`#3019 <https://github.com/vyperlang/vyper/pull/3019>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:765
+msgid ""
+"make ``send()`` gas stipend configurable (`#3158 <https://github.com/"
+"vyperlang/vyper/pull/3158>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:766
+msgid ""
+"use new ``push0`` opcode (`#3361 <https://github.com/vyperlang/vyper/"
+"pull/3361>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:767
+msgid ""
+"python 3.11 support (`#3129 <https://github.com/vyperlang/vyper/pull/3129>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:768
+msgid ""
+"drop support for python 3.8 and 3.9 (`#3325 <https://github.com/vyperlang/"
+"vyper/pull/3325>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:769
+msgid ""
+"build for ``aarch64`` (`#2687 <https://github.com/vyperlang/vyper/"
+"pull/2687>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:771
+msgid ""
+"Note that with the addition of ``push0`` opcode, ``shanghai`` is now the "
+"default compilation target for vyper. When deploying to a chain which does "
+"not support ``shanghai``, it is recommended to set ``--evm-version`` to "
+"``paris``, otherwise it could result in hard-to-debug errors."
+msgstr ""
+
+#: ../../../release-notes.rst:773
+msgid "Major refactoring PRs:"
+msgstr ""
+
+#: ../../../release-notes.rst:775
+msgid ""
+"refactor front-end type system (`#2974 <https://github.com/vyperlang/vyper/"
+"pull/2974>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:776
+msgid ""
+"merge front-end and codegen type systems (`#3182 <https://github.com/"
+"vyperlang/vyper/pull/3182>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:777
+msgid ""
+"simplify ``GlobalContext`` (`#3209 <https://github.com/vyperlang/vyper/"
+"pull/3209>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:778
+msgid ""
+"remove ``FunctionSignature`` (`#3390 <https://github.com/vyperlang/vyper/"
+"pull/3390>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:782
+msgid ""
+"assignment when rhs is complex type and references lhs (`#3410 <https://"
+"github.com/vyperlang/vyper/pull/3410>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:783
+msgid ""
+"uninitialized immutable values (`#3409 <https://github.com/vyperlang/vyper/"
+"pull/3409>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:784
+msgid ""
+"success value when mixing ``max_outsize=0`` and ``revert_on_failure=False`` "
+"(`GHSA-w9g2-3w7p-72g9 <https://github.com/vyperlang/vyper/security/"
+"advisories/GHSA-w9g2-3w7p-72g9>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:785
+msgid ""
+"block certain kinds of storage allocator overflows (`GHSA-mgv8-gggw-mrg6 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-mgv8-gggw-"
+"mrg6>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:786
+msgid ""
+"store-before-load when a dynarray appears on both sides of an assignment "
+"(`GHSA-3p37-3636-q8wv <https://github.com/vyperlang/vyper/security/"
+"advisories/GHSA-3p37-3636-q8wv>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:787
+msgid ""
+"bounds check for loops of the form ``for i in range(x, x+N)`` (`GHSA-6r8q-"
+"pfpv-7cgj <https://github.com/vyperlang/vyper/security/advisories/GHSA-6r8q-"
+"pfpv-7cgj>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:788
+msgid ""
+"alignment of call-site posargs and kwargs for internal functions (`GHSA-"
+"ph9x-4vc9-m39g <https://github.com/vyperlang/vyper/security/advisories/GHSA-"
+"ph9x-4vc9-m39g>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:789
+msgid ""
+"batch nonpayable check for default functions calldatasize < 4 (`#3104 "
+"<https://github.com/vyperlang/vyper/pull/3104>`_, `#3408 <https://github.com/"
+"vyperlang/vyper/pull/3408>`_, cf. `GHSA-vxmm-cwh2-q762 <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-vxmm-cwh2-q762>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:793
+msgid ""
+"call graph stability (`#3370 <https://github.com/vyperlang/vyper/"
+"pull/3370>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:794
+msgid ""
+"fix ``vyper-serve`` output (`#3338 <https://github.com/vyperlang/vyper/"
+"pull/3338>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:795
+msgid ""
+"add ``custom:`` natspec tags (`#3403 <https://github.com/vyperlang/vyper/"
+"pull/3403>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:796
+msgid ""
+"add missing pc maps to ``vyper_json`` output (`#3333 <https://github.com/"
+"vyperlang/vyper/pull/3333>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:797
+msgid ""
+"fix constructor context for internal functions (`#3388 <https://github.com/"
+"vyperlang/vyper/pull/3388>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:798
+msgid ""
+"add deprecation warning for ``selfdestruct`` usage (`#3372 <https://github."
+"com/vyperlang/vyper/pull/3372>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:799
+msgid ""
+"add bytecode metadata option to vyper-json (`#3117 <https://github.com/"
+"vyperlang/vyper/pull/3117>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:800
+msgid ""
+"fix compiler panic when a ``break`` is outside of a loop (`#3177 <https://"
+"github.com/vyperlang/vyper/pull/3177>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:801
+msgid ""
+"fix complex arguments to builtin functions (`#3167 <https://github.com/"
+"vyperlang/vyper/pull/3167>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:802
+msgid ""
+"add support for all types in ABI imports (`#3154 <https://github.com/"
+"vyperlang/vyper/pull/3154>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:803
+msgid ""
+"disable uadd operator (`#3174 <https://github.com/vyperlang/vyper/"
+"pull/3174>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:804
+msgid ""
+"block bitwise ops on decimals (`#3219 <https://github.com/vyperlang/vyper/"
+"pull/3219>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:805
+msgid ""
+"raise ``UNREACHABLE`` (`#3194 <https://github.com/vyperlang/vyper/"
+"pull/3194>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:806
+msgid ""
+"allow enum as mapping key (`#3256 <https://github.com/vyperlang/vyper/"
+"pull/3256>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:807
+msgid ""
+"block boolean ``not`` operator on numeric types (`#3231 <https://github.com/"
+"vyperlang/vyper/pull/3231>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:808
+msgid ""
+"enforce that loop's iterators are valid names (`#3242 <https://github.com/"
+"vyperlang/vyper/pull/3242>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:809
+msgid ""
+"fix typechecker hotspot (`#3318 <https://github.com/vyperlang/vyper/"
+"pull/3318>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:810
+msgid ""
+"rewrite typechecker journal to handle nested commits (`#3375 <https://github."
+"com/vyperlang/vyper/pull/3375>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:811
+msgid ""
+"fix missing pc map for empty functions (`#3202 <https://github.com/vyperlang/"
+"vyper/pull/3202>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:812
+msgid ""
+"guard against iterating over empty list in for loop (`#3197 <https://github."
+"com/vyperlang/vyper/pull/3197>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:813
+msgid ""
+"skip enum members during constant folding (`#3235 <https://github.com/"
+"vyperlang/vyper/pull/3235>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:814
+msgid ""
+"bitwise ``not`` constant folding (`#3222 <https://github.com/vyperlang/vyper/"
+"pull/3222>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:815
+msgid ""
+"allow accessing members of constant address (`#3261 <https://github.com/"
+"vyperlang/vyper/pull/3261>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:816
+msgid ""
+"guard against decorators in interface (`#3266 <https://github.com/vyperlang/"
+"vyper/pull/3266>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:817
+msgid ""
+"fix bounds for decimals in some builtins (`#3283 <https://github.com/"
+"vyperlang/vyper/pull/3283>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:818
+msgid ""
+"length of literal empty bytestrings (`#3276 <https://github.com/vyperlang/"
+"vyper/pull/3276>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:819
+msgid ""
+"block ``empty()`` for HashMaps (`#3303 <https://github.com/vyperlang/vyper/"
+"pull/3303>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:820
+msgid ""
+"fix type inference for empty lists (`#3377 <https://github.com/vyperlang/"
+"vyper/pull/3377>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:821
+msgid ""
+"disallow logging from ``pure``, ``view`` functions (`#3424 <https://github."
+"com/vyperlang/vyper/pull/3424>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:822
+msgid ""
+"improve optimizer rules for comparison operators (`#3412 <https://github.com/"
+"vyperlang/vyper/pull/3412>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:823
+msgid ""
+"deploy to ghcr on push (`#3435 <https://github.com/vyperlang/vyper/"
+"pull/3435>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:824
+msgid ""
+"add note on return value bounds in interfaces (`#3205 <https://github.com/"
+"vyperlang/vyper/pull/3205>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:825
+msgid ""
+"index ``id`` param in ``URI`` event of ``ERC1155ownable`` (`#3203 <https://"
+"github.com/vyperlang/vyper/pull/3203>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:826
+msgid ""
+"add missing ``asset`` function to ``ERC4626`` built-in interface (`#3295 "
+"<https://github.com/vyperlang/vyper/pull/3295>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:827
+msgid ""
+"clarify ``skip_contract_check=True`` can result in undefined behavior "
+"(`#3386 <https://github.com/vyperlang/vyper/pull/3386>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:828
+msgid ""
+"add ``custom`` NatSpec tag to docs (`#3404 <https://github.com/vyperlang/"
+"vyper/pull/3404>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:829
+msgid ""
+"fix ``uint256_addmod`` doc (`#3300 <https://github.com/vyperlang/vyper/"
+"pull/3300>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:830
+msgid ""
+"document optional kwargs for external calls (`#3122 <https://github.com/"
+"vyperlang/vyper/pull/3122>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:831
+msgid ""
+"remove ``slice()`` length documentation caveats (`#3152 <https://github.com/"
+"vyperlang/vyper/pull/3152>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:832
+msgid ""
+"fix docs of ``blockhash`` to reflect revert behaviour (`#3168 <https://"
+"github.com/vyperlang/vyper/pull/3168>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:833
+msgid ""
+"improvements to compiler error messages (`#3121 <https://github.com/"
+"vyperlang/vyper/pull/3121>`_, `#3134 <https://github.com/vyperlang/vyper/"
+"pull/3134>`_, `#3312 <https://github.com/vyperlang/vyper/pull/3312>`_, "
+"`#3304 <https://github.com/vyperlang/vyper/pull/3304>`_, `#3240 <https://"
+"github.com/vyperlang/vyper/pull/3240>`_, `#3264 <https://github.com/"
+"vyperlang/vyper/pull/3264>`_, `#3343 <https://github.com/vyperlang/vyper/"
+"pull/3343>`_, `#3307 <https://github.com/vyperlang/vyper/pull/3307>`_, "
+"`#3313 <https://github.com/vyperlang/vyper/pull/3313>`_ and `#3215 <https://"
+"github.com/vyperlang/vyper/pull/3215>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:835
+msgid ""
+"These are really just the highlights, as many other bugfixes, docs updates "
+"and refactoring (over 150 pull requests!) made it into this release! For the "
+"full list, please see the `changelog <https://github.com/vyperlang/vyper/"
+"compare/v0.3.7...v0.3.8>`__. Special thanks to contributions from @tserg, "
+"@trocher, @z80dev, @emc415 and @benber86 in this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:837
+msgid "New Contributors:"
+msgstr ""
+
+#: ../../../release-notes.rst:839
+msgid ""
+"@omahs made their first contribution in (`#3128 <https://github.com/"
+"vyperlang/vyper/pull/3128>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:840
+msgid ""
+"@ObiajuluM made their first contribution in (`#3124 <https://github.com/"
+"vyperlang/vyper/pull/3124>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:841
+msgid ""
+"@trocher made their first contribution in (`#3134 <https://github.com/"
+"vyperlang/vyper/pull/3134>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:842
+msgid ""
+"@ozmium22 made their first contribution in (`#3149 <https://github.com/"
+"vyperlang/vyper/pull/3149>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:843
+msgid ""
+"@ToonVanHove made their first contribution in (`#3168 <https://github.com/"
+"vyperlang/vyper/pull/3168>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:844
+msgid ""
+"@emc415 made their first contribution in (`#3158 <https://github.com/"
+"vyperlang/vyper/pull/3158>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:845
+msgid ""
+"@lgtm-com made their first contribution in (`#3147 <https://github.com/"
+"vyperlang/vyper/pull/3147>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:846
+msgid ""
+"@tdurieux made their first contribution in (`#3224 <https://github.com/"
+"vyperlang/vyper/pull/3224>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:847
+msgid ""
+"@victor-ego made their first contribution in (`#3263 <https://github.com/"
+"vyperlang/vyper/pull/3263>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:848
+msgid ""
+"@miohtama made their first contribution in (`#3257 <https://github.com/"
+"vyperlang/vyper/pull/3257>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:849
+msgid ""
+"@kelvinfan001 made their first contribution in (`#2687 <https://github.com/"
+"vyperlang/vyper/pull/2687>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:853
+msgid "v0.3.7"
+msgstr ""
+
+#: ../../../release-notes.rst:855
+msgid "Date released: 2022-09-26"
+msgstr ""
+
+#: ../../../release-notes.rst:859
+msgid ""
+"chore: drop python 3.7 support (`#3071 <https://github.com/vyperlang/vyper/"
+"pull/3071>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:860
+msgid ""
+"fix: relax check for statically sized calldata (`#3090 <https://github.com/"
+"vyperlang/vyper/pull/3090>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:864
+msgid ""
+"fix: assert description in ``Crowdfund.finalize()`` (`#3058 <https://github."
+"com/vyperlang/vyper/pull/3058>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:865
+msgid ""
+"fix: change mutability of example ERC721 interface (`#3076 <https://github."
+"com/vyperlang/vyper/pull/3076>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:866
+msgid ""
+"chore: improve error message for non-checksummed address literal (`#3065 "
+"<https://github.com/vyperlang/vyper/pull/3065>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:867
+msgid ""
+"feat: ``isqrt()`` builtin (`#3074 <https://github.com/vyperlang/vyper/"
+"pull/3074>`_) (`#3069 <https://github.com/vyperlang/vyper/pull/3069>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:868
+msgid ""
+"feat: add ``block.prevrandao`` as alias for ``block.difficulty`` (`#3085 "
+"<https://github.com/vyperlang/vyper/pull/3085>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:869
+msgid ""
+"feat: ``epsilon()`` builtin (`#3057 <https://github.com/vyperlang/vyper/"
+"pull/3057>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:870
+msgid ""
+"feat: extend ecrecover signature to accept additional parameter types "
+"(`#3084 <https://github.com/vyperlang/vyper/pull/3084>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:871
+msgid ""
+"feat: allow constant and immutable variables to be declared public (`#3024 "
+"<https://github.com/vyperlang/vyper/pull/3024>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:872
+msgid ""
+"feat: optionally disable metadata in bytecode (`#3107 <https://github.com/"
+"vyperlang/vyper/pull/3107>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:874 ../../../release-notes.rst:907
+msgid "Bugfixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:876
+msgid ""
+"fix: empty nested dynamic arrays (`#3061 <https://github.com/vyperlang/vyper/"
+"pull/3061>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:877
+msgid ""
+"fix: foldable builtin default args in imports (`#3079 <https://github.com/"
+"vyperlang/vyper/pull/3079>`_) (`#3077 <https://github.com/vyperlang/vyper/"
+"pull/3077>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:879
+msgid "Additional changes and improvements:"
+msgstr ""
+
+#: ../../../release-notes.rst:881
+msgid ""
+"doc: update broken links in SECURITY.md (`#3095 <https://github.com/"
+"vyperlang/vyper/pull/3095>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:882
+msgid ""
+"chore: update discord link in docs (`#3031 <https://github.com/vyperlang/"
+"vyper/pull/3031>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:883
+msgid ""
+"fix: broken links in various READMEs (`#3072 <https://github.com/vyperlang/"
+"vyper/pull/3072>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:884
+msgid ""
+"chore: fix compile warnings in examples (`#3033 <https://github.com/"
+"vyperlang/vyper/pull/3033>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:885
+msgid ""
+"feat: append lineno to the filename in error messages (`#3092 <https://"
+"github.com/vyperlang/vyper/pull/3092>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:886
+msgid ""
+"chore: migrate lark grammar (`#3082 <https://github.com/vyperlang/vyper/"
+"pull/3082>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:887
+msgid ""
+"chore: loosen and upgrade semantic version (`#3106 <https://github.com/"
+"vyperlang/vyper/pull/3106>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:889
+msgid "New Contributors"
+msgstr ""
+
+#: ../../../release-notes.rst:891
+msgid ""
+"@emilianobonassi made their first contribution in `#3107 <https://github.com/"
+"vyperlang/vyper/pull/3107>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:892
+msgid ""
+"@unparalleled-js made their first contribution in `#3106 <https://github.com/"
+"vyperlang/vyper/pull/3106>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:893
+msgid ""
+"@pcaversaccio made their first contribution in `#3085 <https://github.com/"
+"vyperlang/vyper/pull/3085>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:894
+msgid ""
+"@nfwsncked made their first contribution in `#3058 <https://github.com/"
+"vyperlang/vyper/pull/3058>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:895
+msgid ""
+"@z80 made their first contribution in `#3057 <https://github.com/vyperlang/"
+"vyper/pull/3057>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:896
+msgid ""
+"@Benny made their first contribution in `#3024 <https://github.com/vyperlang/"
+"vyper/pull/3024>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:897
+msgid ""
+"@cairo made their first contribution in `#3072 <https://github.com/vyperlang/"
+"vyper/pull/3072>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:898
+msgid ""
+"@fiddy made their first contribution in `#3069 <https://github.com/vyperlang/"
+"vyper/pull/3069>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:900
+msgid ""
+"Special thanks to returning contributors @tserg, @pandadefi, and @delaaxe."
+msgstr ""
+
+#: ../../../release-notes.rst:903
+msgid "v0.3.6"
+msgstr ""
+
+#: ../../../release-notes.rst:905
+msgid "Date released: 2022-08-07"
+msgstr ""
+
+#: ../../../release-notes.rst:909
+msgid ""
+"Fix ``in`` expressions when list members are variables (`#3035 <https://"
+"github.com/vyperlang/vyper/pull/3035>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:913
+msgid "v0.3.5"
+msgstr ""
+
+#: ../../../release-notes.rst:914 ../../../release-notes.rst:1134
+#: ../../../release-notes.rst:1146 ../../../release-notes.rst:1181
+#: ../../../release-notes.rst:1189 ../../../release-notes.rst:1253
+msgid "**THIS RELEASE HAS BEEN PULLED**"
+msgstr ""
+
+#: ../../../release-notes.rst:916
+msgid "Date released: 2022-08-05"
+msgstr ""
+
+#: ../../../release-notes.rst:920
+msgid ""
+"Add blueprint deployer output format (`#3001 <https://github.com/vyperlang/"
+"vyper/pull/3001>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:921
+msgid ""
+"Allow arbitrary data to be passed to ``create_from_blueprint`` (`#2996 "
+"<https://github.com/vyperlang/vyper/pull/2996>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:922
+msgid ""
+"Add CBOR length to bytecode for decoders (`#3010 <https://github.com/"
+"vyperlang/vyper/pull/3010>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:923
+msgid ""
+"Fix compiler panic when accessing enum storage vars via ``self`` (`#2998 "
+"<https://github.com/vyperlang/vyper/pull/2998>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:924
+msgid ""
+"Fix: allow ``empty()`` in constant definitions and in default argument "
+"position (`#3008 <https://github.com/vyperlang/vyper/pull/3008>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:925
+msgid ""
+"Fix: disallow ``self`` address in pure functions (`#3027 <https://github.com/"
+"vyperlang/vyper/pull/3027>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:928
+msgid "v0.3.4"
+msgstr ""
+
+#: ../../../release-notes.rst:930
+msgid "Date released: 2022-07-27"
+msgstr ""
+
+#: ../../../release-notes.rst:934
+msgid ""
+"Add enum types (`#2874 <https://github.com/vyperlang/vyper/pull/2874>`_, "
+"`#2915 <https://github.com/vyperlang/vyper/pull/2915>`_, `#2925 <https://"
+"github.com/vyperlang/vyper/pull/2925>`_, `#2977 <https://github.com/"
+"vyperlang/vyper/pull/2977>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:935
+msgid ""
+"Add ``_abi_decode`` builtin (`#2882 <https://github.com/vyperlang/vyper/"
+"pull/2882>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:936
+msgid ""
+"Add ``create_from_blueprint`` and ``create_copy_of`` builtins (`#2895 "
+"<https://github.com/vyperlang/vyper/pull/2895>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:937
+msgid ""
+"Add ``default_return_value`` kwarg for calls (`#2839 <https://github.com/"
+"vyperlang/vyper/pull/2839>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:938
+msgid ""
+"Add ``min_value`` and ``max_value`` builtins for numeric types (`#2935 "
+"<https://github.com/vyperlang/vyper/pull/2935>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:939
+msgid ""
+"Add ``uint2str`` builtin (`#2879 <https://github.com/vyperlang/vyper/"
+"pull/2879>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:940
+msgid ""
+"Add vyper signature to bytecode (`#2860 <https://github.com/vyperlang/vyper/"
+"pull/2860>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:943 ../../../release-notes.rst:974
+msgid "Other fixes and improvements:"
+msgstr ""
+
+#: ../../../release-notes.rst:945
+msgid ""
+"Call internal functions from constructor (`#2496 <https://github.com/"
+"vyperlang/vyper/pull/2496>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:946
+msgid ""
+"Arithmetic for new int types (`#2843 <https://github.com/vyperlang/vyper/"
+"pull/2843>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:947
+msgid ""
+"Allow ``msg.data`` in ``raw_call`` without ``slice`` (`#2902 <https://github."
+"com/vyperlang/vyper/pull/2902>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:948
+msgid ""
+"Per-method calldatasize checks (`#2911 <https://github.com/vyperlang/vyper/"
+"pull/2911>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:949
+msgid ""
+"Type inference and annotation of arguments for builtin functions (`#2817 "
+"<https://github.com/vyperlang/vyper/pull/2817>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:950
+msgid ""
+"Allow varargs for ``print`` (`#2833 <https://github.com/vyperlang/vyper/"
+"pull/2833>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:951
+msgid ""
+"Add ``error_map`` output format for tooling consumption (`#2939 <https://"
+"github.com/vyperlang/vyper/pull/2939>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:952
+msgid ""
+"Multiple evaluation of contract address in call (`GHSA-4v9q-cgpw-cf38 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-4v9q-cgpw-"
+"cf38>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:953
+msgid ""
+"Improve ast output (`#2824 <https://github.com/vyperlang/vyper/pull/2824>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:954
+msgid ""
+"Allow ``@nonreentrant`` on view functions (`#2921 <https://github.com/"
+"vyperlang/vyper/pull/2921>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:955
+msgid ""
+"Add ``shift()`` support for signed integers (`#2964 <https://github.com/"
+"vyperlang/vyper/pull/2964>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:956
+msgid ""
+"Enable dynarrays of strings (`#2922 <https://github.com/vyperlang/vyper/"
+"pull/2922>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:957
+msgid ""
+"Fix off-by-one bounds check in certain safepow cases (`#2983 <https://github."
+"com/vyperlang/vyper/pull/2983>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:958
+msgid ""
+"Optimizer improvements (`#2647 <https://github.com/vyperlang/vyper/"
+"pull/2647>`_, `#2868 <https://github.com/vyperlang/vyper/pull/2868>`_, "
+"`#2914 <https://github.com/vyperlang/vyper/pull/2914>`_, `#2843 <https://"
+"github.com/vyperlang/vyper/pull/2843>`_, `#2944 <https://github.com/"
+"vyperlang/vyper/pull/2944>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:959
+msgid ""
+"Reverse order in which exceptions are reported (`#2838 <https://github.com/"
+"vyperlang/vyper/pull/2838>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:960
+msgid ""
+"Fix compile-time blowup for large contracts (`#2981 <https://github.com/"
+"vyperlang/vyper/pull/2981>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:961
+msgid ""
+"Rename ``vyper-ir`` binary to ``fang`` (`#2936 <https://github.com/vyperlang/"
+"vyper/pull/2936>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:964
+msgid ""
+"Many other small bugfixes, optimizations and refactoring also made it into "
+"this release! Special thanks to @tserg and @pandadefi for contributing "
+"several important bugfixes, refactoring and features to this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:968
+msgid "v0.3.3"
+msgstr ""
+
+#: ../../../release-notes.rst:970
+msgid "Date released: 2022-04-22"
+msgstr ""
+
+#: ../../../release-notes.rst:972
+msgid ""
+"This is a bugfix release. It patches an off-by-one error in the storage "
+"allocation mechanism for dynamic arrays reported by @haltman-at in `#2820 "
+"<https://github.com/vyperlang/vyper/issues/2820>`_"
+msgstr ""
+
+#: ../../../release-notes.rst:976
+msgid ""
+"Add a ``print`` built-in which allows printing debugging messages in "
+"hardhat. (`#2818 <https://github.com/vyperlang/vyper/pull/2818>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:977
+msgid ""
+"Fix various error messages (`#2798 <https://github.com/vyperlang/vyper/"
+"pull/2798>`_, `#2805 <https://github.com/vyperlang/vyper/pull/2805>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:981
+msgid "v0.3.2"
+msgstr ""
+
+#: ../../../release-notes.rst:983
+msgid "Date released: 2022-04-17"
+msgstr ""
+
+#: ../../../release-notes.rst:987
+msgid ""
+"Increase the bounds of the ``decimal`` type (`#2730 <https://github.com/"
+"vyperlang/vyper/pull/2730>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:988
+msgid ""
+"Generalize and simplify the semantics of the ``convert`` builtin (`#2694 "
+"<https://github.com/vyperlang/vyper/pull/2694>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:989
+msgid ""
+"Restrict hex and bytes literals (`#2736 <https://github.com/vyperlang/vyper/"
+"pull/2736>`_, `#2872 <https://github.com/vyperlang/vyper/pull/2782>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:993
+msgid ""
+"Implement dynamic arrays (`#2556 <https://github.com/vyperlang/vyper/"
+"pull/2556>`_, `#2606 <https://github.com/vyperlang/vyper/pull/2606>`_, "
+"`#2615 <https://github.com/vyperlang/vyper/pull/2615>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:994
+msgid ""
+"Support all ABIv2 integer and bytes types (`#2705 <https://github.com/"
+"vyperlang/vyper/pull/2705>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:995
+msgid ""
+"Add storage layout override mechanism (`#2593 <https://github.com/vyperlang/"
+"vyper/pull/2593>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:996
+msgid ""
+"Support ``<address>.code`` attribute (`#2583 <https://github.com/vyperlang/"
+"vyper/pull/2583>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:997
+msgid ""
+"Add ``tx.gasprice`` builtin (`#2624 <https://github.com/vyperlang/vyper/"
+"pull/2624>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:998
+msgid ""
+"Allow structs as constant variables (`#2617 <https://github.com/vyperlang/"
+"vyper/pull/2617>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:999
+msgid ""
+"Implement ``skip_contract_check`` kwarg (`#2551 <https://github.com/"
+"vyperlang/vyper/pull/2551>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1000
+msgid ""
+"Support EIP-2678 ethPM manifest files (`#2628 <https://github.com/vyperlang/"
+"vyper/pull/2628>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1001
+msgid ""
+"Add ``metadata`` output format (`#2597 <https://github.com/vyperlang/vyper/"
+"pull/2597>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1002
+msgid ""
+"Allow ``msg.*`` variables in internal functions (`#2632 <https://github.com/"
+"vyperlang/vyper/pull/2632>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1003
+msgid ""
+"Add ``unsafe_`` arithmetic builtins (`#2629 <https://github.com/vyperlang/"
+"vyper/pull/2629>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1004
+msgid ""
+"Add subroutines to Vyper IR (`#2598 <https://github.com/vyperlang/vyper/"
+"pull/2598>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1005
+msgid ""
+"Add ``select`` opcode to Vyper IR (`#2690 <https://github.com/vyperlang/"
+"vyper/pull/2690>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1006
+msgid ""
+"Allow lists of any type as loop variables (`#2616 <https://github.com/"
+"vyperlang/vyper/pull/2616>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1007
+msgid ""
+"Improve suggestions in error messages (`#2806 <https://github.com/vyperlang/"
+"vyper/pull/2806>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1009
+msgid "Notable Fixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:1011
+msgid ""
+"Clamping of returndata from external calls in complex expressions "
+"(`GHSA-4mrx-6fxm-8jpg <https://github.com/vyperlang/vyper/security/"
+"advisories/GHSA-4mrx-6fxm-8jpg>`_, `GHSA-j2x6-9323-fp7h <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-j2x6-9323-fp7h>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1012
+msgid ""
+"Bytestring equality for (N<=32) (`GHSA-7vrm-3jc8-5wwm <https://github.com/"
+"vyperlang/vyper/security/advisories/GHSA-7vrm-3jc8-5wwm>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1013
+msgid ""
+"Typechecking of constant variables (`#2580 <https://github.com/vyperlang/"
+"vyper/pull/2580>`_, `#2603 <https://github.com/vyperlang/vyper/pull/2603>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1014
+msgid ""
+"Referencing immutables in constructor (`#2627 <https://github.com/vyperlang/"
+"vyper/pull/2627>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1015
+msgid ""
+"Arrays of interfaces in for loops (`#2699 <https://github.com/vyperlang/"
+"vyper/pull/2699>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1017
+msgid ""
+"Lots of optimizations, refactoring and other fixes made it into this "
+"release! For the full list, please see the `changelog <https://github.com/"
+"vyperlang/vyper/compare/v0.3.1...v0.3.2>`__."
+msgstr ""
+
+#: ../../../release-notes.rst:1019
+msgid ""
+"Special thanks to @tserg for typechecker fixes and significant testing of "
+"new features! Additional contributors to this release include "
+"@abdullathedruid, @hi-ogawa, @skellet0r, @fubuloubu, @onlymaresia, "
+"@SwapOperator, @hitsuzen-eth, @Sud0u53r, @davidhq."
+msgstr ""
+
+#: ../../../release-notes.rst:1023
+msgid "v0.3.1"
+msgstr ""
+
+#: ../../../release-notes.rst:1025
+msgid "Date released: 2021-12-01"
+msgstr ""
+
+#: ../../../release-notes.rst:1029
+msgid ""
+"Disallow changes to decimal precision when used as a library (`#2479 "
+"<https://github.com/vyperlang/vyper/pull/2479>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1033
+msgid ""
+"Add immutable variables (`#2466 <https://github.com/vyperlang/vyper/"
+"pull/2466>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1034
+msgid ""
+"Add uint8 type (`#2477 <https://github.com/vyperlang/vyper/pull/2477>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1035
+msgid ""
+"Add gaslimit and basefee env variables (`#2495 <https://github.com/vyperlang/"
+"vyper/pull/2495>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1036
+msgid ""
+"Enable checkable raw_call (`#2482 <https://github.com/vyperlang/vyper/"
+"pull/2482>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1037
+msgid ""
+"Propagate revert data when external call fails (`#2531 <https://github.com/"
+"vyperlang/vyper/pull/2531>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1038
+msgid ""
+"Improve LLL annotations (`#2486 <https://github.com/vyperlang/vyper/"
+"pull/2486>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1039
+msgid ""
+"Optimize short-circuiting boolean operations (`#2467 <https://github.com/"
+"vyperlang/vyper/pull/2467>`_, `#2493 <https://github.com/vyperlang/vyper/"
+"pull/2493>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1040
+msgid ""
+"Optimize identity precompile usage (`#2488 <https://github.com/vyperlang/"
+"vyper/pull/2488>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1041
+msgid ""
+"Remove loaded limits for int128 and address (`#2506 <https://github.com/"
+"vyperlang/vyper/pull/2506>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1042
+msgid ""
+"Add machine readable ir_json format (`#2510 <https://github.com/vyperlang/"
+"vyper/pull/2510>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1043
+msgid ""
+"Optimize raw_call for the common case when the input is in memory (`#2481 "
+"<https://github.com/vyperlang/vyper/pull/2481>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1044
+msgid ""
+"Remove experimental OVM transpiler (`#2532 <https://github.com/vyperlang/"
+"vyper/pull/2532>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1045
+msgid ""
+"Add CLI flag to disable optimizer (`#2522 <https://github.com/vyperlang/"
+"vyper/pull/2522>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1046
+msgid ""
+"Add docs for LLL syntax and semantics (`#2494 <https://github.com/vyperlang/"
+"vyper/pull/2494>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1050
+msgid ""
+"Allow non-constant revert reason strings (`#2509 <https://github.com/"
+"vyperlang/vyper/pull/2509>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1051
+msgid ""
+"Allow slices of complex expressions (`#2500 <https://github.com/vyperlang/"
+"vyper/pull/2500>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1052
+msgid ""
+"Remove seq_unchecked from LLL codegen (`#2485 <https://github.com/vyperlang/"
+"vyper/pull/2485>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1053
+msgid ""
+"Fix external calls with default parameters (`#2526 <https://github.com/"
+"vyperlang/vyper/pull/2526>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1054
+msgid ""
+"Enable lists of structs as function arguments (`#2515 <https://github.com/"
+"vyperlang/vyper/pull/2515>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1055
+msgid ""
+"Fix .balance on constant addresses (`#2533 <https://github.com/vyperlang/"
+"vyper/pull/2533>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1056
+msgid ""
+"Allow variable indexing into constant/literal arrays (`#2534 <https://github."
+"com/vyperlang/vyper/pull/2534>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1057
+msgid ""
+"Fix allocation of unused storage slots (`#2439 <https://github.com/vyperlang/"
+"vyper/pull/2439>`_, `#2514 <https://github.com/vyperlang/vyper/pull/2514>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1059
+msgid "Special thanks to @skellet0r for some major features in this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:1062
+msgid "v0.3.0"
+msgstr ""
+
+#: ../../../release-notes.rst:1063 ../../../release-notes.rst:1096
+#: ../../../release-notes.rst:1121
+msgid ""
+"⚠️ A critical security vulnerability has been discovered in this version and "
+"we strongly recommend using version `0.3.1 <https://github.com/vyperlang/"
+"vyper/releases/tag/v0.3.1>`_ or higher. For more information, please see the "
+"Security Advisory `GHSA-5824-cm3x-3c38 <https://github.com/vyperlang/vyper/"
+"security/advisories/GHSA-5824-cm3x-3c38>`_."
+msgstr ""
+
+#: ../../../release-notes.rst:1065
+msgid "Date released: 2021-10-04"
+msgstr ""
+
+#: ../../../release-notes.rst:1069
+msgid ""
+"Change ABI encoding of single-struct return values to be compatible with "
+"Solidity (`#2457 <https://github.com/vyperlang/vyper/pull/2457>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1070
+msgid ""
+"Drop Python 3.6 support (`#2462 <https://github.com/vyperlang/vyper/"
+"pull/2462>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1074
+msgid ""
+"Rewrite internal calling convention (`#2447 <https://github.com/vyperlang/"
+"vyper/pull/2447>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1075
+msgid ""
+"Allow any ABI-encodable type as function arguments and return types (`#2154 "
+"<https://github.com/vyperlang/vyper/issues/2154>`_, `#2190 <https://github."
+"com/vyperlang/vyper/issues/2190>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1076
+msgid ""
+"Add support for deterministic deployment of minimal proxies using CREATE2 "
+"(`#2460 <https://github.com/vyperlang/vyper/pull/2460>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1077
+msgid ""
+"Optimize code for certain copies (`#2468 <https://github.com/vyperlang/vyper/"
+"pull/2468>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1078
+msgid ""
+"Add -o CLI flag to redirect output to a file (`#2452 <https://github.com/"
+"vyperlang/vyper/pull/2452>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1079
+msgid ""
+"Other docs updates (`#2450 <https://github.com/vyperlang/vyper/pull/2450>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1083
+msgid ""
+"_abi_encode builtin evaluates arguments multiple times (`#2459 <https://"
+"github.com/vyperlang/vyper/issues/2459>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1084
+msgid ""
+"ABI length is too short for nested tuples (`#2458 <https://github.com/"
+"vyperlang/vyper/issues/2458>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1085
+msgid ""
+"Returndata is not clamped for certain numeric types (`#2454 <https://github."
+"com/vyperlang/vyper/issues/2454>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1086
+msgid ""
+"__default__ functions do not respect nonreentrancy keys (`#2455 <https://"
+"github.com/vyperlang/vyper/issues/2455>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1087
+msgid ""
+"Clamps for bytestrings in initcode are broken (`#2456 <https://github.com/"
+"vyperlang/vyper/issues/2456>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1088
+msgid ""
+"Missing clamps for decimal args in external functions (`GHSA-c7pr-343r-5c46 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-"
+"c7pr-343r-5c46>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1089
+msgid ""
+"Memory corruption when returning a literal struct with a private function "
+"call inside of it (`GHSA-xv8x-pr4h-73jv <https://github.com/vyperlang/vyper/"
+"security/advisories/GHSA-xv8x-pr4h-73jv>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1091
+msgid ""
+"Special thanks to contributions from @skellet0r and @benjyz for this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:1095
+msgid "v0.2.16"
+msgstr ""
+
+#: ../../../release-notes.rst:1098
+msgid "Date released: 2021-08-27"
+msgstr ""
+
+#: ../../../release-notes.rst:1102
+msgid ""
+"Expose _abi_encode as a user-facing builtin (`#2401 <https://github.com/"
+"vyperlang/vyper/pull/2401>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1103
+msgid ""
+"Export the storage layout as a compiler output option (`#2433 <https://"
+"github.com/vyperlang/vyper/pull/2433>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1104
+msgid ""
+"Add experimental OVM backend (`#2416 <https://github.com/vyperlang/vyper/"
+"pull/2416>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1105
+msgid ""
+"Allow any ABI-encodable type as event arguments (`#2403 <https://github.com/"
+"vyperlang/vyper/pull/2403>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1106
+msgid ""
+"Optimize int128 clamping (`#2411 <https://github.com/vyperlang/vyper/"
+"pull/2411>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1107
+msgid ""
+"Other docs updates (`#2405 <https://github.com/vyperlang/vyper/pull/2405>`_, "
+"`#2422 <https://github.com/vyperlang/vyper/pull/2422>`_, `#2425 <https://"
+"github.com/vyperlang/vyper/pull/2425>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1111
+msgid ""
+"Disallow nonreentrant decorator on constructors (`#2426 <https://github.com/"
+"vyperlang/vyper/pull/2426>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1112
+msgid ""
+"Fix bounds checks when handling msg.data (`#2419 <https://github.com/"
+"vyperlang/vyper/pull/2419>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1113
+msgid ""
+"Allow interfaces in lists, structs and maps (`#2397 <https://github.com/"
+"vyperlang/vyper/pull/2397>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1114
+msgid ""
+"Fix trailing newline parse bug (`#2412 <https://github.com/vyperlang/vyper/"
+"pull/2412>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1116
+msgid ""
+"Special thanks to contributions from @skellet0r, @sambacha and @milancermak "
+"for this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:1120
+msgid "v0.2.15"
+msgstr ""
+
+#: ../../../release-notes.rst:1123
+msgid "Date released: 23-07-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1125
+msgid ""
+"Non-breaking changes and improvements - Optimization when returning nested "
+"tuples (`#2392 <https://github.com/vyperlang/vyper/pull/2392>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1128
+msgid ""
+"Fixes: - Annotated kwargs for builtins (`#2389 <https://github.com/vyperlang/"
+"vyper/pull/2389>`_) - Storage slot allocation bug (`#2391 <https://github."
+"com/vyperlang/vyper/pull/2391>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1133
+msgid "v0.2.14"
+msgstr ""
+
+#: ../../../release-notes.rst:1136
+msgid "Date released: 20-07-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1138
+msgid ""
+"Non-breaking changes and improvements: - Reduce bytecode by sharing code for "
+"clamps (`#2387 <https://github.com/vyperlang/vyper/pull/2387>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1141
+msgid ""
+"Fixes: - Storage corruption from re-entrancy locks (`#2379 <https://github."
+"com/vyperlang/vyper/pull/2379>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1145
+msgid "v0.2.13"
+msgstr ""
+
+#: ../../../release-notes.rst:1148
+msgid "Date released: 06-07-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1152
+msgid ""
+"Add the ``abs`` builtin function (`#2356 <https://github.com/vyperlang/vyper/"
+"pull/2356>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1153
+msgid ""
+"Streamline the location of arrays within storage (`#2361 <https://github.com/"
+"vyperlang/vyper/pull/2361>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1156
+msgid "v0.2.12"
+msgstr ""
+
+#: ../../../release-notes.rst:1158
+msgid "Date released: 16-04-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1160
+msgid ""
+"This release fixes a memory corruption bug (`#2345 <https://github.com/"
+"vyperlang/vyper/pull/2345>`_) that was introduced in the v0.2.x series and "
+"was not fixed in `VVE-2020-0004 <https://github.com/vyperlang/vyper/security/"
+"advisories/GHSA-2r3x-4mrv-mcxf>`_. Read about it further in `VVE-2021-0001 "
+"<https://github.com/vyperlang/vyper/security/advisories/GHSA-22wc-"
+"c9wj-6q2v>`_."
+msgstr ""
+
+#: ../../../release-notes.rst:1166
+msgid ""
+"Optimize ``calldataload`` (`#2352 <https://github.com/vyperlang/vyper/"
+"pull/2352>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1167
+msgid ""
+"Add the ``int256`` signed integer type (`#2351 <https://github.com/vyperlang/"
+"vyper/pull/2351>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1168
+msgid ""
+"EIP2929 opcode repricing and Berlin support (`#2350 <https://github.com/"
+"vyperlang/vyper/pull/2350>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1169
+msgid ""
+"Add ``msg.data`` environment variable #2343 (`#2343 <https://github.com/"
+"vyperlang/vyper/pull/2343>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1170
+msgid ""
+"Full support for Python 3.9 (`#2233 <https://github.com/vyperlang/vyper/"
+"pull/2233>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1173
+msgid "v0.2.11"
+msgstr ""
+
+#: ../../../release-notes.rst:1175
+msgid "Date released: 27-02-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1177
+msgid ""
+"This is a quick patch release to fix a memory corruption bug that was "
+"introduced in v0.2.9 (`#2321 <https://github.com/vyperlang/vyper/"
+"pull/2321>`_) with excessive memory deallocation when releasing internal "
+"variables"
+msgstr ""
+
+#: ../../../release-notes.rst:1180
+msgid "v0.2.10"
+msgstr ""
+
+#: ../../../release-notes.rst:1183
+msgid "Date released: 17-02-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1185
+msgid ""
+"This is a quick patch release to fix incorrect generated ABIs that was "
+"introduced in v0.2.9 (`#2311 <https://github.com/vyperlang/vyper/"
+"pull/2311>`_) where storage variable getters were incorrectly marked as "
+"``nonpayable`` instead of ``view``"
+msgstr ""
+
+#: ../../../release-notes.rst:1188
+msgid "v0.2.9"
+msgstr ""
+
+#: ../../../release-notes.rst:1191
+msgid "Date released: 16-02-2021"
+msgstr ""
+
+#: ../../../release-notes.rst:1193
+msgid ""
+"Non-breaking changes and improvements: - Add license to wheel, Anaconda "
+"support (`#2265 <https://github.com/vyperlang/vyper/pull/2265>`_) - Consider "
+"events during type-check with `implements:` (`#2283 <https://github.com/"
+"vyperlang/vyper/pull/2283>`_) - Refactor ABI generation (`#2284 <https://"
+"github.com/vyperlang/vyper/pull/2284>`_) - Remove redundant checks in parser/"
+"signatures (`#2288 <https://github.com/vyperlang/vyper/pull/2288>`_) - "
+"Streamling ABI-encoding logic for tuple return types (`#2302 <https://github."
+"com/vyperlang/vyper/pull/2302>`_) - Optimize function ordering within "
+"bytecode (`#2303 <https://github.com/vyperlang/vyper/pull/2303>`_) - "
+"Assembly-level optimizations (`#2304 <https://github.com/vyperlang/vyper/"
+"pull/2304>`_) - Optimize nonpayable assertion (`#2307 <https://github.com/"
+"vyperlang/vyper/pull/2307>`_) - Optimize re-entrancy locks (`#2308 <https://"
+"github.com/vyperlang/vyper/pull/2308>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1204
+msgid ""
+"Fixes: - Change forwarder proxy bytecode to ERC-1167 (`#2281 <https://github."
+"com/vyperlang/vyper/pull/2281>`_) - Reserved keywords check update (`#2286 "
+"<https://github.com/vyperlang/vyper/pull/2286>`_) - Incorrect type-check "
+"error in literal lists (`#2309 <https://github.com/vyperlang/vyper/"
+"pull/2309>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1209
+msgid ""
+"Tons of Refactoring work courtesy of (`@iamdefinitelyahuman <https://github."
+"com/iamdefinitelyahuman>`_)!"
+msgstr ""
+
+#: ../../../release-notes.rst:1212
+msgid "v0.2.8"
+msgstr ""
+
+#: ../../../release-notes.rst:1214
+msgid "Date released: 04-12-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1218
+msgid ""
+"AST updates to provide preliminary support for Python 3.9 (`#2225 <https://"
+"github.com/vyperlang/vyper/pull/2225>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1219
+msgid ""
+"Support for the ``not in`` comparator (`#2232 <https://github.com/vyperlang/"
+"vyper/pull/2232>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1220
+msgid ""
+"Lift restriction on calldata variables shadowing storage variables (`#2226 "
+"<https://github.com/vyperlang/vyper/pull/2226>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1221
+msgid ""
+"Optimize ``shift`` bytecode when 2nd arg is a literal (`#2201 <https://"
+"github.com/vyperlang/vyper/pull/2201>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1222
+msgid ""
+"Warn when EIP-170 size limit is exceeded (`#2208 <https://github.com/"
+"vyperlang/vyper/pull/2208>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1226
+msgid ""
+"Allow use of ``slice`` on a calldata ``bytes32`` (`#2227 <https://github.com/"
+"vyperlang/vyper/pull/2227>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1227
+msgid ""
+"Explicitly disallow iteration of a list of structs (`#2228 <https://github."
+"com/vyperlang/vyper/pull/2228>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1228
+msgid ""
+"Improved validation of address checksums (`#2229 <https://github.com/"
+"vyperlang/vyper/pull/2229>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1229
+msgid ""
+"Bytes are always represented as hex within the AST (`#2231 <https://github."
+"com/vyperlang/vyper/pull/2231>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1230
+msgid ""
+"Allow ``empty`` as an argument within a function call (`#2234 <https://"
+"github.com/vyperlang/vyper/pull/2234>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1231
+msgid ""
+"Allow ``empty`` static-sized array as an argument within a ``log`` statement "
+"(`#2235 <https://github.com/vyperlang/vyper/pull/2235>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1232
+msgid ""
+"Compile-time issue with ``Bytes`` variables as a key in a mapping (`#2239 "
+"<https://github.com/vyperlang/vyper/pull/2239>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1235
+msgid "v0.2.7"
+msgstr ""
+
+#: ../../../release-notes.rst:1237
+msgid "Date released: 10-14-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1239
+msgid ""
+"This is a quick patch release to fix a runtime error introduced in "
+"``v0.2.6`` (`#2188 <https://github.com/vyperlang/vyper/pull/2188>`_) that "
+"could allow for memory corruption under certain conditions."
+msgstr ""
+
+#: ../../../release-notes.rst:1243
+msgid ""
+"Optimizations around ``assert`` and ``raise`` (`#2198 <https://github.com/"
+"vyperlang/vyper/pull/2198>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1244
+msgid ""
+"Simplified internal handling of memory variables (`#2194 <https://github.com/"
+"vyperlang/vyper/pull/2194>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1248
+msgid ""
+"Ensure internal variables are always placed sequentially within memory "
+"(`#2196 <https://github.com/vyperlang/vyper/pull/2196>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1249
+msgid ""
+"Bugfixes around memory de-allocation (`#2197 <https://github.com/vyperlang/"
+"vyper/pull/2197>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1252
+msgid "v0.2.6"
+msgstr ""
+
+#: ../../../release-notes.rst:1255
+msgid "Date released: 10-10-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1259
+msgid ""
+"Release and reuse memory slots within the same function (`#2188 <https://"
+"github.com/vyperlang/vyper/pull/2188>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1260
+msgid ""
+"Allow implicit use of ``uint256`` as iterator type in range-based for loops "
+"(`#2180 <https://github.com/vyperlang/vyper/pull/2180>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1261
+msgid ""
+"Optimize clamping logic for ``int128`` (`#2179 <https://github.com/vyperlang/"
+"vyper/pull/2179>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1262
+msgid ""
+"Calculate array index offsets at compile time where possible (`#2187 "
+"<https://github.com/vyperlang/vyper/pull/2187>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1263
+msgid ""
+"Improved exception for invalid use of dynamically sized struct (`#2189 "
+"<https://github.com/vyperlang/vyper/pull/2189>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1264
+msgid ""
+"Improved exception for incorrect arg count in function call (`#2178 <https://"
+"github.com/vyperlang/vyper/pull/2178>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1265
+msgid ""
+"Improved exception for invalid subscript (`#2177 <https://github.com/"
+"vyperlang/vyper/pull/2177>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1269
+msgid ""
+"Memory corruption issue when performing function calls inside a tuple or "
+"another function call (`#2186 <https://github.com/vyperlang/vyper/"
+"pull/2186>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1270
+msgid ""
+"Incorrect function output when using multidimensional arrays (`#2184 "
+"<https://github.com/vyperlang/vyper/pull/2184>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1271
+msgid ""
+"Reduced ambiguity between ``address`` and ``Bytes[20]`` (`#2191 <https://"
+"github.com/vyperlang/vyper/pull/2191>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1274
+msgid "v0.2.5"
+msgstr ""
+
+#: ../../../release-notes.rst:1276
+msgid "Date released: 30-09-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1280
+msgid ""
+"Improve exception on incorrect interface (`#2131 <https://github.com/"
+"vyperlang/vyper/pull/2131>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1281
+msgid ""
+"Standalone binary preparation (`#2134 <https://github.com/vyperlang/vyper/"
+"pull/2134>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1282
+msgid ""
+"Improve make freeze (`#2135 <https://github.com/vyperlang/vyper/pull/2135>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1283
+msgid ""
+"Remove Excessive Scoping Rules on Local Variables (`#2166 <https://github."
+"com/vyperlang/vyper/pull/2166>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1284
+msgid ""
+"Optimize nonpayable check for contracts that do not accept ETH (`#2172 "
+"<https://github.com/vyperlang/vyper/pull/2172>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1285
+msgid ""
+"Optimize safemath on division-by-zero with a literal divisor (`#2173 "
+"<https://github.com/vyperlang/vyper/pull/2173>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1286
+msgid ""
+"Optimize multiple sequential memory-zeroings (`#2174 <https://github.com/"
+"vyperlang/vyper/pull/2174>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1287
+msgid ""
+"Optimize size-limit checks for address and bool types (`#2175 <https://"
+"github.com/vyperlang/vyper/pull/2175>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1291
+msgid ""
+"Constant folding on lhs of assignments (`#2137 <https://github.com/vyperlang/"
+"vyper/pull/2137>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1292
+msgid ""
+"ABI issue with bytes and string arrays inside tuples (`#2140 <https://github."
+"com/vyperlang/vyper/pull/2140>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1293
+msgid ""
+"Returning struct from a external function gives error (`#2143 <https://"
+"github.com/vyperlang/vyper/pull/2143>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1294
+msgid ""
+"Error messages with struct display all members (`#2160 <https://github.com/"
+"vyperlang/vyper/pull/2160>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1295
+msgid ""
+"The returned struct value from the external call doesn't get stored properly "
+"(`#2164 <https://github.com/vyperlang/vyper/pull/2164>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1296
+msgid ""
+"Improved exception on invalid function-scoped assignment (`#2176 <https://"
+"github.com/vyperlang/vyper/pull/2176>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1299
+msgid "v0.2.4"
+msgstr ""
+
+#: ../../../release-notes.rst:1301
+msgid "Date released: 03-08-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1305
+msgid ""
+"Improve EOF Exceptions (`#2115 <https://github.com/vyperlang/vyper/"
+"pull/2115>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1306
+msgid ""
+"Improve exception messaging for type mismatches (`#2119 <https://github.com/"
+"vyperlang/vyper/pull/2119>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1307
+msgid ""
+"Ignore trailing newline tokens (`#2120 <https://github.com/vyperlang/vyper/"
+"pull/2120>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1311
+msgid ""
+"Fix ABI translations for structs that are returned from functions (`#2114 "
+"<https://github.com/vyperlang/vyper/pull/2114>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1312
+msgid ""
+"Raise when items that are not types are called (`#2118 <https://github.com/"
+"vyperlang/vyper/pull/2118>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1313
+msgid ""
+"Ensure hex and decimal AST nodes are serializable (`#2123 <https://github."
+"com/vyperlang/vyper/pull/2123>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1316
+msgid "v0.2.3"
+msgstr ""
+
+#: ../../../release-notes.rst:1318
+msgid "Date released: 16-07-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1322
+msgid ""
+"Show contract names in raised exceptions (`#2103 <https://github.com/"
+"vyperlang/vyper/pull/2103>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1323
+msgid ""
+"Adjust function offsets to not include decorators (`#2102 <https://github."
+"com/vyperlang/vyper/pull/2102>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1324
+msgid ""
+"Raise certain exception types immediately during module-scoped type checking "
+"(`#2101 <https://github.com/vyperlang/vyper/pull/2101>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1328
+msgid ""
+"Pop ``for`` loop values from stack prior to returning (`#2110 <https://"
+"github.com/vyperlang/vyper/pull/2110>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1329
+msgid ""
+"Type checking non-literal array index values (`#2108 <https://github.com/"
+"vyperlang/vyper/pull/2108>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1330
+msgid ""
+"Meaningful output during ``for`` loop type checking (`#2096 <https://github."
+"com/vyperlang/vyper/pull/2096>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1333
+msgid "v0.2.2"
+msgstr ""
+
+#: ../../../release-notes.rst:1335
+msgid "Date released: 04-07-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1339
+msgid ""
+"Do not fold exponentiation to a negative power (`#2089 <https://github.com/"
+"vyperlang/vyper/pull/2089>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1340
+msgid ""
+"Add repr for mappings (`#2090 <https://github.com/vyperlang/vyper/"
+"pull/2090>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1341
+msgid ""
+"Literals are only validated once (`#2093 <https://github.com/vyperlang/vyper/"
+"pull/2093>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1344
+msgid "v0.2.1"
+msgstr ""
+
+#: ../../../release-notes.rst:1346
+msgid "Date released: 03-07-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1348
+msgid ""
+"This is a major breaking release of the Vyper compiler and language. It is "
+"also the first release following our versioning scheme (`#1887 <https://"
+"github.com/vyperlang/vyper/issues/1887>`_)."
+msgstr ""
+
+#: ../../../release-notes.rst:1352
+msgid ""
+"``@public`` and ``@private`` function decorators have been renamed to "
+"``@external`` and ``@internal`` (VIP `#2065 <https://github.com/vyperlang/"
+"vyper/issues/2065>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1353
+msgid ""
+"The ``@constant`` decorator has been renamed to ``@view`` (VIP `#2040 "
+"<https://github.com/vyperlang/vyper/issues/2040>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1354
+msgid ""
+"Type units have been removed (VIP `#1881 <https://github.com/vyperlang/vyper/"
+"issues/1881>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1355
+msgid ""
+"Event declaration syntax now resembles that of struct declarations (VIP "
+"`#1864 <https://github.com/vyperlang/vyper/issues/1864>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1356
+msgid ""
+"``log`` is now a statement (VIP `#1864 <https://github.com/vyperlang/vyper/"
+"issues/1864>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1357
+msgid ""
+"Mapping declaration syntax changed to ``HashMap[key_type, value_type]`` (VIP "
+"`#1969 <https://github.com/vyperlang/vyper/issues/1969>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1358
+msgid ""
+"Interfaces are now declared via the ``interface`` keyword instead of "
+"``contract`` (VIP `#1825 <https://github.com/vyperlang/vyper/issues/1825>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1359
+msgid ""
+"``bytes`` and ``string`` types are now written as ``Bytes`` and ``String`` "
+"(`#2080 <https://github.com/vyperlang/vyper/pull/2080>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1360
+msgid ""
+"``bytes`` and ``string`` literals must now be bytes or regular strings, "
+"respectively. They are no longer interchangeable. (VIP `#1876 <https://"
+"github.com/vyperlang/vyper/issues/1876>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1361
+msgid ""
+"``assert_modifiable`` has been removed, you can now directly perform "
+"assertions on calls (`#2050 <https://github.com/vyperlang/vyper/pull/2050>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1362
+msgid ""
+"``value`` is no longer an allowable variable name in a function input (VIP "
+"`#1877 <https://github.com/vyperlang/vyper/issues/1877>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1363
+msgid ""
+"The ``slice`` builtin function expects ``uint256`` for the ``start`` and "
+"``length`` args (VIP `#1986 <https://github.com/vyperlang/vyper/"
+"issues/1986>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1364
+msgid ""
+"``len`` return type is now ``uint256`` (VIP `#1979 <https://github.com/"
+"vyperlang/vyper/issues/1979>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1365
+msgid ""
+"``value`` and ``gas`` kwargs for external function calls must be given as "
+"``uint256`` (VIP `#1878 <https://github.com/vyperlang/vyper/issues/1878>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1366
+msgid ""
+"The ``outsize`` kwarg in ``raw_call`` has been renamed to ``max_outsize`` "
+"(`#1977 <https://github.com/vyperlang/vyper/pull/1977>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1367
+msgid ""
+"The ``type`` kwarg in ``extract32`` has been renamed to ``output_type`` "
+"(`#2036 <https://github.com/vyperlang/vyper/pull/2036>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1368
+msgid ""
+"Public array getters now use ``uint256`` for their input argument(s) (VIP "
+"`#1983 <https://github.com/vyperlang/vyper/issues/1983>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1369
+msgid ""
+"Public struct getters now return all values of a struct (`#2064 <https://"
+"github.com/vyperlang/vyper/pull/2064>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1370
+msgid ""
+"``RLPList`` has been removed (VIP `#1866 <https://github.com/vyperlang/vyper/"
+"issues/1866>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1373
+msgid "The following non-breaking VIPs and features were implemented:"
+msgstr ""
+
+#: ../../../release-notes.rst:1375
+msgid ""
+"Implement boolean condition short circuiting (VIP `#1817 <https://github.com/"
+"vyperlang/vyper/issues/1817>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1376
+msgid ""
+"Add the ``empty`` builtin function for zero-ing a value (`#1676 <https://"
+"github.com/vyperlang/vyper/pull/1676>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1377
+msgid ""
+"Refactor of the compiler process resulting in an almost 5x performance "
+"boost! (`#1962 <https://github.com/vyperlang/vyper/pull/1962>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1378
+msgid ""
+"Support ABI State Mutability Fields in Interface Definitions (VIP `#2042 "
+"<https://github.com/vyperlang/vyper/issues/2042>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1379
+msgid ""
+"Support ``@pure`` decorator (VIP `#2041 <https://github.com/vyperlang/vyper/"
+"issues/2041>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1380
+msgid ""
+"Overflow checks for exponentiation (`#2072 <https://github.com/vyperlang/"
+"vyper/pull/2072>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1381
+msgid ""
+"Validate return data length via ``RETURNDATASIZE`` (`#2076 <https://github."
+"com/vyperlang/vyper/pull/2076>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1382
+msgid ""
+"Improved constant folding (`#1949 <https://github.com/vyperlang/vyper/"
+"pull/1949>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1383
+msgid ""
+"Allow raise without reason string (VIP `#1902 <https://github.com/vyperlang/"
+"vyper/issues/1902>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1384
+msgid ""
+"Make the type argument in ``method_id`` optional (VIP `#1980 <https://github."
+"com/vyperlang/vyper/issues/1980>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1385
+msgid ""
+"Hash complex types when used as indexed values in an event (`#2060 <https://"
+"github.com/vyperlang/vyper/pull/2060>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1386
+msgid ""
+"Ease restrictions on calls to self (`#2059 <https://github.com/vyperlang/"
+"vyper/pull/2059>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1387
+msgid ""
+"Remove ordering restrictions in module-scope of contract (`#2057 <https://"
+"github.com/vyperlang/vyper/pull/2057>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1388
+msgid ""
+"``raw_call`` can now be used to perform a ``STATICCALL`` (`#1973 <https://"
+"github.com/vyperlang/vyper/pull/1973>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1389
+msgid ""
+"Optimize precompiles to use ``STATICCALL`` (`#1930 <https://github.com/"
+"vyperlang/vyper/pull/1930>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1391 ../../../release-notes.rst:1415
+#: ../../../release-notes.rst:1448 ../../../release-notes.rst:1481
+#: ../../../release-notes.rst:1509 ../../../release-notes.rst:1526
+msgid "Some of the bug and stability fixes:"
+msgstr ""
+
+#: ../../../release-notes.rst:1393
+msgid ""
+"Arg clamping issue when using multidimensional arrays (`#2071 <https://"
+"github.com/vyperlang/vyper/pull/2071>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1394
+msgid ""
+"Support calldata arrays with the ``in`` comparator (`#2070 <https://github."
+"com/vyperlang/vyper/pull/2070>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1395
+msgid ""
+"Prevent modification of a storage array during iteration via ``for`` loop "
+"(`#2028 <https://github.com/vyperlang/vyper/pull/2028>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1396
+msgid ""
+"Fix memory length of revert string (`#1982 <https://github.com/vyperlang/"
+"vyper/pull/1982>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1397
+msgid ""
+"Memory offset issue when returning tuples from private functions (`#1968 "
+"<https://github.com/vyperlang/vyper/pull/1968>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1398
+msgid ""
+"Issue with arrays as default function arguments (`#2077 <https://github.com/"
+"vyperlang/vyper/pull/2077>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1399
+msgid ""
+"Private function calls no longer generate a call signature (`#2058 <https://"
+"github.com/vyperlang/vyper/pull/2058>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1401
+msgid ""
+"Significant codebase refactor, thanks to (`@iamdefinitelyahuman <https://"
+"github.com/iamdefinitelyahuman>`_)!"
+msgstr ""
+
+#: ../../../release-notes.rst:1403
+msgid ""
+"**NOTE**: ``v0.2.0`` was not used due to a conflict in PyPI with a previous "
+"release. Both tags ``v0.2.0`` and ``v0.2.1`` are identical."
+msgstr ""
+
+#: ../../../release-notes.rst:1406
+msgid "v0.1.0-beta.17"
+msgstr ""
+
+#: ../../../release-notes.rst:1408
+msgid "Date released: 24-03-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1410
+msgid "The following VIPs and features were implemented for Beta 17:"
+msgstr ""
+
+#: ../../../release-notes.rst:1412
+msgid ""
+"``raw_call`` and ``slice`` argument updates (VIP `#1879 <https://github.com/"
+"vyperlang/vyper/issues/1879>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1413
+msgid ""
+"NatSpec support (`#1898 <https://github.com/vyperlang/vyper/pull/1898>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1417
+msgid ""
+"ABI interface fixes (`#1842 <https://github.com/vyperlang/vyper/pull/1842>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1418
+msgid ""
+"Modifications to how ABI data types are represented (`#1846 <https://github."
+"com/vyperlang/vyper/pull/1846>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1419
+msgid ""
+"Generate method identifier for struct return type (`#1843 <https://github."
+"com/vyperlang/vyper/pull/1843>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1420
+msgid ""
+"Return tuple with fixed array fails to compile (`#1838 <https://github.com/"
+"vyperlang/vyper/pull/1838>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1421
+msgid "Also lots of refactoring and doc updates!"
+msgstr ""
+
+#: ../../../release-notes.rst:1423
+msgid ""
+"This release will be the last to follow our current release process. All "
+"future releases will be governed by the versioning scheme (`#1887 <https://"
+"github.com/vyperlang/vyper/issues/1887>`_). The next release will be v0.2.0, "
+"and contain many breaking changes."
+msgstr ""
+
+#: ../../../release-notes.rst:1429
+msgid "v0.1.0-beta.16"
+msgstr ""
+
+#: ../../../release-notes.rst:1431
+msgid "Date released: 09-01-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1433
+msgid ""
+"Beta 16 was a quick patch release to fix one issue: (`#1829 <https://github."
+"com/vyperlang/vyper/pull/1829>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1436
+msgid "v0.1.0-beta.15"
+msgstr ""
+
+#: ../../../release-notes.rst:1438
+msgid "Date released: 06-01-2020"
+msgstr ""
+
+#: ../../../release-notes.rst:1440
+msgid ""
+"**NOTE**: we changed our license to Apache 2.0 (`#1772 <https://github.com/"
+"vyperlang/vyper/pull/1772>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1442
+msgid "The following VIPs were implemented for Beta 15:"
+msgstr ""
+
+#: ../../../release-notes.rst:1444
+msgid ""
+"EVM Ruleset Switch (VIP `#1230 <https://github.com/vyperlang/vyper/"
+"issues/1230>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1445
+msgid ""
+"Add support for `EIP-1344 <https://eips.ethereum.org/EIPS/eip-1344>`_, Chain "
+"ID Opcode (VIP `#1652 <https://github.com/vyperlang/vyper/issues/1652>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1446
+msgid ""
+"Support for `EIP-1052 <https://eips.ethereum.org/EIPS/eip-1052>`_, "
+"``EXTCODEHASH`` (VIP `#1765 <https://github.com/vyperlang/vyper/"
+"issues/1765>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1450
+msgid ""
+"Removed all traces of Javascript from the codebase (`#1770 <https://github."
+"com/vyperlang/vyper/pull/1770>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1451
+msgid ""
+"Ensured sufficient gas stipend for precompiled calls (`#1771 <https://github."
+"com/vyperlang/vyper/pull/1771>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1452
+msgid ""
+"Allow importing an interface that contains an ``implements`` statement "
+"(`#1774 <https://github.com/vyperlang/vyper/pull/1774>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1453
+msgid ""
+"Fixed how certain values compared when using ``min`` and ``max`` (`#1790 "
+"<https://github.com/vyperlang/vyper/pull/1790>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1454
+msgid ""
+"Removed unnecessary overflow checks on ``addmod`` and ``mulmod`` (`#1786 "
+"<https://github.com/vyperlang/vyper/pull/1786>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1455
+msgid ""
+"Check for state modification when using tuples (`#1785 <https://github.com/"
+"vyperlang/vyper/pull/1785>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1456
+msgid ""
+"Fix Windows path issue when importing interfaces (`#1781 <https://github.com/"
+"vyperlang/vyper/pull/1781>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1457
+msgid ""
+"Added Vyper grammar, currently used for fuzzing (`#1768 <https://github.com/"
+"vyperlang/vyper/pull/1768>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1458
+msgid ""
+"Modify modulus calculations for literals to be consistent with the EVM "
+"(`#1792 <https://github.com/vyperlang/vyper/pull/1792>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1459
+msgid ""
+"Explicitly disallow the use of exponentiation on decimal values (`#1792 "
+"<https://github.com/vyperlang/vyper/pull/1792>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1460
+msgid ""
+"Add compile-time checks for divide by zero and modulo by zero (`#1792 "
+"<https://github.com/vyperlang/vyper/pull/1792>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1461
+msgid ""
+"Fixed some issues with negating constants (`#1791 <https://github.com/"
+"vyperlang/vyper/pull/1791>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1462
+msgid ""
+"Allow relative imports beyond one parent level (`#1784 <https://github.com/"
+"vyperlang/vyper/pull/1784>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1463
+msgid ""
+"Implement SHL/SHR for bitshifting, using Constantinople rules (`#1796 "
+"<https://github.com/vyperlang/vyper/pull/1796>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1464
+msgid ""
+"``vyper-json`` compatibility with ``solc`` settings (`#1795 <https://github."
+"com/vyperlang/vyper/pull/1795>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1465
+msgid ""
+"Simplify the type check when returning lists (`#1797 <https://github.com/"
+"vyperlang/vyper/pull/1797>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1466
+msgid ""
+"Add branch coverage reporting (`#1743 <https://github.com/vyperlang/vyper/"
+"pull/1743>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1467
+msgid ""
+"Fix struct assignment order (`#1728 <https://github.com/vyperlang/vyper/"
+"pull/1728>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1468
+msgid ""
+"Added more words to reserved keyword list (`#1741 <https://github.com/"
+"vyperlang/vyper/pull/1741>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1469
+msgid ""
+"Allow scientific notation for literals (`#1721 <https://github.com/vyperlang/"
+"vyper/pull/1721>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1470
+msgid ""
+"Avoid overflow on sqrt of Decimal upper bound (`#1679 <https://github.com/"
+"vyperlang/vyper/pull/1679>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1471
+msgid ""
+"Refactor ABI encoder (`#1723 <https://github.com/vyperlang/vyper/"
+"pull/1723>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1472
+msgid ""
+"Changed opcode costs per `EIP-1884 <https://eips.ethereum.org/EIPS/"
+"eip-1884>`_ (`#1764 <https://github.com/vyperlang/vyper/pull/1764>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1474 ../../../release-notes.rst:1538
+msgid ""
+"Special thanks to (`@iamdefinitelyahuman <https://github.com/"
+"iamdefinitelyahuman>`_) for lots of updates this release!"
+msgstr ""
+
+#: ../../../release-notes.rst:1477
+msgid "v0.1.0-beta.14"
+msgstr ""
+
+#: ../../../release-notes.rst:1479
+msgid "Date released: 13-11-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1483
+msgid "Mucho Documentation and Example cleanup!"
+msgstr ""
+
+#: ../../../release-notes.rst:1484
+msgid ""
+"Python 3.8 support (`#1678 <https://github.com/vyperlang/vyper/pull/1678>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1485
+msgid ""
+"Disallow scientific notation in literals, which previously parsed "
+"incorrectly (`#1681 <https://github.com/vyperlang/vyper/pull/1681>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1486
+msgid ""
+"Add implicit rewrite rule for ``bytes[32]`` -> ``bytes32`` (`#1718 <https://"
+"github.com/vyperlang/vyper/pull/1718>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1487
+msgid ""
+"Support ``bytes32`` in ``raw_log`` (`#1719 <https://github.com/vyperlang/"
+"vyper/pull/1719>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1488
+msgid ""
+"Fixed EOF parsing bug (`#1720 <https://github.com/vyperlang/vyper/"
+"pull/1720>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1489
+msgid ""
+"Cleaned up arithmetic expressions (`#1661 <https://github.com/vyperlang/"
+"vyper/pull/1661>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1490
+msgid ""
+"Fixed off-by-one in check for homogeneous list element types (`#1673 "
+"<https://github.com/vyperlang/vyper/pull/1673>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1491
+msgid ""
+"Fixed stack valency issues in if and for statements (`#1665 <https://github."
+"com/vyperlang/vyper/pull/1665>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1492
+msgid ""
+"Prevent overflow when using ``sqrt`` on certain datatypes (`#1679 <https://"
+"github.com/vyperlang/vyper/pull/1679>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1493
+msgid ""
+"Prevent shadowing of internal variables (`#1601 <https://github.com/"
+"vyperlang/vyper/pull/1601>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1494
+msgid ""
+"Reject unary subtraction on unsigned types  (`#1638 <https://github.com/"
+"vyperlang/vyper/pull/1638>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1495
+msgid ""
+"Disallow ``orelse`` syntax in ``for`` loops (`#1633 <https://github.com/"
+"vyperlang/vyper/pull/1633>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1496
+msgid ""
+"Increased clarity and efficiency of zero-padding (`#1605 <https://github.com/"
+"vyperlang/vyper/pull/1605>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1499
+msgid "v0.1.0-beta.13"
+msgstr ""
+
+#: ../../../release-notes.rst:1501
+msgid "Date released: 27-09-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1503
+msgid "The following VIPs were implemented for Beta 13:"
+msgstr ""
+
+#: ../../../release-notes.rst:1505
+msgid ""
+"Add ``vyper-json`` compilation mode (VIP `#1520 <https://github.com/"
+"vyperlang/vyper/issues/1520>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1506
+msgid ""
+"Environment variables and constants can now be used as default parameters "
+"(VIP `#1525 <https://github.com/vyperlang/vyper/issues/1525>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1507
+msgid ""
+"Require uninitialized memory be set on creation (VIP `#1493 <https://github."
+"com/vyperlang/vyper/issues/1493>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1511
+msgid ""
+"Type check for default params and arrays (`#1596 <https://github.com/"
+"vyperlang/vyper/pull/1596>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1512
+msgid ""
+"Fixed bug when using assertions inside for loops (`#1619 <https://github.com/"
+"vyperlang/vyper/pull/1619>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1513
+msgid ""
+"Fixed zero padding error for ABI encoder (`#1611 <https://github.com/"
+"vyperlang/vyper/pull/1611>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1514
+msgid ""
+"Check ``calldatasize`` before ``calldataload`` for function selector (`#1606 "
+"<https://github.com/vyperlang/vyper/pull/1606>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1517
+msgid "v0.1.0-beta.12"
+msgstr ""
+
+#: ../../../release-notes.rst:1519
+msgid "Date released: 27-08-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1521
+msgid "The following VIPs were implemented for Beta 12:"
+msgstr ""
+
+#: ../../../release-notes.rst:1523
+msgid ""
+"Support for relative imports (VIP `#1367 <https://github.com/vyperlang/vyper/"
+"issues/1367>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1524
+msgid ""
+"Restricted use of environment variables in private functions (VIP `#1199 "
+"<https://github.com/vyperlang/vyper/issues/1199>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1528
+msgid ""
+"``@nonreentrant``/``@constant`` logical inconsistency (`#1544 <https://"
+"github.com/vyperlang/vyper/issues/1544>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1529
+msgid ""
+"Struct passthrough issue (`#1551 <https://github.com/vyperlang/vyper/"
+"issues/1551>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1530
+msgid ""
+"Private underflow issue (`#1470 <https://github.com/vyperlang/vyper/"
+"pull/1470>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1531
+msgid ""
+"Constancy check issue (`#1480 <https://github.com/vyperlang/vyper/"
+"pull/1480>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1532
+msgid ""
+"Prevent use of conflicting method IDs (`#1530 <https://github.com/vyperlang/"
+"vyper/pull/1530>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1533
+msgid ""
+"Missing arg check for private functions (`#1579 <https://github.com/"
+"vyperlang/vyper/pull/1579>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1534
+msgid ""
+"Zero padding issue (`#1563 <https://github.com/vyperlang/vyper/"
+"issues/1563>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1535
+msgid ""
+"``vyper.cli`` rearchitecture of scripts (`#1574 <https://github.com/"
+"vyperlang/vyper/issues/1574>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1536
+msgid ""
+"AST end offsets and Solidity-compatible compressed sourcemap (`#1580 "
+"<https://github.com/vyperlang/vyper/pull/1580>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1541
+msgid "v0.1.0-beta.11"
+msgstr ""
+
+#: ../../../release-notes.rst:1543
+msgid "Date released: 23-07-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1545
+msgid "Beta 11 brings some performance and stability fixes."
+msgstr ""
+
+#: ../../../release-notes.rst:1547
+msgid ""
+"Using calldata instead of memory parameters. (`#1499 <https://github.com/"
+"vyperlang/vyper/pull/1499>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1548
+msgid ""
+"Reducing of contract size, for large parameter functions. (`#1486 <https://"
+"github.com/vyperlang/vyper/pull/1486>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1549
+msgid ""
+"Improvements for Windows users (`#1486 <https://github.com/vyperlang/vyper/"
+"pull/1486>`_)  (`#1488 <https://github.com/vyperlang/vyper/pull/1488>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1550
+msgid ""
+"Array copy optimisation (`#1487 <https://github.com/vyperlang/vyper/"
+"pull/1487>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1551
+msgid ""
+"Fixing ``@nonreentrant`` decorator for return statements (`#1532 <https://"
+"github.com/vyperlang/vyper/pull/1532>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1552
+msgid ""
+"``sha3`` builtin function removed  (`#1328 <https://github.com/vyperlang/"
+"vyper/issues/1328>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1553
+msgid ""
+"Disallow conflicting method IDs (`#1530 <https://github.com/vyperlang/vyper/"
+"pull/1530>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1554
+msgid ""
+"Additional ``convert()`` supported types (`#1524 <https://github.com/"
+"vyperlang/vyper/pull/1524>`_) (`#1500 <https://github.com/vyperlang/vyper/"
+"pull/1500>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1555
+msgid ""
+"Equality operator for strings and bytes (`#1507 <https://github.com/"
+"vyperlang/vyper/pull/1507>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1556
+msgid ""
+"Change in ``compile_codes`` interface function (`#1504 <https://github.com/"
+"vyperlang/vyper/pull/1504>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1558
+msgid "Thanks to all the contributors!"
+msgstr ""
+
+#: ../../../release-notes.rst:1561
+msgid "v0.1.0-beta.10"
+msgstr ""
+
+#: ../../../release-notes.rst:1563
+msgid "Date released: 24-05-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1565
+msgid "Lots of linting and refactoring!"
+msgstr ""
+
+#: ../../../release-notes.rst:1566
+msgid ""
+"Bugfix with regards to using arrays as parameters to private functions "
+"(`#1418 <https://github.com/vyperlang/vyper/issues/1418>`_). Please check "
+"your contracts, and upgrade to latest version, if you do use this."
+msgstr ""
+
+#: ../../../release-notes.rst:1567
+msgid ""
+"Slight shrinking in init produced bytecode. (`#1399 <https://github.com/"
+"vyperlang/vyper/issues/1399>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1568
+msgid ""
+"Additional constancy protection in the ``for .. range`` expression. (`#1397 "
+"<https://github.com/vyperlang/vyper/issues/1397>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1569
+msgid ""
+"Improved bug report (`#1394 <https://github.com/vyperlang/vyper/"
+"issues/1394>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1570
+msgid ""
+"Fix returning of External Contract from functions (`#1376 <https://github."
+"com/vyperlang/vyper/issues/1376>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1571
+msgid ""
+"Interface unit fix (`#1303 <https://github.com/vyperlang/vyper/"
+"issues/1303>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1572
+msgid ""
+"Not Equal (!=) optimisation (`#1303 <https://github.com/vyperlang/vyper/"
+"issues/1303>`_) 1386"
+msgstr ""
+
+#: ../../../release-notes.rst:1573
+msgid ""
+"New ``assert <condition>, UNREACHABLE`` statement. (`#711 <https://github."
+"com/vyperlang/vyper/issues/711>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1575
+msgid ""
+"Special thanks to (`Charles Cooper <https://github.com/charles-cooper>`_), "
+"for some excellent contributions this release."
+msgstr ""
+
+#: ../../../release-notes.rst:1578
+msgid "v0.1.0-beta.9"
+msgstr ""
+
+#: ../../../release-notes.rst:1580
+msgid "Date released: 12-03-2019"
+msgstr ""
+
+#: ../../../release-notes.rst:1582
+msgid ""
+"Add support for list constants (`#1211 <https://github.com/vyperlang/vyper/"
+"issues/1211>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1583
+msgid ""
+"Add ``sha256`` function (`#1327 <https://github.com/vyperlang/vyper/"
+"issues/1327>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1584
+msgid ""
+"Renamed ``create_with_code_of`` to ``create_forwarder_to`` (`#1177 <https://"
+"github.com/vyperlang/vyper/issues/1177>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1585
+msgid ""
+"``@nonreentrant`` Decorator  (`#1204 <https://github.com/vyperlang/vyper/"
+"issues/1204>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1586
+msgid ""
+"Add opcodes and opcodes_runtime flags to compiler (`#1255 <https://github."
+"com/vyperlang/vyper/pull/1255>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1587
+msgid ""
+"Improved External contract call interfaces (`#885 <https://github.com/"
+"vyperlang/vyper/issues/885>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1590
+msgid "Prior to v0.1.0-beta.9"
+msgstr ""
+
+#: ../../../release-notes.rst:1592
+msgid ""
+"Prior to this release, we managed our change log in a different fashion. "
+"Here is the old changelog:"
+msgstr ""
+
+#: ../../../release-notes.rst:1595
+msgid ""
+"**2019.04.05**: Add stricter checking of unbalanced return statements. "
+"(`#590 <https://github.com/vyperlang/vyper/issues/590>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1596
+msgid ""
+"**2019.03.04**: ``create_with_code_of`` has been renamed to "
+"``create_forwarder_to``. (`#1177 <https://github.com/vyperlang/vyper/"
+"issues/1177>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1597
+msgid ""
+"**2019.02.14**: Assigning a persistent contract address can only be done "
+"using the ``bar_contact = ERC20(<address>)`` syntax."
+msgstr ""
+
+#: ../../../release-notes.rst:1598
+msgid ""
+"**2019.02.12**: ERC20 interface has to be imported using ``from vyper."
+"interfaces import ERC20`` to use."
+msgstr ""
+
+#: ../../../release-notes.rst:1599
+msgid ""
+"**2019.01.30**: Byte array literals need to be annotated using ``b\"\"``, "
+"strings are represented as `\"\"`."
+msgstr ""
+
+#: ../../../release-notes.rst:1600
+msgid ""
+"**2018.12.12**: Disallow use of ``None``, disallow use of ``del``, "
+"implemented ``clear()`` built-in function."
+msgstr ""
+
+#: ../../../release-notes.rst:1601
+msgid ""
+"**2018.11.19**: Change mapping syntax to use ``map()``. (`VIP564 <https://"
+"github.com/vyperlang/vyper/issues/564>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1602
+msgid ""
+"**2018.10.02**: Change the convert style to use types instead of string. "
+"(`VIP1026 <https://github.com/vyperlang/vyper/issues/1026>`_)"
+msgstr ""
+
+#: ../../../release-notes.rst:1603
+msgid "**2018.09.24**: Add support for custom constants."
+msgstr ""
+
+#: ../../../release-notes.rst:1604
+msgid "**2018.08.09**: Add support for default parameters."
+msgstr ""
+
+#: ../../../release-notes.rst:1605
+msgid "**2018.06.08**: Tagged first beta."
+msgstr ""
+
+#: ../../../release-notes.rst:1606
+msgid "**2018.05.23**: Changed ``wei_value`` to be ``uint256``."
+msgstr ""
+
+#: ../../../release-notes.rst:1607
+msgid ""
+"**2018.04.03**: Changed bytes declaration from ``bytes <= n`` to "
+"``bytes[n]``."
+msgstr ""
+
+#: ../../../release-notes.rst:1608
+msgid "**2018.03.27**: Renaming ``signed256`` to ``int256``."
+msgstr ""
+
+#: ../../../release-notes.rst:1609
+msgid ""
+"**2018.03.22**: Add modifiable and static keywords for external contract "
+"calls."
+msgstr ""
+
+#: ../../../release-notes.rst:1610
+msgid "**2018.03.20**: Renaming ``__log__`` to ``event``."
+msgstr ""
+
+#: ../../../release-notes.rst:1611
+msgid "**2018.02.22**: Renaming num to int128, and num256 to uint256."
+msgstr ""
+
+#: ../../../release-notes.rst:1612
+msgid "**2018.02.13**: Ban functions with payable and constant decorators."
+msgstr ""
+
+#: ../../../release-notes.rst:1613
+msgid "**2018.02.12**: Division by num returns decimal type."
+msgstr ""
+
+#: ../../../release-notes.rst:1614
+msgid "**2018.02.09**: Standardize type conversions."
+msgstr ""
+
+#: ../../../release-notes.rst:1615
+msgid "**2018.02.01**: Functions cannot have the same name as globals."
+msgstr ""
+
+#: ../../../release-notes.rst:1616
+msgid "**2018.01.27**: Change getter from get_var to var."
+msgstr ""
+
+#: ../../../release-notes.rst:1617
+msgid "**2018.01.11**: Change version from 0.0.2 to 0.0.3"
+msgstr ""
+
+#: ../../../release-notes.rst:1618
+msgid ""
+"**2018.01.04**: Types need to be specified on assignment (`VIP545 <https://"
+"github.com/vyperlang/vyper/issues/545>`_)."
+msgstr ""
+
+#: ../../../release-notes.rst:1619
+msgid "**2017.01.02** Change ``as_wei_value`` to use quotes for units."
+msgstr ""
+
+#: ../../../release-notes.rst:1620
+msgid "**2017.12.25**: Change name from Viper to Vyper."
+msgstr ""
+
+#: ../../../release-notes.rst:1621
+msgid "**2017.12.22**: Add ``continue`` for loops"
+msgstr ""
+
+#: ../../../release-notes.rst:1622
+msgid "**2017.11.29**: ``@internal`` renamed to ``@private``."
+msgstr ""
+
+#: ../../../release-notes.rst:1623
+msgid ""
+"**2017.11.15**: Functions require either ``@internal`` or ``@public`` "
+"decorators."
+msgstr ""
+
+#: ../../../release-notes.rst:1624
+msgid ""
+"**2017.07.25**: The ``def foo() -> num(const): ...`` syntax no longer works; "
+"you now need to do ``def foo() -> num: ...`` with a ``@constant`` decorator "
+"on the previous line."
+msgstr ""
+
+#: ../../../release-notes.rst:1625
+msgid ""
+"**2017.07.25**: Functions without a ``@payable`` decorator now fail when "
+"called with nonzero wei."
+msgstr ""
+
+#: ../../../release-notes.rst:1626
+msgid ""
+"**2017.07.25**: A function can only call functions that are declared above "
+"it (that is, A can call B only if B appears earlier in the code than A "
+"does). This was introduced"
+msgstr ""
