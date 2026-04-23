@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:4
 msgid "Style Guide"
-msgstr ""
+msgstr "風格指南"
 
 #: ../../../style-guide.rst:6
 msgid ""
@@ -165,7 +165,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:56
 msgid "Methods"
-msgstr ""
+msgstr "方法"
 
 #: ../../../style-guide.rst:58
 msgid ""
