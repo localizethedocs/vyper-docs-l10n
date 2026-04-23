@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:4
 msgid "Structure of a Contract"
-msgstr ""
+msgstr "合約結構"
 
 #: ../../../structure-of-a-contract.rst:6
 msgid ""
@@ -326,7 +326,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:173
 msgid "Modules"
-msgstr ""
+msgstr "模組"
 
 #: ../../../structure-of-a-contract.rst:175
 msgid ""

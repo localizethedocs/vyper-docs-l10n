@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:4
 msgid "Control Structures"
-msgstr ""
+msgstr "控制結構"
 
 #: ../../../control-structures.rst:9
 msgid "Functions"
@@ -78,7 +78,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:35
 msgid "External Functions"
-msgstr ""
+msgstr "外部函式"
 
 #: ../../../control-structures.rst:37
 msgid ""
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:83
 msgid "Internal Functions"
-msgstr ""
+msgstr "內部函式"
 
 #: ../../../control-structures.rst:85
 msgid ""
@@ -168,6 +168,12 @@ msgid ""
 "def calculate(amount: uint256) -> uint256:\n"
 "    return self._times_two(amount)"
 msgstr ""
+"def _times_two(amount: uint256) -> uint256:\n"
+"    return amount * 2\n"
+"\n"
+"@external\n"
+"def calculate(amount: uint256) -> uint256:\n"
+"    return self._times_two(amount)"
 
 #: ../../../control-structures.rst:96
 msgid ""
@@ -493,7 +499,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:257
 msgid "The ``__default__`` Function"
-msgstr ""
+msgstr "``__default__`` 函式"
 
 #: ../../../control-structures.rst:259
 msgid ""

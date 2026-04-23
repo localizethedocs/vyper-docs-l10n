@@ -29,7 +29,7 @@ msgstr ""
 
 #: ../../../statements.rst:9
 msgid "Control Flow"
-msgstr ""
+msgstr "控制流程"
 
 #: ../../../statements.rst:12
 msgid "break"

@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:4
 msgid "Differences from Solidity"
-msgstr ""
+msgstr "與 Solidity 的區別"
 
 #: ../../../solidity-differences.rst:6
 msgid ""
@@ -37,7 +37,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:16
 msgid "Vyper"
-msgstr ""
+msgstr "Vyper"
 
 #: ../../../solidity-differences.rst:17
 msgid "Rationale"
@@ -200,7 +200,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:80
 msgid "No Class Inheritance"
-msgstr ""
+msgstr "無類別繼承"
 
 #: ../../../solidity-differences.rst:82
 msgid ""
@@ -210,7 +210,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:84
 msgid "In Vyper 0.4.0, a module system was introduced for powerful code reuse:"
-msgstr ""
+msgstr "Vyper 0.4.0 引進了模組系統，以實現強大的程式碼重用："
 
 #: ../../../solidity-differences.rst:86
 msgid ""

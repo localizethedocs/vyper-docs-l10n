@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../resources.rst:4
 msgid "Other resources and learning material"
-msgstr ""
+msgstr "其他資源與學習材料"
 
 #: ../../../resources.rst:6
 msgid ""

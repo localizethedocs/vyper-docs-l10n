@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../compiler-exceptions.rst:4
 msgid "Compiler Exceptions"
-msgstr ""
+msgstr "編譯器例外"
 
 #: ../../../compiler-exceptions.rst:8
 msgid ""
@@ -102,6 +102,11 @@ msgid ""
 "def foo():\n"
 "    bar: decimal = 3.123456789123456789"
 msgstr ""
+"#pragma enable-decimals\n"
+"\n"
+"@external\n"
+"def foo():\n"
+"    bar: decimal = 3.123456789123456789"
 
 #: ../../../compiler-exceptions.rst:69
 msgid ""
@@ -119,6 +124,9 @@ msgid ""
 "def foo():\n"
 "    a: String[10] = \"hello\" * 2"
 msgstr ""
+"@external\n"
+"def foo():\n"
+"    a: String[10] = \"hello\" * 2"
 
 #: ../../../compiler-exceptions.rst:81
 msgid ""
@@ -189,6 +197,12 @@ msgid ""
 "-------------^\n"
 "     15     @return always True"
 msgstr ""
+"vyper.exceptions.SyntaxException: line 14:5 No description given for tag "
+"'@param'\n"
+"     13     @dev the feet are sticky like rice\n"
+"---> 14     @param\n"
+"-------------^\n"
+"     15     @return always True"
 
 #: ../../../compiler-exceptions.rst:135
 msgid ""
@@ -202,6 +216,9 @@ msgid ""
 "def _foo():\n"
 "    bar: uint256 = msg.value"
 msgstr ""
+"@external\n"
+"def _foo():\n"
+"    bar: uint256 = msg.value"
 
 #: ../../../compiler-exceptions.rst:145
 msgid "Raises when a numeric value is out of bounds for the given type."
@@ -258,6 +275,15 @@ msgid ""
 "    if baz + bar > 4:\n"
 "        pass"
 msgstr ""
+"#pragma enable-decimals\n"
+"\n"
+"@external\n"
+"def foo():\n"
+"    bar: int128 = 3\n"
+"    baz: decimal = 4.2\n"
+"\n"
+"    if baz + bar > 4:\n"
+"        pass"
 
 #: ../../../compiler-exceptions.rst:191
 msgid ""
@@ -294,6 +320,10 @@ msgid ""
 "vyper.exceptions.CompilerPanic: Number of times repeated\n"
 "must be a constant nonzero positive integer: 0 Please create an issue."
 msgstr ""
+"$ vyper v.vy\n"
+"Error compiling: v.vy\n"
+"vyper.exceptions.CompilerPanic: Number of times repeated\n"
+"must be a constant nonzero positive integer: 0 Please create an issue."
 
 #: ../../../compiler-exceptions.rst:229
 msgid ""

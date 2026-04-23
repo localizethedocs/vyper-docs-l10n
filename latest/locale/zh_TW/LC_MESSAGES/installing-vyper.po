@@ -20,7 +20,7 @@ msgstr ""
 #: ../../../installing-vyper.rst:2 ../../../installing-vyper.rst:75
 #: ../../../installing-vyper.rst:138
 msgid "Installing Vyper"
-msgstr ""
+msgstr "安裝 Vyper"
 
 #: ../../../installing-vyper.rst:4
 msgid ""
@@ -63,11 +63,11 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:25
 msgid "https://github.com/astral-sh/uv"
-msgstr ""
+msgstr "https://github.com/astral-sh/uv"
 
 #: ../../../installing-vyper.rst:26
 msgid "https://github.com/pypa/pipx"
-msgstr ""
+msgstr "https://github.com/pypa/pipx"
 
 #: ../../../installing-vyper.rst:28
 msgid "Then install Vyper:"
@@ -75,11 +75,11 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:32
 msgid "uv tool install vyper"
-msgstr ""
+msgstr "uv tool install vyper"
 
 #: ../../../installing-vyper.rst:34
 msgid "or:"
-msgstr ""
+msgstr "或者："
 
 #: ../../../installing-vyper.rst:38
 msgid "pipx install vyper"
@@ -102,7 +102,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:51
 msgid "Installing Python"
-msgstr ""
+msgstr "安裝 Python"
 
 #: ../../../installing-vyper.rst:53
 msgid ""
@@ -114,7 +114,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:57
 msgid "Creating a virtual environment"
-msgstr ""
+msgstr "建立虛擬環境"
 
 #: ../../../installing-vyper.rst:59
 msgid ""
@@ -146,15 +146,15 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:80
 msgid "pip install vyper"
-msgstr ""
+msgstr "pip install vyper"
 
 #: ../../../installing-vyper.rst:82
 msgid "or: ::"
-msgstr ""
+msgstr "或者：\\ ::"
 
 #: ../../../installing-vyper.rst:85
 msgid "uv pip install vyper"
-msgstr ""
+msgstr "uv pip install vyper"
 
 #: ../../../installing-vyper.rst:87
 msgid "To install a specific version use: ::"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:90
 msgid "pip install vyper==0.4.0"
-msgstr ""
+msgstr "pip install vyper==0.4.0"
 
 #: ../../../installing-vyper.rst:92
 msgid ""
@@ -172,11 +172,11 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:95
 msgid "vyper --version"
-msgstr ""
+msgstr "vyper --version"
 
 #: ../../../installing-vyper.rst:99
 msgid "Docker"
-msgstr ""
+msgstr "Docker"
 
 #: ../../../installing-vyper.rst:101
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:104
 msgid "docker pull vyperlang/vyper"
-msgstr ""
+msgstr "docker pull vyperlang/vyper"
 
 #: ../../../installing-vyper.rst:106
 msgid "To run the compiler use the ``docker run`` command: ::"
@@ -194,7 +194,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:109
 msgid "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
-msgstr ""
+msgstr "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
 
 #: ../../../installing-vyper.rst:111
 msgid ""
@@ -207,6 +207,8 @@ msgid ""
 "docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
 "root@d35252d1fb1b:/code# vyper <contract_file.vy>"
 msgstr ""
+"docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
+"root@d35252d1fb1b:/code# vyper <contract_file.vy>"
 
 #: ../../../installing-vyper.rst:117
 msgid "The normal parameters are also supported, for example: ::"
@@ -221,6 +223,12 @@ msgid ""
 "\"nonpayable\", \"type\": \"function\", \"name\": \"test2\", \"inputs\": "
 "[{\"name\": \"a\", \"type\": \"uint256\"}], \"outputs\": []}]"
 msgstr ""
+"docker run -v $(pwd):/code vyperlang/vyper -f abi /code/<contract_file.vy>\n"
+"[{\"stateMutability\": \"nonpayable\", \"type\": \"function\", \"name\": "
+"\"test1\", \"inputs\": [{\"name\": \"a\", \"type\": \"uint256\"}, {\"name\": "
+"\"b\", \"type\": \"bytes\"}], \"outputs\": []}, {\"stateMutability\": "
+"\"nonpayable\", \"type\": \"function\", \"name\": \"test2\", \"inputs\": "
+"[{\"name\": \"a\", \"type\": \"uint256\"}], \"outputs\": []}]"
 
 #: ../../../installing-vyper.rst:125
 msgid ""
@@ -246,4 +254,4 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:142
 msgid "nix-env -iA nixpkgs.vyper"
-msgstr ""
+msgstr "nix-env -iA nixpkgs.vyper"

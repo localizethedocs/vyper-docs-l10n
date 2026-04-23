@@ -137,7 +137,7 @@ msgstr ""
 
 #: ../../../contributing.rst:54
 msgid "Style Guide"
-msgstr ""
+msgstr "風格指南"
 
 #: ../../../contributing.rst:56
 msgid ""

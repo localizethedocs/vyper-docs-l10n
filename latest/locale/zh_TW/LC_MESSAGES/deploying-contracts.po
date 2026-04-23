@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../deploying-contracts.rst:6
 msgid "Deploying a Contract"
-msgstr ""
+msgstr "部署合約"
 
 #: ../../../deploying-contracts.rst:8
 msgid ""
