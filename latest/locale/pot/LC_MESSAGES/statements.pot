@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../statements.rst:4
+msgid "Statements"
+msgstr ""
+
+#: ../../../statements.rst:6
+msgid ""
+"Vyper's statements are syntactically similar to Python, with some notable "
+"exceptions."
+msgstr ""
+
+#: ../../../statements.rst:9
+msgid "Control Flow"
+msgstr ""
+
+#: ../../../statements.rst:12
+msgid "break"
+msgstr ""
+
+#: ../../../statements.rst:14
+msgid "The ``break`` statement terminates the nearest enclosing ``for`` loop."
+msgstr ""
+
+#: ../../../statements.rst:16
+msgid ""
+"for i: uint256 in [1, 2, 3, 4, 5]:\n"
+"    if i == a:\n"
+"        break"
+msgstr ""
+
+#: ../../../statements.rst:22
+msgid "In the above example, the ``for`` loop terminates if ``i == a``."
+msgstr ""
+
+#: ../../../statements.rst:25
+msgid "continue"
+msgstr ""
+
+#: ../../../statements.rst:27
+msgid ""
+"The ``continue`` statement begins the next cycle of the nearest enclosing "
+"``for`` loop."
+msgstr ""
+
+#: ../../../statements.rst:29
+msgid ""
+"for i: uint256 in [1, 2, 3, 4, 5]:\n"
+"    if i != a:\n"
+"        continue\n"
+"    ..."
+msgstr ""
+
+#: ../../../statements.rst:36
+msgid ""
+"In the above example, the ``for`` loop begins the next cycle immediately "
+"whenever ``i != a``."
+msgstr ""
+
+#: ../../../statements.rst:39
+msgid "pass"
+msgstr ""
+
+#: ../../../statements.rst:41
+msgid ""
+"``pass`` is a null operation — when it is executed, nothing happens. It is "
+"useful as a placeholder when a statement is required syntactically, but no "
+"code needs to be executed:"
+msgstr ""
+
+#: ../../../statements.rst:43
+msgid ""
+"# this function does nothing (yet!)\n"
+"\n"
+"@external\n"
+"def foo():\n"
+"    pass"
+msgstr ""
+
+#: ../../../statements.rst:52
+msgid "return"
+msgstr ""
+
+#: ../../../statements.rst:54
+msgid ""
+"``return`` leaves the current function call with the expression list (or "
+"None) as a return value."
+msgstr ""
+
+#: ../../../statements.rst:56
+msgid "return RETURN_VALUE"
+msgstr ""
+
+#: ../../../statements.rst:60
+msgid ""
+"If a function has no return type, it is allowed to omit the ``return`` "
+"statement, otherwise, the function must end with a ``return`` statement, or "
+"another terminating action such as ``raise``."
+msgstr ""
+
+#: ../../../statements.rst:62
+msgid ""
+"It is not allowed to have additional, unreachable statements after a "
+"``return`` statement."
+msgstr ""
+
+#: ../../../statements.rst:65
+msgid "Event Logging"
+msgstr ""
+
+#: ../../../statements.rst:68
+msgid "log"
+msgstr ""
+
+#: ../../../statements.rst:70
+msgid "The ``log`` statement is used to log an event:"
+msgstr ""
+
+#: ../../../statements.rst:72
+msgid "log MyEvent(...)"
+msgstr ""
+
+#: ../../../statements.rst:76
+msgid "The event must have been previously declared."
+msgstr ""
+
+#: ../../../statements.rst:78
+msgid "See :ref:`Event Logging<event-logging>` for more information on events."
+msgstr ""
+
+#: ../../../statements.rst:81
+msgid ""
+"The evaluation order of arguments passed to ``log`` is undefined. The "
+"compiler may evaluate them in any order. Therefore, arguments with side "
+"effects should be evaluated in separate statements before the ``log`` call "
+"to ensure predictable behavior."
+msgstr ""
+
+#: ../../../statements.rst:84
+msgid "Assertions and Exceptions"
+msgstr ""
+
+#: ../../../statements.rst:86
+msgid ""
+"Vyper uses state-reverting exceptions to handle errors. Exceptions trigger "
+"the ``REVERT`` opcode (``0xFD``) with the provided reason given as the error "
+"message. When an exception is raised the code stops operation, the "
+"contract's state is reverted to the state before the transaction took place "
+"and the remaining gas is returned to the transaction's sender. When an "
+"exception happens in a sub-call, it \"bubbles up\" (i.e., exceptions are "
+"rethrown) automatically."
+msgstr ""
+
+#: ../../../statements.rst:88
+msgid ""
+"If the reason string is set to ``UNREACHABLE``, an ``INVALID`` opcode "
+"(``0xFE``) is used instead of ``REVERT``. In this case, calls that revert do "
+"not receive a gas refund. This is not a recommended practice for general "
+"usage, but is available for interoperability with various tools that use the "
+"``INVALID`` opcode to perform dynamic analysis."
+msgstr ""
+
+#: ../../../statements.rst:91
+msgid "raise"
+msgstr ""
+
+#: ../../../statements.rst:93
+msgid ""
+"The ``raise`` statement triggers an exception and reverts the current call."
+msgstr ""
+
+#: ../../../statements.rst:95
+msgid "raise \"something went wrong\""
+msgstr ""
+
+#: ../../../statements.rst:99 ../../../statements.rst:110
+msgid ""
+"The error string is not required. If it is provided, it is limited to 1024 "
+"bytes."
+msgstr ""
+
+#: ../../../statements.rst:102
+msgid "assert"
+msgstr ""
+
+#: ../../../statements.rst:104
+msgid ""
+"The ``assert`` statement makes an assertion about a given condition. If the "
+"condition evaluates falsely, the transaction is reverted."
+msgstr ""
+
+#: ../../../statements.rst:106
+msgid "assert x > 5, \"value too low\""
+msgstr ""
+
+#: ../../../statements.rst:112
+msgid "This method's behavior is equivalent to:"
+msgstr ""
+
+#: ../../../statements.rst:114
+msgid ""
+"if not cond:\n"
+"    raise \"reason\""
+msgstr ""
