@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../testing-contracts.rst:4
+msgid "Testing a Contract"
+msgstr ""
+
+#: ../../../testing-contracts.rst:6
+msgid ""
+"For testing Vyper contracts we recommend the use of `pytest <https://docs."
+"pytest.org/en/latest/contents.html>`_ along with one of the following "
+"packages:"
+msgstr ""
+
+#: ../../../testing-contracts.rst:8
+msgid ""
+"`Titanoboa <https://github.com/vyperlang/titanoboa>`_: A Vyper interpreter, "
+"pretty tracebacks, forking, debugging and deployment features. Maintained by "
+"the Vyper team."
+msgstr ""
+
+#: ../../../testing-contracts.rst:9
+msgid ""
+"`Brownie <https://github.com/iamdefinitelyahuman/brownie>`_: A development "
+"and testing framework for smart contracts targeting the Ethereum Virtual "
+"Machine"
+msgstr ""
+
+#: ../../../testing-contracts.rst:11
+msgid ""
+"Example usage for each package is provided in the sections listed below."
+msgstr ""
