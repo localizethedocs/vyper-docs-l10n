@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:2
 msgid "Environment Variables and Constants"
-msgstr ""
+msgstr "環境變數與常數"
 
 #: ../../../constants-and-vars.rst:7
 msgid "Environment Variables"
-msgstr ""
+msgstr "環境變數"
 
 #: ../../../constants-and-vars.rst:9
 msgid ""
@@ -33,7 +33,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:12
 msgid "Block and Transaction Properties"
-msgstr ""
+msgstr "區塊與交易屬性"
 
 #: ../../../constants-and-vars.rst:15 ../../../constants-and-vars.rst:52
 msgid "Name"

@@ -20,7 +20,7 @@ msgstr ""
 #: ../../../installing-vyper.rst:2 ../../../installing-vyper.rst:74
 #: ../../../installing-vyper.rst:132
 msgid "Installing Vyper"
-msgstr ""
+msgstr "安裝 Vyper"
 
 #: ../../../installing-vyper.rst:4
 msgid ""
@@ -71,7 +71,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:33
 msgid "uv tool install vyper"
-msgstr ""
+msgstr "uv tool install vyper"
 
 #: ../../../installing-vyper.rst:37
 msgid "Binaries"
@@ -90,7 +90,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:46
 msgid "Installing Python"
-msgstr ""
+msgstr "安裝 Python"
 
 #: ../../../installing-vyper.rst:48
 msgid ""
@@ -102,7 +102,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:52
 msgid "Creating a virtual environment"
-msgstr ""
+msgstr "建立虛擬環境"
 
 #: ../../../installing-vyper.rst:54
 msgid ""
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:79
 msgid "pip install vyper"
-msgstr ""
+msgstr "pip install vyper"
 
 #: ../../../installing-vyper.rst:81
 msgid "To install a specific version use: ::"
@@ -144,7 +144,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:84
 msgid "pip install vyper==0.4.0"
-msgstr ""
+msgstr "pip install vyper==0.4.0"
 
 #: ../../../installing-vyper.rst:86
 msgid ""
@@ -154,11 +154,11 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:89
 msgid "vyper --version"
-msgstr ""
+msgstr "vyper --version"
 
 #: ../../../installing-vyper.rst:93
 msgid "Docker"
-msgstr ""
+msgstr "Docker"
 
 #: ../../../installing-vyper.rst:95
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:98
 msgid "docker pull vyperlang/vyper"
-msgstr ""
+msgstr "docker pull vyperlang/vyper"
 
 #: ../../../installing-vyper.rst:100
 msgid "To run the compiler use the ``docker run`` command: ::"
@@ -176,7 +176,7 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:103
 msgid "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
-msgstr ""
+msgstr "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
 
 #: ../../../installing-vyper.rst:105
 msgid ""
@@ -189,6 +189,8 @@ msgid ""
 "docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
 "root@d35252d1fb1b:/code# vyper <contract_file.vy>"
 msgstr ""
+"docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
+"root@d35252d1fb1b:/code# vyper <contract_file.vy>"
 
 #: ../../../installing-vyper.rst:111
 msgid "The normal parameters are also supported, for example: ::"
@@ -229,4 +231,4 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:136
 msgid "nix-env -iA nixpkgs.vyper"
-msgstr ""
+msgstr "nix-env -iA nixpkgs.vyper"

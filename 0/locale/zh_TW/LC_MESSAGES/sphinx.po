@@ -2872,7 +2872,7 @@ msgstr ""
 
 #: sphinx/ext/viewcode.py:335
 msgid "Overview: module code"
-msgstr ""
+msgstr "概覽：模組程式碼"
 
 #: sphinx/ext/viewcode.py:336
 msgid "<h1>All modules for which code is available</h1>"
@@ -3259,7 +3259,7 @@ msgstr ""
 
 #: sphinx/themes/basic/defindex.html:11
 msgid "Overview"
-msgstr ""
+msgstr "概覽"
 
 #: sphinx/themes/basic/defindex.html:15
 msgid "Welcome! This is"

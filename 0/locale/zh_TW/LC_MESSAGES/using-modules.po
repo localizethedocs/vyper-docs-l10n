@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../using-modules.rst:4
 msgid "Modules"
-msgstr ""
+msgstr "模組"
 
 #: ../../../using-modules.rst:6
 msgid ""
@@ -33,7 +33,7 @@ msgstr ""
 
 #: ../../../using-modules.rst:9
 msgid "Declaring and using modules"
-msgstr ""
+msgstr "宣告與使用模組"
 
 #: ../../../using-modules.rst:11
 msgid ""
@@ -89,7 +89,7 @@ msgstr ""
 
 #: ../../../using-modules.rst:41
 msgid "Importing a module"
-msgstr ""
+msgstr "匯入模組"
 
 #: ../../../using-modules.rst:43
 msgid ""

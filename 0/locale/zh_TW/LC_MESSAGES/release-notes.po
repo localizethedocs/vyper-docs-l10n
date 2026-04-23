@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:4
 msgid "Release Notes"
-msgstr ""
+msgstr "發行備註"
 
 #: ../../../release-notes.rst:20
 msgid "v0.4.3 (\"Buttermilk Racer\")"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:23
 msgid "Date released: 2025-06-19"
-msgstr ""
+msgstr "發行日期：2025-06-19"
 
 #: ../../../release-notes.rst:25
 msgid ""
@@ -39,7 +39,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:28 ../../../release-notes.rst:205
 msgid "Breaking changes"
-msgstr ""
+msgstr "重大變更"
 
 #: ../../../release-notes.rst:29
 msgid ""
@@ -50,7 +50,7 @@ msgstr ""
 #: ../../../release-notes.rst:32 ../../../release-notes.rst:82
 #: ../../../release-notes.rst:212
 msgid "Other new features and improvements"
-msgstr ""
+msgstr "其他新功能與改進"
 
 #: ../../../release-notes.rst:33
 msgid ""
@@ -113,7 +113,7 @@ msgstr ""
 #: ../../../release-notes.rst:49 ../../../release-notes.rst:168
 #: ../../../release-notes.rst:330 ../../../release-notes.rst:492
 msgid "Docs"
-msgstr ""
+msgstr "文件"
 
 #: ../../../release-notes.rst:50
 msgid ""
@@ -161,7 +161,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:64
 msgid "Date released: 2025-05-31"
-msgstr ""
+msgstr "發行日期：2025-05-31"
 
 #: ../../../release-notes.rst:66
 msgid ""
@@ -791,7 +791,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:200
 msgid "Date released: 2025-03-01"
-msgstr ""
+msgstr "發行日期：2025-03-01"
 
 #: ../../../release-notes.rst:202
 msgid ""
@@ -1686,7 +1686,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:381
 msgid "Date released: 2024-06-20"
-msgstr ""
+msgstr "發行日期：2024-06-20"
 
 #: ../../../release-notes.rst:383
 msgid ""
@@ -1828,7 +1828,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:410
 msgid "Module system"
-msgstr ""
+msgstr "模組系統"
 
 #: ../../../release-notes.rst:411
 msgid ""
@@ -2250,7 +2250,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:485
 msgid "Other new features"
-msgstr ""
+msgstr "其他新功能"
 
 #: ../../../release-notes.rst:486
 msgid ""
@@ -2837,7 +2837,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:597
 msgid "Performance"
-msgstr ""
+msgstr "效能"
 
 #: ../../../release-notes.rst:598
 msgid ""
@@ -3333,7 +3333,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:689
 msgid "Date released: 2023-10-04"
-msgstr ""
+msgstr "發行日期：2023-10-04"
 
 #: ../../../release-notes.rst:691
 msgid ""
@@ -3387,7 +3387,7 @@ msgstr ""
 #: ../../../release-notes.rst:1278 ../../../release-notes.rst:1303
 #: ../../../release-notes.rst:1320
 msgid "Non-breaking changes and improvements:"
-msgstr ""
+msgstr "非重大變更與改進："
 
 #: ../../../release-notes.rst:704
 msgid ""
@@ -3569,7 +3569,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:744
 msgid "Date released: 2023-05-29"
-msgstr ""
+msgstr "發行日期：2023-05-29"
 
 #: ../../../release-notes.rst:746
 msgid ""
@@ -3606,7 +3606,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:757
 msgid "Date released: 2023-05-23"
-msgstr ""
+msgstr "發行日期：2023-05-23"
 
 #: ../../../release-notes.rst:761
 msgid ""
@@ -4088,7 +4088,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:855
 msgid "Date released: 2022-09-26"
-msgstr ""
+msgstr "發行日期：2022-09-26"
 
 #: ../../../release-notes.rst:859
 msgid ""
@@ -4282,7 +4282,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:905
 msgid "Date released: 2022-08-07"
-msgstr ""
+msgstr "發行日期：2022-08-07"
 
 #: ../../../release-notes.rst:909
 msgid ""
@@ -4302,7 +4302,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:916
 msgid "Date released: 2022-08-05"
-msgstr ""
+msgstr "發行日期：2022-08-05"
 
 #: ../../../release-notes.rst:920
 msgid ""
@@ -4346,7 +4346,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:930
 msgid "Date released: 2022-07-27"
-msgstr ""
+msgstr "發行日期：2022-07-27"
 
 #: ../../../release-notes.rst:934
 msgid ""
@@ -4514,7 +4514,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:970
 msgid "Date released: 2022-04-22"
-msgstr ""
+msgstr "發行日期：2022-04-22"
 
 #: ../../../release-notes.rst:972
 msgid ""
@@ -4541,7 +4541,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:983
 msgid "Date released: 2022-04-17"
-msgstr ""
+msgstr "發行日期：2022-04-17"
 
 #: ../../../release-notes.rst:987
 msgid ""
@@ -4709,7 +4709,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1025
 msgid "Date released: 2021-12-01"
-msgstr ""
+msgstr "發行日期：2021-12-01"
 
 #: ../../../release-notes.rst:1029
 msgid ""
@@ -4869,7 +4869,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1065
 msgid "Date released: 2021-10-04"
-msgstr ""
+msgstr "發行日期：2021-10-04"
 
 #: ../../../release-notes.rst:1069
 msgid ""
@@ -4974,7 +4974,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1098
 msgid "Date released: 2021-08-27"
-msgstr ""
+msgstr "發行日期：2021-08-27"
 
 #: ../../../release-notes.rst:1102
 msgid ""
@@ -5049,7 +5049,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1123
 msgid "Date released: 23-07-2021"
-msgstr ""
+msgstr "發行日期：23-07-2021"
 
 #: ../../../release-notes.rst:1125
 msgid ""
@@ -5070,7 +5070,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1136
 msgid "Date released: 20-07-2021"
-msgstr ""
+msgstr "發行日期：20-07-2021"
 
 #: ../../../release-notes.rst:1138
 msgid ""
@@ -5090,7 +5090,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1148
 msgid "Date released: 06-07-2021"
-msgstr ""
+msgstr "發行日期：06-07-2021"
 
 #: ../../../release-notes.rst:1152
 msgid ""
@@ -5110,7 +5110,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1158
 msgid "Date released: 16-04-2021"
-msgstr ""
+msgstr "發行日期：16-04-2021"
 
 #: ../../../release-notes.rst:1160
 msgid ""
@@ -5158,7 +5158,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1175
 msgid "Date released: 27-02-2021"
-msgstr ""
+msgstr "發行日期：27-02-2021"
 
 #: ../../../release-notes.rst:1177
 msgid ""
@@ -5174,7 +5174,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1183
 msgid "Date released: 17-02-2021"
-msgstr ""
+msgstr "發行日期：17-02-2021"
 
 #: ../../../release-notes.rst:1185
 msgid ""
@@ -5190,7 +5190,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1191
 msgid "Date released: 16-02-2021"
-msgstr ""
+msgstr "發行日期：16-02-2021"
 
 #: ../../../release-notes.rst:1193
 msgid ""
@@ -5230,7 +5230,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1214
 msgid "Date released: 04-12-2020"
-msgstr ""
+msgstr "發行日期：04-12-2020"
 
 #: ../../../release-notes.rst:1218
 msgid ""
@@ -5310,7 +5310,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1237
 msgid "Date released: 10-14-2020"
-msgstr ""
+msgstr "發行日期：10-14-2020"
 
 #: ../../../release-notes.rst:1239
 msgid ""
@@ -5349,7 +5349,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1255
 msgid "Date released: 10-10-2020"
-msgstr ""
+msgstr "發行日期：10-10-2020"
 
 #: ../../../release-notes.rst:1259
 msgid ""
@@ -5418,7 +5418,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1276
 msgid "Date released: 30-09-2020"
-msgstr ""
+msgstr "發行日期：30-09-2020"
 
 #: ../../../release-notes.rst:1280
 msgid ""
@@ -5509,7 +5509,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1301
 msgid "Date released: 03-08-2020"
-msgstr ""
+msgstr "發行日期：03-08-2020"
 
 #: ../../../release-notes.rst:1305
 msgid ""
@@ -5553,7 +5553,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1318
 msgid "Date released: 16-07-2020"
-msgstr ""
+msgstr "發行日期：16-07-2020"
 
 #: ../../../release-notes.rst:1322
 msgid ""
@@ -5597,7 +5597,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1335
 msgid "Date released: 04-07-2020"
-msgstr ""
+msgstr "發行日期：04-07-2020"
 
 #: ../../../release-notes.rst:1339
 msgid ""
@@ -5623,7 +5623,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1346
 msgid "Date released: 03-07-2020"
-msgstr ""
+msgstr "發行日期：03-07-2020"
 
 #: ../../../release-notes.rst:1348
 msgid ""
@@ -5909,7 +5909,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1408
 msgid "Date released: 24-03-2020"
-msgstr ""
+msgstr "發行日期：24-03-2020"
 
 #: ../../../release-notes.rst:1410
 msgid "The following VIPs and features were implemented for Beta 17:"
@@ -5967,7 +5967,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1431
 msgid "Date released: 09-01-2020"
-msgstr ""
+msgstr "發行日期：09-01-2020"
 
 #: ../../../release-notes.rst:1433
 msgid ""
@@ -5981,7 +5981,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1438
 msgid "Date released: 06-01-2020"
-msgstr ""
+msgstr "發行日期：06-01-2020"
 
 #: ../../../release-notes.rst:1440
 msgid ""
@@ -6162,7 +6162,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1479
 msgid "Date released: 13-11-2019"
-msgstr ""
+msgstr "發行日期：13-11-2019"
 
 #: ../../../release-notes.rst:1483
 msgid "Mucho Documentation and Example cleanup!"
@@ -6251,7 +6251,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1501
 msgid "Date released: 27-09-2019"
-msgstr ""
+msgstr "發行日期：27-09-2019"
 
 #: ../../../release-notes.rst:1503
 msgid "The following VIPs were implemented for Beta 13:"
@@ -6305,7 +6305,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1519
 msgid "Date released: 27-08-2019"
-msgstr ""
+msgstr "發行日期：27-08-2019"
 
 #: ../../../release-notes.rst:1521
 msgid "The following VIPs were implemented for Beta 12:"
@@ -6383,7 +6383,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1543
 msgid "Date released: 23-07-2019"
-msgstr ""
+msgstr "發行日期：23-07-2019"
 
 #: ../../../release-notes.rst:1545
 msgid "Beta 11 brings some performance and stability fixes."
@@ -6460,7 +6460,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1563
 msgid "Date released: 24-05-2019"
-msgstr ""
+msgstr "發行日期：24-05-2019"
 
 #: ../../../release-notes.rst:1565
 msgid "Lots of linting and refactoring!"
@@ -6527,7 +6527,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:1580
 msgid "Date released: 12-03-2019"
-msgstr ""
+msgstr "發行日期：12-03-2019"
 
 #: ../../../release-notes.rst:1582
 msgid ""

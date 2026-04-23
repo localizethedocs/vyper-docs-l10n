@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../index.rst:-1
 msgid "Vyper logo"
-msgstr ""
+msgstr "Vyper 標誌"
 
 #: ../../../index.rst:7
 msgid "Vyper"
-msgstr ""
+msgstr "Vyper"
 
 #: ../../../index.rst:9
 msgid ""
