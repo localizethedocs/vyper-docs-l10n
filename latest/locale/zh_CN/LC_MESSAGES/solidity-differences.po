@@ -1,0 +1,823 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../solidity-differences.rst:4
+msgid "Differences from Solidity"
+msgstr ""
+
+#: ../../../solidity-differences.rst:6
+msgid ""
+"This page covers the key differences between Solidity and Vyper, the "
+"reasoning behind them, and their consequences."
+msgstr ""
+
+#: ../../../solidity-differences.rst:9
+msgid "Quick Reference"
+msgstr ""
+
+#: ../../../solidity-differences.rst:15
+msgid "Solidity"
+msgstr ""
+
+#: ../../../solidity-differences.rst:16
+msgid "Vyper"
+msgstr ""
+
+#: ../../../solidity-differences.rst:17
+msgid "Rationale"
+msgstr ""
+
+#: ../../../solidity-differences.rst:18
+msgid "``modifier``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:19
+msgid "Inline checks"
+msgstr ""
+
+#: ../../../solidity-differences.rst:20
+msgid "Control flow is explicit in the function body"
+msgstr ""
+
+#: ../../../solidity-differences.rst:21
+msgid "``class inheritance``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:22
+msgid "``import`` + ``exports``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:23
+msgid "Explicit dependencies"
+msgstr ""
+
+#: ../../../solidity-differences.rst:24
+msgid "``assembly { }``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:25
+msgid "Not supported"
+msgstr ""
+
+#: ../../../solidity-differences.rst:26
+msgid ""
+"No direct EVM opcode access; use specific builtins (``raw_call``, "
+"``create_minimal_proxy_to``, etc.)"
+msgstr ""
+
+#: ../../../solidity-differences.rst:27
+msgid "``while (true)``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:28
+msgid "``for i in range(n)``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:29
+msgid "Bounded gas costs"
+msgstr ""
+
+#: ../../../solidity-differences.rst:30
+msgid "``mapping``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:31
+msgid "``HashMap``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:32 ../../../solidity-differences.rst:35
+msgid "Same semantics"
+msgstr ""
+
+#: ../../../solidity-differences.rst:33
+msgid "``emit Event()``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:34
+msgid "``log Event()``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:36
+msgid "``require()``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:37
+msgid "``assert`` / ``raise``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:38
+msgid "Different semantics; explicit error paths"
+msgstr ""
+
+#: ../../../solidity-differences.rst:39
+msgid "``contract.call()``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:40
+msgid "``extcall`` / ``staticcall``"
+msgstr ""
+
+#: ../../../solidity-differences.rst:41
+msgid "Explicit external calls"
+msgstr ""
+
+#: ../../../solidity-differences.rst:44
+msgid "Philosophy"
+msgstr ""
+
+#: ../../../solidity-differences.rst:46
+msgid ""
+"Vyper prioritizes three properties: security, simplicity, and auditability."
+msgstr ""
+
+#: ../../../solidity-differences.rst:48
+msgid ""
+"To achieve these properties, Vyper excludes features that obscure control "
+"flow or make code difficult to reason about. Each omission is a deliberate "
+"tradeoff: less flexibility in exchange for explicit behavior. See :ref:"
+"`Principles <design-principles>` for the full rationale."
+msgstr ""
+
+#: ../../../solidity-differences.rst:51
+msgid "No Modifiers"
+msgstr ""
+
+#: ../../../solidity-differences.rst:53
+msgid "Solidity modifiers wrap function execution:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:55
+msgid ""
+"modifier onlyOwner() {\n"
+"    require(msg.sender == owner, \"Not owner\");\n"
+"    _;\n"
+"}\n"
+"\n"
+"function withdraw() public onlyOwner {\n"
+"    // ...\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:66
+msgid ""
+"While ``onlyOwner`` appears simple, modifiers can execute code before and "
+"after the function body, modify state, and obscure the actual logic. "
+"Understanding a function requires reading the modifier definitions elsewhere "
+"in the codebase. For this reason, Vyper does not have modifiers."
+msgstr ""
+
+#: ../../../solidity-differences.rst:68
+msgid "In Vyper, checks are written inline:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:70
+msgid ""
+"@external\n"
+"def withdraw():\n"
+"    assert msg.sender == self.owner, \"Not owner\"\n"
+"    # ..."
+msgstr ""
+
+#: ../../../solidity-differences.rst:77
+msgid "Inline checks keep the control flow visible from top to bottom."
+msgstr ""
+
+#: ../../../solidity-differences.rst:80
+msgid "No Class Inheritance"
+msgstr ""
+
+#: ../../../solidity-differences.rst:82
+msgid ""
+"Solidity supports multiple inheritance, which introduces the diamond problem "
+"and C3 linearization complexity. Vyper excludes inheritance entirely."
+msgstr ""
+
+#: ../../../solidity-differences.rst:84
+msgid "In Vyper 0.4.0, a module system was introduced for powerful code reuse:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:86
+msgid ""
+"import ownable\n"
+"\n"
+"initializes: ownable\n"
+"exports: ownable.transfer_ownership\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    ownable.__init__()"
+msgstr ""
+
+#: ../../../solidity-differences.rst:97
+msgid ""
+"Three declarations manage module relationships: ``initializes`` (this "
+"contract manages the module's storage), ``uses`` (this contract reads module "
+"state without initializing), and ``exports`` (expose module functions in the "
+"ABI). See :doc:`using-modules` for details."
+msgstr ""
+
+#: ../../../solidity-differences.rst:99
+msgid ""
+"A contract can be understood by reading one file and its direct imports; "
+"dependencies and what is exposed in the external function table are explicit."
+msgstr ""
+
+#: ../../../solidity-differences.rst:102
+msgid "No Inline Assembly"
+msgstr ""
+
+#: ../../../solidity-differences.rst:104
+msgid ""
+"Vyper excludes inline assembly. For low-level operations, use the :ref:"
+"`built-in functions <built_in_functions>`: ``raw_call``, ``raw_create``, "
+"``create_minimal_proxy_to``, ``create_from_blueprint``."
+msgstr ""
+
+#: ../../../solidity-differences.rst:106
+msgid ""
+"Assembly bypasses compiler safety checks: type verification, overflow "
+"protection, memory safety, and requires reviewers to reason about raw "
+"opcodes. Vyper's built-in functions provide low-level access through "
+"explicit, auditable function calls."
+msgstr ""
+
+#: ../../../solidity-differences.rst:109
+msgid "No Function Overloading"
+msgstr ""
+
+#: ../../../solidity-differences.rst:111
+msgid ""
+"Solidity permits multiple functions with the same name and different "
+"parameters:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:113
+msgid ""
+"function transfer(address to, uint256 amount) public { }\n"
+"function transfer(address to, uint256 amount, bytes data) public { }"
+msgstr ""
+
+#: ../../../solidity-differences.rst:118
+msgid ""
+"Vyper requires unique function names, keeping the ABI and call sites "
+"explicit during review."
+msgstr ""
+
+#: ../../../solidity-differences.rst:121
+msgid "No Operator Overloading"
+msgstr ""
+
+#: ../../../solidity-differences.rst:123
+msgid ""
+"``a + b`` always performs arithmetic addition. Operators cannot be redefined "
+"for custom types, so operator behavior is consistent across the codebase."
+msgstr ""
+
+#: ../../../solidity-differences.rst:126
+msgid "No Infinite Loops"
+msgstr ""
+
+#: ../../../solidity-differences.rst:128
+msgid "Vyper requires all loops to have a compile-time upper bound:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:130
+msgid ""
+"for i: uint256 in range(100):\n"
+"    # Loop body\n"
+"\n"
+"# Variable count, but capped at compile time\n"
+"for i: uint256 in range(count, bound=100):\n"
+"    # Loop body"
+msgstr ""
+
+#: ../../../solidity-differences.rst:139
+msgid ""
+"Unbounded storage iteration can exceed the block gas limit, making contracts "
+"unusable. Bounded loops prevent this class of issue."
+msgstr ""
+
+#: ../../../solidity-differences.rst:143
+msgid ""
+"Vyper's bounded loops and lack of recursion make gas costs statically "
+"analyzable—every function call has a calculable upper bound (see :ref:"
+"`design-principles`)."
+msgstr ""
+
+#: ../../../solidity-differences.rst:146
+msgid "No Recursion"
+msgstr ""
+
+#: ../../../solidity-differences.rst:148
+msgid ""
+"Functions cannot call themselves, directly or through intermediate "
+"functions. Recursive logic must be converted to bounded iteration."
+msgstr ""
+
+#: ../../../solidity-differences.rst:150
+msgid ""
+"This constraint keeps the call graph acyclic and analyzable at compile time."
+msgstr ""
+
+#: ../../../solidity-differences.rst:153
+msgid "Bounded Dynamic Arrays"
+msgstr ""
+
+#: ../../../solidity-differences.rst:155
+msgid "Storage arrays require a maximum size at compile time:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:157
+msgid "balances: DynArray[uint256, 100]"
+msgstr ""
+
+#: ../../../solidity-differences.rst:161
+msgid ""
+"This keeps gas costs predictable and can prevent denial-of-service attacks. "
+"For unbounded collections, use :ref:`HashMap <types>`."
+msgstr ""
+
+#: ../../../solidity-differences.rst:165
+msgid "Explicit Type Conversions"
+msgstr ""
+
+#: ../../../solidity-differences.rst:167
+msgid "Vyper requires explicit type conversions:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:169
+msgid ""
+"x: uint256 = 100\n"
+"y: int256 = convert(x, int256)\n"
+"\n"
+"addr: address = 0x1234...\n"
+"num: uint160 = convert(addr, uint160)"
+msgstr ""
+
+#: ../../../solidity-differences.rst:177
+msgid ""
+"Vyper allows safe automatic widening (e.g., ``uint8`` to ``uint256``) but "
+"requires explicit ``convert()`` for potentially lossy or semantically "
+"significant conversions, such as signed/unsigned, addresses to integers, or "
+"narrowing types. See :ref:`types` for the complete type reference."
+msgstr ""
+
+#: ../../../solidity-differences.rst:180
+msgid "Decimal Type"
+msgstr ""
+
+#: ../../../solidity-differences.rst:182
+msgid "Native base-10 fixed-point arithmetic with 10 fractional digits:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:184
+msgid ""
+"a: decimal = 0.1\n"
+"b: decimal = 0.2\n"
+"total: decimal = a + b  # exactly 0.3"
+msgstr ""
+
+#: ../../../solidity-differences.rst:190
+msgid ""
+"Values like ``0.1`` and ``0.2`` cannot be represented exactly in binary "
+"floating point, but Vyper's base-10 decimal type handles them precisely."
+msgstr ""
+
+#: ../../../solidity-differences.rst:192
+msgid ""
+"Solidity lacks a native fixed-point type, requiring manual integer scaling."
+msgstr ""
+
+#: ../../../solidity-differences.rst:195
+msgid "Bounds Checking"
+msgstr ""
+
+#: ../../../solidity-differences.rst:197
+msgid ""
+"Array accesses and arithmetic are bounds-checked at runtime. Out-of-bounds "
+"access reverts. Integer overflow reverts."
+msgstr ""
+
+#: ../../../solidity-differences.rst:199
+msgid ""
+"Solidity 0.8+ provides similar overflow protection, which is disabled in "
+"``unchecked`` blocks. In Vyper, there is no way to disable the checks. For "
+"cases where wrapping behavior is needed, there are explicit :ref:`unsafe_* "
+"builtins <built_in_functions>`."
+msgstr ""
+
+#: ../../../solidity-differences.rst:202
+msgid "Reentrancy Protection"
+msgstr ""
+
+#: ../../../solidity-differences.rst:204
+msgid "Built-in ``@nonreentrant`` decorator:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:206
+msgid ""
+"@external\n"
+"@nonreentrant\n"
+"def withdraw():\n"
+"    # Cannot be re-entered"
+msgstr ""
+
+#: ../../../solidity-differences.rst:213
+msgid ""
+"The compiler generates the mutex. No manual reentrancy guard implementation "
+"required."
+msgstr ""
+
+#: ../../../solidity-differences.rst:217
+msgid ""
+"The 2016 DAO hack exploited reentrancy to drain ~$60M in ETH. This led to "
+"the Ethereum hard fork that created Ethereum Classic."
+msgstr ""
+
+#: ../../../solidity-differences.rst:219
+msgid ""
+"The ``extcall`` keyword makes external call sites explicit and easy to spot "
+"during code review. Note that ``@nonreentrant`` is opt-in and uses a global "
+"lock that protects against same-contract reentrancy: if any "
+"``@nonreentrant`` function is executing, no other ``@nonreentrant`` function "
+"in the same contract can be entered."
+msgstr ""
+
+#: ../../../solidity-differences.rst:221
+msgid ""
+"Alternatively, ``#pragma nonreentrancy`` enables reentrancy protection by "
+"default for all functions in the contract, so ``@nonreentrant`` is only "
+"needed when not using the pragma. It does not prevent cross-contract "
+"reentrancy (i.e., contract A calling contract B which calls back into "
+"contract A). See :ref:`control-structures` for details on the lock behavior."
+msgstr ""
+
+#: ../../../solidity-differences.rst:224
+msgid "Syntax Differences"
+msgstr ""
+
+#: ../../../solidity-differences.rst:226
+msgid "Practical syntax translations for common patterns."
+msgstr ""
+
+#: ../../../solidity-differences.rst:230
+msgid ""
+"Every Vyper file must start with a version pragma: ``#pragma version "
+"^0.4.0``. This is similar to Solidity's ``pragma solidity ^0.8.0;`` but uses "
+"a comment syntax. Vyper files use the ``.vy`` extension."
+msgstr ""
+
+#: ../../../solidity-differences.rst:233
+msgid "State Variables"
+msgstr ""
+
+#: ../../../solidity-differences.rst:235 ../../../solidity-differences.rst:254
+#: ../../../solidity-differences.rst:276 ../../../solidity-differences.rst:297
+#: ../../../solidity-differences.rst:325 ../../../solidity-differences.rst:342
+#: ../../../solidity-differences.rst:362 ../../../solidity-differences.rst:392
+#: ../../../solidity-differences.rst:415 ../../../solidity-differences.rst:441
+#: ../../../solidity-differences.rst:468
+msgid "Solidity:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:237
+msgid ""
+"uint256 public counter;\n"
+"address private owner;"
+msgstr ""
+
+#: ../../../solidity-differences.rst:242 ../../../solidity-differences.rst:262
+#: ../../../solidity-differences.rst:284 ../../../solidity-differences.rst:307
+#: ../../../solidity-differences.rst:332 ../../../solidity-differences.rst:369
+#: ../../../solidity-differences.rst:399 ../../../solidity-differences.rst:426
+#: ../../../solidity-differences.rst:452 ../../../solidity-differences.rst:475
+msgid "Vyper:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:244
+msgid ""
+"counter: public(uint256)\n"
+"owner: address"
+msgstr ""
+
+#: ../../../solidity-differences.rst:249
+msgid ""
+"Variables are private by default. Use ``public()`` to generate a getter."
+msgstr ""
+
+#: ../../../solidity-differences.rst:252
+msgid "Functions"
+msgstr ""
+
+#: ../../../solidity-differences.rst:256
+msgid ""
+"function deposit() external payable returns (uint256) {\n"
+"    return msg.value;\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:264
+msgid ""
+"@external\n"
+"@payable\n"
+"def deposit() -> uint256:\n"
+"    return msg.value"
+msgstr ""
+
+#: ../../../solidity-differences.rst:271
+msgid ""
+"Decorators specify visibility (``@external``, ``@internal``) and mutability "
+"(``@payable``, ``@view``, ``@pure``)."
+msgstr ""
+
+#: ../../../solidity-differences.rst:274
+msgid "Constructor"
+msgstr ""
+
+#: ../../../solidity-differences.rst:278
+msgid ""
+"constructor(address _owner) {\n"
+"    owner = _owner;\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:286
+msgid ""
+"@deploy\n"
+"def __init__(owner: address):\n"
+"    self.owner = owner"
+msgstr ""
+
+#: ../../../solidity-differences.rst:292
+msgid "The ``@deploy`` decorator marks the constructor."
+msgstr ""
+
+#: ../../../solidity-differences.rst:295
+msgid "Events"
+msgstr ""
+
+#: ../../../solidity-differences.rst:299
+msgid ""
+"event Transfer(address indexed from, address indexed to, uint256 value);\n"
+"\n"
+"function _transfer(address to, uint256 amount) internal {\n"
+"    emit Transfer(msg.sender, to, amount);\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:309
+msgid ""
+"event Transfer:\n"
+"    sender: indexed(address)\n"
+"    receiver: indexed(address)\n"
+"    amount: uint256\n"
+"\n"
+"@internal\n"
+"def _transfer(to: address, amount: uint256):\n"
+"    log Transfer(msg.sender, to, amount)"
+msgstr ""
+
+#: ../../../solidity-differences.rst:320
+msgid "``log`` instead of ``emit``."
+msgstr ""
+
+#: ../../../solidity-differences.rst:323
+msgid "Mappings"
+msgstr ""
+
+#: ../../../solidity-differences.rst:327
+msgid ""
+"mapping(address => uint256) public balances;\n"
+"mapping(address => mapping(address => uint256)) public allowances;"
+msgstr ""
+
+#: ../../../solidity-differences.rst:334
+msgid ""
+"balances: public(HashMap[address, uint256])\n"
+"allowances: public(HashMap[address, HashMap[address, uint256]])"
+msgstr ""
+
+#: ../../../solidity-differences.rst:340
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../solidity-differences.rst:344
+msgid ""
+"interface IERC20 {\n"
+"    function transfer(address to, uint256 amount) external returns (bool);\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:350
+msgid "Vyper (inline declaration):"
+msgstr ""
+
+#: ../../../solidity-differences.rst:352
+msgid ""
+"interface IERC20:\n"
+"    def transfer(to: address, amount: uint256) -> bool: nonpayable"
+msgstr ""
+
+#: ../../../solidity-differences.rst:357
+msgid ""
+"Interfaces can also be defined in separate ``.vyi`` files (see :ref:"
+"`interfaces`). Vyper ships with built-in interfaces for ERC20, ERC721, etc. "
+"via ``from ethereum.ercs import IERC20``."
+msgstr ""
+
+#: ../../../solidity-differences.rst:360
+msgid "Error Handling"
+msgstr ""
+
+#: ../../../solidity-differences.rst:364
+msgid ""
+"require(amount > 0, \"Amount must be positive\");\n"
+"revert(\"Operation failed\");"
+msgstr ""
+
+#: ../../../solidity-differences.rst:371
+msgid ""
+"assert amount > 0, \"Amount must be positive\"\n"
+"raise \"Operation failed\""
+msgstr ""
+
+#: ../../../solidity-differences.rst:376
+msgid "``assert`` for conditions, ``raise`` to revert."
+msgstr ""
+
+#: ../../../solidity-differences.rst:379
+msgid "Self Reference"
+msgstr ""
+
+#: ../../../solidity-differences.rst:381
+msgid "State variables require ``self.`` prefix:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:383
+msgid "self.counter = self.counter + 1"
+msgstr ""
+
+#: ../../../solidity-differences.rst:387
+msgid ""
+"Storage access is always explicit. Since storage operations cost more gas "
+"than memory operations, this distinction surfaces gas-intensive operations "
+"during review."
+msgstr ""
+
+#: ../../../solidity-differences.rst:390
+msgid "External Calls"
+msgstr ""
+
+#: ../../../solidity-differences.rst:394
+msgid ""
+"IERC20(token).transfer(to, amount);\n"
+"uint256 balance = IERC20(token).balanceOf(address(this));"
+msgstr ""
+
+#: ../../../solidity-differences.rst:401
+msgid ""
+"extcall IERC20(token).transfer(to, amount)\n"
+"balance: uint256 = staticcall IERC20(token).balanceOf(self)"
+msgstr ""
+
+#: ../../../solidity-differences.rst:406
+msgid ""
+"``extcall`` for state-changing calls, ``staticcall`` for view/pure "
+"functions. The keywords make external calls and potential reentrancy points "
+"visible in code."
+msgstr ""
+
+#: ../../../solidity-differences.rst:410
+msgid ""
+"The ``extcall`` keyword is required for all state-changing external calls. "
+"There is no implicit external call syntax in Vyper: every external call is "
+"syntactically marked."
+msgstr ""
+
+#: ../../../solidity-differences.rst:413
+msgid "Structs"
+msgstr ""
+
+#: ../../../solidity-differences.rst:417
+msgid ""
+"struct Person {\n"
+"    string name;\n"
+"    uint256 age;\n"
+"}\n"
+"\n"
+"Person public owner;"
+msgstr ""
+
+#: ../../../solidity-differences.rst:428
+msgid ""
+"struct Person:\n"
+"    name: String[64]\n"
+"    age: uint256\n"
+"\n"
+"owner: public(Person)"
+msgstr ""
+
+#: ../../../solidity-differences.rst:436
+msgid ""
+"Note that Vyper strings require explicit maximum length (``String[64]``)."
+msgstr ""
+
+#: ../../../solidity-differences.rst:439
+msgid "Constants and Immutables"
+msgstr ""
+
+#: ../../../solidity-differences.rst:443
+msgid ""
+"uint256 constant FEE = 100;\n"
+"address immutable owner;\n"
+"\n"
+"constructor() {\n"
+"    owner = msg.sender;\n"
+"}"
+msgstr ""
+
+#: ../../../solidity-differences.rst:454
+msgid ""
+"FEE: constant(uint256) = 100\n"
+"owner: immutable(address)\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    owner = msg.sender"
+msgstr ""
+
+#: ../../../solidity-differences.rst:463
+msgid ""
+"``constant`` values are inlined at compile time. ``immutable`` values are "
+"set once during deployment and cannot be changed."
+msgstr ""
+
+#: ../../../solidity-differences.rst:466
+msgid "Default Function"
+msgstr ""
+
+#: ../../../solidity-differences.rst:470
+msgid ""
+"fallback() external payable { }\n"
+"receive() external payable { }"
+msgstr ""
+
+#: ../../../solidity-differences.rst:477
+msgid ""
+"@external\n"
+"@payable\n"
+"def __default__():\n"
+"    pass"
+msgstr ""
+
+#: ../../../solidity-differences.rst:484
+msgid ""
+"Vyper uses a single ``__default__`` function for both fallback and receive. "
+"It executes when no other function matches or when receiving plain ETH."
+msgstr ""
+
+#: ../../../solidity-differences.rst:487
+msgid "Why Vyper?"
+msgstr ""
+
+#: ../../../solidity-differences.rst:489
+msgid "Use Vyper if:"
+msgstr ""
+
+#: ../../../solidity-differences.rst:491
+msgid "**You have Python experience.** The syntax is familiar."
+msgstr ""
+
+#: ../../../solidity-differences.rst:492
+msgid ""
+"**You want compiler-enforced constraints.** The compiler rejects unbounded "
+"loops, implicit conversions, and recursive calls."
+msgstr ""
+
+#: ../../../solidity-differences.rst:493
+msgid ""
+"**You prefer explicit code.** One way to do most things. No modifiers, no "
+"inheritance, no operator overloading."
+msgstr ""
+
+#: ../../../solidity-differences.rst:494
+msgid ""
+"**You want no global opt-out for safety checks.** Overflow and bounds checks "
+"can only be bypassed per-operation via ``unsafe_*`` builtins."
+msgstr ""

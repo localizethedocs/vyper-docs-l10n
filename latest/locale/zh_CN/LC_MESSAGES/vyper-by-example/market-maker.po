@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/market-maker.rst:6
+msgid "On-Chain Market Maker"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:10
+msgid ""
+"This is example code for learning purposes. Do not use in production without "
+"thorough review and testing."
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:12
+msgid ""
+"A simple automated market maker (AMM) using the constant product formula (x "
+"* y = k)."
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:14
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"from ethereum.ercs import IERC20\n"
+"\n"
+"\n"
+"totalEthQty: public(uint256)\n"
+"totalTokenQty: public(uint256)\n"
+"# Constant set in `initiate` that's used to calculate\n"
+"# the amount of ether/tokens that are exchanged\n"
+"invariant: public(uint256)\n"
+"token: IERC20\n"
+"owner: public(address)\n"
+"finalized: bool\n"
+"\n"
+"# Sets the on chain market maker with its owner, initial token quantity,\n"
+"# and initial ether quantity\n"
+"@external\n"
+"@payable\n"
+"def initiate(token_addr: address, token_quantity: uint256):\n"
+"    assert self.invariant == 0\n"
+"    self.token = IERC20(token_addr)\n"
+"    extcall self.token.transferFrom(msg.sender, self, token_quantity)\n"
+"    self.owner = msg.sender\n"
+"    self.totalEthQty = msg.value\n"
+"    self.totalTokenQty = token_quantity\n"
+"    self.invariant = msg.value * token_quantity\n"
+"    assert self.invariant > 0\n"
+"\n"
+"# Sells ether to the contract in exchange for tokens (minus a fee)\n"
+"@external\n"
+"@payable\n"
+"def ethToTokens():\n"
+"    assert not self.finalized\n"
+"\n"
+"    fee: uint256 = msg.value // 500\n"
+"    eth_in_purchase: uint256 = msg.value - fee\n"
+"    new_total_eth: uint256 = self.totalEthQty + eth_in_purchase\n"
+"    new_total_tokens: uint256 = self.invariant // new_total_eth\n"
+"    extcall self.token.transfer(msg.sender, self.totalTokenQty - "
+"new_total_tokens)\n"
+"    self.totalEthQty = new_total_eth\n"
+"    self.totalTokenQty = new_total_tokens\n"
+"\n"
+"# Sells tokens to the contract in exchange for ether\n"
+"@external\n"
+"def tokensToEth(sell_quantity: uint256):\n"
+"    assert not self.finalized\n"
+"\n"
+"    extcall self.token.transferFrom(msg.sender, self, sell_quantity)\n"
+"    new_total_tokens: uint256 = self.totalTokenQty + sell_quantity\n"
+"    new_total_eth: uint256 = self.invariant // new_total_tokens\n"
+"    eth_to_send: uint256 = self.totalEthQty - new_total_eth\n"
+"    send(msg.sender, eth_to_send)\n"
+"    self.totalEthQty = new_total_eth\n"
+"    self.totalTokenQty = new_total_tokens\n"
+"\n"
+"# Owner can withdraw their funds and stop the exchange\n"
+"@external\n"
+"def ownerWithdraw():\n"
+"    assert self.owner == msg.sender\n"
+"\n"
+"    self.finalized = True\n"
+"\n"
+"    extcall self.token.transfer(self.owner, self.totalTokenQty)\n"
+"\n"
+"    if self.balance > 0:\n"
+"        send(self.owner, self.balance)\n"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:18
+msgid "How it works:"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:20
+msgid ""
+"Owner calls ``initiate()`` with initial ETH and tokens, setting the "
+"invariant (k = ETH * tokens)"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:21
+msgid "Users swap ETH for tokens via ``ethToTokens()``"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:22
+msgid "Users swap tokens for ETH via ``tokensToEth()``"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:23
+msgid "The invariant is maintained: more ETH in = fewer tokens out"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:25
+msgid ""
+"The 0.2% fee (``msg.value // 500``) on ETH-to-token swaps goes to the "
+"liquidity provider."
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:29
+msgid ""
+"Production AMMs need price oracles, slippage protection, and liquidity "
+"management. This example demonstrates the core swap mechanism only."
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:1
+msgid "market maker"
+msgstr ""
+
+#: ../../../vyper-by-example/market-maker.rst:1
+msgid "AMM"
+msgstr ""

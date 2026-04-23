@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/index.rst:13
+msgid "Auctions"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:20
+msgid "Escrow & Crowdfunding"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:27
+msgid "Governance"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:33
+msgid "Finance"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:39
+msgid "Storage Patterns"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:46
+msgid "Token Standards"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:55
+msgid "DeFi Patterns"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:62
+msgid "Security Patterns"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:2
+msgid "Vyper by Example"
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:4
+msgid ""
+"This section contains practical examples demonstrating Vyper's features and "
+"common smart contract patterns. Each example includes the full contract code "
+"and a detailed walkthrough of the implementation."
+msgstr ""
+
+#: ../../../vyper-by-example/index.rst:8
+msgid ""
+"It's always important to keep security in mind when designing a smart "
+"contract. As any application becomes more complex, the greater the potential "
+"for introducing new risks. Thus, it's always good practice to keep contracts "
+"as readable and simple as possible."
+msgstr ""

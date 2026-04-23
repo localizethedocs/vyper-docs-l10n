@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../testing-contracts.rst:4
+msgid "Testing a Contract"
+msgstr ""
+
+#: ../../../testing-contracts.rst:6
+msgid ""
+"For testing Vyper contracts we recommend the use of `pytest <https://docs."
+"pytest.org/en/latest/contents.html>`_ along with one of the following "
+"frameworks:"
+msgstr ""
+
+#: ../../../testing-contracts.rst:9
+msgid "Titanoboa"
+msgstr ""
+
+#: ../../../testing-contracts.rst:11
+msgid ""
+"`Titanoboa <https://github.com/vyperlang/titanoboa>`_ is a Vyper interpreter "
+"maintained by the Vyper team. It provides:"
+msgstr ""
+
+#: ../../../testing-contracts.rst:13
+msgid "Fast execution for testing"
+msgstr ""
+
+#: ../../../testing-contracts.rst:14
+msgid "Pretty tracebacks for debugging"
+msgstr ""
+
+#: ../../../testing-contracts.rst:15
+msgid "Forking capabilities"
+msgstr ""
+
+#: ../../../testing-contracts.rst:16
+msgid "Deployment features"
+msgstr ""
+
+#: ../../../testing-contracts.rst:18 ../../../testing-contracts.rst:37
+msgid "**Getting Started:**"
+msgstr ""
+
+#: ../../../testing-contracts.rst:20
+msgid ""
+"`Official Titanoboa Documentation <https://titanoboa.readthedocs.io/en/"
+"latest/>`_"
+msgstr ""
+
+#: ../../../testing-contracts.rst:24
+msgid ""
+"For comprehensive examples and best practices, refer to the official "
+"Titanoboa documentation linked above."
+msgstr ""
+
+#: ../../../testing-contracts.rst:27
+msgid "Moccasin"
+msgstr ""
+
+#: ../../../testing-contracts.rst:29
+msgid ""
+"`Moccasin <https://github.com/Cyfrin/moccasin>`_ is a fast, Pythonic smart "
+"contract testing and development framework built on top of Titanoboa. It "
+"provides:"
+msgstr ""
+
+#: ../../../testing-contracts.rst:31
+msgid "ZKsync built-in support"
+msgstr ""
+
+#: ../../../testing-contracts.rst:32
+msgid "Named contracts for cleaner address management"
+msgstr ""
+
+#: ../../../testing-contracts.rst:33
+msgid "Custom pytest markers for staging tests"
+msgstr ""
+
+#: ../../../testing-contracts.rst:34
+msgid "Encrypted wallet support (no private keys in ``.env`` files)"
+msgstr ""
+
+#: ../../../testing-contracts.rst:35
+msgid "GitHub and Python dependency installation"
+msgstr ""
+
+#: ../../../testing-contracts.rst:39
+msgid "`Official Moccasin Documentation <https://cyfrin.github.io/moccasin/>`_"
+msgstr ""

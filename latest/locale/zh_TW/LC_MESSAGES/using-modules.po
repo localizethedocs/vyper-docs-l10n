@@ -1,0 +1,407 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../using-modules.rst:4
+msgid "Modules"
+msgstr ""
+
+#: ../../../using-modules.rst:6
+msgid ""
+"A module is a set of function definitions and variable declarations which "
+"enables code reuse. Vyper favors code reuse through composition, rather than "
+"inheritance. A module encapsulates everything needed for code reuse, from "
+"type and function declarations to state. It is important to note that "
+"functions which make use of defined state must be initialized in order to "
+"use that state, whereas functions that are \"pure\" do not require this."
+msgstr ""
+
+#: ../../../using-modules.rst:9
+msgid "Declaring and using modules"
+msgstr ""
+
+#: ../../../using-modules.rst:11
+msgid ""
+"The simplest way to define a module is to write a contract. In Vyper, any "
+"contract is a valid module! For example, the following contract is also a "
+"valid module."
+msgstr ""
+
+#: ../../../using-modules.rst:13
+msgid ""
+"# ownable.vy\n"
+"\n"
+"owner: address\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    self.owner = msg.sender\n"
+"\n"
+"def _check_owner():\n"
+"    assert self.owner == msg.sender\n"
+"\n"
+"@pure\n"
+"def _times_two(x: uint256) -> uint256:\n"
+"    return x * 2\n"
+"\n"
+"@external\n"
+"def update_owner(new_owner: address):\n"
+"    self._check_owner()\n"
+"\n"
+"    self.owner = new_owner"
+msgstr ""
+
+#: ../../../using-modules.rst:36
+msgid ""
+"This contract basically has two bits of functionality which can be reused "
+"upon import, the ``_check_owner()`` function and the ``update_owner()`` "
+"function. The ``_check_owner()`` is an internal function which can be used "
+"as a helper to check ownership in importing modules, while the "
+"``update_owner()`` is an external function which an importing module can "
+"itself :ref:`export <exporting-functions>` as an externally facing piece of "
+"functionality."
+msgstr ""
+
+#: ../../../using-modules.rst:38
+msgid ""
+"You can use this module's functionality simply by importing it, however any "
+"functionality that you do not use from a module will not be included in the "
+"final compilation target. For example, if you don't use the ``initializes`` "
+"statement to declare a module's location in the storage layout, you cannot "
+"use its state. Similarly, if you don't explicitly ``export`` an external "
+"function from a module, it will not appear in the runtime code."
+msgstr ""
+
+#: ../../../using-modules.rst:41
+msgid "Importing a module"
+msgstr ""
+
+#: ../../../using-modules.rst:43
+msgid ""
+"A module can be imported using ``import`` or ``from ... import`` statements. "
+"The following are all equivalent ways to import the above module:"
+msgstr ""
+
+#: ../../../using-modules.rst:45
+msgid ""
+"import ownable               # accessible as `ownable`\n"
+"import ownable as ow         # accessible as `ow`\n"
+"from . import ownable        # accessible as `ownable`\n"
+"from . import ownable as ow  # accessible as `ow`"
+msgstr ""
+
+#: ../../../using-modules.rst:52
+msgid ""
+"When importing using the ``as`` keyword, the module will be referred to by "
+"its alias in the rest of the contract."
+msgstr ""
+
+#: ../../../using-modules.rst:54
+msgid ""
+"The ``_times_two()`` helper function in the above module can be immediately "
+"used without any further work since it is \"pure\" and doesn't depend on "
+"initialized state."
+msgstr ""
+
+#: ../../../using-modules.rst:56
+msgid ""
+"import ownable as helper\n"
+"@external\n"
+"def my_function(x: uint256) -> uint256:\n"
+"    return helper._times_two(x)"
+msgstr ""
+
+#: ../../../using-modules.rst:63
+msgid ""
+"The other functions cannot be used yet, because they touch the ``ownable`` "
+"module's state. There are two ways to declare a module so that its state can "
+"be used."
+msgstr ""
+
+#: ../../../using-modules.rst:66
+msgid "Using a module as an interface"
+msgstr ""
+
+#: ../../../using-modules.rst:68
+msgid "A module can be used as an interface with the ``__at__`` syntax."
+msgstr ""
+
+#: ../../../using-modules.rst:70
+msgid ""
+"import ownable\n"
+"\n"
+"an_ownable: ownable.__interface__\n"
+"\n"
+"def call_ownable(addr: address):\n"
+"    self.an_ownable = ownable.__at__(addr)\n"
+"    self.an_ownable.transfer_ownership(...)"
+msgstr ""
+
+#: ../../../using-modules.rst:81
+msgid "Initializing a module"
+msgstr ""
+
+#: ../../../using-modules.rst:83
+msgid ""
+"In order to use a module's state, it must be \"initialized\". A module can "
+"be initialized with the ``initializes`` keyword. This declares the module's "
+"location in the contract's :ref:`Storage Layout <compiler-storage-layout>`. "
+"It also creates a requirement to invoke the module's :ref:`__init__() "
+"function <init-function>`, if it has one. This is a well-formedness "
+"requirement, since it does not make sense to access a module's state unless "
+"its ``__init__()`` function has been called."
+msgstr ""
+
+#: ../../../using-modules.rst:85
+msgid ""
+"import ownable\n"
+"\n"
+"initializes: ownable\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    ownable.__init__()\n"
+"\n"
+"@external\n"
+"def my_access_controlled_function():\n"
+"    ownable._check_owner()  # reverts unless msg.sender == ownable.owner\n"
+"\n"
+"    ... # do things that only the owner can do"
+msgstr ""
+
+#: ../../../using-modules.rst:101
+msgid ""
+"It is a compile-time error to invoke a module's ``__init__()`` function more "
+"than once!"
+msgstr ""
+
+#: ../../../using-modules.rst:103
+msgid ""
+"A module's state can be directly accessed just by prefixing the name of a "
+"variable with the module's alias, like follows:"
+msgstr ""
+
+#: ../../../using-modules.rst:105
+msgid ""
+"@external\n"
+"def get_owner() -> address:\n"
+"    return ownable.owner"
+msgstr ""
+
+#: ../../../using-modules.rst:113
+msgid "The ``uses`` statement"
+msgstr ""
+
+#: ../../../using-modules.rst:115
+msgid ""
+"Another way of using a contract's state without directly initializing it is "
+"to use the ``uses`` keyword. This is a more advanced usage which is expected "
+"to be mostly utilized by library designers. The ``uses`` statement allows a "
+"module to use another module's state but defer its initialization to another "
+"module in the compilation tree (most likely a user of the library in "
+"question)."
+msgstr ""
+
+#: ../../../using-modules.rst:117
+msgid "This is best illustrated with an example:"
+msgstr ""
+
+#: ../../../using-modules.rst:119
+msgid ""
+"# ownable_2step.vy\n"
+"import ownable\n"
+"\n"
+"uses: ownable\n"
+"\n"
+"# does not export ownable.transfer_ownership!\n"
+"\n"
+"pending_owner: address  # the pending owner in the 2-step transfer process\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    self.pending_owner = empty(address)\n"
+"\n"
+"@external\n"
+"def begin_transfer(new_owner: address):\n"
+"    ownable._check_owner()\n"
+"\n"
+"    self.pending_owner = new_owner\n"
+"\n"
+"@external\n"
+"def accept_transfer():\n"
+"    assert msg.sender == self.pending_owner\n"
+"\n"
+"    ownable.owner = self.pending_owner\n"
+"    self.pending_owner = empty(address)"
+msgstr ""
+
+#: ../../../using-modules.rst:147
+msgid ""
+"Here, the ``ownable_2step`` module does not want to seal off access to "
+"calling the ``ownable`` module's ``__init__()`` function. So, it utilizes "
+"the ``uses: ownable`` statement to get access to the ``ownable`` module's "
+"state, without the requirement to initialize it. Note that this is a valid "
+"module, but it is not a valid contract (that is, it cannot produce bytecode) "
+"because it does not initialize the ``ownable`` module. To make a valid "
+"contract, the user of the ``ownable_2step`` module would be responsible for "
+"initializing the ``ownable`` module themselves (as in the next section: :ref:"
+"`initializing dependencies <init-dependencies>`)."
+msgstr ""
+
+#: ../../../using-modules.rst:149
+msgid ""
+"Whether to ``use`` or ``initialize`` a module is a choice which is left up "
+"to the library designer."
+msgstr ""
+
+#: ../../../using-modules.rst:152
+msgid "Technical notes on the design"
+msgstr ""
+
+#: ../../../using-modules.rst:154
+msgid ""
+"This section contains some notes on the design from a language design "
+"perspective. It can be safely skipped if you are just interested in how to "
+"use modules, and not necessarily in programming language theory."
+msgstr ""
+
+#: ../../../using-modules.rst:156
+msgid ""
+"The design of the module system takes inspiration from (but is not directly "
+"related to) the rust language's `borrow checker <https://doc.rust-lang."
+"org/1.8.0/book/references-and-borrowing.html>`_. In the language of type "
+"systems, module initialization is modeled as an affine constraint which is "
+"promoted to a linear constraint if the module's state is touched in the "
+"compilation target. In practice, what this means is:"
+msgstr ""
+
+#: ../../../using-modules.rst:158
+msgid ""
+"A module must be \"used\" or \"initialized\" before its state can be "
+"accessed in an import"
+msgstr ""
+
+#: ../../../using-modules.rst:159
+msgid "A module may be \"used\" many times"
+msgstr ""
+
+#: ../../../using-modules.rst:160
+msgid ""
+"A module which is \"used\" or its state touched must be \"initialized\" "
+"exactly once"
+msgstr ""
+
+#: ../../../using-modules.rst:162
+msgid ""
+"To read more about the design background of Vyper's module system, please "
+"see its original `design document <https://github.com/vyperlang/vyper/"
+"issues/3722>`_."
+msgstr ""
+
+#: ../../../using-modules.rst:167
+msgid "Initializing a module with dependencies"
+msgstr ""
+
+#: ../../../using-modules.rst:169
+msgid ""
+"Sometimes, you may encounter a module which itself ``uses`` other modules. "
+"Vyper's module system is designed to allow this, but it requires you make "
+"explicit the access to the imported module's state. The above "
+"``ownable_2step.vy`` contract is an example of this. If you wanted to "
+"initialize the ``ownable_2step`` module, it would use the special ``:=`` "
+"(aka \"walrus\") syntax, and look something like this:"
+msgstr ""
+
+#: ../../../using-modules.rst:171
+msgid ""
+"import ownable\n"
+"import ownable_2step\n"
+"\n"
+"initializes: ownable\n"
+"\n"
+"# ownable is explicitly declared as a state dependency of `ownable_2step`\n"
+"initializes: ownable_2step[ownable := ownable]\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    ownable.__init__()\n"
+"    ownable_2step.__init__()\n"
+"\n"
+"# export all external functions from ownable_2step\n"
+"exports: ownable_2step.__interface__"
+msgstr ""
+
+#: ../../../using-modules.rst:190
+msgid ""
+"In normal usage, you should make sure that ``__init__()`` functions are "
+"called in dependency order. In the above example, you can get unexpected "
+"behavior if ``ownable_2step.__init__()`` is called before ``ownable."
+"__init__()``! The compiler may enforce this behavior in the future."
+msgstr ""
+
+#: ../../../using-modules.rst:195
+msgid "Exporting functions"
+msgstr ""
+
+#: ../../../using-modules.rst:197
+msgid ""
+"In Vyper, ``@external`` functions are not automatically exposed (i.e., "
+"included in the runtime code) in the importing contract. This is a safety "
+"feature, it means that any externally facing functionality must be "
+"explicitly defined in the top-level of the compilation target."
+msgstr ""
+
+#: ../../../using-modules.rst:199
+msgid ""
+"So, exporting external functions from modules is accomplished using the "
+"``exports`` keyword. In Vyper, functions can be exported individually, or, a "
+"wholesale export of all the functions in an interface can be done. The "
+"special interface ``module.__interface__`` is a compiler-defined interface, "
+"which automatically includes all the functions in a module."
+msgstr ""
+
+#: ../../../using-modules.rst:201
+msgid ""
+"The following are all ways of exporting functions from an imported module."
+msgstr ""
+
+#: ../../../using-modules.rst:203
+msgid ""
+"# export a single function from `ownable_2step`\n"
+"exports: ownable_2step.transfer_ownership\n"
+"\n"
+"# export multiple functions from `ownable_2step`, being explicit about\n"
+"# which specific functions are being exported\n"
+"exports: (\n"
+"    ownable_2step.transfer_ownership,\n"
+"    ownable_2step.accept_ownership,\n"
+")\n"
+"\n"
+"# export all IERC20 functions from `base_token`\n"
+"exports: base_token.IERC20\n"
+"\n"
+"# export all external functions from `ownable_2step`\n"
+"exports: ownable_2step.__interface__"
+msgstr ""
+
+#: ../../../using-modules.rst:222
+msgid ""
+"Any exported interfaces must be implemented by the module. For example, in "
+"the above example, ``base_token`` must contain ``implements: IERC20``, or "
+"else the compiler will raise an error."
+msgstr ""

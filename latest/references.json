@@ -13,22 +13,22 @@
     },
     "zh_CN" : 
     {
-      "branch" : "",
+      "branch" : "master",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-04-21 12:49:30 +0100",
+        "hash" : "5ea0f3862020e590232d1c309fd12a110fdb06fd",
+        "title" : "feat[test]: add diamond initialization tests (#4915)"
       }
     },
     "zh_TW" : 
     {
-      "branch" : "",
+      "branch" : "master",
       "commit" : 
       {
-        "date" : "",
-        "hash" : "",
-        "title" : ""
+        "date" : "2026-04-21 12:49:30 +0100",
+        "hash" : "5ea0f3862020e590232d1c309fd12a110fdb06fd",
+        "title" : "feat[test]: add diamond initialization tests (#4915)"
       }
     }
   },

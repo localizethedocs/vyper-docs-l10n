@@ -1,0 +1,503 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../structure-of-a-contract.rst:4
+msgid "Structure of a Contract"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:6
+msgid ""
+"Vyper contracts are contained within files. Each file contains exactly one "
+"contract."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:8
+msgid ""
+"This section provides a quick overview of the types of data present within a "
+"contract, with links to other sections where you can obtain more details."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:13
+msgid "Pragmas"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:15
+msgid ""
+"Vyper supports several source code directives to control compiler modes and "
+"help with build reproducibility."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:18
+msgid "Version Pragma"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:20
+msgid ""
+"The version pragma ensures that a contract is only compiled by the intended "
+"compiler version, or range of versions. Version strings use `NPM <https://"
+"docs.npmjs.com/about-semantic-versioning>`_ style syntax. Starting from "
+"v0.4.0 and up, version strings will use `PEP440 version specifiers <https://"
+"peps.python.org/pep-0440/#version-specifiers>`_."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:22
+msgid ""
+"As of 0.3.10, the recommended way to specify the version pragma is as "
+"follows:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:24
+msgid "#pragma version ^0.4.0"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:30
+msgid ""
+"Both pragma directive versions ``#pragma`` and ``# pragma`` are supported."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:32
+msgid ""
+"The following declaration is equivalent, and, prior to 0.3.10, was the only "
+"supported method to specify the compiler version:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:34
+msgid "# @version ^0.4.0"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:39
+msgid ""
+"In the above examples, the contract will only compile with Vyper versions "
+"``0.4.x``."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:42
+msgid "Optimization Mode"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:44
+msgid ""
+"The optimization mode can be one of ``\"none\"``, ``\"codesize\"``, or "
+"``\"gas\"`` (default). For example, adding the following line to a contract "
+"will cause it to try to optimize for codesize:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:46
+msgid "#pragma optimize codesize"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:50
+msgid ""
+"The optimization mode can also be set as a compiler option, which is "
+"documented in :ref:`optimization-mode`. If the compiler option conflicts "
+"with the source code pragma, an exception will be raised and compilation "
+"will not continue."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:53
+msgid "EVM Version"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:55
+msgid ""
+"The EVM version can be set with the ``evm-version`` pragma, which is "
+"documented in :ref:`evm-version`."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:58
+msgid "Experimental Code Generation"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:59
+msgid ""
+"The new experimental code generation feature can be activated using the "
+"following directive:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:61
+msgid "#pragma experimental-codegen"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:65
+msgid ""
+"Alternatively, you can use the alias ``\"venom-experimental\"`` instead of "
+"``\"experimental-codegen\"``  to enable this feature."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:68
+msgid "Imports"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:70
+msgid ""
+"Import statements allow you to import :ref:`modules` or :ref:`interfaces` "
+"with the ``import`` or ``from ... import`` syntax."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:73
+msgid "Imports via ``import``"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:75
+msgid ""
+"You may import modules (defined in ``.vy`` files) and interfaces (defined in "
+"``.vyi`` or ``.json`` files) via ``import`` statements. You may use plain or "
+"``as`` variants."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:77
+msgid ""
+"# without an alias\n"
+"import foo\n"
+"\n"
+"# with an alias\n"
+"import my_package.foo as bar"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:86
+msgid "Imports via ``from ... import``"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:88
+msgid ""
+"Using ``from`` you can perform both absolute and relative imports. You may "
+"optionally include an alias - if you do not, the name of the interface will "
+"be the same as the file."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:90
+msgid ""
+"# without an alias\n"
+"from my_package import foo\n"
+"\n"
+"# with an alias\n"
+"from my_package import foo as bar"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:98
+msgid ""
+"Relative imports are possible by prepending dots to the contract name. A "
+"single leading dot indicates a relative import starting with the current "
+"package. Two leading dots indicate a relative import from the parent of the "
+"current package:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:100
+msgid ""
+"from . import foo\n"
+"from ..interfaces import baz"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:105
+msgid ""
+"Further higher directories can be accessed with ``...``, ``....`` etc., as "
+"in Python."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:110
+msgid "Searching For Imports"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:112
+msgid ""
+"When looking for a file to import, Vyper will first search relative to the "
+"same folder as the contract being compiled. It then checks for the file in "
+"the provided search paths, in the precedence provided. Vyper checks for the "
+"file name with a ``.vy`` suffix first, then ``.vyi``, then ``.json``."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:114
+msgid ""
+"When using the :ref:`vyper CLI <vyper-cli-command>`, the search path "
+"defaults to the current working directory, plus the python `syspath <https://"
+"docs.python.org/3.11/library/sys.html#sys.path>`_. You can append to the "
+"search path with the ``-p`` flag, e.g.:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:118
+msgid "$ vyper my_project/contracts/my_contract.vy -p ../path/to/other_project"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:120
+msgid ""
+"In the above example, the ``my_project`` folder is set as the root path."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:124
+msgid ""
+"Including the python syspath on the search path means that any Vyper module "
+"in the current ``virtualenv`` is discoverable by the Vyper compiler, and "
+"Vyper packages can be published to and installed from PyPI and accessed via "
+"``import`` statements with no additional configuration. Keep in mind that "
+"best practice is always to install packages *within* a ``virtualenv`` and "
+"not globally!"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:126
+msgid ""
+"You can additionally disable the behavior of adding the syspath to the "
+"search path with the CLI flag ``--disable-sys-path``:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:130
+msgid "$ vyper --disable-sys-path my_project/my_contract.vy"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:132
+msgid ""
+"When compiling from a :ref:`.vyz archive file <vyper-archives>` or :ref:"
+"`standard json input <vyper-json>`, the search path is already part of the "
+"bundle, it cannot be changed from the command line."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:137
+msgid "State Variables"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:139
+msgid ""
+"State variables are values which are permanently stored in contract storage. "
+"They are declared outside of the body of any functions, and initially "
+"contain the :ref:`default value<types-initial>` for their type."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:141
+msgid "storedData: int128"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:145
+msgid ""
+"State variables are accessed via the :ref:`self<constants-self>` object."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:147
+msgid "self.storedData = 123"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:151
+msgid ""
+"See the documentation on :ref:`Types<types>` or :ref:`Scoping and "
+"Declarations<scoping>` for more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:156
+msgid "Functions"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:158
+msgid "Functions are executable units of code within a contract."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:160
+msgid ""
+"@external\n"
+"def bid():\n"
+"    ..."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:166
+msgid ""
+"Functions may be called internally or externally depending on their :ref:"
+"`visibility <function-visibility>`. Functions may accept input arguments and "
+"return variables in order to pass values between them."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:168
+msgid ""
+"See the :ref:`Functions <control-structures-functions>` documentation for "
+"more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:173
+msgid "Modules"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:175
+msgid ""
+"A module is a set of function definitions and variable declarations which "
+"enables code reuse. Vyper favors code reuse through composition, rather than "
+"inheritance."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:177
+msgid "Broadly speaking, a module contains:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:179
+msgid "function definitions"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:180
+msgid "state variable declarations"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:181
+msgid "type definitions"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:183
+msgid "Therefore, a module encapsulates"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:185
+msgid "functionality (types and functions), and"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:186
+msgid "state (variables), which may be tightly coupled with that functionality"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:188
+msgid ""
+"Modules can be added to contracts by importing them from a ``.vy`` file. Any "
+"``.vy`` file is a valid module which can be imported into another contract! "
+"This is a very powerful feature which allows you to assemble contracts via "
+"other contracts as building blocks."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:190
+msgid ""
+"# my_module.vy\n"
+"\n"
+"def perform_some_computation() -> uint256:\n"
+"    return 5\n"
+"\n"
+"@external\n"
+"def some_external_function() -> uint256:\n"
+"    return 6"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:201
+msgid ""
+"import my_module\n"
+"\n"
+"exports: my_module.some_external_function\n"
+"\n"
+"@external\n"
+"def foo() -> uint256:\n"
+"    return my_module.perform_some_computation()"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:211
+msgid ""
+"Modules are opt-in by design. That is, any operations involving state or "
+"exposing external functions must be explicitly opted into using the "
+"``exports``, ``uses`` or ``initializes`` keywords. See the :ref:`Modules "
+"<modules>` documentation for more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:214
+msgid "Events"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:216
+msgid ""
+"Events provide an interface for the EVM's logging facilities. Events may be "
+"logged with specially indexed data structures that allow clients, including "
+"light clients, to efficiently search for them."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:218
+msgid ""
+"event Payment:\n"
+"    amount: int128\n"
+"    sender: indexed(address)\n"
+"\n"
+"total_paid: int128\n"
+"\n"
+"@external\n"
+"@payable\n"
+"def pay():\n"
+"    self.total_paid += msg.value\n"
+"    log Payment(msg.value, msg.sender)"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:232
+msgid ""
+"See the :ref:`Event <event-logging>` documentation for more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:237
+msgid "Interfaces"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:239
+msgid ""
+"An interface is a set of function definitions used to enable calls between "
+"smart contracts. A contract interface defines all of that contract's "
+"externally available functions. By importing the interface, your contract "
+"now knows how to call these functions in other contracts."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:241
+msgid ""
+"Interfaces can be added to contracts either through inline definition, or by "
+"importing them from a separate ``.vyi`` file."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:243
+msgid ""
+"interface FooBar:\n"
+"    def calculate() -> uint256: view\n"
+"    def test1(): nonpayable"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:249
+msgid "from foo import FooBar"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:253
+msgid ""
+"Once defined, an interface can then be used to make external calls to a "
+"given address:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:255
+msgid ""
+"@external\n"
+"def test(some_address: address):\n"
+"    x: uint256 = staticcall FooBar(some_address).calculate()"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:261
+msgid ""
+"See the :ref:`Interfaces <interfaces>` documentation for more information."
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:264
+msgid "Structs"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:266
+msgid ""
+"A struct is a custom defined type that allows you to group several variables "
+"together:"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:268
+msgid ""
+"struct MyStruct:\n"
+"    value1: int128\n"
+"    value2: decimal"
+msgstr ""
+
+#: ../../../structure-of-a-contract.rst:274
+msgid ""
+"See the :ref:`Structs <types-struct>` documentation for more information."
+msgstr ""

@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/storage.rst:4
+msgid "Storage Patterns"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:10
+msgid ""
+"This is example code for learning purposes. Do not use in production without "
+"thorough review and testing."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:12
+msgid ""
+"Let's start with a minimal contract that demonstrates state storage. This "
+"contract stores a single integer that can be set by anyone."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:16
+msgid "Simple Storage"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:18
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"storedData: public(int128)\n"
+"\n"
+"@deploy\n"
+"def __init__(_x: int128):\n"
+"  self.storedData = _x\n"
+"\n"
+"@external\n"
+"def set(_x: int128):\n"
+"  self.storedData = _x\n"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:22
+msgid "This example shows:"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:24
+msgid "A public state variable ``storedData`` with an auto-generated getter"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:25
+msgid "A constructor (``__init__``) that sets the initial value"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:26
+msgid "An external function ``set()`` that modifies state"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:28
+msgid ""
+"The ``public`` modifier on ``storedData`` automatically creates a getter "
+"function, so external contracts can read the value by calling ``contract."
+"storedData()``."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:36
+msgid "Advanced Storage"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:38
+msgid ""
+"Building on the simple storage example, this contract adds input validation, "
+"events, and a reset function."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:41
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"event DataChange:\n"
+"    setter: indexed(address)\n"
+"    value: int128\n"
+"\n"
+"storedData: public(int128)\n"
+"\n"
+"@deploy\n"
+"def __init__(_x: int128):\n"
+"  self.storedData = _x\n"
+"\n"
+"@external\n"
+"def set(_x: int128):\n"
+"  assert _x >= 0, \"No negative values\"\n"
+"  assert self.storedData < 100, \"Storage is locked when 100 or more is "
+"stored\"\n"
+"  self.storedData = _x\n"
+"  log DataChange(setter=msg.sender, value=_x)\n"
+"\n"
+"@external\n"
+"def reset():\n"
+"  self.storedData = 0\n"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:45
+msgid "New concepts introduced:"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:47
+msgid ""
+"**Events**: The ``DataChange`` event logs who changed the value and what "
+"they changed it to. The ``indexed`` keyword allows filtering by the setter's "
+"address."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:48
+msgid ""
+"**Assertions with messages**: ``assert _x >= 0, \"No negative values\"`` "
+"reverts with a readable error."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:49
+msgid ""
+"**Business logic guards**: The contract locks when the stored value reaches "
+"100."
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:1
+#: ../../../vyper-by-example/storage.rst:31
+msgid "storage"
+msgstr ""
+
+#: ../../../vyper-by-example/storage.rst:31
+msgid "advanced"
+msgstr ""

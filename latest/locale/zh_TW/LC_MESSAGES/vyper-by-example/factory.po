@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/factory.rst:4
+msgid "Factory Pattern"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:10
+msgid ""
+"This is example code for learning purposes. Do not use in production without "
+"thorough review and testing."
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:12
+msgid ""
+"The factory pattern deploys and registers multiple contract instances. This "
+"example shows a factory that registers exchanges and routes trades between "
+"them."
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:16
+msgid "Factory Contract"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:18
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"from ethereum.ercs import IERC20\n"
+"\n"
+"interface Exchange:\n"
+"    def token() -> IERC20: view\n"
+"    def receive(_from: address, _amt: uint256): nonpayable\n"
+"    def transfer(_to: address, _amt: uint256): nonpayable\n"
+"\n"
+"\n"
+"exchange_codehash: public(bytes32)\n"
+"# Maps token addresses to exchange addresses\n"
+"exchanges: public(HashMap[IERC20, Exchange])\n"
+"\n"
+"\n"
+"@deploy\n"
+"def __init__(_exchange_codehash: bytes32):\n"
+"    # Register the exchange code hash during deployment of the factory\n"
+"    self.exchange_codehash = _exchange_codehash\n"
+"\n"
+"\n"
+"# NOTE: Could implement fancier upgrade logic around self.exchange_codehash\n"
+"#       For example, allowing the deployer of this contract to change this\n"
+"#       value allows them to use a new contract if the old one has an "
+"issue.\n"
+"#       This would trigger a cascade effect across all exchanges that would\n"
+"#       need to be handled appropriately.\n"
+"\n"
+"\n"
+"@external\n"
+"def register():\n"
+"    # Verify code hash is the exchange's code hash\n"
+"    assert msg.sender.codehash == self.exchange_codehash\n"
+"    # Save a lookup for the exchange\n"
+"    # NOTE: Use exchange's token address because it should be globally "
+"unique\n"
+"    # NOTE: Should do checks that it hasn't already been set,\n"
+"    #       which has to be rectified with any upgrade strategy.\n"
+"    exchange: Exchange = Exchange(msg.sender)\n"
+"    self.exchanges[staticcall exchange.token()] = exchange\n"
+"\n"
+"\n"
+"@external\n"
+"def trade(_token1: IERC20, _token2: IERC20, _amt: uint256):\n"
+"    # Perform a straight exchange of token1 to token 2 (1:1 price)\n"
+"    # NOTE: Any practical implementation would need to solve the price "
+"oracle problem\n"
+"    extcall self.exchanges[_token1].receive(msg.sender, _amt)\n"
+"    extcall self.exchanges[_token2].transfer(msg.sender, _amt)\n"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:23
+msgid "Exchange Contract"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:25
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"from ethereum.ercs import IERC20\n"
+"\n"
+"\n"
+"interface Factory:\n"
+"    def register(): nonpayable\n"
+"\n"
+"\n"
+"token: public(IERC20)\n"
+"factory: Factory\n"
+"\n"
+"\n"
+"@deploy\n"
+"def __init__(_token: IERC20, _factory: Factory):\n"
+"    self.token = _token\n"
+"    self.factory = _factory\n"
+"\n"
+"\n"
+"@external\n"
+"def initialize():\n"
+"    # Anyone can safely call this function because of EXTCODEHASH\n"
+"    extcall self.factory.register()\n"
+"\n"
+"\n"
+"# NOTE: This contract restricts trading to only be done by the factory.\n"
+"#       A practical implementation would probably want counter-pairs\n"
+"#       and liquidity management features for each exchange pool.\n"
+"\n"
+"\n"
+"@external\n"
+"def receive(_from: address, _amt: uint256):\n"
+"    assert msg.sender == self.factory.address\n"
+"    success: bool = extcall self.token.transferFrom(_from, self, _amt)\n"
+"    assert success\n"
+"\n"
+"\n"
+"@external\n"
+"def transfer(_to: address, _amt: uint256):\n"
+"    assert msg.sender == self.factory.address\n"
+"    success: bool = extcall self.token.transfer(_to, _amt)\n"
+"    assert success\n"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:29
+msgid "How the pattern works:"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:31
+msgid "Deploy the Exchange code and record its ``codehash``"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:32
+msgid "Deploy the Factory with the exchange codehash"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:33
+msgid "Deploy Exchange instances (one per token)"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:34
+msgid "Each Exchange calls ``factory.register()`` to register itself"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:35
+msgid ""
+"The Factory verifies the caller's codehash matches the expected exchange code"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:36
+msgid ""
+"Users can now trade between any registered tokens via ``factory.trade()``"
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:38
+msgid ""
+"The ``msg.sender.codehash`` check ensures only legitimate exchange contracts "
+"can register."
+msgstr ""
+
+#: ../../../vyper-by-example/factory.rst:1
+msgid "factory pattern"
+msgstr ""

@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../quickstart.rst:4
+msgid "Quickstart"
+msgstr ""
+
+#: ../../../quickstart.rst:6
+msgid ""
+"This guide gets you from zero to a compiled Vyper contract in 5 minutes."
+msgstr ""
+
+#: ../../../quickstart.rst:9
+msgid "Which Framework Should I Use?"
+msgstr ""
+
+#: ../../../quickstart.rst:11
+msgid ""
+"**Short answer:** Use `Moccasin <https://github.com/cyfrin/moccasin>`_ for "
+"new projects."
+msgstr ""
+
+#: ../../../quickstart.rst:13
+msgid ""
+"Moccasin is a Vyper-first development framework built on Titanoboa (Vyper's "
+"native testing tool). It provides:"
+msgstr ""
+
+#: ../../../quickstart.rst:15
+msgid "Project scaffolding"
+msgstr ""
+
+#: ../../../quickstart.rst:16
+msgid "Compilation"
+msgstr ""
+
+#: ../../../quickstart.rst:17
+msgid "Testing with pytest (see :ref:`testing-contracts`)"
+msgstr ""
+
+#: ../../../quickstart.rst:18
+msgid "Deployment scripts"
+msgstr ""
+
+#: ../../../quickstart.rst:19
+msgid "Network management"
+msgstr ""
+
+#: ../../../quickstart.rst:21
+msgid ""
+"If you're coming from Solidity/Foundry, Moccasin is the closest equivalent "
+"for Vyper."
+msgstr ""
+
+#: ../../../quickstart.rst:25
+msgid "**What about Foundry, Hardhat, or Ape?**"
+msgstr ""
+
+#: ../../../quickstart.rst:27
+msgid ""
+"**Foundry:** Primarily for Solidity. Vyper support exists but requires "
+"workarounds."
+msgstr ""
+
+#: ../../../quickstart.rst:28
+msgid ""
+"**Hardhat:** JavaScript-based, has a Vyper plugin, but not the recommended "
+"path."
+msgstr ""
+
+#: ../../../quickstart.rst:29
+msgid "**Ape:** Good if you need multi-language support, but adds complexity."
+msgstr ""
+
+#: ../../../quickstart.rst:30
+msgid "**Brownie:** Deprecated. Do not use for new projects."
+msgstr ""
+
+#: ../../../quickstart.rst:33
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../quickstart.rst:35
+msgid "Python 3.11 or higher"
+msgstr ""
+
+#: ../../../quickstart.rst:36
+msgid "`uv <https://docs.astral.sh/uv/>`_ (recommended) or pip"
+msgstr ""
+
+#: ../../../quickstart.rst:40
+msgid ""
+"If you're new to Python or having environment issues, see :ref:"
+"`troubleshooting-python` at the bottom of this page."
+msgstr ""
+
+#: ../../../quickstart.rst:43
+msgid "Installing Moccasin"
+msgstr ""
+
+#: ../../../quickstart.rst:45
+msgid ""
+"We recommend installing Moccasin using `uv <https://docs.astral.sh/uv/>`_:"
+msgstr ""
+
+#: ../../../quickstart.rst:47
+msgid ""
+"# Install uv (if you don't have it)\n"
+"curl -LsSf https://astral.sh/uv/install.sh | sh\n"
+"\n"
+"# Install Moccasin\n"
+"uv tool install moccasin"
+msgstr ""
+
+#: ../../../quickstart.rst:55
+msgid "Verify it works:"
+msgstr ""
+
+#: ../../../quickstart.rst:57
+msgid "mox --version"
+msgstr ""
+
+#: ../../../quickstart.rst:61
+msgid "You should see something like ``Moccasin CLI v0.4.3``."
+msgstr ""
+
+#: ../../../quickstart.rst:65
+msgid "**Using uv vs pip**"
+msgstr ""
+
+#: ../../../quickstart.rst:67
+msgid ""
+"We recommend ``uv tool install`` because it handles Python environment "
+"isolation automatically. If you prefer pip, you can use ``pip install "
+"moccasin``, but you may need to manage virtual environments yourself."
+msgstr ""
+
+#: ../../../quickstart.rst:72
+msgid "Creating a Project"
+msgstr ""
+
+#: ../../../quickstart.rst:74
+msgid ""
+"mox init my_project\n"
+"cd my_project"
+msgstr ""
+
+#: ../../../quickstart.rst:79
+msgid "This creates a ready-to-use project structure:"
+msgstr ""
+
+#: ../../../quickstart.rst:81
+msgid ""
+"my_project/\n"
+"├── src/              # Your Vyper contracts\n"
+"├── tests/            # Your tests\n"
+"├── script/           # Deployment scripts\n"
+"└── moccasin.toml     # Configuration"
+msgstr ""
+
+#: ../../../quickstart.rst:89
+msgid "Moccasin generates a sample contract and test to get you started."
+msgstr ""
+
+#: ../../../quickstart.rst:92
+msgid "Compiling"
+msgstr ""
+
+#: ../../../quickstart.rst:94
+msgid "mox compile"
+msgstr ""
+
+#: ../../../quickstart.rst:98
+msgid "This compiles all ``.vy`` files in the ``src/`` folder."
+msgstr ""
+
+#: ../../../quickstart.rst:101
+msgid "Running Tests"
+msgstr ""
+
+#: ../../../quickstart.rst:103
+msgid "mox test"
+msgstr ""
+
+#: ../../../quickstart.rst:107
+msgid "You should see output like:"
+msgstr ""
+
+#: ../../../quickstart.rst:109
+msgid ""
+"============================= test session starts "
+"==============================\n"
+"collected 1 item\n"
+"tests/test_counter.py .                                                  "
+"[100%]\n"
+"============================== 1 passed in 0.03s "
+"==============================="
+msgstr ""
+
+#: ../../../quickstart.rst:117
+msgid "Exploring the Sample Contract"
+msgstr ""
+
+#: ../../../quickstart.rst:119
+msgid "Open ``src/Counter.vy`` to see a minimal Vyper contract:"
+msgstr ""
+
+#: ../../../quickstart.rst:121
+msgid ""
+"#pragma version ^0.4.1\n"
+"\n"
+"number: public(uint256)\n"
+"\n"
+"@external\n"
+"def set_number(new_number: uint256):\n"
+"    self.number = new_number\n"
+"\n"
+"@external\n"
+"def increment():\n"
+"    self.number += 1"
+msgstr ""
+
+#: ../../../quickstart.rst:135
+msgid "This demonstrates:"
+msgstr ""
+
+#: ../../../quickstart.rst:137
+msgid ""
+"**Version pragma:** ``#pragma version ^0.4.1`` specifies the compiler version"
+msgstr ""
+
+#: ../../../quickstart.rst:138
+msgid ""
+"**State variables:** ``number: public(uint256)`` creates storage with an "
+"automatic getter"
+msgstr ""
+
+#: ../../../quickstart.rst:139
+msgid ""
+"**Functions:** ``@external`` marks functions callable from outside the "
+"contract"
+msgstr ""
+
+#: ../../../quickstart.rst:142
+msgid "Next Steps"
+msgstr ""
+
+#: ../../../quickstart.rst:144
+msgid "Browse :doc:`vyper-by-example/index` for more complex contracts"
+msgstr ""
+
+#: ../../../quickstart.rst:145
+msgid "Read about :doc:`types` and :doc:`control-structures`"
+msgstr ""
+
+#: ../../../quickstart.rst:146
+msgid "Learn about :doc:`using-modules` for code reuse"
+msgstr ""
+
+#: ../../../quickstart.rst:147
+msgid ""
+"See the `Moccasin documentation <https://cyfrin.github.io/moccasin/>`_ for "
+"deployment and advanced features"
+msgstr ""
+
+#: ../../../quickstart.rst:152
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../../quickstart.rst:154
+msgid "**\"command not found: mox\"**"
+msgstr ""
+
+#: ../../../quickstart.rst:156
+msgid ""
+"If you installed with ``uv tool install``, restart your terminal or run:"
+msgstr ""
+
+#: ../../../quickstart.rst:158
+msgid "source ~/.bashrc  # or ~/.zshrc on macOS"
+msgstr ""
+
+#: ../../../quickstart.rst:162
+msgid "**\"pip install moccasin\" fails**"
+msgstr ""
+
+#: ../../../quickstart.rst:164
+msgid "Use uv instead:"
+msgstr ""
+
+#: ../../../quickstart.rst:166
+msgid ""
+"curl -LsSf https://astral.sh/uv/install.sh | sh\n"
+"uv tool install moccasin"
+msgstr ""
+
+#: ../../../quickstart.rst:171
+msgid "**Python version issues**"
+msgstr ""
+
+#: ../../../quickstart.rst:173
+msgid "Moccasin requires Python 3.11+. Check your version:"
+msgstr ""
+
+#: ../../../quickstart.rst:175
+msgid "python3 --version"
+msgstr ""
