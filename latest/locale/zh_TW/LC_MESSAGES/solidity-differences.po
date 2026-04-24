@@ -33,7 +33,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:15
 msgid "Solidity"
-msgstr ""
+msgstr "Solidity"
 
 #: ../../../solidity-differences.rst:16
 msgid "Vyper"
@@ -57,11 +57,11 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:21
 msgid "``class inheritance``"
-msgstr ""
+msgstr "``class inheritance``"
 
 #: ../../../solidity-differences.rst:22
 msgid "``import`` + ``exports``"
-msgstr ""
+msgstr "``import`` + ``exports``"
 
 #: ../../../solidity-differences.rst:23
 msgid "Explicit dependencies"
@@ -107,15 +107,15 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:33
 msgid "``emit Event()``"
-msgstr ""
+msgstr "``emit Event()``"
 
 #: ../../../solidity-differences.rst:34
 msgid "``log Event()``"
-msgstr ""
+msgstr "``log Event()``"
 
 #: ../../../solidity-differences.rst:36
 msgid "``require()``"
-msgstr ""
+msgstr "``require()``"
 
 #: ../../../solidity-differences.rst:37
 msgid "``assert`` / ``raise``"
@@ -135,11 +135,11 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:41
 msgid "Explicit external calls"
-msgstr ""
+msgstr "明確外部呼叫"
 
 #: ../../../solidity-differences.rst:44
 msgid "Philosophy"
-msgstr ""
+msgstr "理念"
 
 #: ../../../solidity-differences.rst:46
 msgid ""
@@ -200,7 +200,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:80
 msgid "No Class Inheritance"
-msgstr "無類別繼承"
+msgstr "沒有類別繼承"
 
 #: ../../../solidity-differences.rst:82
 msgid ""
@@ -259,13 +259,13 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:109
 msgid "No Function Overloading"
-msgstr ""
+msgstr "沒有函式覆載"
 
 #: ../../../solidity-differences.rst:111
 msgid ""
 "Solidity permits multiple functions with the same name and different "
 "parameters:"
-msgstr ""
+msgstr "Solidity 允許使用同名但參數不同的多個函式："
 
 #: ../../../solidity-differences.rst:113
 msgid ""
@@ -281,7 +281,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:121
 msgid "No Operator Overloading"
-msgstr ""
+msgstr "沒有運算子覆載"
 
 #: ../../../solidity-differences.rst:123
 msgid ""
@@ -291,7 +291,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:126
 msgid "No Infinite Loops"
-msgstr ""
+msgstr "沒有無限迴圈"
 
 #: ../../../solidity-differences.rst:128
 msgid "Vyper requires all loops to have a compile-time upper bound:"
@@ -337,15 +337,15 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:153
 msgid "Bounded Dynamic Arrays"
-msgstr ""
+msgstr "有界動態陣列"
 
 #: ../../../solidity-differences.rst:155
 msgid "Storage arrays require a maximum size at compile time:"
-msgstr ""
+msgstr "儲存陣列需要在編譯時指定最大容量："
 
 #: ../../../solidity-differences.rst:157
 msgid "balances: DynArray[uint256, 100]"
-msgstr ""
+msgstr "balances: DynArray[uint256, 100]"
 
 #: ../../../solidity-differences.rst:161
 msgid ""
@@ -355,7 +355,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:165
 msgid "Explicit Type Conversions"
-msgstr ""
+msgstr "顯式型別轉換"
 
 #: ../../../solidity-differences.rst:167
 msgid "Vyper requires explicit type conversions:"
@@ -369,6 +369,11 @@ msgid ""
 "addr: address = 0x1234...\n"
 "num: uint160 = convert(addr, uint160)"
 msgstr ""
+"x: uint256 = 100\n"
+"y: int256 = convert(x, int256)\n"
+"\n"
+"addr: address = 0x1234...\n"
+"num: uint160 = convert(addr, uint160)"
 
 #: ../../../solidity-differences.rst:177
 msgid ""
@@ -380,7 +385,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:180
 msgid "Decimal Type"
-msgstr ""
+msgstr "十進位型別"
 
 #: ../../../solidity-differences.rst:182
 msgid "Native base-10 fixed-point arithmetic with 10 fractional digits:"
@@ -392,6 +397,9 @@ msgid ""
 "b: decimal = 0.2\n"
 "total: decimal = a + b  # exactly 0.3"
 msgstr ""
+"a: decimal = 0.1\n"
+"b: decimal = 0.2\n"
+"total: decimal = a + b  # exactly 0.3"
 
 #: ../../../solidity-differences.rst:190
 msgid ""
@@ -470,7 +478,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:224
 msgid "Syntax Differences"
-msgstr ""
+msgstr "語法區別"
 
 #: ../../../solidity-differences.rst:226
 msgid "Practical syntax translations for common patterns."
@@ -485,7 +493,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:233
 msgid "State Variables"
-msgstr ""
+msgstr "狀態變數"
 
 #: ../../../solidity-differences.rst:235 ../../../solidity-differences.rst:254
 #: ../../../solidity-differences.rst:276 ../../../solidity-differences.rst:297
@@ -494,13 +502,15 @@ msgstr ""
 #: ../../../solidity-differences.rst:415 ../../../solidity-differences.rst:441
 #: ../../../solidity-differences.rst:468
 msgid "Solidity:"
-msgstr ""
+msgstr "Solidity："
 
 #: ../../../solidity-differences.rst:237
 msgid ""
 "uint256 public counter;\n"
 "address private owner;"
 msgstr ""
+"uint256 public counter;\n"
+"address private owner;"
 
 #: ../../../solidity-differences.rst:242 ../../../solidity-differences.rst:262
 #: ../../../solidity-differences.rst:284 ../../../solidity-differences.rst:307
@@ -508,13 +518,15 @@ msgstr ""
 #: ../../../solidity-differences.rst:399 ../../../solidity-differences.rst:426
 #: ../../../solidity-differences.rst:452 ../../../solidity-differences.rst:475
 msgid "Vyper:"
-msgstr ""
+msgstr "Vyper："
 
 #: ../../../solidity-differences.rst:244
 msgid ""
 "counter: public(uint256)\n"
 "owner: address"
 msgstr ""
+"counter: public(uint256)\n"
+"owner: address"
 
 #: ../../../solidity-differences.rst:249
 msgid ""
@@ -531,6 +543,9 @@ msgid ""
 "    return msg.value;\n"
 "}"
 msgstr ""
+"function deposit() external payable returns (uint256) {\n"
+"    return msg.value;\n"
+"}"
 
 #: ../../../solidity-differences.rst:264
 msgid ""
@@ -539,6 +554,10 @@ msgid ""
 "def deposit() -> uint256:\n"
 "    return msg.value"
 msgstr ""
+"@external\n"
+"@payable\n"
+"def deposit() -> uint256:\n"
+"    return msg.value"
 
 #: ../../../solidity-differences.rst:271
 msgid ""
@@ -556,6 +575,9 @@ msgid ""
 "    owner = _owner;\n"
 "}"
 msgstr ""
+"constructor(address _owner) {\n"
+"    owner = _owner;\n"
+"}"
 
 #: ../../../solidity-differences.rst:286
 msgid ""
@@ -643,7 +665,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:360
 msgid "Error Handling"
-msgstr ""
+msgstr "錯誤處理"
 
 #: ../../../solidity-differences.rst:364
 msgid ""
@@ -682,7 +704,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:390
 msgid "External Calls"
-msgstr ""
+msgstr "外部呼叫"
 
 #: ../../../solidity-differences.rst:394
 msgid ""
@@ -712,7 +734,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:413
 msgid "Structs"
-msgstr ""
+msgstr "結構體"
 
 #: ../../../solidity-differences.rst:417
 msgid ""
@@ -736,7 +758,7 @@ msgstr ""
 #: ../../../solidity-differences.rst:436
 msgid ""
 "Note that Vyper strings require explicit maximum length (``String[64]``)."
-msgstr ""
+msgstr "請注意，Vyper 字串需要明確指定最大長度（``String[64]``）。"
 
 #: ../../../solidity-differences.rst:439
 msgid "Constants and Immutables"
@@ -751,6 +773,12 @@ msgid ""
 "    owner = msg.sender;\n"
 "}"
 msgstr ""
+"uint256 constant FEE = 100;\n"
+"address immutable owner;\n"
+"\n"
+"constructor() {\n"
+"    owner = msg.sender;\n"
+"}"
 
 #: ../../../solidity-differences.rst:454
 msgid ""
@@ -761,6 +789,12 @@ msgid ""
 "def __init__():\n"
 "    owner = msg.sender"
 msgstr ""
+"FEE: constant(uint256) = 100\n"
+"owner: immutable(address)\n"
+"\n"
+"@deploy\n"
+"def __init__():\n"
+"    owner = msg.sender"
 
 #: ../../../solidity-differences.rst:463
 msgid ""
@@ -785,6 +819,10 @@ msgid ""
 "def __default__():\n"
 "    pass"
 msgstr ""
+"@external\n"
+"@payable\n"
+"def __default__():\n"
+"    pass"
 
 #: ../../../solidity-differences.rst:484
 msgid ""
@@ -794,7 +832,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:487
 msgid "Why Vyper?"
-msgstr ""
+msgstr "為什麼使用 Vyper？"
 
 #: ../../../solidity-differences.rst:489
 msgid "Use Vyper if:"

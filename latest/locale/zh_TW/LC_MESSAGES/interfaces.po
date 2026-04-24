@@ -142,7 +142,7 @@ msgstr ""
 
 #: ../../../interfaces.rst:73
 msgid "Keyword"
-msgstr ""
+msgstr "關鍵字"
 
 #: ../../../interfaces.rst:73
 msgid "Description"
@@ -359,6 +359,15 @@ msgid ""
 "    def forwardWeight(delegate_with_weight_to_forward: address): nonpayable\n"
 "    # ..."
 msgstr ""
+"$ vyper -f external_interface examples/voting/ballot.vy\n"
+"\n"
+"# 外部合約\n"
+"interface Ballot:\n"
+"    def delegated(addr: address) -> bool: view\n"
+"    def directlyVoted(addr: address) -> bool: view\n"
+"    def giveRightToVote(voter: address): nonpayable\n"
+"    def forwardWeight(delegate_with_weight_to_forward: address): nonpayable\n"
+"    # ..."
 
 #: ../../../interfaces.rst:190
 msgid ""

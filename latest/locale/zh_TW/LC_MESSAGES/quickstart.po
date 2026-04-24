@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:4
 msgid "Quickstart"
-msgstr ""
+msgstr "快速開始"
 
 #: ../../../quickstart.rst:6
 msgid ""
@@ -28,19 +28,23 @@ msgstr ""
 
 #: ../../../quickstart.rst:9
 msgid "Which Framework Should I Use?"
-msgstr ""
+msgstr "我應該使用哪個框架？"
 
 #: ../../../quickstart.rst:11
 msgid ""
 "**Short answer:** Use `Moccasin <https://github.com/cyfrin/moccasin>`_ for "
 "new projects."
 msgstr ""
+"**簡而言之：**新專案請使用 `Moccasin <https://github.com/cyfrin/"
+"moccasin>`_\\ 。"
 
 #: ../../../quickstart.rst:13
 msgid ""
 "Moccasin is a Vyper-first development framework built on Titanoboa (Vyper's "
 "native testing tool). It provides:"
 msgstr ""
+"Moccasin 是一個基於 Titanoboa（Vyper 的原生測試工具）所建構的 Vyper 優先開發"
+"框架。它提供："
 
 #: ../../../quickstart.rst:15
 msgid "Project scaffolding"
@@ -48,7 +52,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:16
 msgid "Compilation"
-msgstr ""
+msgstr "編譯"
 
 #: ../../../quickstart.rst:17
 msgid "Testing with pytest (see :ref:`testing-contracts`)"
@@ -56,11 +60,11 @@ msgstr ""
 
 #: ../../../quickstart.rst:18
 msgid "Deployment scripts"
-msgstr ""
+msgstr "部署腳本"
 
 #: ../../../quickstart.rst:19
 msgid "Network management"
-msgstr ""
+msgstr "網路管理"
 
 #: ../../../quickstart.rst:21
 msgid ""
@@ -70,7 +74,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:25
 msgid "**What about Foundry, Hardhat, or Ape?**"
-msgstr ""
+msgstr "**Foundry、Hardhat 或 Ape 怎麼樣？**"
 
 #: ../../../quickstart.rst:27
 msgid ""
@@ -90,7 +94,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:30
 msgid "**Brownie:** Deprecated. Do not use for new projects."
-msgstr ""
+msgstr "**Brownie：**已棄用。請勿在新專案中使用。"
 
 #: ../../../quickstart.rst:33
 msgid "Prerequisites"
@@ -112,7 +116,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:43
 msgid "Installing Moccasin"
-msgstr ""
+msgstr "安裝 Moccasin"
 
 #: ../../../quickstart.rst:45
 msgid ""
@@ -192,7 +196,7 @@ msgstr ""
 
 #: ../../../quickstart.rst:101
 msgid "Running Tests"
-msgstr ""
+msgstr "執行測試"
 
 #: ../../../quickstart.rst:103
 msgid "mox test"
@@ -212,6 +216,13 @@ msgid ""
 "============================== 1 passed in 0.03s "
 "==============================="
 msgstr ""
+"============================= test session starts "
+"==============================\n"
+"collected 1 item\n"
+"tests/test_counter.py .                                                  "
+"[100%]\n"
+"============================== 1 passed in 0.03s "
+"==============================="
 
 #: ../../../quickstart.rst:117
 msgid "Exploring the Sample Contract"

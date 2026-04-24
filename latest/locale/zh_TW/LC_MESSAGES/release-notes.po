@@ -4074,7 +4074,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:852
 msgid "New Contributors:"
-msgstr ""
+msgstr "新貢獻者："
 
 #: ../../../release-notes.rst:854
 msgid ""
@@ -4218,7 +4218,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:889 ../../../release-notes.rst:922
 msgid "Bugfixes:"
-msgstr ""
+msgstr "臭蟲修正："
 
 #: ../../../release-notes.rst:891
 msgid ""
@@ -4460,7 +4460,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:960 ../../../release-notes.rst:991
 msgid "Other fixes and improvements:"
-msgstr ""
+msgstr "其他修正與改進："
 
 #: ../../../release-notes.rst:962
 msgid ""

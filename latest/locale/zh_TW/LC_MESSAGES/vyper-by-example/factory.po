@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../vyper-by-example/factory.rst:4
 msgid "Factory Pattern"
-msgstr ""
+msgstr "工廠模式"
 
 #: ../../../vyper-by-example/factory.rst:10
 msgid ""
@@ -36,7 +36,7 @@ msgstr ""
 
 #: ../../../vyper-by-example/factory.rst:16
 msgid "Factory Contract"
-msgstr ""
+msgstr "工廠合約"
 
 #: ../../../vyper-by-example/factory.rst:18
 msgid ""

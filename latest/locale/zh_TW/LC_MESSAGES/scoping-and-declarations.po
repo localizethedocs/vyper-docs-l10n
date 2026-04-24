@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../../../scoping-and-declarations.rst:7
 msgid "Variable Declaration"
-msgstr ""
+msgstr "變數宣告"
 
 #: ../../../scoping-and-declarations.rst:9
 msgid ""
@@ -33,7 +33,7 @@ msgstr ""
 
 #: ../../../scoping-and-declarations.rst:11
 msgid "data: int128"
-msgstr ""
+msgstr "data: int128"
 
 #: ../../../scoping-and-declarations.rst:15
 msgid ""
@@ -74,7 +74,7 @@ msgstr ""
 
 #: ../../../scoping-and-declarations.rst:28
 msgid "data: public(int128)"
-msgstr ""
+msgstr "data: public(int128)"
 
 #: ../../../scoping-and-declarations.rst:32
 msgid ""
@@ -190,6 +190,9 @@ msgid ""
 "owner: public(address)\n"
 "balanceOf: public(HashMap[address, uint256])"
 msgstr ""
+"# old_contract.vy\n"
+"owner: public(address)\n"
+"balanceOf: public(HashMap[address, uint256])"
 
 #: ../../../scoping-and-declarations.rst:95
 msgid ""
@@ -198,6 +201,10 @@ msgid ""
 "minter: public(address)\n"
 "balanceOf: public(HashMap[address, uint256])"
 msgstr ""
+"# new_contract.vy\n"
+"owner: public(address)\n"
+"minter: public(address)\n"
+"balanceOf: public(HashMap[address, uint256])"
 
 #: ../../../scoping-and-declarations.rst:102
 msgid ""
@@ -223,6 +230,12 @@ msgid ""
 "\"slot\": 1}\n"
 "}"
 msgstr ""
+"{\n"
+"    \"owner\": {\"type\": \"address\", \"n_slots\": 1, \"slot\": 0},\n"
+"    \"minter\": {\"type\": \"address\", \"n_slots\": 1, \"slot\": 2},\n"
+"    \"balanceOf\": {\"type\": \"HashMap[address, uint256]\", \"n_slots\": 1, "
+"\"slot\": 1}\n"
+"}"
 
 #: ../../../scoping-and-declarations.rst:114
 msgid ""
@@ -347,6 +360,17 @@ msgid ""
 "def baz():\n"
 "    a: bool = True"
 msgstr ""
+"@external\n"
+"def foo(a: int128):\n"
+"    pass\n"
+"\n"
+"@external\n"
+"def bar(a: uint256):\n"
+"    pass\n"
+"\n"
+"@external\n"
+"def baz():\n"
+"    a: bool = True"
 
 #: ../../../scoping-and-declarations.rst:195
 msgid "The following examples will not compile:"
@@ -408,6 +432,11 @@ msgid ""
 "        pass\n"
 "    i: bool = False"
 msgstr ""
+"@external\n"
+"def foo(a: bool) -> int128:\n"
+"    for i: int128 in [1, 2, 3]:\n"
+"        pass\n"
+"    i: bool = False"
 
 #: ../../../scoping-and-declarations.rst:241
 msgid ""
@@ -423,3 +452,8 @@ msgid ""
 "        a: int128 = i\n"
 "    a += 3"
 msgstr ""
+"@external\n"
+"def foo(a: bool) -> int128:\n"
+"    for i: int128 in [1, 2, 3]:\n"
+"        a: int128 = i\n"
+"    a += 3"

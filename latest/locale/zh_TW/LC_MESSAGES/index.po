@@ -164,7 +164,7 @@ msgstr ""
 
 #: ../../../index.rst:59
 msgid "Function overloading"
-msgstr ""
+msgstr "函式覆載"
 
 #: ../../../index.rst:60
 msgid "Function calls are unambiguous; ``foo(x)`` always means the same thing"
@@ -172,7 +172,7 @@ msgstr ""
 
 #: ../../../index.rst:61
 msgid "Operator overloading"
-msgstr ""
+msgstr "運算子覆載"
 
 #: ../../../index.rst:62
 msgid "Arithmetic operators do exactly what they appear to do"

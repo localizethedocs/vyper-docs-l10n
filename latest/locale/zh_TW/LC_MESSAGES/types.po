@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../types.rst:6
 msgid "Types"
-msgstr ""
+msgstr "型別"
 
 #: ../../../types.rst:8
 msgid ""
@@ -63,7 +63,7 @@ msgstr ""
 
 #: ../../../types.rst:25
 msgid "**Keyword:** ``bool``"
-msgstr ""
+msgstr "**關鍵字：**``bool``"
 
 #: ../../../types.rst:27
 msgid "A boolean is a type to store a logical/truth value."
@@ -423,7 +423,7 @@ msgstr ""
 
 #: ../../../types.rst:230
 msgid "**Keyword:** ``decimal``"
-msgstr ""
+msgstr "**關鍵字：**``decimal``"
 
 #: ../../../types.rst:232
 msgid ""
@@ -476,7 +476,7 @@ msgstr ""
 
 #: ../../../types.rst:286
 msgid "**Keyword:** ``address``"
-msgstr ""
+msgstr "**關鍵字：**``address``"
 
 #: ../../../types.rst:288
 msgid "The address type holds an Ethereum address."
@@ -610,7 +610,7 @@ msgstr ""
 
 #: ../../../types.rst:340
 msgid "Keyword"
-msgstr ""
+msgstr "關鍵字"
 
 #: ../../../types.rst:342
 msgid "``keccak256(x)``"
@@ -673,11 +673,11 @@ msgstr ""
 
 #: ../../../types.rst:371
 msgid "Strings"
-msgstr ""
+msgstr "字串"
 
 #: ../../../types.rst:373
 msgid "**Keyword:** ``String``"
-msgstr ""
+msgstr "**關鍵字：**``String``"
 
 #: ../../../types.rst:375
 msgid ""
@@ -692,11 +692,11 @@ msgstr ""
 
 #: ../../../types.rst:383
 msgid "Flags"
-msgstr ""
+msgstr "旗標"
 
 #: ../../../types.rst:385
 msgid "**Keyword:** ``flag``"
-msgstr ""
+msgstr "**關鍵字：**``flag``"
 
 #: ../../../types.rst:387
 msgid ""
@@ -866,7 +866,7 @@ msgstr ""
 
 #: ../../../types.rst:522
 msgid "Dynamic Arrays"
-msgstr ""
+msgstr "動態陣列"
 
 #: ../../../types.rst:524
 msgid ""
@@ -934,7 +934,7 @@ msgstr ""
 
 #: ../../../types.rst:567
 msgid "Structs"
-msgstr ""
+msgstr "結構體"
 
 #: ../../../types.rst:569
 msgid "Structs are custom defined types that can group several variables."
@@ -1016,7 +1016,7 @@ msgstr ""
 
 #: ../../../types.rst:622
 msgid "Initial Values"
-msgstr ""
+msgstr "初始值"
 
 #: ../../../types.rst:624
 msgid ""
@@ -1043,48 +1043,48 @@ msgstr ""
 
 #: ../../../types.rst:635
 msgid "Default Value"
-msgstr ""
+msgstr "默認值"
 
 #: ../../../types.rst:637
 msgid "``address``"
-msgstr ""
+msgstr "``address``"
 
 #: ../../../types.rst:637
 msgid "``0x0000000000000000000000000000000000000000``"
-msgstr ""
+msgstr "``0x0000000000000000000000000000000000000000``"
 
 #: ../../../types.rst:638
 msgid "``False``"
-msgstr ""
+msgstr "``False``"
 
 #: ../../../types.rst:639
 msgid "``0x0000000000000000000000000000000000000000000000000000000000000000``"
-msgstr ""
+msgstr "``0x0000000000000000000000000000000000000000000000000000000000000000``"
 
 #: ../../../types.rst:640
 msgid "``decimal``"
-msgstr ""
+msgstr "``decimal``"
 
 #: ../../../types.rst:640
 msgid "``0.0``"
-msgstr ""
+msgstr "``0.0``"
 
 #: ../../../types.rst:641
 msgid "``uint8``"
-msgstr ""
+msgstr "``uint8``"
 
 #: ../../../types.rst:641 ../../../types.rst:642 ../../../types.rst:643
 #: ../../../types.rst:644
 msgid "``0``"
-msgstr ""
+msgstr "``0``"
 
 #: ../../../types.rst:642
 msgid "``int128``"
-msgstr ""
+msgstr "``int128``"
 
 #: ../../../types.rst:643
 msgid "``int256``"
-msgstr ""
+msgstr "``int256``"
 
 #: ../../../types.rst:648
 msgid "In ``Bytes``, the array starts with the bytes all set to ``'\\x00'``."
@@ -1097,7 +1097,7 @@ msgstr ""
 
 #: ../../../types.rst:657
 msgid "Type Conversions"
-msgstr ""
+msgstr "型別轉換"
 
 #: ../../../types.rst:659
 msgid ""

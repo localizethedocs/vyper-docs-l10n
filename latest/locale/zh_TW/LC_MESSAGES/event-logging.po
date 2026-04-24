@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../event-logging.rst:4
 msgid "Event Logging"
-msgstr ""
+msgstr "事件日誌紀錄"
 
 #: ../../../event-logging.rst:6
 msgid "Vyper can log events to be caught and displayed by user interfaces."
@@ -109,7 +109,7 @@ msgstr ""
 
 #: ../../../event-logging.rst:59
 msgid "Declaring Events"
-msgstr ""
+msgstr "宣告事件"
 
 #: ../../../event-logging.rst:61
 msgid "Let's look at an event declaration in more detail."
@@ -165,11 +165,11 @@ msgstr ""
 
 #: ../../../event-logging.rst:85
 msgid "event Foo: pass"
-msgstr ""
+msgstr "event Foo: pass"
 
 #: ../../../event-logging.rst:90
 msgid "Logging Events"
-msgstr ""
+msgstr "日誌紀錄事件"
 
 #: ../../../event-logging.rst:92
 msgid ""
@@ -196,7 +196,7 @@ msgstr ""
 
 #: ../../../event-logging.rst:103
 msgid "Listening for Events"
-msgstr ""
+msgstr "監聽事件"
 
 #: ../../../event-logging.rst:105
 msgid ""

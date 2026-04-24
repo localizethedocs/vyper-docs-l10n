@@ -438,8 +438,8 @@ msgstr ""
 
 #: ../../../vyper-by-example/erc721.rst:1
 msgid "ERC721"
-msgstr ""
+msgstr "ERC721"
 
 #: ../../../vyper-by-example/erc721.rst:1
 msgid "NFT"
-msgstr ""
+msgstr "NFT"

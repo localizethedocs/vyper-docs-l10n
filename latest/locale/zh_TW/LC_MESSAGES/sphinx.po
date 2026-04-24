@@ -31,7 +31,7 @@ msgstr ""
 
 #: ../../../_templates/versions.html:29
 msgid "Project Home"
-msgstr ""
+msgstr "專案主頁"
 
 #: ../../../_templates/versions.html:32
 msgid "Builds"
@@ -3122,7 +3122,7 @@ msgstr ""
 
 #: sphinx/ext/napoleon/__init__.py:336 sphinx/ext/napoleon/docstring.py:726
 msgid "Keyword Arguments"
-msgstr ""
+msgstr "關鍵字引數"
 
 #: sphinx/ext/napoleon/docstring.py:680
 msgid "Example"
@@ -3279,7 +3279,7 @@ msgstr ""
 
 #: sphinx/themes/basic/defindex.html:23
 msgid "Complete Table of Contents"
-msgstr ""
+msgstr "完整的目次表"
 
 #: sphinx/themes/basic/defindex.html:24
 msgid "lists all sections and subsections"
