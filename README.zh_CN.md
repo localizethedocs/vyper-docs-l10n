@@ -1,4 +1,12 @@
 <div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/vyper-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/vyper-light.svg">
+  <img height="100" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/vyper-light.svg">
+</picture>
+</div>
+
+<div align="center">
 <h1 id="localization-of-the-vyper-documentation">Localization of The Vyper Documentation</h1>
 </div>
 
