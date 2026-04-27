@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../types.rst:6
 msgid "Types"
-msgstr ""
+msgstr "型別"
 
 #: ../../../types.rst:8
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 
 #: ../../../types.rst:26
 msgid "**Keyword:** ``bool``"
-msgstr ""
+msgstr "**關鍵字：**``bool``"
 
 #: ../../../types.rst:28
 msgid "A boolean is a type to store a logical/truth value."
@@ -69,7 +69,7 @@ msgstr ""
 #: ../../../types.rst:36 ../../../types.rst:68 ../../../types.rst:157
 #: ../../../types.rst:246 ../../../types.rst:338 ../../../types.rst:405
 msgid "Operators"
-msgstr ""
+msgstr "運算子"
 
 #: ../../../types.rst:39 ../../../types.rst:76 ../../../types.rst:92
 #: ../../../types.rst:109 ../../../types.rst:122 ../../../types.rst:165
@@ -85,49 +85,49 @@ msgstr ""
 #: ../../../types.rst:254 ../../../types.rst:270 ../../../types.rst:302
 #: ../../../types.rst:341 ../../../types.rst:413 ../../../types.rst:425
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../../../types.rst:41
 msgid "``not x``"
-msgstr ""
+msgstr "``not x``"
 
 #: ../../../types.rst:41
 msgid "Logical negation"
-msgstr ""
+msgstr "邏輯否定"
 
 #: ../../../types.rst:42
 msgid "``x and y``"
-msgstr ""
+msgstr "``x and y``"
 
 #: ../../../types.rst:42
 msgid "Logical conjunction"
-msgstr ""
+msgstr "邏輯合取"
 
 #: ../../../types.rst:43
 msgid "``x or y``"
-msgstr ""
+msgstr "``x or y``"
 
 #: ../../../types.rst:43
 msgid "Logical disjunction"
-msgstr ""
+msgstr "邏輯析取"
 
 #: ../../../types.rst:44 ../../../types.rst:80 ../../../types.rst:169
 #: ../../../types.rst:258 ../../../types.rst:415
 msgid "``x == y``"
-msgstr ""
+msgstr "``x == y``"
 
 #: ../../../types.rst:44
 msgid "Equality"
-msgstr ""
+msgstr "相等"
 
 #: ../../../types.rst:45 ../../../types.rst:81 ../../../types.rst:170
 #: ../../../types.rst:259 ../../../types.rst:416
 msgid "``x != y``"
-msgstr ""
+msgstr "``x != y``"
 
 #: ../../../types.rst:45
 msgid "Inequality"
-msgstr ""
+msgstr "不相等"
 
 #: ../../../types.rst:48
 msgid ""
@@ -148,6 +148,8 @@ msgid ""
 "A signed integer which can store positive and negative integers. ``N`` must "
 "be a multiple of 8 between 8 and 256 (inclusive)."
 msgstr ""
+"一個可以儲存正整數和負整數的有符號整數。 ``N`` 必須是介於 8 和 256 之間的 8 "
+"的倍數（含 8 和 256）。"
 
 #: ../../../types.rst:63
 msgid ""
@@ -164,7 +166,7 @@ msgstr ""
 #: ../../../types.rst:71 ../../../types.rst:160 ../../../types.rst:249
 #: ../../../types.rst:408
 msgid "Comparisons"
-msgstr ""
+msgstr "比較"
 
 #: ../../../types.rst:73 ../../../types.rst:162 ../../../types.rst:251
 #: ../../../types.rst:410
@@ -177,41 +179,41 @@ msgstr ""
 
 #: ../../../types.rst:78 ../../../types.rst:167 ../../../types.rst:256
 msgid "Less than"
-msgstr ""
+msgstr "小於"
 
 #: ../../../types.rst:79 ../../../types.rst:168 ../../../types.rst:257
 msgid "``x <= y``"
-msgstr ""
+msgstr "``x <= y``"
 
 #: ../../../types.rst:79 ../../../types.rst:168
 msgid "Less than or equal to"
-msgstr ""
+msgstr "小於或等於"
 
 #: ../../../types.rst:80 ../../../types.rst:169 ../../../types.rst:258
 #: ../../../types.rst:415
 msgid "Equals"
-msgstr ""
+msgstr "等於"
 
 #: ../../../types.rst:81 ../../../types.rst:170 ../../../types.rst:259
 #: ../../../types.rst:416
 msgid "Does not equal"
-msgstr ""
+msgstr "不等於"
 
 #: ../../../types.rst:82 ../../../types.rst:171 ../../../types.rst:260
 msgid "``x >= y``"
-msgstr ""
+msgstr "``x >= y``"
 
 #: ../../../types.rst:82 ../../../types.rst:171
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "大於或等於"
 
 #: ../../../types.rst:83 ../../../types.rst:172 ../../../types.rst:261
 msgid "``x > y``"
-msgstr ""
+msgstr "``x > y``"
 
 #: ../../../types.rst:83 ../../../types.rst:172 ../../../types.rst:261
 msgid "Greater than"
-msgstr ""
+msgstr "大於"
 
 #: ../../../types.rst:86 ../../../types.rst:103
 msgid "``x`` and ``y`` must both be of the same type."
@@ -219,27 +221,27 @@ msgstr ""
 
 #: ../../../types.rst:89 ../../../types.rst:178 ../../../types.rst:267
 msgid "Arithmetic Operators"
-msgstr ""
+msgstr "算術運算子"
 
 #: ../../../types.rst:94 ../../../types.rst:183 ../../../types.rst:272
 msgid "``x + y``"
-msgstr ""
+msgstr "``x + y``"
 
 #: ../../../types.rst:94 ../../../types.rst:183 ../../../types.rst:272
 msgid "Addition"
-msgstr ""
+msgstr "加法"
 
 #: ../../../types.rst:95 ../../../types.rst:184 ../../../types.rst:273
 msgid "``x - y``"
-msgstr ""
+msgstr "``x - y``"
 
 #: ../../../types.rst:95 ../../../types.rst:184 ../../../types.rst:273
 msgid "Subtraction"
-msgstr ""
+msgstr "減法"
 
 #: ../../../types.rst:96 ../../../types.rst:274
 msgid "``-x``"
-msgstr ""
+msgstr "``-x``"
 
 #: ../../../types.rst:96 ../../../types.rst:274
 msgid "Unary minus/Negation"
@@ -247,23 +249,23 @@ msgstr ""
 
 #: ../../../types.rst:97 ../../../types.rst:185 ../../../types.rst:275
 msgid "``x * y``"
-msgstr ""
+msgstr "``x * y``"
 
 #: ../../../types.rst:97 ../../../types.rst:185 ../../../types.rst:275
 msgid "Multiplication"
-msgstr ""
+msgstr "乘法"
 
 #: ../../../types.rst:98 ../../../types.rst:186
 msgid "``x // y``"
-msgstr ""
+msgstr "``x // y``"
 
 #: ../../../types.rst:98 ../../../types.rst:186
 msgid "Integer division"
-msgstr ""
+msgstr "整數除法"
 
 #: ../../../types.rst:99 ../../../types.rst:187
 msgid "``x**y``"
-msgstr ""
+msgstr "``x**y``"
 
 #: ../../../types.rst:99 ../../../types.rst:187
 msgid "Exponentiation"
@@ -271,15 +273,15 @@ msgstr ""
 
 #: ../../../types.rst:100 ../../../types.rst:188 ../../../types.rst:277
 msgid "``x % y``"
-msgstr ""
+msgstr "``x % y``"
 
 #: ../../../types.rst:100 ../../../types.rst:188 ../../../types.rst:277
 msgid "Modulo"
-msgstr ""
+msgstr "模除"
 
 #: ../../../types.rst:106 ../../../types.rst:194 ../../../types.rst:422
 msgid "Bitwise Operators"
-msgstr ""
+msgstr "位元運算子"
 
 #: ../../../types.rst:111 ../../../types.rst:199 ../../../types.rst:427
 msgid "``x & y``"
@@ -411,7 +413,7 @@ msgstr ""
 
 #: ../../../types.rst:231
 msgid "**Keyword:** ``decimal``"
-msgstr ""
+msgstr "**關鍵字：**``decimal``"
 
 #: ../../../types.rst:233
 msgid ""
@@ -464,7 +466,7 @@ msgstr ""
 
 #: ../../../types.rst:287
 msgid "**Keyword:** ``address``"
-msgstr ""
+msgstr "**關鍵字：**``address``"
 
 #: ../../../types.rst:289
 msgid "The address type holds an Ethereum address."
@@ -598,7 +600,7 @@ msgstr ""
 
 #: ../../../types.rst:341
 msgid "Keyword"
-msgstr ""
+msgstr "關鍵字"
 
 #: ../../../types.rst:343
 msgid "``keccak256(x)``"
@@ -661,11 +663,11 @@ msgstr ""
 
 #: ../../../types.rst:372
 msgid "Strings"
-msgstr ""
+msgstr "字串"
 
 #: ../../../types.rst:374
 msgid "**Keyword:** ``String``"
-msgstr ""
+msgstr "**關鍵字：**``String``"
 
 #: ../../../types.rst:376
 msgid ""
@@ -680,11 +682,11 @@ msgstr ""
 
 #: ../../../types.rst:384
 msgid "Flags"
-msgstr ""
+msgstr "旗標"
 
 #: ../../../types.rst:386
 msgid "**Keyword:** ``flag``"
-msgstr ""
+msgstr "**關鍵字：**``flag``"
 
 #: ../../../types.rst:388
 msgid ""
@@ -872,7 +874,7 @@ msgstr ""
 
 #: ../../../types.rst:534
 msgid "Dynamic Arrays"
-msgstr ""
+msgstr "動態陣列"
 
 #: ../../../types.rst:536
 msgid ""
@@ -940,7 +942,7 @@ msgstr ""
 
 #: ../../../types.rst:579
 msgid "Structs"
-msgstr ""
+msgstr "結構體"
 
 #: ../../../types.rst:581
 msgid "Structs are custom defined types that can group several variables."
@@ -1022,7 +1024,7 @@ msgstr ""
 
 #: ../../../types.rst:634
 msgid "Initial Values"
-msgstr ""
+msgstr "初始值"
 
 #: ../../../types.rst:636
 msgid ""
@@ -1049,48 +1051,48 @@ msgstr ""
 
 #: ../../../types.rst:647
 msgid "Default Value"
-msgstr ""
+msgstr "默認值"
 
 #: ../../../types.rst:649
 msgid "``address``"
-msgstr ""
+msgstr "``address``"
 
 #: ../../../types.rst:649
 msgid "``0x0000000000000000000000000000000000000000``"
-msgstr ""
+msgstr "``0x0000000000000000000000000000000000000000``"
 
 #: ../../../types.rst:650
 msgid "``False``"
-msgstr ""
+msgstr "``False``"
 
 #: ../../../types.rst:651
 msgid "``0x0000000000000000000000000000000000000000000000000000000000000000``"
-msgstr ""
+msgstr "``0x0000000000000000000000000000000000000000000000000000000000000000``"
 
 #: ../../../types.rst:652
 msgid "``decimal``"
-msgstr ""
+msgstr "``decimal``"
 
 #: ../../../types.rst:652
 msgid "``0.0``"
-msgstr ""
+msgstr "``0.0``"
 
 #: ../../../types.rst:653
 msgid "``uint8``"
-msgstr ""
+msgstr "``uint8``"
 
 #: ../../../types.rst:653 ../../../types.rst:654 ../../../types.rst:655
 #: ../../../types.rst:656
 msgid "``0``"
-msgstr ""
+msgstr "``0``"
 
 #: ../../../types.rst:654
 msgid "``int128``"
-msgstr ""
+msgstr "``int128``"
 
 #: ../../../types.rst:655
 msgid "``int256``"
-msgstr ""
+msgstr "``int256``"
 
 #: ../../../types.rst:660
 msgid "In ``Bytes``, the array starts with the bytes all set to ``'\\x00'``."
@@ -1103,7 +1105,7 @@ msgstr ""
 
 #: ../../../types.rst:669
 msgid "Type Conversions"
-msgstr ""
+msgstr "型別轉換"
 
 #: ../../../types.rst:671
 msgid ""

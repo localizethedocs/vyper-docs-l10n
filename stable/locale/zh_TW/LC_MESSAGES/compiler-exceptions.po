@@ -42,6 +42,12 @@ msgid ""
 "-------------------------^\n"
 "     80         return False"
 msgstr ""
+"vyper.exceptions.VariableDeclarationException: line 79:17 Persistent "
+"variable undeclared: highstBid\n"
+"     78     # If bid is less than highest bid, bid fails\n"
+"---> 79     if (value <= self.highstBid):\n"
+"-------------------------^\n"
+"     80         return False"
 
 #: ../../../compiler-exceptions.rst:23
 msgid ""
@@ -156,6 +162,9 @@ msgid ""
 "def foo():\n"
 "    bar: int128 = 3.5"
 msgstr ""
+"@external\n"
+"def foo():\n"
+"    bar: int128 = 3.5"
 
 #: ../../../compiler-exceptions.rst:105
 msgid ""

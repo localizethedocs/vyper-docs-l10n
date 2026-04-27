@@ -102,7 +102,7 @@ msgstr ""
 
 #: ../../../versioning.rst:41
 msgid "Version Types"
-msgstr ""
+msgstr "版本型別"
 
 #: ../../../versioning.rst:43
 msgid ""

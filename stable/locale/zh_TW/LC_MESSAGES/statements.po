@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../statements.rst:4
 msgid "Statements"
-msgstr ""
+msgstr "陳述句"
 
 #: ../../../statements.rst:6
 msgid ""
@@ -45,6 +45,9 @@ msgid ""
 "    if i == a:\n"
 "        break"
 msgstr ""
+"for i: uint256 in [1, 2, 3, 4, 5]:\n"
+"    if i == a:\n"
+"        break"
 
 #: ../../../statements.rst:22
 msgid "In the above example, the ``for`` loop terminates if ``i == a``."
@@ -52,7 +55,7 @@ msgstr ""
 
 #: ../../../statements.rst:25
 msgid "continue"
-msgstr ""
+msgstr "continue"
 
 #: ../../../statements.rst:27
 msgid ""
@@ -67,6 +70,10 @@ msgid ""
 "        continue\n"
 "    ..."
 msgstr ""
+"for i: uint256 in [1, 2, 3, 4, 5]:\n"
+"    if i != a:\n"
+"        continue\n"
+"    ..."
 
 #: ../../../statements.rst:36
 msgid ""
@@ -106,7 +113,7 @@ msgstr ""
 
 #: ../../../statements.rst:56
 msgid "return RETURN_VALUE"
-msgstr ""
+msgstr "return RETURN_VALUE"
 
 #: ../../../statements.rst:60
 msgid ""
@@ -123,7 +130,7 @@ msgstr ""
 
 #: ../../../statements.rst:65
 msgid "Event Logging"
-msgstr ""
+msgstr "事件日誌紀錄"
 
 #: ../../../statements.rst:68
 msgid "log"
@@ -135,7 +142,7 @@ msgstr ""
 
 #: ../../../statements.rst:72
 msgid "log MyEvent(...)"
-msgstr ""
+msgstr "log MyEvent(...)"
 
 #: ../../../statements.rst:76
 msgid "The event must have been previously declared."
@@ -155,7 +162,7 @@ msgstr ""
 
 #: ../../../statements.rst:84
 msgid "Assertions and Exceptions"
-msgstr ""
+msgstr "斷言與例外"
 
 #: ../../../statements.rst:86
 msgid ""
@@ -179,26 +186,26 @@ msgstr ""
 
 #: ../../../statements.rst:91
 msgid "raise"
-msgstr ""
+msgstr "raise"
 
 #: ../../../statements.rst:93
 msgid ""
 "The ``raise`` statement triggers an exception and reverts the current call."
-msgstr ""
+msgstr "``raise`` 陳述句會觸發例外並撤銷當前呼叫。"
 
 #: ../../../statements.rst:95
 msgid "raise \"something went wrong\""
-msgstr ""
+msgstr "raise \"something went wrong\""
 
 #: ../../../statements.rst:99 ../../../statements.rst:110
 msgid ""
 "The error string is not required. If it is provided, it is limited to 1024 "
 "bytes."
-msgstr ""
+msgstr "錯誤字串並非必需。如果提供，則長度限制為 1024 位元組。"
 
 #: ../../../statements.rst:102
 msgid "assert"
-msgstr ""
+msgstr "assert"
 
 #: ../../../statements.rst:104
 msgid ""
@@ -208,7 +215,7 @@ msgstr ""
 
 #: ../../../statements.rst:106
 msgid "assert x > 5, \"value too low\""
-msgstr ""
+msgstr "assert x > 5, \"value too low\""
 
 #: ../../../statements.rst:112
 msgid "This method's behavior is equivalent to:"
@@ -219,3 +226,5 @@ msgid ""
 "if not cond:\n"
 "    raise \"reason\""
 msgstr ""
+"if not cond:\n"
+"    raise \"reason\""

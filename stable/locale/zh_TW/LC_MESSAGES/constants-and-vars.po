@@ -49,12 +49,12 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:17
 msgid "``block.coinbase``"
-msgstr ""
+msgstr "``block.coinbase``"
 
 #: ../../../constants-and-vars.rst:17 ../../../constants-and-vars.rst:30
 #: ../../../constants-and-vars.rst:32 ../../../constants-and-vars.rst:54
 msgid "``address``"
-msgstr ""
+msgstr "``address``"
 
 #: ../../../constants-and-vars.rst:17
 msgid "Current block miner's address"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:18
 msgid "``block.difficulty``"
-msgstr ""
+msgstr "``block.difficulty``"
 
 #: ../../../constants-and-vars.rst:18 ../../../constants-and-vars.rst:20
 #: ../../../constants-and-vars.rst:21 ../../../constants-and-vars.rst:22
@@ -71,7 +71,7 @@ msgstr ""
 #: ../../../constants-and-vars.rst:29 ../../../constants-and-vars.rst:31
 #: ../../../constants-and-vars.rst:33 ../../../constants-and-vars.rst:55
 msgid "``uint256``"
-msgstr ""
+msgstr "``uint256``"
 
 #: ../../../constants-and-vars.rst:18
 msgid "Current block difficulty"
@@ -79,11 +79,11 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:19
 msgid "``block.prevrandao``"
-msgstr ""
+msgstr "``block.prevrandao``"
 
 #: ../../../constants-and-vars.rst:19 ../../../constants-and-vars.rst:24
 msgid "``bytes32``"
-msgstr ""
+msgstr "``bytes32``"
 
 #: ../../../constants-and-vars.rst:19
 msgid "Current randomness beacon provided by the beacon chain"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:20
 msgid "``block.number``"
-msgstr ""
+msgstr "``block.number``"
 
 #: ../../../constants-and-vars.rst:20
 msgid "Current block number"
@@ -99,7 +99,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:21
 msgid "``block.gaslimit``"
-msgstr ""
+msgstr "``block.gaslimit``"
 
 #: ../../../constants-and-vars.rst:21
 msgid "Current block's gas limit"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:22
 msgid "``block.basefee``"
-msgstr ""
+msgstr "``block.basefee``"
 
 #: ../../../constants-and-vars.rst:22
 msgid "Current block's base fee"
@@ -115,7 +115,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:23
 msgid "``block.blobbasefee``"
-msgstr ""
+msgstr "``block.blobbasefee``"
 
 #: ../../../constants-and-vars.rst:23
 msgid "Current block's blob gas base fee"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:24
 msgid "``block.prevhash``"
-msgstr ""
+msgstr "``block.prevhash``"
 
 #: ../../../constants-and-vars.rst:24
 msgid "Equivalent to ``blockhash(block.number - 1)``"
@@ -131,7 +131,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:25
 msgid "``block.timestamp``"
-msgstr ""
+msgstr "``block.timestamp``"
 
 #: ../../../constants-and-vars.rst:25
 msgid "Current block epoch timestamp"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:27
 msgid "Message data"
-msgstr ""
+msgstr "訊息資料"
 
 #: ../../../constants-and-vars.rst:28
 msgid "``msg.gas``"
@@ -183,7 +183,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:31
 msgid "``msg.value``"
-msgstr ""
+msgstr "``msg.value``"
 
 #: ../../../constants-and-vars.rst:31
 msgid "Number of wei sent with the message"
@@ -294,6 +294,13 @@ msgid ""
 "def calculate(amount: uint256) -> uint256:\n"
 "    return self._times_two(amount)"
 msgstr ""
+"@internal\n"
+"def _times_two(amount: uint256) -> uint256:\n"
+"    return amount * 2\n"
+"\n"
+"@external\n"
+"def calculate(amount: uint256) -> uint256:\n"
+"    return self._times_two(amount)"
 
 #: ../../../constants-and-vars.rst:96
 msgid "Custom Constants"

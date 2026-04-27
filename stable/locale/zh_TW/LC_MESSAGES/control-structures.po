@@ -23,7 +23,7 @@ msgstr "控制結構"
 
 #: ../../../control-structures.rst:9
 msgid "Functions"
-msgstr ""
+msgstr "函式"
 
 #: ../../../control-structures.rst:11
 msgid ""
@@ -37,6 +37,9 @@ msgid ""
 "def bid():\n"
 "    ..."
 msgstr ""
+"@external\n"
+"def bid():\n"
+"    ..."
 
 #: ../../../control-structures.rst:19
 msgid ""
@@ -213,7 +216,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:120
 msgid "The ``__init__`` Function"
-msgstr ""
+msgstr "``__init__`` 函式"
 
 #: ../../../control-structures.rst:124
 msgid ""
