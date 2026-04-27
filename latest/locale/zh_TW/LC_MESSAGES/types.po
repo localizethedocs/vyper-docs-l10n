@@ -81,7 +81,7 @@ msgstr ""
 #: ../../../types.rst:35 ../../../types.rst:67 ../../../types.rst:156
 #: ../../../types.rst:245 ../../../types.rst:337 ../../../types.rst:404
 msgid "Operators"
-msgstr ""
+msgstr "運算子"
 
 #: ../../../types.rst:38 ../../../types.rst:75 ../../../types.rst:91
 #: ../../../types.rst:108 ../../../types.rst:121 ../../../types.rst:164
@@ -97,49 +97,49 @@ msgstr ""
 #: ../../../types.rst:253 ../../../types.rst:269 ../../../types.rst:301
 #: ../../../types.rst:340 ../../../types.rst:412 ../../../types.rst:424
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../../../types.rst:40
 msgid "``not x``"
-msgstr ""
+msgstr "``not x``"
 
 #: ../../../types.rst:40
 msgid "Logical negation"
-msgstr ""
+msgstr "邏輯否定"
 
 #: ../../../types.rst:41
 msgid "``x and y``"
-msgstr ""
+msgstr "``x and y``"
 
 #: ../../../types.rst:41
 msgid "Logical conjunction"
-msgstr ""
+msgstr "邏輯合取"
 
 #: ../../../types.rst:42
 msgid "``x or y``"
-msgstr ""
+msgstr "``x or y``"
 
 #: ../../../types.rst:42
 msgid "Logical disjunction"
-msgstr ""
+msgstr "邏輯析取"
 
 #: ../../../types.rst:43 ../../../types.rst:79 ../../../types.rst:168
 #: ../../../types.rst:257 ../../../types.rst:414
 msgid "``x == y``"
-msgstr ""
+msgstr "``x == y``"
 
 #: ../../../types.rst:43
 msgid "Equality"
-msgstr ""
+msgstr "相等"
 
 #: ../../../types.rst:44 ../../../types.rst:80 ../../../types.rst:169
 #: ../../../types.rst:258 ../../../types.rst:415
 msgid "``x != y``"
-msgstr ""
+msgstr "``x != y``"
 
 #: ../../../types.rst:44
 msgid "Inequality"
-msgstr ""
+msgstr "不相等"
 
 #: ../../../types.rst:47
 msgid ""
@@ -160,6 +160,8 @@ msgid ""
 "A signed integer which can store positive and negative integers. ``N`` must "
 "be a multiple of 8 between 8 and 256 (inclusive)."
 msgstr ""
+"一個可以儲存正整數和負整數的有符號整數。 ``N`` 必須是介於 8 和 256 之間的 8 "
+"的倍數（含 8 和 256）。"
 
 #: ../../../types.rst:62
 msgid ""
@@ -176,7 +178,7 @@ msgstr ""
 #: ../../../types.rst:70 ../../../types.rst:159 ../../../types.rst:248
 #: ../../../types.rst:407
 msgid "Comparisons"
-msgstr ""
+msgstr "比較"
 
 #: ../../../types.rst:72 ../../../types.rst:161 ../../../types.rst:250
 #: ../../../types.rst:409
@@ -189,41 +191,41 @@ msgstr ""
 
 #: ../../../types.rst:77 ../../../types.rst:166 ../../../types.rst:255
 msgid "Less than"
-msgstr ""
+msgstr "小於"
 
 #: ../../../types.rst:78 ../../../types.rst:167 ../../../types.rst:256
 msgid "``x <= y``"
-msgstr ""
+msgstr "``x <= y``"
 
 #: ../../../types.rst:78 ../../../types.rst:167
 msgid "Less than or equal to"
-msgstr ""
+msgstr "小於或等於"
 
 #: ../../../types.rst:79 ../../../types.rst:168 ../../../types.rst:257
 #: ../../../types.rst:414
 msgid "Equals"
-msgstr ""
+msgstr "等於"
 
 #: ../../../types.rst:80 ../../../types.rst:169 ../../../types.rst:258
 #: ../../../types.rst:415
 msgid "Does not equal"
-msgstr ""
+msgstr "不等於"
 
 #: ../../../types.rst:81 ../../../types.rst:170 ../../../types.rst:259
 msgid "``x >= y``"
-msgstr ""
+msgstr "``x >= y``"
 
 #: ../../../types.rst:81 ../../../types.rst:170
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "大於或等於"
 
 #: ../../../types.rst:82 ../../../types.rst:171 ../../../types.rst:260
 msgid "``x > y``"
-msgstr ""
+msgstr "``x > y``"
 
 #: ../../../types.rst:82 ../../../types.rst:171 ../../../types.rst:260
 msgid "Greater than"
-msgstr ""
+msgstr "大於"
 
 #: ../../../types.rst:85 ../../../types.rst:102
 msgid "``x`` and ``y`` must both be of the same type."
@@ -231,27 +233,27 @@ msgstr ""
 
 #: ../../../types.rst:88 ../../../types.rst:177 ../../../types.rst:266
 msgid "Arithmetic Operators"
-msgstr ""
+msgstr "算術運算子"
 
 #: ../../../types.rst:93 ../../../types.rst:182 ../../../types.rst:271
 msgid "``x + y``"
-msgstr ""
+msgstr "``x + y``"
 
 #: ../../../types.rst:93 ../../../types.rst:182 ../../../types.rst:271
 msgid "Addition"
-msgstr ""
+msgstr "加法"
 
 #: ../../../types.rst:94 ../../../types.rst:183 ../../../types.rst:272
 msgid "``x - y``"
-msgstr ""
+msgstr "``x - y``"
 
 #: ../../../types.rst:94 ../../../types.rst:183 ../../../types.rst:272
 msgid "Subtraction"
-msgstr ""
+msgstr "減法"
 
 #: ../../../types.rst:95 ../../../types.rst:273
 msgid "``-x``"
-msgstr ""
+msgstr "``-x``"
 
 #: ../../../types.rst:95 ../../../types.rst:273
 msgid "Unary minus/Negation"
@@ -259,23 +261,23 @@ msgstr ""
 
 #: ../../../types.rst:96 ../../../types.rst:184 ../../../types.rst:274
 msgid "``x * y``"
-msgstr ""
+msgstr "``x * y``"
 
 #: ../../../types.rst:96 ../../../types.rst:184 ../../../types.rst:274
 msgid "Multiplication"
-msgstr ""
+msgstr "乘法"
 
 #: ../../../types.rst:97 ../../../types.rst:185
 msgid "``x // y``"
-msgstr ""
+msgstr "``x // y``"
 
 #: ../../../types.rst:97 ../../../types.rst:185
 msgid "Integer division"
-msgstr ""
+msgstr "整數除法"
 
 #: ../../../types.rst:98 ../../../types.rst:186
 msgid "``x**y``"
-msgstr ""
+msgstr "``x**y``"
 
 #: ../../../types.rst:98 ../../../types.rst:186
 msgid "Exponentiation"
@@ -283,15 +285,15 @@ msgstr ""
 
 #: ../../../types.rst:99 ../../../types.rst:187 ../../../types.rst:276
 msgid "``x % y``"
-msgstr ""
+msgstr "``x % y``"
 
 #: ../../../types.rst:99 ../../../types.rst:187 ../../../types.rst:276
 msgid "Modulo"
-msgstr ""
+msgstr "模除"
 
 #: ../../../types.rst:105 ../../../types.rst:193 ../../../types.rst:421
 msgid "Bitwise Operators"
-msgstr ""
+msgstr "位元運算子"
 
 #: ../../../types.rst:110 ../../../types.rst:198 ../../../types.rst:426
 msgid "``x & y``"
