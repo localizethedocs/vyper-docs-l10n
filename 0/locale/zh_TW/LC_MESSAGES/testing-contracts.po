@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../testing-contracts.rst:4
 msgid "Testing a Contract"
-msgstr ""
+msgstr "測試合約"
 
 #: ../../../testing-contracts.rst:6
 msgid ""

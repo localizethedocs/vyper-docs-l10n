@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../contributing.rst:4
 msgid "Contributing"
-msgstr ""
+msgstr "參與貢獻"
 
 #: ../../../contributing.rst:6
 msgid "Help is always appreciated!"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: ../../../contributing.rst:17
 msgid "Improving the documentation"
-msgstr ""
+msgstr "改善文件"
 
 #: ../../../contributing.rst:18
 msgid ""
@@ -60,7 +60,7 @@ msgstr ""
 
 #: ../../../contributing.rst:21
 msgid "Suggesting Improvements"
-msgstr ""
+msgstr "提出改善建議"
 
 #: ../../../contributing.rst:22
 msgid ""
@@ -70,7 +70,7 @@ msgstr ""
 
 #: ../../../contributing.rst:25
 msgid "How to Suggest Improvements"
-msgstr ""
+msgstr "如何提出改善建議"
 
 #: ../../../contributing.rst:27
 msgid ""
@@ -81,7 +81,7 @@ msgstr ""
 
 #: ../../../contributing.rst:31
 msgid "How to Report Issues"
-msgstr ""
+msgstr "如何回報議題"
 
 #: ../../../contributing.rst:33
 msgid ""
@@ -92,7 +92,7 @@ msgstr ""
 
 #: ../../../contributing.rst:37
 msgid "Which version of Vyper you are using"
-msgstr ""
+msgstr "您使用的是哪個版本的 Vyper"
 
 #: ../../../contributing.rst:38
 msgid "What was the source code (if applicable)"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: ../../../contributing.rst:40
 msgid "Your operating system name and version"
-msgstr ""
+msgstr "您的作業系統名稱和版本"
 
 #: ../../../contributing.rst:41
 msgid "Detailed steps to reproduce the issue"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../../../contributing.rst:59
 msgid "Workflow for Pull Requests"
-msgstr ""
+msgstr "拉取請求的工作流程"
 
 #: ../../../contributing.rst:61
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../../../contributing.rst:70
 msgid "Implementing New Features"
-msgstr ""
+msgstr "實現新功能"
 
 #: ../../../contributing.rst:72
 msgid ""

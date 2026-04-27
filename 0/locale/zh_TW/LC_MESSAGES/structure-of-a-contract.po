@@ -89,7 +89,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:42
 msgid "Optimization Mode"
-msgstr ""
+msgstr "最佳化模式"
 
 #: ../../../structure-of-a-contract.rst:44
 msgid ""
@@ -112,7 +112,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:53
 msgid "EVM Version"
-msgstr ""
+msgstr "EVM 版本"
 
 #: ../../../structure-of-a-contract.rst:55
 msgid ""
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:58
 msgid "Experimental Code Generation"
-msgstr ""
+msgstr "實驗性程式碼生成"
 
 #: ../../../structure-of-a-contract.rst:59
 msgid ""
@@ -257,7 +257,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:130
 msgid "$ vyper --disable-sys-path my_project/my_contract.vy"
-msgstr ""
+msgstr "$ vyper --disable-sys-path my_project/my_contract.vy"
 
 #: ../../../structure-of-a-contract.rst:132
 msgid ""
@@ -268,7 +268,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:137
 msgid "State Variables"
-msgstr ""
+msgstr "狀態變數"
 
 #: ../../../structure-of-a-contract.rst:139
 msgid ""
@@ -459,7 +459,7 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:262
 msgid "Structs"
-msgstr ""
+msgstr "結構體"
 
 #: ../../../structure-of-a-contract.rst:264
 msgid ""

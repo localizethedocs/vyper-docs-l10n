@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:6
 msgid "Built-in Functions"
-msgstr ""
+msgstr "內建函式"
 
 #: ../../../built-in-functions.rst:8
 msgid ""
@@ -29,7 +29,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:11
 msgid "Bitwise Operations"
-msgstr ""
+msgstr "位元運算"
 
 #: ../../../built-in-functions.rst:16
 msgid ""
@@ -44,12 +44,18 @@ msgid ""
 "def foo(x: uint256, y: int128) -> uint256:\n"
 "    return shift(x, y)"
 msgstr ""
+"@external\n"
+"@view\n"
+"def foo(x: uint256, y: int128) -> uint256:\n"
+"    return shift(x, y)"
 
 #: ../../../built-in-functions.rst:25
 msgid ""
 ">>> ExampleContract.foo(2, 8)\n"
 "512"
 msgstr ""
+">>> ExampleContract.foo(2, 8)\n"
+"512"
 
 #: ../../../built-in-functions.rst:32
 msgid ""
@@ -80,7 +86,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:48
 msgid "``create_minimal_proxy_to(target: address, ...)``"
-msgstr ""
+msgstr "``create_minimal_proxy_to(target: address, ...)``"
 
 #: ../../../built-in-functions.rst:46
 msgid "Creates an immutable proxy to ``target``"
@@ -105,7 +111,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:53
 msgid "``create_copy_of(target: address, ...)``"
-msgstr ""
+msgstr "``create_copy_of(target: address, ...)``"
 
 #: ../../../built-in-functions.rst:51
 msgid "Creates a byte-for-byte copy of runtime code stored at ``target``"
@@ -123,7 +129,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:58
 msgid "``create_from_blueprint(target: address, ...)``"
-msgstr ""
+msgstr "``create_from_blueprint(target: address, ...)``"
 
 #: ../../../built-in-functions.rst:56
 msgid "Deploys a contract using the initcode stored at ``target``"
@@ -234,6 +240,9 @@ msgid ""
 "def foo(target: address) -> address:\n"
 "    return create_copy_of(target)"
 msgstr ""
+"@external\n"
+"def foo(target: address) -> address:\n"
+"    return create_copy_of(target)"
 
 #: ../../../built-in-functions.rst:113
 msgid ""
@@ -524,6 +533,9 @@ msgid ""
 "def do_the_needful():\n"
 "    selfdestruct(msg.sender)"
 msgstr ""
+"@external\n"
+"def do_the_needful():\n"
+"    selfdestruct(msg.sender)"
 
 #: ../../../built-in-functions.rst:274
 msgid "Send ether from the contract to the specified Ethereum address."
@@ -553,6 +565,9 @@ msgid ""
 "def foo(_receiver: address, _amount: uint256, gas: uint256):\n"
 "    send(_receiver, _amount, gas=gas)"
 msgstr ""
+"@external\n"
+"def foo(_receiver: address, _amount: uint256, gas: uint256):\n"
+"    send(_receiver, _amount, gas=gas)"
 
 #: ../../../built-in-functions.rst:291
 msgid "Cryptography"
@@ -687,6 +702,8 @@ msgid ""
 ">>> ExampleContract.foo(b\"potato\")\n"
 "0x9e159dfcfe557cc1ca6c716e87af98fdcb94cd8c832386d0429b2b7bec02754f"
 msgstr ""
+">>> ExampleContract.foo(b\"potato\")\n"
+"0x9e159dfcfe557cc1ca6c716e87af98fdcb94cd8c832386d0429b2b7bec02754f"
 
 #: ../../../built-in-functions.rst:389
 msgid "Return a ``sha256`` (SHA2 256-bit output) hash of the given value."
@@ -735,6 +752,8 @@ msgid ""
 ">>> ExampleContract.foo(\"why\",\"hello\",\"there\")\n"
 "\"why hello there!\""
 msgstr ""
+">>> ExampleContract.foo(\"why\",\"hello\",\"there\")\n"
+"\"why hello there!\""
 
 #: ../../../built-in-functions.rst:428
 msgid "Converts a variable or literal from one type to another."

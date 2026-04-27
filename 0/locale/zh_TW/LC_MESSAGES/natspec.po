@@ -226,7 +226,7 @@ msgstr ""
 
 #: ../../../natspec.rst:75
 msgid "$ vyper -f userdoc,devdoc carrots.vy"
-msgstr ""
+msgstr "$ vyper -f userdoc,devdoc carrots.vy"
 
 #: ../../../natspec.rst:80
 msgid "User Documentation"

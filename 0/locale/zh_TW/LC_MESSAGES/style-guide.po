@@ -83,13 +83,15 @@ msgstr ""
 
 #: ../../../style-guide.rst:29
 msgid "Naming Conventions"
-msgstr ""
+msgstr "命名慣例"
 
 #: ../../../style-guide.rst:31
 msgid ""
 "Names **must** adhere to `PEP 8 naming conventions <https://www.python.org/"
 "dev/peps/pep-0008/#prescriptive-naming-conventions>`_:"
 msgstr ""
+"名稱\\ **必須**\\ 符合 `PEP 8 命名規範 <https://www.python.org/dev/peps/"
+"pep-0008/#prescriptive-naming-conventions>`_\\ ："
 
 #: ../../../style-guide.rst:33
 msgid ""
@@ -177,7 +179,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:60
 msgid "``get_``: For simple data retrieval without any side effects."
-msgstr ""
+msgstr "``get_``：用於簡單的資料檢索，沒有任何副作用。"
 
 #: ../../../style-guide.rst:61
 msgid "``fetch_``: For retreivals that may have some sort of side effect."
@@ -187,7 +189,7 @@ msgstr ""
 msgid ""
 "``build_``: For creation of a new object that is derived from some other "
 "data."
-msgstr ""
+msgstr "``build_``：用於建立從其他資料衍生的新物件。"
 
 #: ../../../style-guide.rst:63
 msgid ""
@@ -243,7 +245,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:78
 msgid "Standard Library Imports"
-msgstr ""
+msgstr "標準程式庫匯入"
 
 #: ../../../style-guide.rst:80
 msgid ""
@@ -368,7 +370,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:141
 msgid "Strings"
-msgstr ""
+msgstr "字串"
 
 #: ../../../style-guide.rst:143
 msgid ""
@@ -379,7 +381,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:146
 msgid "Type Annotations"
-msgstr ""
+msgstr "型別註解"
 
 #: ../../../style-guide.rst:148
 msgid ""
@@ -402,13 +404,13 @@ msgstr ""
 
 #: ../../../style-guide.rst:153
 msgid "Tests"
-msgstr ""
+msgstr "測試"
 
 #: ../../../style-guide.rst:155
 msgid ""
 "We use the `pytest <https://docs.pytest.org/en/latest/>`_ framework for "
 "testing."
-msgstr ""
+msgstr "我們使用 `pytest <https://docs.pytest.org/en/latest/>`_ 框架進行測試。"
 
 #: ../../../style-guide.rst:158 ../../../style-guide.rst:272
 msgid "Best Practices"
@@ -676,7 +678,7 @@ msgstr ""
 
 #: ../../../style-guide.rst:244
 msgid "Commit Messages"
-msgstr ""
+msgstr "送交訊息"
 
 #: ../../../style-guide.rst:246
 msgid ""

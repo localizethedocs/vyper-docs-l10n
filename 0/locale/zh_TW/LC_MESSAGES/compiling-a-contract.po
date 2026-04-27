@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:2
 msgid "Compiling a Contract"
-msgstr ""
+msgstr "編譯合約"
 
 #: ../../../compiling-a-contract.rst:5
 msgid "Command-Line Compiler Tools"
-msgstr ""
+msgstr "命令行編譯器工具"
 
 #: ../../../compiling-a-contract.rst:7
 msgid ""
@@ -60,7 +60,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:25
 msgid "$ vyper yourFileName.vy"
-msgstr ""
+msgstr "$ vyper yourFileName.vy"
 
 #: ../../../compiling-a-contract.rst:30
 msgid ""
@@ -96,7 +96,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:41
 msgid "$ vyper -p yourProject yourProject/yourFileName.vy"
-msgstr ""
+msgstr "$ vyper -p yourProject yourProject/yourFileName.vy"
 
 #: ../../../compiling-a-contract.rst:49
 msgid "Storage Layout"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:53
 msgid "$ vyper -f layout yourFileName.vy"
-msgstr ""
+msgstr "$ vyper -f layout yourFileName.vy"
 
 #: ../../../compiling-a-contract.rst:57
 msgid ""
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:61
 msgid "$ vyper --storage-layout-file storageLayout.json yourFileName.vy"
-msgstr ""
+msgstr "$ vyper --storage-layout-file storageLayout.json yourFileName.vy"
 
 #: ../../../compiling-a-contract.rst:65
 msgid ""
@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:77
 msgid "$ vyper-json"
-msgstr ""
+msgstr "$ vyper-json"
 
 #: ../../../compiling-a-contract.rst:81
 msgid "To compile from a JSON file:"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:83
 msgid "$ vyper-json yourProject.json"
-msgstr ""
+msgstr "$ vyper-json yourProject.json"
 
 #: ../../../compiling-a-contract.rst:87
 msgid ""
@@ -165,7 +165,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:89
 msgid "$ vyper-json -o compiled.json"
-msgstr ""
+msgstr "$ vyper-json -o compiled.json"
 
 #: ../../../compiling-a-contract.rst:94
 msgid "Importing Interfaces"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:138
 msgid "Enabling Experimental Code Generation"
-msgstr ""
+msgstr "啟用實驗性程式碼生成"
 
 #: ../../../compiling-a-contract.rst:140
 msgid ""
@@ -330,7 +330,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:165
 msgid "$ vyper --evm-version [VERSION]"
-msgstr ""
+msgstr "$ vyper --evm-version [VERSION]"
 
 #: ../../../compiling-a-contract.rst:169
 msgid ""
@@ -346,10 +346,15 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"{\n"
+"    \"settings\": {\n"
+"        \"evmVersion\": \"[VERSION]\"\n"
+"    }\n"
+"}"
 
 #: ../../../compiling-a-contract.rst:180
 msgid "Target Options"
-msgstr ""
+msgstr "目標選項"
 
 #: ../../../compiling-a-contract.rst:182
 msgid ""
@@ -392,7 +397,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:206
 msgid "Controlling Warnings"
-msgstr ""
+msgstr "控制警告"
 
 #: ../../../compiling-a-contract.rst:208
 msgid ""
@@ -406,7 +411,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:214
 msgid "$ vyper -Werror foo.vy   # promote warnings to errors"
-msgstr ""
+msgstr "$ vyper -Werror foo.vy   # 將警告升級成錯誤"
 
 #: ../../../compiling-a-contract.rst:222
 msgid "Integrity Hash"
@@ -446,6 +451,14 @@ msgid ""
 "├── searchpaths\n"
 "└── storage_layout.json [OPTIONAL]"
 msgstr ""
+"MANIFEST\n"
+"├── cli_settings.txt\n"
+"├── compilation_targets\n"
+"├── compiler_version\n"
+"├── integrity\n"
+"├── settings.json\n"
+"├── searchpaths\n"
+"└── storage_layout.json [OPTIONAL]"
 
 #: ../../../compiling-a-contract.rst:244
 msgid ""
@@ -508,6 +521,12 @@ msgid ""
 "$ vyper my_contract.vyz  # compile my_contract.vyz\n"
 "$ vyper my_contract.vyz.b64  # compile my_contract.vyz.b64"
 msgstr ""
+"$ vyper -f archive my_contract.vy -o my_contract.vyz  # 將封存檔寫入 "
+"my_contract.vyz\n"
+"$ vyper -f archive my_contract.vy --base64 > my_contract.vyz.b64  # 將封存檔"
+"寫入為 base64 編碼文字\n"
+"$ vyper my_contract.vyz  # 編譯 my_contract.vyz\n"
+"$ vyper my_contract.vyz.b64  # 編譯 my_contract.vyz.b64"
 
 #: ../../../compiling-a-contract.rst:262
 msgid "Compiler Input and Output JSON Description"
