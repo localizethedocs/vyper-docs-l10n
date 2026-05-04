@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-05-04 10:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Language Description"
 msgstr ""
 
-#: ../../../toctree.rst:35
+#: ../../../toctree.rst:36
 msgid "Using the Compiler"
 msgstr ""
 
-#: ../../../toctree.rst:44
+#: ../../../toctree.rst:45
 msgid "Additional Resources"
 msgstr ""
 
