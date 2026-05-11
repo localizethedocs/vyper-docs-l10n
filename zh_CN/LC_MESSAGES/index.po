@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.rst:-1
+msgid "Vyper logo"
+msgstr ""
+
+#: ../../../index.rst:7
+msgid "Vyper"
+msgstr ""
+
+#: ../../../index.rst:9
+msgid ""
+"Vyper is a Pythonic smart contract language that compiles to `Ethereum "
+"Virtual Machine (EVM) <https://ethereum.org/learn/#ethereum-basics>`_ "
+"bytecode. It prioritises **security**, **auditability**, and **simplicity**."
+msgstr ""
+
+#: ../../../index.rst:15
+msgid "Principles"
+msgstr ""
+
+#: ../../../index.rst:17
+msgid ""
+"**Security**: Building secure smart contracts should be natural, not an "
+"uphill battle."
+msgstr ""
+
+#: ../../../index.rst:18
+msgid ""
+"**Simplicity**: Both the language and compiler should be easy to understand."
+msgstr ""
+
+#: ../../../index.rst:19
+msgid ""
+"**Auditability**: Code should be maximally human-readable. Simplicity for "
+"the reader matters more than convenience for the writer."
+msgstr ""
+
+#: ../../../index.rst:22
+msgid "Key Features"
+msgstr ""
+
+#: ../../../index.rst:24
+msgid "**Safety by default**"
+msgstr ""
+
+#: ../../../index.rst:26
+msgid "Bounds and overflow checking on array accesses and arithmetic"
+msgstr ""
+
+#: ../../../index.rst:27
+msgid ""
+"Reentrancy protection via the ``@nonreentrant`` decorator (see :ref:`control-"
+"structures`)"
+msgstr ""
+
+#: ../../../index.rst:28
+msgid "Strong typing with explicit :ref:`type conversions <type_conversions>`"
+msgstr ""
+
+#: ../../../index.rst:30
+msgid "**Predictable execution**"
+msgstr ""
+
+#: ../../../index.rst:32
+msgid ""
+"Decidable gas consumption: every function call has a calculable upper bound"
+msgstr ""
+
+#: ../../../index.rst:33
+msgid "Bounded loops only (compile-time maximum iterations)"
+msgstr ""
+
+#: ../../../index.rst:34
+msgid "No recursion: execution flow is structurally decreasing"
+msgstr ""
+
+#: ../../../index.rst:36
+msgid "**Clean code reuse**"
+msgstr ""
+
+#: ../../../index.rst:38
+msgid ":ref:`Module imports <modules>` instead of class inheritance"
+msgstr ""
+
+#: ../../../index.rst:39
+msgid ""
+"Explicit ``extcall`` and ``staticcall`` keywords for external contract "
+"interactions"
+msgstr ""
+
+#: ../../../index.rst:40
+msgid ""
+"Support for :ref:`pure functions <function-mutability>` that cannot modify "
+"state"
+msgstr ""
+
+#: ../../../index.rst:43
+msgid "Compiler-Enforced Security"
+msgstr ""
+
+#: ../../../index.rst:45
+msgid ""
+"Vyper eliminates entire vulnerability classes by excluding features that "
+"enable dangerous patterns:"
+msgstr ""
+
+#: ../../../index.rst:51
+msgid "Excluded Feature"
+msgstr ""
+
+#: ../../../index.rst:52
+msgid "Why It Matters"
+msgstr ""
+
+#: ../../../index.rst:53
+msgid "Inline assembly"
+msgstr ""
+
+#: ../../../index.rst:54
+msgid ""
+"Preserves type safety, overflow protection, and searchability of variable "
+"usage"
+msgstr ""
+
+#: ../../../index.rst:55
+msgid "Class inheritance"
+msgstr ""
+
+#: ../../../index.rst:56
+msgid "Removes ambiguity about which code executes and simplifies auditing"
+msgstr ""
+
+#: ../../../index.rst:57
+msgid "Modifiers"
+msgstr ""
+
+#: ../../../index.rst:58
+msgid "All checks are inline and visible, no hidden pre/post conditions"
+msgstr ""
+
+#: ../../../index.rst:59
+msgid "Function overloading"
+msgstr ""
+
+#: ../../../index.rst:60
+msgid "Function calls are unambiguous; ``foo(x)`` always means the same thing"
+msgstr ""
+
+#: ../../../index.rst:61
+msgid "Operator overloading"
+msgstr ""
+
+#: ../../../index.rst:62
+msgid "Arithmetic operators do exactly what they appear to do"
+msgstr ""
+
+#: ../../../index.rst:63
+msgid "Infinite loops"
+msgstr ""
+
+#: ../../../index.rst:64
+msgid "Gas costs are always bounded and predictable"
+msgstr ""
+
+#: ../../../index.rst:65
+msgid "Recursive calls"
+msgstr ""
+
+#: ../../../index.rst:66
+msgid "Call graphs are simple and gas limits are enforceable"
+msgstr ""
+
+#: ../../../index.rst:68
+msgid ""
+"These constraints mean developers cannot accidentally introduce dangerous "
+"patterns, even under time pressure or with limited blockchain experience."
+msgstr ""
+
+#: ../../../index.rst:71
+msgid "Decimal Fixed Point"
+msgstr ""
+
+#: ../../../index.rst:73
+msgid ""
+"Vyper uses decimal (not binary) fixed point numbers. This ensures that "
+"literals like ``0.1`` have exact representations, avoiding the subtle "
+"precision errors common in binary floating-point arithmetic."
+msgstr ""
