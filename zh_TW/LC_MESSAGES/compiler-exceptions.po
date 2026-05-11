@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../compiler-exceptions.rst:4
+msgid "Compiler Exceptions"
+msgstr "編譯器例外"
+
+#: ../../../compiler-exceptions.rst:8
+msgid ""
+"Vyper raises one or more of the following exceptions when an issue is "
+"encountered while compiling a contract."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:10
+msgid ""
+"Whenever possible, exceptions include a source highlight displaying the "
+"location of the error within the code:"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:13 ../../../compiler-exceptions.rst:197
+msgid ""
+"vyper.exceptions.VariableDeclarationException: line 79:17 Persistent "
+"variable undeclared: highstBid\n"
+"     78     # If bid is less than highest bid, bid fails\n"
+"---> 79     if (value <= self.highstBid):\n"
+"-------------------------^\n"
+"     80         return False"
+msgstr ""
+"vyper.exceptions.VariableDeclarationException: line 79:17 Persistent "
+"variable undeclared: highstBid\n"
+"     78     # If bid is less than highest bid, bid fails\n"
+"---> 79     if (value <= self.highstBid):\n"
+"-------------------------^\n"
+"     80         return False"
+
+#: ../../../compiler-exceptions.rst:23
+msgid ""
+"Raises when calling a function with invalid arguments, for example an "
+"incorrect number of positional arguments or an invalid keyword argument."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:27
+msgid ""
+"Raises on an illegal function call, such as attempting to call between two "
+"external functions."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:31
+msgid "Raises when an array index is out of bounds."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:35
+msgid "Raises when an event declaration is invalid."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:39
+msgid ""
+"Raises when a contract contains an action that cannot be performed with the "
+"active EVM ruleset."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:43
+msgid ""
+"Raises when a function declaration is invalid, for example because of "
+"incorrect or mismatched return values."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:47
+msgid ""
+"Raises when attempting to perform a change a variable, constant or "
+"definition that cannot be changed. For example, trying to update a constant, "
+"or trying to assign to a function definition."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:51
+msgid "Raises when an interface is not fully implemented."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:55
+msgid "Raises on a reference to an attribute that does not exist."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:59
+msgid "Raises when no valid type can be found for a literal value."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:61
+msgid ""
+"@external\n"
+"def foo():\n"
+"    bar: decimal = 3.123456789123456789"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:67
+msgid ""
+"This example raises ``InvalidLiteral`` because the given literal value has "
+"too many decimal places and so cannot be assigned any valid Vyper type."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:71
+msgid "Raises when using an invalid operator for a given type."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:73
+msgid ""
+"@external\n"
+"def foo():\n"
+"    a: String[10] = \"hello\" * 2"
+msgstr ""
+"@external\n"
+"def foo():\n"
+"    a: String[10] = \"hello\" * 2"
+
+#: ../../../compiler-exceptions.rst:79
+msgid ""
+"This example raises ``InvalidOperation`` because multiplication is not "
+"possible on string types."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:83
+msgid "Raises on an invalid reference to an existing definition."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:85
+msgid ""
+"baz: int128\n"
+"\n"
+"@external\n"
+"def foo():\n"
+"    bar: int128 = baz"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:93
+msgid ""
+"This example raises ``InvalidReference`` because ``baz`` is a storage "
+"variable. The reference to it should be written as ``self.baz``."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:97
+msgid "Raises when using an invalid literal value for the given type."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:99
+msgid ""
+"@external\n"
+"def foo():\n"
+"    bar: int128 = 3.5"
+msgstr ""
+"@external\n"
+"def foo():\n"
+"    bar: int128 = 3.5"
+
+#: ../../../compiler-exceptions.rst:105
+msgid ""
+"This example raises ``InvalidType`` because ``3.5`` is a valid literal "
+"value, but cannot be cast as ``int128``."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:109
+msgid "Raises when an iterator is constructed or used incorrectly."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:113
+msgid "Raises when the compiler JSON input is malformed."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:117
+msgid ""
+"Raises when attempting to assign a variable to a name that is already in use."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:121
+msgid ""
+"Raises when a contract contains an invalid :ref:`NatSpec<natspec>` docstring."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:123
+msgid ""
+"vyper.exceptions.SyntaxException: line 14:5 No description given for tag "
+"'@param'\n"
+"     13     @dev the feet are sticky like rice\n"
+"---> 14     @param\n"
+"-------------^\n"
+"     15     @return always True"
+msgstr ""
+"vyper.exceptions.SyntaxException: line 14:5 No description given for tag "
+"'@param'\n"
+"     13     @dev the feet are sticky like rice\n"
+"---> 14     @param\n"
+"-------------^\n"
+"     15     @return always True"
+
+#: ../../../compiler-exceptions.rst:133
+msgid ""
+"Raises when attempting to access ``msg.value`` from within a function that "
+"has not been marked as ``@payable``."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:135
+msgid ""
+"@public\n"
+"def _foo():\n"
+"    bar: uint256 = msg.value"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:143
+msgid "Raises when a numeric value is out of bounds for the given type."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:147
+msgid ""
+"Raises when attempting to perform a modifying action within view-only or "
+"stateless context. For example, writing to storage in a ``@view`` function, "
+"reading from storage in a ``@pure`` function."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:151
+msgid "Raises on syntax that is parsable, but invalid in some way."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:153
+msgid ""
+"vyper.exceptions.StructureException: line 181:0 Invalid top-level statement\n"
+"     180\n"
+"---> 181 '''\n"
+"---------^\n"
+"     182"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:163
+msgid "Raises on invalid syntax that cannot be parsed."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:165
+msgid ""
+"vyper.exceptions.SyntaxException: line 4:20 invalid syntax\n"
+"        3 struct Bid:\n"
+"---> 4   blindedBid bytes32\n"
+"---------------------------^\n"
+"        5   deposit: uint256"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:175
+msgid ""
+"Raises when attempting to perform an action between two or more objects with "
+"known, dislike types."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:177
+msgid ""
+"@external\n"
+"def foo(:\n"
+"    bar: int128 = 3\n"
+"    foo: decimal = 4.2\n"
+"\n"
+"    if foo + bar > 4:\n"
+"        pass"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:187
+msgid ""
+"``foo`` has a type of ``int128`` and ``bar`` has a type of ``decimal``, so "
+"attempting to add them together  raises a ``TypeMismatch``."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:191
+msgid "Raises when attempting to access an object that has not been declared."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:195
+msgid "Raises on an invalid variable declaration."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:207
+msgid ""
+"Raises when a contract version string is malformed or incompatible with the "
+"current compiler version."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:211
+msgid "Raises when a divide by zero or modulo zero situation arises."
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:214
+msgid "CompilerPanic"
+msgstr ""
+
+#: ../../../compiler-exceptions.rst:218
+msgid ""
+"$ vyper v.vy\n"
+"Error compiling: v.vy\n"
+"vyper.exceptions.CompilerPanic: Number of times repeated\n"
+"must be a constant nonzero positive integer: 0 Please create an issue."
+msgstr ""
+"$ vyper v.vy\n"
+"Error compiling: v.vy\n"
+"vyper.exceptions.CompilerPanic: Number of times repeated\n"
+"must be a constant nonzero positive integer: 0 Please create an issue."
+
+#: ../../../compiler-exceptions.rst:225
+msgid ""
+"A compiler panic error indicates that there is a problem internally to the "
+"compiler and an issue should be reported right away on the Vyper Github "
+"page.  Open an issue if you are experiencing this error. Please `Open an "
+"Issue <https://github.com/vyperlang/vyper/issues>`_"
+msgstr ""
