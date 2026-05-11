@@ -1,0 +1,441 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ERC20 Token - Vyper 文档</title>
+    <link rel="shortcut icon" href="../_static/logo.svg"/><link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="ERC721 Non-Fungible Token" href="erc721.html" /><link rel="prev" title="Name Registry" href="name-registry.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/vyper-by-example/erc20.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/vyper-by-example/erc20.html"/>
+<meta property="og:title" content="ERC20 Token"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="../ltd-provenance.js"></script>
+<script type="text/javascript" src="../ltd-current.js"></script>
+<script type="text/javascript" src="../../../ltd-config.js"></script>
+<script type="text/javascript" src="../../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="../toctree.html">
+      <img class="light-logo" src="../_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="../_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Vyper by Example</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name-registry.html">Name Registry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/vyper-by-example/erc20.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">Vyper by Example</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">ERC20 Token</strong>
+        <meta itemprop="position" content="3" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="erc20-token">
+<span id="erc20"></span><span id="index-0"></span><h1>ERC20 Token<a class="headerlink" href="#erc20-token" title="Link to this heading">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>This is example code for learning purposes. Do not use in production without thorough review and testing.</p>
+</div>
+<p>A standard ERC20 fungible token implementation.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos">  1</span><span class="c1">#pragma version &gt;0.3.10</span>
+</span><span id="1-2"><span class="linenos">  2</span>
+</span><span id="1-3"><span class="linenos">  3</span><span class="c1">###########################################################################</span>
+</span><span id="1-4"><span class="linenos">  4</span><span class="c1">## THIS IS EXAMPLE CODE, NOT MEANT TO BE USED IN PRODUCTION! CAVEAT EMPTOR!</span>
+</span><span id="1-5"><span class="linenos">  5</span><span class="c1">###########################################################################</span>
+</span><span id="1-6"><span class="linenos">  6</span>
+</span><span id="1-7"><span class="linenos">  7</span><span class="c1"># @dev example implementation of an ERC20 token</span>
+</span><span id="1-8"><span class="linenos">  8</span><span class="c1"># @author Takayuki Jimba (@yudetamago)</span>
+</span><span id="1-9"><span class="linenos">  9</span><span class="c1"># https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md</span>
+</span><span id="1-10"><span class="linenos"> 10</span>
+</span><span id="1-11"><span class="linenos"> 11</span><span class="k">from</span><span class="w"> </span><span class="n">ethereum</span><span class="p">.</span><span class="n">ercs</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">IERC20</span>
+</span><span id="1-12"><span class="linenos"> 12</span><span class="k">from</span><span class="w"> </span><span class="n">ethereum</span><span class="p">.</span><span class="n">ercs</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">IERC20Detailed</span>
+</span><span id="1-13"><span class="linenos"> 13</span>
+</span><span id="1-14"><span class="linenos"> 14</span><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">IERC20</span>
+</span><span id="1-15"><span class="linenos"> 15</span><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">IERC20Detailed</span>
+</span><span id="1-16"><span class="linenos"> 16</span>
+</span><span id="1-17"><span class="linenos"> 17</span><span class="nv">name:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span>
+</span><span id="1-18"><span class="linenos"> 18</span><span class="nv">symbol:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span>
+</span><span id="1-19"><span class="linenos"> 19</span><span class="nv">decimals:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">uint8</span><span class="p">)</span>
+</span><span id="1-20"><span class="linenos"> 20</span>
+</span><span id="1-21"><span class="linenos"> 21</span><span class="c1"># NOTE: By declaring `balanceOf` as public, vyper automatically generates a &#39;balanceOf()&#39; getter</span>
+</span><span id="1-22"><span class="linenos"> 22</span><span class="c1">#       method to allow access to account balances.</span>
+</span><span id="1-23"><span class="linenos"> 23</span><span class="c1">#       The _KeyType will become a required parameter for the getter and it will return _ValueType.</span>
+</span><span id="1-24"><span class="linenos"> 24</span><span class="c1">#       See: https://docs.vyperlang.org/en/v0.1.0-beta.8/types.html?highlight=getter#mappings</span>
+</span><span id="1-25"><span class="linenos"> 25</span><span class="nv">balanceOf:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">])</span>
+</span><span id="1-26"><span class="linenos"> 26</span><span class="c1"># By declaring `allowance` as public, vyper automatically generates the `allowance()` getter</span>
+</span><span id="1-27"><span class="linenos"> 27</span><span class="nv">allowance:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">]])</span>
+</span><span id="1-28"><span class="linenos"> 28</span><span class="c1"># By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter</span>
+</span><span id="1-29"><span class="linenos"> 29</span><span class="nv">totalSupply:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-30"><span class="linenos"> 30</span><span class="nv">minter:</span><span class="w"> </span><span class="kt">address</span>
+</span><span id="1-31"><span class="linenos"> 31</span>
+</span><span id="1-32"><span class="linenos"> 32</span>
+</span><span id="1-33"><span class="linenos"> 33</span><span class="nd">@deploy</span>
+</span><span id="1-34"><span class="linenos"> 34</span><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">(</span><span class="nv">_name:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span><span class="w"> </span><span class="nv">_symbol:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span><span class="w"> </span><span class="nv">_decimals:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">_supply:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-35"><span class="linenos"> 35</span><span class="w">    </span><span class="nv">init_supply:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_supply</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="nb">convert</span><span class="p">(</span><span class="n">_decimals</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-36"><span class="linenos"> 36</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_name</span>
+</span><span id="1-37"><span class="linenos"> 37</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_symbol</span>
+</span><span id="1-38"><span class="linenos"> 38</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">decimals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_decimals</span>
+</span><span id="1-39"><span class="linenos"> 39</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_supply</span>
+</span><span id="1-40"><span class="linenos"> 40</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">totalSupply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">init_supply</span>
+</span><span id="1-41"><span class="linenos"> 41</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">minter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">msg.sender</span>
+</span><span id="1-42"><span class="linenos"> 42</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">),</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">init_supply</span><span class="p">)</span>
+</span><span id="1-43"><span class="linenos"> 43</span>
+</span><span id="1-44"><span class="linenos"> 44</span>
+</span><span id="1-45"><span class="linenos"> 45</span><span class="nd">@external</span>
+</span><span id="1-46"><span class="linenos"> 46</span><span class="k">def</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="n">_to</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-47"><span class="linenos"> 47</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-48"><span class="linenos"> 48</span><span class="cm">    @dev Transfer token for a specified address</span>
+</span><span id="1-49"><span class="linenos"> 49</span><span class="cm">    @param _to The address to transfer to.</span>
+</span><span id="1-50"><span class="linenos"> 50</span><span class="cm">    @param _value The amount to be transferred.</span>
+</span><span id="1-51"><span class="linenos"> 51</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-52"><span class="linenos"> 52</span><span class="w">    </span><span class="c1"># NOTE: vyper does not allow underflows</span>
+</span><span id="1-53"><span class="linenos"> 53</span><span class="w">    </span><span class="c1">#       so the following subtraction would revert on insufficient balance</span>
+</span><span id="1-54"><span class="linenos"> 54</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-55"><span class="linenos"> 55</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-56"><span class="linenos"> 56</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-57"><span class="linenos"> 57</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">True</span>
+</span><span id="1-58"><span class="linenos"> 58</span>
+</span><span id="1-59"><span class="linenos"> 59</span>
+</span><span id="1-60"><span class="linenos"> 60</span><span class="nd">@external</span>
+</span><span id="1-61"><span class="linenos"> 61</span><span class="k">def</span><span class="w"> </span><span class="nf">transferFrom</span><span class="p">(</span><span class="n">_from</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">_to</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-62"><span class="linenos"> 62</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-63"><span class="linenos"> 63</span><span class="cm">     @dev Transfer tokens from one address to another.</span>
+</span><span id="1-64"><span class="linenos"> 64</span><span class="cm">     @param _from address The address which you want to send tokens from</span>
+</span><span id="1-65"><span class="linenos"> 65</span><span class="cm">     @param _to address The address which you want to transfer to</span>
+</span><span id="1-66"><span class="linenos"> 66</span><span class="cm">     @param _value uint256 the amount of tokens to be transferred</span>
+</span><span id="1-67"><span class="linenos"> 67</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-68"><span class="linenos"> 68</span><span class="w">    </span><span class="c1"># NOTE: vyper does not allow underflows</span>
+</span><span id="1-69"><span class="linenos"> 69</span><span class="w">    </span><span class="c1">#       so the following subtraction would revert on insufficient balance</span>
+</span><span id="1-70"><span class="linenos"> 70</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="n">_from</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-71"><span class="linenos"> 71</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-72"><span class="linenos"> 72</span><span class="w">    </span><span class="c1"># NOTE: vyper does not allow underflows</span>
+</span><span id="1-73"><span class="linenos"> 73</span><span class="w">    </span><span class="c1">#      so the following subtraction would revert on insufficient allowance</span>
+</span><span id="1-74"><span class="linenos"> 74</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">allowance</span><span class="p">[</span><span class="n">_from</span><span class="p">][</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-75"><span class="linenos"> 75</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">_from</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-76"><span class="linenos"> 76</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">True</span>
+</span><span id="1-77"><span class="linenos"> 77</span>
+</span><span id="1-78"><span class="linenos"> 78</span>
+</span><span id="1-79"><span class="linenos"> 79</span><span class="nd">@external</span>
+</span><span id="1-80"><span class="linenos"> 80</span><span class="k">def</span><span class="w"> </span><span class="nf">approve</span><span class="p">(</span><span class="n">_spender</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-81"><span class="linenos"> 81</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-82"><span class="linenos"> 82</span><span class="cm">    @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.</span>
+</span><span id="1-83"><span class="linenos"> 83</span><span class="cm">         Beware that changing an allowance with this method brings the risk that someone may use both the old</span>
+</span><span id="1-84"><span class="linenos"> 84</span><span class="cm">         and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this</span>
+</span><span id="1-85"><span class="linenos"> 85</span><span class="cm">         race condition is to first reduce the spender&#39;s allowance to 0 and set the desired value afterwards:</span>
+</span><span id="1-86"><span class="linenos"> 86</span><span class="cm">         https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729</span>
+</span><span id="1-87"><span class="linenos"> 87</span><span class="cm">    @param _spender The address which will spend the funds.</span>
+</span><span id="1-88"><span class="linenos"> 88</span><span class="cm">    @param _value The amount of tokens to be spent.</span>
+</span><span id="1-89"><span class="linenos"> 89</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-90"><span class="linenos"> 90</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">allowance</span><span class="p">[</span><span class="bp">msg.sender</span><span class="p">][</span><span class="n">_spender</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-91"><span class="linenos"> 91</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Approval</span><span class="p">(</span><span class="n">owner</span><span class="o">=</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">spender</span><span class="o">=</span><span class="n">_spender</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-92"><span class="linenos"> 92</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">True</span>
+</span><span id="1-93"><span class="linenos"> 93</span>
+</span><span id="1-94"><span class="linenos"> 94</span>
+</span><span id="1-95"><span class="linenos"> 95</span><span class="nd">@external</span>
+</span><span id="1-96"><span class="linenos"> 96</span><span class="k">def</span><span class="w"> </span><span class="nf">mint</span><span class="p">(</span><span class="nv">_to:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">_value:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-97"><span class="linenos"> 97</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-98"><span class="linenos"> 98</span><span class="cm">    @dev Mint an amount of the token and assigns it to an account.</span>
+</span><span id="1-99"><span class="linenos"> 99</span><span class="cm">         This encapsulates the modification of balances such that the</span>
+</span><span id="1-100"><span class="linenos">100</span><span class="cm">         proper events are emitted.</span>
+</span><span id="1-101"><span class="linenos">101</span><span class="cm">    @param _to The account that will receive the created tokens.</span>
+</span><span id="1-102"><span class="linenos">102</span><span class="cm">    @param _value The amount that will be created.</span>
+</span><span id="1-103"><span class="linenos">103</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-104"><span class="linenos">104</span><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="bp">msg.sender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">minter</span>
+</span><span id="1-105"><span class="linenos">105</span><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">_to</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-106"><span class="linenos">106</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">totalSupply</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-107"><span class="linenos">107</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-108"><span class="linenos">108</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">),</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-109"><span class="linenos">109</span>
+</span><span id="1-110"><span class="linenos">110</span>
+</span><span id="1-111"><span class="linenos">111</span><span class="nd">@internal</span>
+</span><span id="1-112"><span class="linenos">112</span><span class="k">def</span><span class="w"> </span><span class="nf">_burn</span><span class="p">(</span><span class="nv">_to:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">_value:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-113"><span class="linenos">113</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-114"><span class="linenos">114</span><span class="cm">    @dev Internal function that burns an amount of the token of a given</span>
+</span><span id="1-115"><span class="linenos">115</span><span class="cm">         account.</span>
+</span><span id="1-116"><span class="linenos">116</span><span class="cm">    @param _to The account whose tokens will be burned.</span>
+</span><span id="1-117"><span class="linenos">117</span><span class="cm">    @param _value The amount that will be burned.</span>
+</span><span id="1-118"><span class="linenos">118</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-119"><span class="linenos">119</span><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">_to</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-120"><span class="linenos">120</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">totalSupply</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-121"><span class="linenos">121</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">[</span><span class="n">_to</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-122"><span class="linenos">122</span><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">.</span><span class="n">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">),</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-123"><span class="linenos">123</span>
+</span><span id="1-124"><span class="linenos">124</span>
+</span><span id="1-125"><span class="linenos">125</span><span class="nd">@external</span>
+</span><span id="1-126"><span class="linenos">126</span><span class="k">def</span><span class="w"> </span><span class="nf">burn</span><span class="p">(</span><span class="nv">_value:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-127"><span class="linenos">127</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-128"><span class="linenos">128</span><span class="cm">    @dev Burn an amount of the token of msg.sender.</span>
+</span><span id="1-129"><span class="linenos">129</span><span class="cm">    @param _value The amount that will be burned.</span>
+</span><span id="1-130"><span class="linenos">130</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-131"><span class="linenos">131</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">_burn</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="p">)</span>
+</span><span id="1-132"><span class="linenos">132</span>
+</span><span id="1-133"><span class="linenos">133</span>
+</span><span id="1-134"><span class="linenos">134</span><span class="nd">@external</span>
+</span><span id="1-135"><span class="linenos">135</span><span class="k">def</span><span class="w"> </span><span class="nf">burnFrom</span><span class="p">(</span><span class="nv">_to:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">_value:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-136"><span class="linenos">136</span><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-137"><span class="linenos">137</span><span class="cm">    @dev Burn an amount of the token from a given account.</span>
+</span><span id="1-138"><span class="linenos">138</span><span class="cm">    @param _to The account whose tokens will be burned.</span>
+</span><span id="1-139"><span class="linenos">139</span><span class="cm">    @param _value The amount that will be burned.</span>
+</span><span id="1-140"><span class="linenos">140</span><span class="cm">    &quot;&quot;&quot;</span>
+</span><span id="1-141"><span class="linenos">141</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">allowance</span><span class="p">[</span><span class="n">_to</span><span class="p">][</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">_value</span>
+</span><span id="1-142"><span class="linenos">142</span><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">_burn</span><span class="p">(</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Key features:</p>
+<ul class="simple">
+<li><p>Implements the <code class="docutils literal notranslate"><span class="pre">IERC20</span></code> and <code class="docutils literal notranslate"><span class="pre">IERC20Detailed</span></code> interfaces from <code class="docutils literal notranslate"><span class="pre">ethereum.ercs</span></code></p></li>
+<li><p>Standard <code class="docutils literal notranslate"><span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">transferFrom</span></code>, and <code class="docutils literal notranslate"><span class="pre">approve</span></code> functions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mint</span></code> and <code class="docutils literal notranslate"><span class="pre">burn</span></code> functions for supply management</p></li>
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> for balances and allowances</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>This is example code. Production tokens require additional security review.</p>
+</div>
+<p>Notice how Vyper’s overflow/underflow protection is built-in: the comment “vyper does not allow underflows”
+explains why no explicit check is needed when subtracting from balances.</p>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="name-registry.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Name Registry</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="erc721.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">ERC721 Non-Fungible Token</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="../_static/documentation_options.js?v=7d86a446"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/translations.js?v=beaddf03"></script>
+      <script src="../_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

@@ -1,0 +1,498 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Structure of a Contract - Vyper 文档</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="Types" href="types.html" /><link rel="prev" title="Multi-Signature Wallet" href="vyper-by-example/wallet.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/structure-of-a-contract.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/structure-of-a-contract.html"/>
+<meta property="og:title" content="Structure of a Contract"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#pragmas">Pragmas</a><ul>
+<li><a class="reference internal" href="#version-pragma">Version Pragma</a></li>
+<li><a class="reference internal" href="#optimization-mode">Optimization Mode</a></li>
+<li><a class="reference internal" href="#evm-version">EVM Version</a></li>
+<li><a class="reference internal" href="#experimental-code-generation">Experimental Code Generation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#imports">Imports</a><ul>
+<li><a class="reference internal" href="#imports-via-import">Imports via <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
+<li><a class="reference internal" href="#imports-via-from-import">Imports via <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code></a></li>
+<li><a class="reference internal" href="#searching-for-imports">Searching For Imports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#state-variables">State Variables</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#modules">Modules</a></li>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#structs">Structs</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/structure-of-a-contract.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Structure of a Contract</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="structure-of-a-contract">
+<span id="contract-structure"></span><h1>Structure of a Contract<a class="headerlink" href="#structure-of-a-contract" title="Link to this heading">¶</a></h1>
+<p>Vyper contracts are contained within files. Each file contains exactly one contract.</p>
+<p>This section provides a quick overview of the types of data present within a contract, with links to other sections where you can obtain more details.</p>
+<section id="pragmas">
+<span id="structure-versions"></span><h2>Pragmas<a class="headerlink" href="#pragmas" title="Link to this heading">¶</a></h2>
+<p>Vyper supports several source code directives to control compiler modes and help with build reproducibility.</p>
+<section id="version-pragma">
+<h3>Version Pragma<a class="headerlink" href="#version-pragma" title="Link to this heading">¶</a></h3>
+<p>The version pragma ensures that a contract is only compiled by the intended compiler version, or range of versions. Version strings use <a class="reference external" href="https://docs.npmjs.com/about-semantic-versioning">NPM</a> style syntax. Starting from v0.4.0 and up, version strings will use <a class="reference external" href="https://peps.python.org/pep-0440/#version-specifiers">PEP440 version specifiers</a>.</p>
+<p>As of 0.3.10, the recommended way to specify the version pragma is as follows:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1">#pragma version ^0.4.0</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Both pragma directive versions <code class="docutils literal notranslate"><span class="pre">#pragma</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma</span></code> are supported.</p>
+</div>
+<p>The following declaration is equivalent, and, prior to 0.3.10, was the only supported method to specify the compiler version:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># @version ^0.4.0</span>
+</span></pre></div>
+</div>
+<p>In the above examples, the contract will only compile with Vyper versions <code class="docutils literal notranslate"><span class="pre">0.4.x</span></code>.</p>
+</section>
+<section id="optimization-mode">
+<h3>Optimization Mode<a class="headerlink" href="#optimization-mode" title="Link to this heading">¶</a></h3>
+<p>The optimization mode can be one of <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;codesize&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;gas&quot;</span></code> (default). For example, adding the following line to a contract will cause it to try to optimize for codesize:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1">#pragma optimize codesize</span>
+</span></pre></div>
+</div>
+<p>The optimization mode can also be set as a compiler option, which is documented in <a class="reference internal" href="compiling-a-contract.html#optimization-mode"><span class="std std-ref">Compiler Optimization Modes</span></a>. If the compiler option conflicts with the source code pragma, an exception will be raised and compilation will not continue.</p>
+</section>
+<section id="evm-version">
+<h3>EVM Version<a class="headerlink" href="#evm-version" title="Link to this heading">¶</a></h3>
+<p>The EVM version can be set with the <code class="docutils literal notranslate"><span class="pre">evm-version</span></code> pragma, which is documented in <a class="reference internal" href="compiling-a-contract.html#evm-version"><span class="std std-ref">Setting the Target EVM Version</span></a>.</p>
+</section>
+<section id="experimental-code-generation">
+<h3>Experimental Code Generation<a class="headerlink" href="#experimental-code-generation" title="Link to this heading">¶</a></h3>
+<p>The new experimental code generation feature can be activated using the following directive:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1">#pragma experimental-codegen</span>
+</span></pre></div>
+</div>
+<p>Alternatively, you can use the alias <code class="docutils literal notranslate"><span class="pre">&quot;venom-experimental&quot;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&quot;experimental-codegen&quot;</span></code>  to enable this feature.</p>
+</section>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Link to this heading">¶</a></h2>
+<p>Import statements allow you to import <a class="reference internal" href="using-modules.html#modules"><span class="std std-ref">Modules</span></a> or <a class="reference internal" href="interfaces.html#interfaces"><span class="std std-ref">Interfaces</span></a> with the <code class="docutils literal notranslate"><span class="pre">import</span></code> or <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code> syntax.</p>
+<section id="imports-via-import">
+<h3>Imports via <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#imports-via-import" title="Link to this heading">¶</a></h3>
+<p>You may import modules (defined in <code class="docutils literal notranslate"><span class="pre">.vy</span></code> files) and interfaces (defined in <code class="docutils literal notranslate"><span class="pre">.vyi</span></code> or <code class="docutils literal notranslate"><span class="pre">.json</span></code> files) via <code class="docutils literal notranslate"><span class="pre">import</span></code> statements. You may use plain or <code class="docutils literal notranslate"><span class="pre">as</span></code> variants.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># without an alias</span>
+</span><span id="1-2"><span class="k">import</span><span class="w"> </span><span class="n">foo</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># with an alias</span>
+</span><span id="1-5"><span class="k">import</span><span class="w"> </span><span class="n">my_package</span><span class="p">.</span><span class="n">foo</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">bar</span>
+</span></pre></div>
+</div>
+</section>
+<section id="imports-via-from-import">
+<h3>Imports via <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code><a class="headerlink" href="#imports-via-from-import" title="Link to this heading">¶</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">from</span></code> you can perform both absolute and relative imports. You may optionally include an alias - if you do not, the name of the interface will be the same as the file.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># without an alias</span>
+</span><span id="1-2"><span class="k">from</span><span class="w"> </span><span class="n">my_package</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">foo</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># with an alias</span>
+</span><span id="1-5"><span class="k">from</span><span class="w"> </span><span class="n">my_package</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">bar</span>
+</span></pre></div>
+</div>
+<p>Relative imports are possible by prepending dots to the contract name. A single leading dot indicates a relative import starting with the current package. Two leading dots indicate a relative import from the parent of the current package:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">from</span><span class="w"> </span><span class="p">.</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">foo</span>
+</span><span id="1-2"><span class="k">from</span><span class="w"> </span><span class="p">..</span><span class="n">interfaces</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">baz</span>
+</span></pre></div>
+</div>
+<p>Further higher directories can be accessed with <code class="docutils literal notranslate"><span class="pre">...</span></code>, <code class="docutils literal notranslate"><span class="pre">....</span></code> etc., as in Python.</p>
+</section>
+<section id="searching-for-imports">
+<span id="id1"></span><h3>Searching For Imports<a class="headerlink" href="#searching-for-imports" title="Link to this heading">¶</a></h3>
+<p>When looking for a file to import, Vyper will first search relative to the same folder as the contract being compiled. It then checks for the file in the provided search paths, in the precedence provided. Vyper checks for the file name with a <code class="docutils literal notranslate"><span class="pre">.vy</span></code> suffix first, then <code class="docutils literal notranslate"><span class="pre">.vyi</span></code>, then <code class="docutils literal notranslate"><span class="pre">.json</span></code>.</p>
+<p>When using the <a class="reference internal" href="compiling-a-contract.html#vyper-cli-command"><span class="std std-ref">vyper CLI</span></a>, the search path defaults to the current working directory, plus the python <a class="reference external" href="https://docs.python.org/3.11/library/sys.html#sys.path">syspath</a>. You can append to the search path with the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">$ vyper my_project/contracts/my_contract.vy -p ../path/to/other_project
+</span></pre></div>
+</div>
+<p>In the above example, the <code class="docutils literal notranslate"><span class="pre">my_project</span></code> folder is set as the root path.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>Including the python syspath on the search path means that any Vyper module in the current <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> is discoverable by the Vyper compiler, and Vyper packages can be published to and installed from PyPI and accessed via <code class="docutils literal notranslate"><span class="pre">import</span></code> statements with no additional configuration. Keep in mind that best practice is always to install packages <em>within</em> a <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> and not globally!</p>
+</div>
+<p>You can additionally disable the behavior of adding the syspath to the search path with the CLI flag <code class="docutils literal notranslate"><span class="pre">--disable-sys-path</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">$ vyper --disable-sys-path my_project/my_contract.vy
+</span></pre></div>
+</div>
+<p>When compiling from a <a class="reference internal" href="compiling-a-contract.html#vyper-archives"><span class="std std-ref">.vyz archive file</span></a> or <a class="reference internal" href="compiling-a-contract.html#vyper-json"><span class="std std-ref">standard json input</span></a>, the search path is already part of the bundle, it cannot be changed from the command line.</p>
+</section>
+</section>
+<section id="state-variables">
+<span id="structure-state-variables"></span><h2>State Variables<a class="headerlink" href="#state-variables" title="Link to this heading">¶</a></h2>
+<p>State variables are values which are permanently stored in contract storage. They are declared outside of the body of any functions, and initially contain the <a class="reference internal" href="types.html#types-initial"><span class="std std-ref">default value</span></a> for their type.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">storedData:</span><span class="w"> </span><span class="kt">int128</span>
+</span></pre></div>
+</div>
+<p>State variables are accessed via the <a class="reference internal" href="constants-and-vars.html#constants-self"><span class="std std-ref">self</span></a> object.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="na">self</span><span class="p">.</span><span class="n">storedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
+</span></pre></div>
+</div>
+<p>See the documentation on <a class="reference internal" href="types.html#types"><span class="std std-ref">Types</span></a> or <a class="reference internal" href="scoping-and-declarations.html#scoping"><span class="std std-ref">Scoping and Declarations</span></a> for more information.</p>
+</section>
+<section id="functions">
+<span id="structure-functions"></span><h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<p>Functions are executable units of code within a contract.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">bid</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Functions may be called internally or externally depending on their <a class="reference internal" href="control-structures.html#function-visibility"><span class="std std-ref">visibility</span></a>. Functions may accept input arguments and return variables in order to pass values between them.</p>
+<p>See the <a class="reference internal" href="control-structures.html#control-structures-functions"><span class="std std-ref">Functions</span></a> documentation for more information.</p>
+</section>
+<section id="modules">
+<span id="modules-struct"></span><h2>Modules<a class="headerlink" href="#modules" title="Link to this heading">¶</a></h2>
+<p>A module is a set of function definitions and variable declarations which enables code reuse. Vyper favors code reuse through composition, rather than inheritance.</p>
+<p>Broadly speaking, a module contains:</p>
+<ul class="simple">
+<li><p>function definitions</p></li>
+<li><p>state variable declarations</p></li>
+<li><p>type definitions</p></li>
+</ul>
+<p>Therefore, a module encapsulates</p>
+<ul class="simple">
+<li><p>functionality (types and functions), and</p></li>
+<li><p>state (variables), which may be tightly coupled with that functionality</p></li>
+</ul>
+<p>Modules can be added to contracts by importing them from a <code class="docutils literal notranslate"><span class="pre">.vy</span></code> file. Any <code class="docutils literal notranslate"><span class="pre">.vy</span></code> file is a valid module which can be imported into another contract! This is a very powerful feature which allows you to assemble contracts via other contracts as building blocks.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># my_module.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">perform_some_computation</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">some_external_function</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">6</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">my_module</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nv">exports:</span><span class="w"> </span><span class="n">my_module</span><span class="p">.</span><span class="n">some_external_function</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">my_module</span><span class="p">.</span><span class="n">perform_some_computation</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Modules are opt-in by design. That is, any operations involving state or exposing external functions must be explicitly opted into using the <code class="docutils literal notranslate"><span class="pre">exports</span></code>, <code class="docutils literal notranslate"><span class="pre">uses</span></code> or <code class="docutils literal notranslate"><span class="pre">initializes</span></code> keywords. See the <a class="reference internal" href="using-modules.html#modules"><span class="std std-ref">Modules</span></a> documentation for more information.</p>
+</section>
+<section id="events">
+<h2>Events<a class="headerlink" href="#events" title="Link to this heading">¶</a></h2>
+<p>Events provide an interface for the EVM’s logging facilities. Events may be logged with specially indexed data structures that allow clients, including light clients, to efficiently search for them.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">event</span><span class="w"> </span><span class="nc">Payment</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">sender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">total_paid:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="nd">@payable</span>
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">pay</span><span class="p">():</span>
+</span><span id="1-10"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">total_paid</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="bp">msg.value</span>
+</span><span id="1-11"><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">Payment</span><span class="p">(</span><span class="bp">msg.value</span><span class="p">,</span><span class="w"> </span><span class="bp">msg.sender</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>See the <a class="reference internal" href="event-logging.html#event-logging"><span class="std std-ref">Event</span></a> documentation for more information.</p>
+</section>
+<section id="interfaces">
+<span id="structure-interfaces"></span><h2>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading">¶</a></h2>
+<p>An interface is a set of function definitions used to enable calls between smart contracts. A contract interface defines all of that contract’s externally available functions. By importing the interface, your contract now knows how to call these functions in other contracts.</p>
+<p>Interfaces can be added to contracts either through inline definition, or by importing them from a separate <code class="docutils literal notranslate"><span class="pre">.vyi</span></code> file.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">interface</span><span class="w"> </span><span class="nc">FooBar</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span><span class="w"> </span><span class="kd">view</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">():</span><span class="w"> </span><span class="kd">nonpayable</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">from</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">FooBar</span>
+</span></pre></div>
+</div>
+<p>Once defined, an interface can then be used to make external calls to a given address:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="nv">some_address:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">staticcall</span><span class="w"> </span><span class="n">FooBar</span><span class="p">(</span><span class="n">some_address</span><span class="p">).</span><span class="n">calculate</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>See the <a class="reference internal" href="interfaces.html#interfaces"><span class="std std-ref">Interfaces</span></a> documentation for more information.</p>
+</section>
+<section id="structs">
+<h2>Structs<a class="headerlink" href="#structs" title="Link to this heading">¶</a></h2>
+<p>A struct is a custom defined type that allows you to group several variables together:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">struct</span><span class="w"> </span><span class="nc">MyStruct</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">value1:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">value2:</span><span class="w"> </span><span class="kt">decimal</span>
+</span></pre></div>
+</div>
+<p>See the <a class="reference internal" href="types.html#types-struct"><span class="std std-ref">Structs</span></a> documentation for more information.</p>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="vyper-by-example/wallet.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Multi-Signature Wallet</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="types.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Types</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=7d86a446"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

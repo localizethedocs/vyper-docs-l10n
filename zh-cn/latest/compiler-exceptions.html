@@ -1,0 +1,571 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Compiler Exceptions - Vyper 文档</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="Deploying a Contract" href="deploying-contracts.html" /><link rel="prev" title="Compiling a Contract" href="compiling-a-contract.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/compiler-exceptions.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/compiler-exceptions.html"/>
+<meta property="og:title" content="Compiler Exceptions"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#ArgumentException"><code class="docutils literal notranslate"><span class="pre">ArgumentException</span></code></a></li>
+<li><a class="reference internal" href="#CallViolation"><code class="docutils literal notranslate"><span class="pre">CallViolation</span></code></a></li>
+<li><a class="reference internal" href="#ArrayIndexException"><code class="docutils literal notranslate"><span class="pre">ArrayIndexException</span></code></a></li>
+<li><a class="reference internal" href="#EventDeclarationException"><code class="docutils literal notranslate"><span class="pre">EventDeclarationException</span></code></a></li>
+<li><a class="reference internal" href="#EvmVersionException"><code class="docutils literal notranslate"><span class="pre">EvmVersionException</span></code></a></li>
+<li><a class="reference internal" href="#FunctionDeclarationException"><code class="docutils literal notranslate"><span class="pre">FunctionDeclarationException</span></code></a></li>
+<li><a class="reference internal" href="#ImmutableViolation"><code class="docutils literal notranslate"><span class="pre">ImmutableViolation</span></code></a></li>
+<li><a class="reference internal" href="#InterfaceViolation"><code class="docutils literal notranslate"><span class="pre">InterfaceViolation</span></code></a></li>
+<li><a class="reference internal" href="#InvalidAttribute"><code class="docutils literal notranslate"><span class="pre">InvalidAttribute</span></code></a></li>
+<li><a class="reference internal" href="#InvalidLiteral"><code class="docutils literal notranslate"><span class="pre">InvalidLiteral</span></code></a></li>
+<li><a class="reference internal" href="#InvalidOperation"><code class="docutils literal notranslate"><span class="pre">InvalidOperation</span></code></a></li>
+<li><a class="reference internal" href="#InvalidReference"><code class="docutils literal notranslate"><span class="pre">InvalidReference</span></code></a></li>
+<li><a class="reference internal" href="#InvalidType"><code class="docutils literal notranslate"><span class="pre">InvalidType</span></code></a></li>
+<li><a class="reference internal" href="#IteratorException"><code class="docutils literal notranslate"><span class="pre">IteratorException</span></code></a></li>
+<li><a class="reference internal" href="#JSONError"><code class="docutils literal notranslate"><span class="pre">JSONError</span></code></a></li>
+<li><a class="reference internal" href="#NamespaceCollision"><code class="docutils literal notranslate"><span class="pre">NamespaceCollision</span></code></a></li>
+<li><a class="reference internal" href="#NatSpecSyntaxException"><code class="docutils literal notranslate"><span class="pre">NatSpecSyntaxException</span></code></a></li>
+<li><a class="reference internal" href="#NonPayableViolation"><code class="docutils literal notranslate"><span class="pre">NonPayableViolation</span></code></a></li>
+<li><a class="reference internal" href="#OverflowException"><code class="docutils literal notranslate"><span class="pre">OverflowException</span></code></a></li>
+<li><a class="reference internal" href="#StateAccessViolation"><code class="docutils literal notranslate"><span class="pre">StateAccessViolation</span></code></a></li>
+<li><a class="reference internal" href="#StructureException"><code class="docutils literal notranslate"><span class="pre">StructureException</span></code></a></li>
+<li><a class="reference internal" href="#SyntaxException"><code class="docutils literal notranslate"><span class="pre">SyntaxException</span></code></a></li>
+<li><a class="reference internal" href="#TypeMismatch"><code class="docutils literal notranslate"><span class="pre">TypeMismatch</span></code></a></li>
+<li><a class="reference internal" href="#UndeclaredDefinition"><code class="docutils literal notranslate"><span class="pre">UndeclaredDefinition</span></code></a></li>
+<li><a class="reference internal" href="#VariableDeclarationException"><code class="docutils literal notranslate"><span class="pre">VariableDeclarationException</span></code></a></li>
+<li><a class="reference internal" href="#VersionException"><code class="docutils literal notranslate"><span class="pre">VersionException</span></code></a></li>
+<li><a class="reference internal" href="#ZeroDivisionException"><code class="docutils literal notranslate"><span class="pre">ZeroDivisionException</span></code></a></li>
+<li><a class="reference internal" href="#compilerpanic">CompilerPanic</a><ul>
+<li><a class="reference internal" href="#CompilerPanic"><code class="docutils literal notranslate"><span class="pre">CompilerPanic</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/compiler-exceptions.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Compiler Exceptions</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="compiler-exceptions">
+<span id="id1"></span><h1>Compiler Exceptions<a class="headerlink" href="#compiler-exceptions" title="Link to this heading">¶</a></h1>
+<p id="exceptions-common">Vyper raises one or more of the following exceptions when an issue is encountered while compiling a contract.</p>
+<p>Whenever possible, exceptions include a source highlight displaying the location
+of the error within the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">vyper</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">VariableDeclarationException</span><span class="p">:</span> <span class="n">line</span> <span class="mi">79</span><span class="p">:</span><span class="mi">17</span> <span class="n">Persistent</span> <span class="n">variable</span> <span class="n">undeclared</span><span class="p">:</span> <span class="n">highstBid</span>
+</span><span id="1-2">     <span class="mi">78</span>     <span class="c1"># If bid is less than highest bid, bid fails</span>
+</span><span id="1-3"><span class="o">---&gt;</span> <span class="mi">79</span>     <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">highstBid</span><span class="p">):</span>
+</span><span id="1-4"><span class="o">-------------------------^</span>
+</span><span id="1-5">     <span class="mi">80</span>         <span class="k">return</span> <span class="kc">False</span>
+</span></pre></div>
+</div>
+<dl class="py exception">
+<dt class="sig sig-object py" id="ArgumentException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArgumentException</span></span><a class="headerlink" href="#ArgumentException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when calling a function with invalid arguments, for example an incorrect number of positional arguments or an invalid keyword argument.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="CallViolation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CallViolation</span></span><a class="headerlink" href="#CallViolation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on an illegal function call, such as attempting to call between two external functions.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ArrayIndexException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArrayIndexException</span></span><a class="headerlink" href="#ArrayIndexException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when an array index is out of bounds.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="EventDeclarationException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EventDeclarationException</span></span><a class="headerlink" href="#EventDeclarationException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when an event declaration is invalid.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="EvmVersionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EvmVersionException</span></span><a class="headerlink" href="#EvmVersionException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a contract contains an action that cannot be performed with the active EVM ruleset.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="FunctionDeclarationException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FunctionDeclarationException</span></span><a class="headerlink" href="#FunctionDeclarationException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a function declaration is invalid, for example because of incorrect or mismatched return values.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ImmutableViolation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImmutableViolation</span></span><a class="headerlink" href="#ImmutableViolation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to perform a change a variable, constant or definition that cannot be changed. For example, trying to update a constant, or trying to assign to a function definition.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InterfaceViolation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InterfaceViolation</span></span><a class="headerlink" href="#InterfaceViolation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when an interface is not fully implemented.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InvalidAttribute">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidAttribute</span></span><a class="headerlink" href="#InvalidAttribute" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on a reference to an attribute that does not exist.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InvalidLiteral">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidLiteral</span></span><a class="headerlink" href="#InvalidLiteral" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when no valid type can be found for a literal value.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1">#pragma enable-decimals</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">bar:</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">123456789123456789</span>
+</span></pre></div>
+</div>
+<p>This example raises <code class="docutils literal notranslate"><span class="pre">InvalidLiteral</span></code> because the given literal value has too many decimal places and so cannot be assigned any valid Vyper type.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InvalidOperation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidOperation</span></span><a class="headerlink" href="#InvalidOperation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when using an invalid operator for a given type.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">a:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+</span></pre></div>
+</div>
+<p>This example raises <code class="docutils literal notranslate"><span class="pre">InvalidOperation</span></code> because multiplication is not possible on string types.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InvalidReference">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidReference</span></span><a class="headerlink" href="#InvalidReference" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on an invalid reference to an existing definition.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">baz:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">bar:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baz</span>
+</span></pre></div>
+</div>
+<p>This example raises <code class="docutils literal notranslate"><span class="pre">InvalidReference</span></code> because <code class="docutils literal notranslate"><span class="pre">baz</span></code> is a storage variable. The reference to it should be written as <code class="docutils literal notranslate"><span class="pre">self.baz</span></code>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="InvalidType">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidType</span></span><a class="headerlink" href="#InvalidType" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when using an invalid literal value for the given type.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">bar:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">5</span>
+</span></pre></div>
+</div>
+<p>This example raises <code class="docutils literal notranslate"><span class="pre">InvalidType</span></code> because <code class="docutils literal notranslate"><span class="pre">3.5</span></code> is a valid literal value, but cannot be cast as <code class="docutils literal notranslate"><span class="pre">int128</span></code>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="IteratorException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IteratorException</span></span><a class="headerlink" href="#IteratorException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when an iterator is constructed or used incorrectly.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="JSONError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JSONError</span></span><a class="headerlink" href="#JSONError" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when the compiler JSON input is malformed.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NamespaceCollision">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NamespaceCollision</span></span><a class="headerlink" href="#NamespaceCollision" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to assign a variable to a name that is already in use.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NatSpecSyntaxException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NatSpecSyntaxException</span></span><a class="headerlink" href="#NatSpecSyntaxException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a contract contains an invalid <a class="reference internal" href="natspec.html#natspec"><span class="std std-ref">NatSpec</span></a> docstring.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">vyper</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SyntaxException</span><span class="p">:</span> <span class="n">line</span> <span class="mi">14</span><span class="p">:</span><span class="mi">5</span> <span class="n">No</span> <span class="n">description</span> <span class="n">given</span> <span class="k">for</span> <span class="n">tag</span> <span class="s1">&#39;@param&#39;</span>
+</span><span id="1-2">     <span class="mi">13</span>     <span class="nd">@dev</span> <span class="n">the</span> <span class="n">feet</span> <span class="n">are</span> <span class="n">sticky</span> <span class="n">like</span> <span class="n">rice</span>
+</span><span id="1-3"><span class="o">---&gt;</span> <span class="mi">14</span>     <span class="nd">@param</span>
+</span><span id="1-4"><span class="o">-------------^</span>
+</span><span id="1-5">     <span class="mi">15</span>     <span class="nd">@return</span> <span class="n">always</span> <span class="kc">True</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="NonPayableViolation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NonPayableViolation</span></span><a class="headerlink" href="#NonPayableViolation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to access <code class="docutils literal notranslate"><span class="pre">msg.value</span></code> from within a function that has not been marked as <code class="docutils literal notranslate"><span class="pre">&#64;payable</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">_foo</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">bar:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">msg.value</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="OverflowException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OverflowException</span></span><a class="headerlink" href="#OverflowException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a numeric value is out of bounds for the given type.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="StateAccessViolation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StateAccessViolation</span></span><a class="headerlink" href="#StateAccessViolation" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to perform a modifying action within view-only or stateless context. For example, writing to storage in a <code class="docutils literal notranslate"><span class="pre">&#64;view</span></code> function, reading from storage in a <code class="docutils literal notranslate"><span class="pre">&#64;pure</span></code> function.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="StructureException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StructureException</span></span><a class="headerlink" href="#StructureException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on syntax that is parsable, but invalid in some way.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">vyper</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">StructureException</span><span class="p">:</span> <span class="n">line</span> <span class="mi">181</span><span class="p">:</span><span class="mi">0</span> <span class="n">Invalid</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">statement</span>
+</span><span id="1-2">     <span class="mi">180</span>
+</span><span id="1-3"><span class="o">---&gt;</span> <span class="mi">181</span> <span class="s1">&#39;&#39;&#39;</span>
+</span><span id="1-4"><span class="s1">---------^</span>
+</span><span id="1-5"><span class="s1">     182</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="SyntaxException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SyntaxException</span></span><a class="headerlink" href="#SyntaxException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on invalid syntax that cannot be parsed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">vyper</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SyntaxException</span><span class="p">:</span> <span class="n">line</span> <span class="mi">4</span><span class="p">:</span><span class="mi">20</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</span><span id="1-2">        <span class="mi">3</span> <span class="n">struct</span> <span class="n">Bid</span><span class="p">:</span>
+</span><span id="1-3"><span class="o">---&gt;</span> <span class="mi">4</span>   <span class="n">blindedBid</span> <span class="n">bytes32</span>
+</span><span id="1-4"><span class="o">---------------------------^</span>
+</span><span id="1-5">        <span class="mi">5</span>   <span class="n">deposit</span><span class="p">:</span> <span class="n">uint256</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="TypeMismatch">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TypeMismatch</span></span><a class="headerlink" href="#TypeMismatch" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to perform an action between two or more objects with incompatible types.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1">#pragma enable-decimals</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">bar:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="1-6"><span class="w">    </span><span class="nv">baz:</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="mi">2</span>
+</span><span id="1-7">
+</span><span id="1-8"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">baz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">        </span><span class="k">pass</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bar</span></code> has a type of <code class="docutils literal notranslate"><span class="pre">int128</span></code> and <code class="docutils literal notranslate"><span class="pre">baz</span></code> has a type of <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, so attempting to add them together raises a <code class="docutils literal notranslate"><span class="pre">TypeMismatch</span></code>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="UndeclaredDefinition">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UndeclaredDefinition</span></span><a class="headerlink" href="#UndeclaredDefinition" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when attempting to access an object that has not been declared.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="VariableDeclarationException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VariableDeclarationException</span></span><a class="headerlink" href="#VariableDeclarationException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises on an invalid variable declaration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span id="1-1">vyper.exceptions.VariableDeclarationException:<span class="w"> </span>line<span class="w"> </span><span class="m">79</span>:17<span class="w"> </span>Persistent<span class="w"> </span>variable<span class="w"> </span>undeclared:<span class="w"> </span>highstBid
+</span><span id="1-2"><span class="w">     </span><span class="m">78</span><span class="w">     </span><span class="c1"># If bid is less than highest bid, bid fails</span>
+</span><span id="1-3">---&gt;<span class="w"> </span><span class="m">79</span><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>value<span class="w"> </span>&lt;<span class="o">=</span><span class="w"> </span>self.highstBid<span class="o">)</span>:
+</span><span id="1-4">-------------------------^
+</span><span id="1-5"><span class="w">     </span><span class="m">80</span><span class="w">         </span><span class="k">return</span><span class="w"> </span>False
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="VersionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VersionException</span></span><a class="headerlink" href="#VersionException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a contract version string is malformed or incompatible with the current compiler version.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="ZeroDivisionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ZeroDivisionException</span></span><a class="headerlink" href="#ZeroDivisionException" title="Link to this definition">¶</a></dt>
+<dd><p>Raises when a divide by zero or modulo zero situation arises.</p>
+</dd></dl>
+
+<section id="compilerpanic">
+<h2>CompilerPanic<a class="headerlink" href="#compilerpanic" title="Link to this heading">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="CompilerPanic">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CompilerPanic</span></span><a class="headerlink" href="#CompilerPanic" title="Link to this definition">¶</a></dt>
+<dd><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span id="1-1">$<span class="w"> </span>vyper<span class="w"> </span>v.vy
+</span><span id="1-2">Error<span class="w"> </span>compiling:<span class="w"> </span>v.vy
+</span><span id="1-3">vyper.exceptions.CompilerPanic:<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span><span class="nb">times</span><span class="w"> </span>repeated
+</span><span id="1-4">must<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>constant<span class="w"> </span>nonzero<span class="w"> </span>positive<span class="w"> </span>integer:<span class="w"> </span><span class="m">0</span><span class="w"> </span>Please<span class="w"> </span>create<span class="w"> </span>an<span class="w"> </span>issue.
+</span></pre></div>
+</div>
+<p>A compiler panic error indicates that there is a problem internally to the compiler and an issue should be reported right
+away on the Vyper Github page.  Open an issue if you are experiencing this error. Please <a class="reference external" href="https://github.com/vyperlang/vyper/issues">Open an Issue</a></p>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="compiling-a-contract.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Compiling a Contract</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="deploying-contracts.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Deploying a Contract</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=7d86a446"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

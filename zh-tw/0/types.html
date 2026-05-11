@@ -1,0 +1,1159 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>型別 - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="環境變數與常數" href="constants-and-vars.html" /><link rel="prev" title="合約結構" href="structure-of-a-contract.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/types.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/types.html"/>
+<meta property="og:title" content="型別"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example.html">Vyper by Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-titanoboa.html">Testing with Titanoboa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-brownie.html">Testing with Brownie</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#value-types">Value Types</a><ul>
+<li><a class="reference internal" href="#boolean">Boolean</a><ul>
+<li><a class="reference internal" href="#values">Values</a></li>
+<li><a class="reference internal" href="#operators">&#36939;&#31639;&#23376;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#signed-integer-n-bit">Signed Integer (N bit)</a><ul>
+<li><a class="reference internal" href="#id2">Values</a></li>
+<li><a class="reference internal" href="#id3">&#36939;&#31639;&#23376;</a><ul>
+<li><a class="reference internal" href="#comparisons">&#27604;&#36611;</a></li>
+<li><a class="reference internal" href="#arithmetic-operators">&#31639;&#34899;&#36939;&#31639;&#23376;</a></li>
+<li><a class="reference internal" href="#bitwise-operators">&#20301;&#20803;&#36939;&#31639;&#23376;</a></li>
+<li><a class="reference internal" href="#shifts">Shifts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#unsigned-integer-n-bit">Unsigned Integer (N bit)</a><ul>
+<li><a class="reference internal" href="#id4">Values</a></li>
+<li><a class="reference internal" href="#id5">&#36939;&#31639;&#23376;</a><ul>
+<li><a class="reference internal" href="#id6">&#27604;&#36611;</a></li>
+<li><a class="reference internal" href="#id7">&#31639;&#34899;&#36939;&#31639;&#23376;</a></li>
+<li><a class="reference internal" href="#id8">&#20301;&#20803;&#36939;&#31639;&#23376;</a></li>
+<li><a class="reference internal" href="#id9">Shifts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decimals">Decimals</a><ul>
+<li><a class="reference internal" href="#id10">Values</a></li>
+<li><a class="reference internal" href="#id11">&#36939;&#31639;&#23376;</a><ul>
+<li><a class="reference internal" href="#id12">&#27604;&#36611;</a></li>
+<li><a class="reference internal" href="#id13">&#31639;&#34899;&#36939;&#31639;&#23376;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#address">Address</a><ul>
+<li><a class="reference internal" href="#id15">Values</a><ul>
+<li><a class="reference internal" href="#members">Members</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#m-byte-wide-fixed-size-byte-array">M-byte-wide Fixed Size Byte Array</a><ul>
+<li><a class="reference internal" href="#id16">&#36939;&#31639;&#23376;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#byte-arrays">Byte Arrays</a></li>
+<li><a class="reference internal" href="#strings">&#23383;&#20018;</a></li>
+<li><a class="reference internal" href="#flags">&#26071;&#27161;</a><ul>
+<li><a class="reference internal" href="#id17">&#36939;&#31639;&#23376;</a><ul>
+<li><a class="reference internal" href="#id18">&#27604;&#36611;</a></li>
+<li><a class="reference internal" href="#id19">&#20301;&#20803;&#36939;&#31639;&#23376;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference-types">Reference Types</a><ul>
+<li><a class="reference internal" href="#fixed-size-lists">Fixed-size Lists</a></li>
+<li><a class="reference internal" href="#dynamic-arrays">&#21205;&#24907;&#38499;&#21015;</a></li>
+<li><a class="reference internal" href="#structs">&#32080;&#27083;&#39636;</a></li>
+<li><a class="reference internal" href="#mappings">Mappings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initial-values">&#21021;&#22987;&#20540;</a></li>
+<li><a class="reference internal" href="#type-conversions">&#22411;&#21029;&#36681;&#25563;</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/types.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">型別</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="types">
+<span id="index-0"></span><span id="id1"></span><h1>型別<a class="headerlink" href="#types" title="Link to this heading">¶</a></h1>
+<p>Vyper is a statically typed language. The type of each variable (state and local) must be specified or at least known at compile-time. Vyper provides several elementary types which can be combined to form complex types.</p>
+<p>In addition, types can interact with each other in expressions containing operators.</p>
+<section id="value-types">
+<span id="index-1"></span><h2>Value Types<a class="headerlink" href="#value-types" title="Link to this heading">¶</a></h2>
+<p>The following types are also called value types because variables of these
+types will always be passed by value, i.e. they are always copied when they
+are used as function arguments or in assignments.</p>
+<section id="boolean">
+<span id="index-2"></span><h3>Boolean<a class="headerlink" href="#boolean" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>關鍵字：<a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+<p>A boolean is a type to store a logical/truth value.</p>
+<section id="values">
+<h4>Values<a class="headerlink" href="#values" title="Link to this heading">¶</a></h4>
+<p>The only possible values are the constants <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</section>
+<section id="operators">
+<h4>運算子<a class="headerlink" href="#operators" title="Link to this heading">¶</a></h4>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
+<td><p>邏輯否定</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
+<td><p>邏輯合取</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
+<td><p>邏輯析取</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>相等</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>不相等</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Short-circuiting of boolean operators (<code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">and</span></code>) is consistent with
+the behavior of Python.</p>
+</section>
+</section>
+<section id="signed-integer-n-bit">
+<span id="index-3"></span><h3>Signed Integer (N bit)<a class="headerlink" href="#signed-integer-n-bit" title="Link to this heading">¶</a></h3>
+<p><strong>Keyword:</strong> <code class="docutils literal notranslate"><span class="pre">intN</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">int128</span></code>)</p>
+<p>一個可以儲存正整數和負整數的有符號整數。 <code class="docutils literal notranslate"><span class="pre">N</span></code> 必須是介於 8 和 256 之間的 8 的倍數（含 8 和 256）。</p>
+<section id="id2">
+<h4>Values<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<p>Signed integer values between -2<sup>N-1</sup> and (2<sup>N-1</sup> - 1), inclusive.</p>
+<p>Integer literals cannot have a decimal point even if the decimal value is zero. For example, <code class="docutils literal notranslate"><span class="pre">2.0</span></code> cannot be interpreted as an integer.</p>
+</section>
+<section id="id3">
+<h4>運算子<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<section id="comparisons">
+<h5>比較<a class="headerlink" href="#comparisons" title="Link to this heading">¶</a></h5>
+<p>Comparisons return a boolean value.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>小於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>小於或等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>不等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>大於或等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>大於</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be of the same type.</p>
+</section>
+<section id="arithmetic-operators">
+<h5>算術運算子<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td><p>加法</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>減法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<td><p>Unary minus/Negation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td><p>乘法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
+<td><p>整數除法</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x**y</span></code></p></td>
+<td><p>Exponentiation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td><p>模除</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be of the same type.</p>
+</section>
+<section id="bitwise-operators">
+<h5>位元運算子<a class="headerlink" href="#bitwise-operators" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise and</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise or</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise xor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the same type.</p>
+</section>
+<section id="shifts">
+<h5>Shifts<a class="headerlink" href="#shifts" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>Left shift</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>Right shift</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Shifting is only available for 256-bit wide types. That is, <code class="docutils literal notranslate"><span class="pre">x</span></code> must be <code class="docutils literal notranslate"><span class="pre">int256</span></code>, and <code class="docutils literal notranslate"><span class="pre">y</span></code> can be any unsigned integer. The right shift for <code class="docutils literal notranslate"><span class="pre">int256</span></code> compiles to a signed right shift (EVM <code class="docutils literal notranslate"><span class="pre">SAR</span></code> instruction).</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>While at runtime shifts are unchecked (that is, they can be for any number of bits), to prevent common mistakes, the compiler is stricter at compile-time and will prevent out of bounds shifts. For instance, at runtime, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;&lt;</span> <span class="pre">257</span></code> will evaluate to <code class="docutils literal notranslate"><span class="pre">0</span></code>, while that expression at compile-time will raise an <code class="docutils literal notranslate"><span class="pre">OverflowException</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Integer division has different rounding semantics than Python for negative numbers: Vyper rounds towards zero, while Python rounds towards negative infinity. For example, <code class="docutils literal notranslate"><span class="pre">-1</span> <span class="pre">//</span> <span class="pre">2</span></code> will return <code class="docutils literal notranslate"><span class="pre">-1</span></code> in Python, but <code class="docutils literal notranslate"><span class="pre">0</span></code> in Vyper. This preserves the spirit (but not the text!) of the reasoning for Python’s round-towards-negative-infinity behavior, which is that the behavior of <code class="docutils literal notranslate"><span class="pre">//</span></code> combined with the behavior of <code class="docutils literal notranslate"><span class="pre">%</span></code> preserves the following identity no matter if the quantities are negative or non-negative: <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">//</span> <span class="pre">y)</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">(x</span> <span class="pre">%</span> <span class="pre">y)</span> <span class="pre">==</span> <span class="pre">x</span></code>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="unsigned-integer-n-bit">
+<span id="index-4"></span><h3>Unsigned Integer (N bit)<a class="headerlink" href="#unsigned-integer-n-bit" title="Link to this heading">¶</a></h3>
+<p><strong>Keyword:</strong> <code class="docutils literal notranslate"><span class="pre">uintN</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">uint8</span></code>)</p>
+<p>A unsigned integer which can store positive integers. <code class="docutils literal notranslate"><span class="pre">N</span></code> must be a multiple of 8 between 8 and 256 (inclusive).</p>
+<section id="id4">
+<h4>Values<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
+<p>Integer values between 0 and (2<sup>N</sup>-1).</p>
+<p>Integer literals cannot have a decimal point even if the decimal value is zero. For example, <code class="docutils literal notranslate"><span class="pre">2.0</span></code> cannot be interpreted as an integer.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Integer literals are interpreted as <code class="docutils literal notranslate"><span class="pre">int256</span></code> by default. In cases where <code class="docutils literal notranslate"><span class="pre">uint8</span></code> is more appropriate, such as assignment, the literal might be interpreted as <code class="docutils literal notranslate"><span class="pre">uint8</span></code>. Example: <code class="docutils literal notranslate"><span class="pre">_variable:</span> <span class="pre">uint8</span> <span class="pre">=</span> <span class="pre">_literal</span></code>. In order to explicitly cast a literal to a <code class="docutils literal notranslate"><span class="pre">uint8</span></code> use <code class="docutils literal notranslate"><span class="pre">convert(_literal,</span> <span class="pre">uint8)</span></code>.</p>
+</div>
+</section>
+<section id="id5">
+<h4>運算子<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<section id="id6">
+<h5>比較<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h5>
+<p>Comparisons return a boolean value.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>小於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>小於或等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>不等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>大於或等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>大於</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the same type.</p>
+</section>
+<section id="id7">
+<h5>算術運算子<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td><p>加法</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>減法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td><p>乘法</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
+<td><p>整數除法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x**y</span></code></p></td>
+<td><p>Exponentiation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td><p>模除</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the same type.</p>
+</section>
+<section id="id8">
+<h5>位元運算子<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise and</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise or</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise xor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~x</span></code></p></td>
+<td><p>Bitwise not</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the same type.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The Bitwise <code class="docutils literal notranslate"><span class="pre">not</span></code> operator is currently only available for <code class="docutils literal notranslate"><span class="pre">uint256</span></code> type.</p>
+</div>
+</section>
+<section id="id9">
+<h5>Shifts<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>Left shift</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>Right shift</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Shifting is only available for 256-bit wide types. That is, <code class="docutils literal notranslate"><span class="pre">x</span></code> must be <code class="docutils literal notranslate"><span class="pre">uint256</span></code>, and <code class="docutils literal notranslate"><span class="pre">y</span></code> can be any unsigned integer. The right shift for <code class="docutils literal notranslate"><span class="pre">uint256</span></code> compiles to a signed right shift (EVM <code class="docutils literal notranslate"><span class="pre">SHR</span></code> instruction).</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>While at runtime shifts are unchecked (that is, they can be for any number of bits), to prevent common mistakes, the compiler is stricter at compile-time and will prevent out of bounds shifts. For instance, at runtime, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;&lt;</span> <span class="pre">257</span></code> will evaluate to <code class="docutils literal notranslate"><span class="pre">0</span></code>, while that expression at compile-time will raise an <code class="docutils literal notranslate"><span class="pre">OverflowException</span></code>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="decimals">
+<h3>Decimals<a class="headerlink" href="#decimals" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>關鍵字：<a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p>
+<p>A decimal is a type to store a decimal fixed point value. As of v0.4.0, decimals must be enabled with the CLI flag <code class="docutils literal notranslate"><span class="pre">--enable-decimals</span></code>.</p>
+<section id="id10">
+<h4>Values<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h4>
+<p>A value with a precision of 10 decimal places between -18707220957835557353007165858768422651595.9365500928 (-2<sup>167</sup> / 10<sup>10</sup>) and 18707220957835557353007165858768422651595.9365500927 ((2<sup>167</sup> - 1) / 10<sup>10</sup>).</p>
+<p>In order for a literal to be interpreted as <code class="docutils literal notranslate"><span class="pre">decimal</span></code> it must include a decimal point.</p>
+<p>The ABI type (for computing method identifiers) of <code class="docutils literal notranslate"><span class="pre">decimal</span></code> is <code class="docutils literal notranslate"><span class="pre">int168</span></code>.</p>
+</section>
+<section id="id11">
+<h4>運算子<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h4>
+<section id="id12">
+<h5>比較<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h5>
+<p>Comparisons return a boolean value.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>小於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>Less or equal</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>不等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>Greater or equal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>大於</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the type <code class="docutils literal notranslate"><span class="pre">decimal</span></code>.</p>
+</section>
+<section id="id13">
+<h5>算術運算子<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td><p>加法</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>減法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<td><p>Unary minus/Negation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td><p>乘法</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+<td><p>Decimal division</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td><p>模除</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of the type <code class="docutils literal notranslate"><span class="pre">decimal</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="address">
+<span id="id14"></span><h3>Address<a class="headerlink" href="#address" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>關鍵字：<a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">address</span></code></p>
+<p>The address type holds an Ethereum address.</p>
+<section id="id15">
+<h4>Values<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h4>
+<p>An address type can hold an Ethereum address which equates to 20 bytes or 160 bits. Address literals must be written in hexadecimal notation with a leading <code class="docutils literal notranslate"><span class="pre">0x</span></code> and must be <a class="reference external" href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md">checksummed</a>.</p>
+<section id="members">
+<span id="members-of-addresses"></span><h5>Members<a class="headerlink" href="#members" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">balance</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint256</span></code></p></td>
+<td><p>Balance of an address</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">codehash</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bytes32</span></code></p></td>
+<td><p>Keccak of code at an address, <code class="docutils literal notranslate"><span class="pre">0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</span></code> if no contract is deployed (see <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-1052">EIP-1052</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">codesize</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint256</span></code></p></td>
+<td><p>Size of code deployed at an address, in bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is_contract</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>Boolean indicating if a contract is deployed at an address</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">code</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Bytes</span></code></p></td>
+<td><p>Contract bytecode</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Syntax as follows: <code class="docutils literal notranslate"><span class="pre">_address.&lt;member&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">_address</span></code> is of the type <code class="docutils literal notranslate"><span class="pre">address</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;member&gt;</span></code> is one of the above keywords.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Operations such as <code class="docutils literal notranslate"><span class="pre">SELFDESTRUCT</span></code> and <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> allow for the removal and replacement of bytecode at an address. You should never assume that values of address members will not change in the future.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p><code class="docutils literal notranslate"><span class="pre">_address.code</span></code> requires the usage of <a class="reference internal" href="built-in-functions.html#slice" title="slice"><code class="xref py py-func docutils literal notranslate"><span class="pre">slice</span></code></a> to explicitly extract a section of contract bytecode. If the extracted section exceeds the bounds of bytecode, this will throw. You can check the size of <code class="docutils literal notranslate"><span class="pre">_address.code</span></code> using <code class="docutils literal notranslate"><span class="pre">_address.codesize</span></code>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="m-byte-wide-fixed-size-byte-array">
+<h3>M-byte-wide Fixed Size Byte Array<a class="headerlink" href="#m-byte-wide-fixed-size-byte-array" title="Link to this heading">¶</a></h3>
+<p><strong>Keyword:</strong> <code class="docutils literal notranslate"><span class="pre">bytesM</span></code>
+This is an M-byte-wide byte array that is otherwise similar to dynamically sized byte arrays. On an ABI level, it is annotated as bytesM (e.g., bytes32).</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Declaration</span>
+</span><span id="1-2"><span class="nb">hash</span><span class="p">:</span> <span class="n">bytes32</span>
+</span><span id="1-3"><span class="c1"># Assignment</span>
+</span><span id="1-4"><span class="bp">self</span><span class="o">.</span><span class="n">hash</span> <span class="o">=</span> <span class="n">_hash</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="n">some_method_id</span><span class="p">:</span> <span class="n">bytes4</span> <span class="o">=</span> <span class="mh">0x01abcdef</span>
+</span></pre></div>
+</div>
+<section id="id16">
+<h4>運算子<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h4>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>關鍵字</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">keccak256(x)</span></code></p></td>
+<td><p>Return the keccak256 hash as bytes32.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">concat(x,</span> <span class="pre">...)</span></code></p></td>
+<td><p>Concatenate multiple inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice(x,</span> <span class="pre">start=_start,</span> <span class="pre">len=_len)</span></code></p></td>
+<td><p>Return a slice of <code class="docutils literal notranslate"><span class="pre">_len</span></code> starting at <code class="docutils literal notranslate"><span class="pre">_start</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">x</span></code> is a byte array and <code class="docutils literal notranslate"><span class="pre">_start</span></code> as well as <code class="docutils literal notranslate"><span class="pre">_len</span></code> are integer values.</p>
+</section>
+</section>
+<section id="byte-arrays">
+<span id="index-5"></span><h3>Byte Arrays<a class="headerlink" href="#byte-arrays" title="Link to this heading">¶</a></h3>
+<p><strong>Keyword:</strong> <code class="docutils literal notranslate"><span class="pre">Bytes</span></code></p>
+<p>A byte array with a max size.</p>
+<p>The syntax being <code class="docutils literal notranslate"><span class="pre">Bytes[maxLen]</span></code>, where <code class="docutils literal notranslate"><span class="pre">maxLen</span></code> is an integer which denotes the maximum number of bytes.
+On the ABI level the Fixed-size bytes array is annotated as <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.</p>
+<p>Bytes literals may be given as bytes strings or as hex strings.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">bytes_string:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="s2">&quot;</span><span class="se">\x</span><span class="s2">01&quot;</span>
+</span><span id="1-2"><span class="nv">bytes_string:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="s2">&quot;01&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="strings">
+<span id="index-6"></span><h3>字串<a class="headerlink" href="#strings" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>關鍵字：<a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">String</span></code></p>
+<p>Fixed-size strings can hold strings with equal or fewer characters than the maximum length of the string.
+On the ABI level the Fixed-size bytes array is annotated as <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">example_str:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test String&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="flags">
+<h3>旗標<a class="headerlink" href="#flags" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>關鍵字：<a href="#id3"><span class="problematic" id="id4">**</span></a><code class="docutils literal notranslate"><span class="pre">flag</span></code></p>
+<p>Flags are custom defined types. A flag must have at least one member, and can hold up to a maximum of 256 members.
+The members are represented by <code class="docutils literal notranslate"><span class="pre">uint256</span></code> values in the form of 2<sup>n</sup> where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the index of the member in the range <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">n</span> <span class="pre">&lt;=</span> <span class="pre">255</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a flag with two members</span>
+</span><span id="1-2"><span class="n">flag</span><span class="w"> </span><span class="nv">Roles:</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">ADMIN</span>
+</span><span id="1-4"><span class="w">    </span><span class="n">USER</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="c1"># Declaring a flag variable</span>
+</span><span id="1-7"><span class="nv">role:</span><span class="w"> </span><span class="n">Roles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Roles</span><span class="p">.</span><span class="n">ADMIN</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="c1"># Returning a member</span>
+</span><span id="1-10"><span class="k">return</span><span class="w"> </span><span class="n">Roles</span><span class="p">.</span><span class="n">ADMIN</span>
+</span></pre></div>
+</div>
+<section id="id17">
+<h4>運算子<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h4>
+<section id="id18">
+<h5>比較<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h5>
+<p>Comparisons return a boolean value.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>等於</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>不等於</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">y</span></code></p></td>
+<td><p>x is in y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">y</span></code></p></td>
+<td><p>x is not in y</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id19">
+<h5>位元運算子<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h5>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise and</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise or</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
+<td><p>Bitwise xor</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~x</span></code></p></td>
+<td><p>Bitwise not</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Flag members can be combined using the above bitwise operators. While flag members have values that are power of two, flag member combinations may not.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> operators can be used in conjunction with flag member combinations to check for membership.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">flag</span><span class="w"> </span><span class="nv">Roles:</span>
+</span><span id="1-2"><span class="w">    </span><span class="n">MANAGER</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">ADMIN</span>
+</span><span id="1-4"><span class="w">    </span><span class="n">USER</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="c1"># Check for membership</span>
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="n">Roles</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">Roles</span><span class="p">.</span><span class="n">MANAGER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Roles</span><span class="p">.</span><span class="n">USER</span><span class="p">)</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="c1"># Check not in</span>
+</span><span id="1-12"><span class="nd">@external</span>
+</span><span id="1-13"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="n">Roles</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-14"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">Roles</span><span class="p">.</span><span class="n">MANAGER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Roles</span><span class="p">.</span><span class="n">USER</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">in</span></code> is not the same as strict equality (<code class="docutils literal notranslate"><span class="pre">==</span></code>). <code class="docutils literal notranslate"><span class="pre">in</span></code> checks that <em>any</em> of the flags on two flag objects are simultaneously set, while <code class="docutils literal notranslate"><span class="pre">==</span></code> checks that two flag objects are bit-for-bit equal.</p>
+<p>The following code uses bitwise operations to add and revoke permissions from a given <code class="docutils literal notranslate"><span class="pre">Roles</span></code> object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">add_user</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Roles</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Roles</span><span class="p">:</span>
+</span><span id="1-3">    <span class="n">ret</span><span class="p">:</span> <span class="n">Roles</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="1-4">    <span class="n">ret</span> <span class="o">|=</span> <span class="n">Roles</span><span class="o">.</span><span class="n">USER</span>  <span class="c1"># set the USER bit to 1</span>
+</span><span id="1-5">    <span class="k">return</span> <span class="n">ret</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">revoke_user</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Roles</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Roles</span><span class="p">:</span>
+</span><span id="1-9">    <span class="n">ret</span><span class="p">:</span> <span class="n">Roles</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="1-10">    <span class="n">ret</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">Roles</span><span class="o">.</span><span class="n">USER</span>  <span class="c1"># set the USER bit to 0</span>
+</span><span id="1-11">    <span class="k">return</span> <span class="n">ret</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="nd">@external</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">flip_user</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Roles</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Roles</span><span class="p">:</span>
+</span><span id="1-15">    <span class="n">ret</span><span class="p">:</span> <span class="n">Roles</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="1-16">    <span class="n">ret</span> <span class="o">^=</span> <span class="n">Roles</span><span class="o">.</span><span class="n">USER</span>  <span class="c1"># flip the user bit between 0 and 1</span>
+</span><span id="1-17">    <span class="k">return</span> <span class="n">ret</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="reference-types">
+<span id="index-7"></span><h2>Reference Types<a class="headerlink" href="#reference-types" title="Link to this heading">¶</a></h2>
+<p>Reference types are those whose components can be assigned to in-place without copying. For instance, array and struct members can be individually assigned to without overwriting the whole data structure.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>In terms of the calling convention, reference types are passed by value, not by reference. That means that, a calling function does not need to worry about a callee modifying the data of a passed structure.</p>
+</div>
+<section id="fixed-size-lists">
+<span id="index-8"></span><h3>Fixed-size Lists<a class="headerlink" href="#fixed-size-lists" title="Link to this heading">¶</a></h3>
+<p>Fixed-size lists hold a finite number of elements which belong to a specified type.</p>
+<p>Lists can be declared with <code class="docutils literal notranslate"><span class="pre">_name:</span> <span class="pre">_ValueType[_Integer]</span></code>, except <code class="docutils literal notranslate"><span class="pre">Bytes[N]</span></code>, <code class="docutils literal notranslate"><span class="pre">String[N]</span></code> and flags.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a list</span>
+</span><span id="1-2"><span class="nv">exampleList:</span><span class="w"> </span><span class="kt">int128</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Setting values</span>
+</span><span id="1-5"><span class="n">exampleList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">]</span>
+</span><span id="1-6"><span class="n">exampleList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</span><span id="1-7">
+</span><span id="1-8"><span class="c1"># Returning a value</span>
+</span><span id="1-9"><span class="k">return</span><span class="w"> </span><span class="n">exampleList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<p>Multidimensional lists are also possible. The notation for the declaration is reversed compared to some other languages, but the access notation is not reversed.</p>
+<p>A two dimensional list can be declared with <code class="docutils literal notranslate"><span class="pre">_name:</span> <span class="pre">_ValueType[inner_size][outer_size]</span></code>. Elements can be accessed with <code class="docutils literal notranslate"><span class="pre">_name[outer_index][inner_index]</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a list with 2 rows and 5 columns and set all values to 0</span>
+</span><span id="1-2"><span class="nv">exampleList2D:</span><span class="w"> </span><span class="kt">int128</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">int128</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Setting a value for row the first row (0) and last column (4)</span>
+</span><span id="1-5"><span class="n">exampleList2D</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="c1"># Setting values</span>
+</span><span id="1-8"><span class="n">exampleList2D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]]</span>
+</span><span id="1-9">
+</span><span id="1-10"><span class="c1"># Returning the value in row 0 column 4 (in this case 14)</span>
+</span><span id="1-11"><span class="k">return</span><span class="w"> </span><span class="n">exampleList2D</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Defining an array in storage whose size is significantly larger than <code class="docutils literal notranslate"><span class="pre">2**64</span></code> can result in security vulnerabilities due to risk of overflow.</p>
+</div>
+</section>
+<section id="dynamic-arrays">
+<span id="index-9"></span><h3>動態陣列<a class="headerlink" href="#dynamic-arrays" title="Link to this heading">¶</a></h3>
+<p>Dynamic arrays represent bounded arrays whose length can be modified at runtime, up to a bound specified in the type. They can be declared with <code class="docutils literal notranslate"><span class="pre">_name:</span> <span class="pre">DynArray[_Type,</span> <span class="pre">_Integer]</span></code>, where <code class="docutils literal notranslate"><span class="pre">_Type</span></code> can be of value type or reference type (except mappings).</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a list</span>
+</span><span id="1-2"><span class="nv">exampleList:</span><span class="w"> </span><span class="n">DynArray</span><span class="p">[</span><span class="kt">int128</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Setting values</span>
+</span><span id="1-5"><span class="n">exampleList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="1-6"><span class="c1"># exampleList.pop()  # would revert!</span>
+</span><span id="1-7"><span class="n">exampleList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span><span class="w">  </span><span class="c1"># exampleList now has length 1</span>
+</span><span id="1-8"><span class="n">exampleList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span><span class="w">  </span><span class="c1"># exampleList now has length 2</span>
+</span><span id="1-9"><span class="n">exampleList</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">356</span><span class="p">)</span><span class="w">  </span><span class="c1"># exampleList now has length 3</span>
+</span><span id="1-10"><span class="c1"># exampleList.append(1)  # would revert!</span>
+</span><span id="1-11">
+</span><span id="1-12"><span class="nv">myValue:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">exampleList</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="w">  </span><span class="c1"># myValue == 356, exampleList now has length 2</span>
+</span><span id="1-13">
+</span><span id="1-14"><span class="c1"># myValue = exampleList[2]  # would revert!</span>
+</span><span id="1-15">
+</span><span id="1-16"><span class="c1"># Returning a value</span>
+</span><span id="1-17"><span class="k">return</span><span class="w"> </span><span class="n">exampleList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Attempting to access data past the runtime length of an array, <code class="docutils literal notranslate"><span class="pre">pop()</span></code> an empty array or <code class="docutils literal notranslate"><span class="pre">append()</span></code> to a full array will result in a runtime <code class="docutils literal notranslate"><span class="pre">REVERT</span></code>. Attempting to pass an array in calldata which is larger than the array bound will result in a runtime <code class="docutils literal notranslate"><span class="pre">REVERT</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>To keep code easy to reason about, modifying an array while using it as an iterator is disallowed by the language. For instance, the following usage is not allowed:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">item:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="nv">my_array:</span>
+</span><span id="1-2"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">my_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span>
+</span></pre></div>
+</div>
+</div>
+<p>In the ABI, they are represented as <code class="docutils literal notranslate"><span class="pre">_Type[]</span></code>. For instance, <code class="docutils literal notranslate"><span class="pre">DynArray[int128,</span> <span class="pre">3]</span></code> gets represented as <code class="docutils literal notranslate"><span class="pre">int128[]</span></code>, and <code class="docutils literal notranslate"><span class="pre">DynArray[DynArray[int128,</span> <span class="pre">3],</span> <span class="pre">3]</span></code> gets represented as <code class="docutils literal notranslate"><span class="pre">int128[][]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Defining a dynamic array in storage whose size is significantly larger than <code class="docutils literal notranslate"><span class="pre">2**64</span></code> can result in security vulnerabilities due to risk of overflow.</p>
+</div>
+</section>
+<section id="structs">
+<span id="types-struct"></span><h3>結構體<a class="headerlink" href="#structs" title="Link to this heading">¶</a></h3>
+<p>Structs are custom defined types that can group several variables.</p>
+<p>Struct types can be used inside mappings and arrays. Structs can contain arrays and other structs, but not mappings.</p>
+<p>Struct members can be accessed via <code class="docutils literal notranslate"><span class="pre">struct.argname</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a struct</span>
+</span><span id="1-2"><span class="k">struct</span><span class="w"> </span><span class="nc">MyStruct</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">value1:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">value2:</span><span class="w"> </span><span class="kt">decimal</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="c1"># Declaring a struct variable</span>
+</span><span id="1-7"><span class="nv">exampleStruct:</span><span class="w"> </span><span class="n">MyStruct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyStruct</span><span class="p">(</span><span class="n">value1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="o">=</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="c1"># Accessing a value</span>
+</span><span id="1-10"><span class="n">exampleStruct</span><span class="p">.</span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+</section>
+<section id="mappings">
+<span id="index-10"></span><h3>Mappings<a class="headerlink" href="#mappings" title="Link to this heading">¶</a></h3>
+<p>Mappings are <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_table">hash tables</a> that are virtually initialized such that every possible key exists and is mapped to a value whose byte-representation is all zeros: a type’s <a class="reference internal" href="#types-initial"><span class="std std-ref">default value</span></a>.</p>
+<p>The key data is not stored in a mapping. Instead, its <code class="docutils literal notranslate"><span class="pre">keccak256</span></code> hash is used to look up a value. For this reason, mappings do not have a length or a concept of a key or value being 「set」.</p>
+<p>Mapping types are declared as <code class="docutils literal notranslate"><span class="pre">HashMap[_KeyType,</span> <span class="pre">_ValueType]</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_KeyType</span></code> can be any base or bytes type. Mappings, arrays or structs are not supported as key types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_ValueType</span></code> can actually be any type, including mappings.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Mappings are only allowed as state variables.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Defining a mapping</span>
+</span><span id="1-2"><span class="nv">exampleMapping:</span><span class="w"> </span><span class="n">HashMap</span><span class="p">[</span><span class="kt">int128</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="p">]</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Accessing a value</span>
+</span><span id="1-5"><span class="n">exampleMapping</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Mappings have no concept of length and so cannot be iterated over.</p>
+</div>
+</section>
+</section>
+<section id="initial-values">
+<span id="types-initial"></span><span id="index-11"></span><h2>初始值<a class="headerlink" href="#initial-values" title="Link to this heading">¶</a></h2>
+<p>Unlike most programming languages, Vyper does not have a concept of <code class="docutils literal notranslate"><span class="pre">null</span></code>. Instead, every variable type has a default value. To check if a variable is empty, you must compare it to the default value for its given type.</p>
+<p>To reset a variable to its default value, assign to it the built-in <code class="docutils literal notranslate"><span class="pre">empty()</span></code> function which constructs a zero value for that type.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Memory variables must be assigned a value at the time they are declared.</p>
+</div>
+<p>Here you can find a list of all types and default values:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>默認值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">address</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0x0000000000000000000000000000000000000000</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bytes32</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0x0000000000000000000000000000000000000000000000000000000000000000</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">decimal</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int128</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">int256</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">uint256</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, the array starts with the bytes all set to <code class="docutils literal notranslate"><span class="pre">'\x00'</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>In reference types, all the type’s members are set to their initial values.</p>
+</div>
+</section>
+<section id="type-conversions">
+<span id="id20"></span><h2>型別轉換<a class="headerlink" href="#type-conversions" title="Link to this heading">¶</a></h2>
+<p>All type conversions in Vyper must be made explicitly using the built-in <code class="docutils literal notranslate"><span class="pre">convert(a:</span> <span class="pre">atype,</span> <span class="pre">btype)</span></code> function. Type conversions in Vyper are designed to be safe and intuitive. All type conversions will check that the input is in bounds for the output type. The general principles are:</p>
+<ul class="simple">
+<li><p>Except for conversions involving decimals and bools, the input is bit-for-bit preserved.</p></li>
+<li><p>Conversions to bool map all nonzero inputs to 1.</p></li>
+<li><p>When converting from decimals to integers, the input is truncated towards zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> types are treated as <code class="docutils literal notranslate"><span class="pre">uint160</span></code>, except conversions with signed integers and decimals are not allowed.</p></li>
+<li><p>Converting between right-padded (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>) and left-padded types, results in a rotation to convert the padding. For instance, converting from <code class="docutils literal notranslate"><span class="pre">bytes20</span></code> to <code class="docutils literal notranslate"><span class="pre">address</span></code> would result in rotating the input by 12 bytes to the right.</p></li>
+<li><p>Converting between signed and unsigned integers reverts if the input is negative.</p></li>
+<li><p>Narrowing conversions (e.g., <code class="docutils literal notranslate"><span class="pre">int256</span> <span class="pre">-&gt;</span> <span class="pre">int128</span></code>) check that the input is in bounds for the output type.</p></li>
+<li><p>Converting between bytes and int types results in sign-extension if the output type is signed. For instance, converting <code class="docutils literal notranslate"><span class="pre">0xff</span></code> (<code class="docutils literal notranslate"><span class="pre">bytes1</span></code>) to <code class="docutils literal notranslate"><span class="pre">int8</span></code> returns <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p>Converting between bytes and int types which have different sizes follows the rule of going through the closest integer type, first. For instance, <code class="docutils literal notranslate"><span class="pre">bytes1</span> <span class="pre">-&gt;</span> <span class="pre">int16</span></code> is like <code class="docutils literal notranslate"><span class="pre">bytes1</span> <span class="pre">-&gt;</span> <span class="pre">int8</span> <span class="pre">-&gt;</span> <span class="pre">int16</span></code> (signextend, then widen). <code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">-&gt;</span> <span class="pre">bytes20</span></code> is like <code class="docutils literal notranslate"><span class="pre">uint8</span> <span class="pre">-&gt;</span> <span class="pre">uint160</span> <span class="pre">-&gt;</span> <span class="pre">bytes20</span></code> (rotate left 12 bytes).</p></li>
+<li><p>Flags can be converted to and from <code class="docutils literal notranslate"><span class="pre">uint256</span></code> only.</p></li>
+</ul>
+<p>A small Python reference implementation is maintained as part of Vyper’s test suite, it can be found <a class="reference external" href="https://github.com/vyperlang/vyper/blob/c4c6afd07801a0cc0038cdd4007cc43860c54193/tests/parser/functions/test_convert.py#L318">here</a>. The motivation and more detailed discussion of the rules can be found <a class="reference external" href="https://github.com/vyperlang/vyper/issues/2507">here</a>.</p>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="structure-of-a-contract.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">合約結構</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="constants-and-vars.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">環境變數與常數</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

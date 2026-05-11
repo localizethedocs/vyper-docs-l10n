@@ -1,0 +1,676 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>控制結構 - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="Scoping and Declarations" href="scoping-and-declarations.html" /><link rel="prev" title="陳述句" href="statements.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/control-structures.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/control-structures.html"/>
+<meta property="og:title" content="控制結構"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example.html">Vyper by Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-titanoboa.html">Testing with Titanoboa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-brownie.html">Testing with Brownie</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#functions">&#20989;&#24335;</a><ul>
+<li><a class="reference internal" href="#visibility">Visibility</a><ul>
+<li><a class="reference internal" href="#external-functions">&#22806;&#37096;&#20989;&#24335;</a></li>
+<li><a class="reference internal" href="#internal-functions">&#20839;&#37096;&#20989;&#24335;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-init-function"><code class="docutils literal notranslate"><span class="pre">__init__</span></code> &#20989;&#24335;</a></li>
+<li><a class="reference internal" href="#mutability">Mutability</a></li>
+<li><a class="reference internal" href="#nonreentrancy-locks">Nonreentrancy Locks</a></li>
+<li><a class="reference internal" href="#the-nonreentrant-pragma">The nonreentrant pragma</a></li>
+<li><a class="reference internal" href="#the-default-function"><code class="docutils literal notranslate"><span class="pre">__default__</span></code> &#20989;&#24335;</a><ul>
+<li><a class="reference internal" href="#considerations">Considerations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decorators-reference">Decorators Reference</a></li>
+<li><a class="reference internal" href="#raw-return">Raw Return</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#if-statements"><code class="docutils literal notranslate"><span class="pre">if</span></code> statements</a></li>
+<li><a class="reference internal" href="#for-loops"><code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a><ul>
+<li><a class="reference internal" href="#array-iteration">Array Iteration</a></li>
+<li><a class="reference internal" href="#range-iteration">Range Iteration</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/control-structures.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">控制結構</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="control-structures">
+<span id="id1"></span><h1>控制結構<a class="headerlink" href="#control-structures" title="Link to this heading">¶</a></h1>
+<section id="functions">
+<span id="control-structures-functions"></span><h2>函式<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<p>Functions are executable units of code within a contract. Functions may only be declared within a contract’s <a class="reference internal" href="scoping-and-declarations.html#scoping-module"><span class="std std-ref">module scope</span></a>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">bid</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Functions may be called internally or externally depending on their <a class="reference internal" href="#function-visibility"><span class="std std-ref">visibility</span></a>. Functions may accept input arguments and return variables in order to pass values between them.</p>
+<section id="visibility">
+<h3>Visibility<a class="headerlink" href="#visibility" title="Link to this heading">¶</a></h3>
+<p id="function-visibility">You can optionally declare a function’s visibility by using a <a class="reference internal" href="#function-decorators"><span class="std std-ref">decorator</span></a>. There are three visibility levels in Vyper:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;external</span></code>: exposed in the selector table, can be called by an external call into this contract</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code> (default): can be invoked only from within this contract. Not available to external callers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code>: constructor code. This is code which is invoked once in the lifetime of a contract, upon its deploy. It is not available at runtime to either external callers or internal call invocations. At this time, only the <a class="reference internal" href="#init-function"><span class="std std-ref">__init__() function</span></a> may be marked as <code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<section id="external-functions">
+<h4>外部函式<a class="headerlink" href="#external-functions" title="Link to this heading">¶</a></h4>
+<p>External functions (marked with the <code class="docutils literal notranslate"><span class="pre">&#64;external</span></code> decorator) are a part of the contract interface and may only be called via transactions or from other contracts.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">add_seven</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">add_seven_with_overloading</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">):</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</span></pre></div>
+</div>
+<p>A Vyper contract cannot call directly between two external functions. If you must do this, you can use an <a class="reference internal" href="structure-of-a-contract.html#interfaces"><span class="std std-ref">interface</span></a>.</p>
+<p>External functions can use the <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code> decorator to return raw bytes without ABI-encoding:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="nd">@raw_return</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">proxy_call</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[128]</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="c1"># Forward a call and return the raw response without ABI-encoding</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span>
+</span><span id="1-7"><span class="w">        </span><span class="n">target</span><span class="p">,</span>
+</span><span id="1-8"><span class="w">        </span><span class="n">msg</span><span class="p">.</span><span class="n">data</span><span class="p">,</span>
+</span><span id="1-9"><span class="w">        </span><span class="n">is_delegate_call</span><span class="o">=</span><span class="n">True</span><span class="p">,</span>
+</span><span id="1-10"><span class="w">        </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+</span><span id="1-11"><span class="w">        </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span>
+</span><span id="1-12"><span class="w">    </span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>For external functions with default arguments like <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">my_function(x:</span> <span class="pre">uint256,</span> <span class="pre">b:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">1)</span></code> the Vyper compiler will generate <code class="docutils literal notranslate"><span class="pre">N+1</span></code> overloaded function selectors based on <code class="docutils literal notranslate"><span class="pre">N</span></code> default arguments. Consequently, the ABI signature for a function (this includes interface functions) excludes optional arguments when their default values are used in the function call.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">from</span><span class="w"> </span><span class="n">ethereum</span><span class="p">.</span><span class="n">ercs</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">IERC4626</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="n">IERC4626</span><span class="p">):</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">extcall</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="na">self</span><span class="p">,</span><span class="w"> </span><span class="na">self</span><span class="p">)</span><span class="w">   </span><span class="c1"># keccak256(&quot;withdraw(uint256,address,address)&quot;)[:4] = 0xb460af94</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">extcall</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">               </span><span class="c1"># keccak256(&quot;withdraw(uint256)&quot;)[:4] = 0x2e1a7d4d</span>
+</span></pre></div>
+</div>
+</div>
+</section>
+<section id="internal-functions">
+<span id="structure-functions-internal"></span><h4>內部函式<a class="headerlink" href="#internal-functions" title="Link to this heading">¶</a></h4>
+<p>Internal functions (optionally marked with the <code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code> decorator) are only accessible from other functions within the same contract. They are invoked via the <a class="reference internal" href="constants-and-vars.html#constants-self"><span class="std std-ref">self</span></a> object:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">def</span><span class="w"> </span><span class="nf">_times_two</span><span class="p">(</span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nd">@external</span>
+</span><span id="1-5"><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">_times_two</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Or for internal functions which are defined in <a class="reference internal" href="structure-of-a-contract.html#modules"><span class="std std-ref">imported modules</span></a>, they are invoked by prefixing the name of the module to the function name:</p>
+<p>Marking an internal function as <code class="docutils literal notranslate"><span class="pre">payable</span></code> specifies that the function can interact with <code class="docutils literal notranslate"><span class="pre">msg.value</span></code>. A <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> internal function can be called from an external <code class="docutils literal notranslate"><span class="pre">payable</span></code> function, but it cannot access <code class="docutils literal notranslate"><span class="pre">msg.value</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@payable</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">_foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="bp">msg.value</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>As of v0.4.0, the <code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code> decorator is optional. That is, functions with no visibility decorator default to being <code class="docutils literal notranslate"><span class="pre">internal</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Please note that for <code class="docutils literal notranslate"><span class="pre">internal</span></code> functions which use more than one default parameter, Vyper versions <code class="docutils literal notranslate"><span class="pre">&gt;=0.3.8</span></code> are recommended due to the security advisory <a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories/GHSA-ph9x-4vc9-m39g">GHSA-ph9x-4vc9-m39g</a>.</p>
+</div>
+</section>
+</section>
+<section id="the-init-function">
+<h3><code class="docutils literal notranslate"><span class="pre">__init__</span></code> 函式<a class="headerlink" href="#the-init-function" title="Link to this heading">¶</a></h3>
+<p id="init-function">The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function, also known as the constructor, is a special initialization function that is only called at the time of deploying a contract. It can be used to set initial values for storage or immutable variables. It must be declared with the <code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code> decorator. A common use case is to set an <code class="docutils literal notranslate"><span class="pre">owner</span></code> variable with the creator of the contract:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">owner:</span><span class="w"> </span><span class="kt">address</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@deploy</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">msg.sender</span>
+</span></pre></div>
+</div>
+<p>Additionally, <a class="reference internal" href="scoping-and-declarations.html#immutable-variables"><span class="std std-ref">immutable variables</span></a> may only be set within the constructor.</p>
+</section>
+<section id="mutability">
+<h3>Mutability<a class="headerlink" href="#mutability" title="Link to this heading">¶</a></h3>
+<p id="function-mutability">You can optionally declare a function’s mutability by using a <a class="reference internal" href="#function-decorators"><span class="std std-ref">decorator</span></a>. There are four mutability levels:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;pure</span></code>: does not read from the contract state or any environment variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;view</span></code>: may read from the contract state, but does not alter it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;nonpayable</span></code> (default): may read from and write to the contract state, but cannot receive Ether.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;payable</span></code>: may read from and write to the contract state, and can receive and access Ether via <code class="docutils literal notranslate"><span class="pre">msg.value</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@view</span>
+</span><span id="1-2"><span class="nd">@external</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">readonly</span><span class="p">():</span>
+</span><span id="1-4"><span class="w">    </span><span class="c1"># this function cannot write to state</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@payable</span>
+</span><span id="1-8"><span class="nd">@external</span>
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">send_me_money</span><span class="p">():</span>
+</span><span id="1-10"><span class="w">    </span><span class="c1"># this function can receive ether</span>
+</span><span id="1-11"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Functions default to <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> when no mutability decorator is used.</p>
+<p>Functions marked with <code class="docutils literal notranslate"><span class="pre">&#64;view</span></code> cannot call mutable (<code class="docutils literal notranslate"><span class="pre">payable</span></code> or <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code>) functions. Any external calls are made using the special <code class="docutils literal notranslate"><span class="pre">STATICCALL</span></code> opcode, which prevents state changes at the EVM level.</p>
+<p>Functions marked with <code class="docutils literal notranslate"><span class="pre">&#64;pure</span></code> cannot call non-<code class="docutils literal notranslate"><span class="pre">pure</span></code> functions.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;nonpayable</span></code> decorator is not strictly enforced on <code class="docutils literal notranslate"><span class="pre">internal</span></code> functions when they are invoked through an <code class="docutils literal notranslate"><span class="pre">external</span></code> <code class="docutils literal notranslate"><span class="pre">payable</span></code> function. As a result, an <code class="docutils literal notranslate"><span class="pre">external</span></code> <code class="docutils literal notranslate"><span class="pre">payable</span></code> function can invoke an <code class="docutils literal notranslate"><span class="pre">internal</span></code> <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> function. However, the <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> <code class="docutils literal notranslate"><span class="pre">internal</span></code> function cannot have access to <code class="docutils literal notranslate"><span class="pre">msg.value</span></code>.</p>
+</div>
+</section>
+<section id="nonreentrancy-locks">
+<h3>Nonreentrancy Locks<a class="headerlink" href="#nonreentrancy-locks" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> decorator places a global nonreentrancy lock on a function. An attempt by an external contract to call back into any other <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> function causes the transaction to revert.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@nonreentrant</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">make_a_call</span><span class="p">(</span><span class="nv">_addr:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-4"><span class="w">    </span><span class="c1"># this function is protected from re-entrancy</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Nonreentrancy locks work by setting a specially allocated storage slot to a <code class="docutils literal notranslate"><span class="pre">&lt;locked&gt;</span></code> value on function entrance, and setting it to an <code class="docutils literal notranslate"><span class="pre">&lt;unlocked&gt;</span></code> value on function exit. On function entrance, if the storage slot is detected to be the <code class="docutils literal notranslate"><span class="pre">&lt;locked&gt;</span></code> value, execution reverts.</p>
+<p>You cannot put the <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> decorator on a <code class="docutils literal notranslate"><span class="pre">pure</span></code> function. You can put it on a <code class="docutils literal notranslate"><span class="pre">view</span></code> function, but it only checks that the function is not in a callback (the storage slot is not in the <code class="docutils literal notranslate"><span class="pre">&lt;locked&gt;</span></code> state), as <code class="docutils literal notranslate"><span class="pre">view</span></code> functions can only read the state, not change it.</p>
+<p>You can put the <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> decorator on a <code class="docutils literal notranslate"><span class="pre">__default__</span></code> function, but keep in mind that this will result in the contract rejecting ETH payments from callbacks.</p>
+<p>You can view where the nonreentrant key is physically laid out in storage by using <code class="docutils literal notranslate"><span class="pre">vyper</span></code> with the <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">layout</span></code> option (e.g., <code class="docutils literal notranslate"><span class="pre">vyper</span> <span class="pre">-f</span> <span class="pre">layout</span> <span class="pre">foo.vy</span></code>). Unless it is overridden, the compiler will allocate it at slot <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>A mutable function can protect a <code class="docutils literal notranslate"><span class="pre">view</span></code> function from being called back into (which is useful for instance, if a <code class="docutils literal notranslate"><span class="pre">view</span></code> function would return inconsistent state during a mutable function), but a <code class="docutils literal notranslate"><span class="pre">view</span></code> function cannot protect itself from being called back into. Note that mutable functions can never be called from a <code class="docutils literal notranslate"><span class="pre">view</span></code> function because all external calls out from a <code class="docutils literal notranslate"><span class="pre">view</span></code> function are protected by the use of the <code class="docutils literal notranslate"><span class="pre">STATICCALL</span></code> opcode.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>A nonreentrant lock has an <code class="docutils literal notranslate"><span class="pre">&lt;unlocked&gt;</span></code> value of 3, and a <code class="docutils literal notranslate"><span class="pre">&lt;locked&gt;</span></code> value of 2. Nonzero values are used to take advantage of net gas metering - as of the Berlin hard fork, the net cost for utilizing a nonreentrant lock is 2300 gas. Prior to v0.3.4, the <code class="docutils literal notranslate"><span class="pre">&lt;unlocked&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;locked&gt;</span></code> values were 0 and 1, respectively.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Prior to 0.4.0, nonreentrancy keys took a 「key」 argument for fine-grained nonreentrancy control. As of 0.4.0, only a global nonreentrancy lock is available.</p>
+</div>
+</section>
+<section id="the-nonreentrant-pragma">
+<h3>The nonreentrant pragma<a class="headerlink" href="#the-nonreentrant-pragma" title="Link to this heading">¶</a></h3>
+<p>Beginning in 0.4.2, the <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">nonreentrancy</span> <span class="pre">on</span></code> pragma is available, and it enables nonreentrancy on all external functions and public getters (except for <code class="docutils literal notranslate"><span class="pre">constants</span></code> and <code class="docutils literal notranslate"><span class="pre">immutables</span></code>) in the file. This is to prepare for a future release, probably in the 0.5.x series, where nonreentrant locks will be enabled by default language-wide.</p>
+<p>When the pragma is on, to re-enable reentrancy for a specific function, add the <code class="docutils literal notranslate"><span class="pre">&#64;reentrant</span></code> decorator. For getters, add the <code class="docutils literal notranslate"><span class="pre">reentrant()</span></code> modifier. Here is an example:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># pragma nonreentrancy on</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nv">x:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span><span class="w">  </span><span class="c1"># this is protected from view-only reentrancy</span>
+</span><span id="1-4"><span class="nv">y:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">reentrant</span><span class="p">(</span><span class="kt">uint256</span><span class="p">))</span><span class="w">  </span><span class="c1"># this is not not protected from view-only reentrancy</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">make_a_call</span><span class="p">(</span><span class="nv">addr:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-8"><span class="w">    </span><span class="c1"># this function is protected from re-entrancy</span>
+</span><span id="1-9"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="nd">@external</span>
+</span><span id="1-12"><span class="nd">@reentrant</span>
+</span><span id="1-13"><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="nv">addr:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-14"><span class="w">    </span><span class="c1"># this function is allowed to be reentered into</span>
+</span><span id="1-15"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-16">
+</span><span id="1-17"><span class="nd">@external</span>
+</span><span id="1-18"><span class="k">def</span><span class="w"> </span><span class="nf">__default__</span><span class="p">():</span>
+</span><span id="1-19"><span class="w">    </span><span class="c1"># this function is nonreentrant!</span>
+</span><span id="1-20"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>The default is <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">nonreentrancy</span> <span class="pre">off</span></code>, which can be used to signal specifically that nonreentrancy protection is off in this file.</p>
+<p>Note that the same caveats about nonreentrancy on <code class="docutils literal notranslate"><span class="pre">__default__()</span></code> as mentioned in the previous section apply here, since the <code class="docutils literal notranslate"><span class="pre">__default__()</span></code> function will be nonreentrant by default with the pragma on.</p>
+<p>With the pragma on, internal functions remain unlocked by default but can still use the <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> decorator. External <code class="docutils literal notranslate"><span class="pre">view</span></code> functions are protected by default (as before, checking the lock upon entry but only reading its state). External <code class="docutils literal notranslate"><span class="pre">pure</span></code> functions do not interact with the lock.</p>
+<p>Internal functions, <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function and getters for <code class="docutils literal notranslate"><span class="pre">constants</span></code> and <code class="docutils literal notranslate"><span class="pre">immutables</span></code> can be marked <code class="docutils literal notranslate"><span class="pre">reentrant</span></code>. Reentrant behavior is the default for these structures anyway, and this feature can be used to explicitly highlight the fact.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>All the protected functions share the same, global lock.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Vyper disallows calling a <code class="docutils literal notranslate"><span class="pre">nonreentrant</span></code> function from another <code class="docutils literal notranslate"><span class="pre">nonreentrant</span></code> function, since the compiler implements nonreentrancy as a global lock which is acquired at function entry.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">nonreentrancy</span> <span class="pre">on/off</span></code> pragma is scoped to the current file. If you import a file without the <code class="docutils literal notranslate"><span class="pre">nonreentrancy</span> <span class="pre">on</span></code> pragma, the functions in that file will behave as the author intended, that is, they will be reentrant unless marked otherwise.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">immutable</span></code> state variable getters don’t check the lock because the value of the variables can’t change.</p>
+</div>
+</section>
+<section id="the-default-function">
+<h3><code class="docutils literal notranslate"><span class="pre">__default__</span></code> 函式<a class="headerlink" href="#the-default-function" title="Link to this heading">¶</a></h3>
+<p>A contract can also have a default function, which is executed on a call to the contract if no other functions match the given function identifier (or if none was supplied at all, such as through someone sending it Eth). It is the same construct as fallback functions <a class="reference external" href="https://solidity.readthedocs.io/en/latest/contracts.html?highlight=fallback#fallback-function">in Solidity</a>.</p>
+<p>This function is always named <code class="docutils literal notranslate"><span class="pre">__default__</span></code>. It must be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;external</span></code>. It cannot expect any input arguments.</p>
+<p>If the function is annotated as <code class="docutils literal notranslate"><span class="pre">&#64;payable</span></code>, this function is executed whenever the contract is sent Ether (without data). This is why the default function cannot accept arguments - it is a design decision of Ethereum to make no differentiation between sending ether to a contract or a user address.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">event</span><span class="w"> </span><span class="nc">Payment</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">sender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="nd">@payable</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">__default__</span><span class="p">():</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">Payment</span><span class="p">(</span><span class="bp">msg.value</span><span class="p">,</span><span class="w"> </span><span class="bp">msg.sender</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<section id="considerations">
+<h4>Considerations<a class="headerlink" href="#considerations" title="Link to this heading">¶</a></h4>
+<p>Just as in Solidity, Vyper generates a default function if one isn’t found, in the form of a <code class="docutils literal notranslate"><span class="pre">REVERT</span></code> call. Note that this rolls back state changes, and thus will not succeed in receiving funds.</p>
+<p>Ethereum specifies that the operations will be rolled back if the contract runs out of gas in execution. <code class="docutils literal notranslate"><span class="pre">send</span></code> calls to the contract come with a free stipend of 2300 gas, which does not leave much room to perform other operations except basic logging. <strong>However</strong>, if the sender includes a higher gas amount through a <code class="docutils literal notranslate"><span class="pre">call</span></code> instead of <code class="docutils literal notranslate"><span class="pre">send</span></code>, then more complex functionality can be run.</p>
+<p>It is considered a best practice to ensure your payable default function is compatible with this stipend. The following operations will consume more than 2300 gas:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Writing to storage</p></li>
+<li><p>Creating a contract</p></li>
+<li><p>Calling an external function which consumes a large amount of gas</p></li>
+<li><p>Sending Ether</p></li>
+</ul>
+</div></blockquote>
+<p>Lastly, although the default function receives no arguments, it can still access the <code class="docutils literal notranslate"><span class="pre">msg</span></code> object, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the address of who is interacting with the contract (<code class="docutils literal notranslate"><span class="pre">msg.sender</span></code>)</p></li>
+<li><p>the amount of ETH sent (<code class="docutils literal notranslate"><span class="pre">msg.value</span></code>)</p></li>
+<li><p>the gas provided (<code class="docutils literal notranslate"><span class="pre">msg.gas</span></code>).</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="decorators-reference">
+<span id="function-decorators"></span><h3>Decorators Reference<a class="headerlink" href="#decorators-reference" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Decorator</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;external</span></code></p></td>
+<td><p>Function can only be called externally, it is part of the runtime selector table</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code></p></td>
+<td><p>Function can only be called within current contract</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code></p></td>
+<td><p>Function is called only at deploy time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;pure</span></code></p></td>
+<td><p>Function does not read contract state or environment variables</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;view</span></code></p></td>
+<td><p>Function does not alter contract state</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;payable</span></code></p></td>
+<td><p>Function is able to receive Ether</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code></p></td>
+<td><p>Function cannot be called back into during an external call</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code></p></td>
+<td><p>Function returns raw bytes without ABI-encoding (<code class="docutils literal notranslate"><span class="pre">&#64;external</span></code> functions only)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="raw-return">
+<h3>Raw Return<a class="headerlink" href="#raw-return" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code> decorator allows a function to return raw bytes without ABI-encoding. This is particularly useful for proxy contracts and other helper contracts where you want to forward the exact output bytes from another contract call without adding an additional layer of ABI-encoding.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="nd">@raw_return</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">forward_call</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[1024]</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="c1"># Returns the raw bytes from the external call without ABI-encoding</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span><span class="p">,</span><span class="w"> </span><span class="n">is_delegate_call</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code> decorator has the following restrictions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It can only be used on <code class="docutils literal notranslate"><span class="pre">&#64;external</span></code> functions</p></li>
+<li><p>The function must have a <code class="docutils literal notranslate"><span class="pre">Bytes[N]</span></code> return type</p></li>
+<li><p>It cannot be used on <code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code> (constructor) functions (you can however use it in the <code class="docutils literal notranslate"><span class="pre">__default__()</span></code> function)</p></li>
+<li><p>It cannot be used on <code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code> functions</p></li>
+</ul>
+</div></blockquote>
+<p>When a function is marked with <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code>, the compiler directly returns the bytes value using the EVM <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> opcode, bypassing the normal ABI-encoding that would wrap the bytes in a <code class="docutils literal notranslate"><span class="pre">(bytes)</span></code> tuple.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code> decorator cannot be used in interface definitions (<code class="docutils literal notranslate"><span class="pre">.vyi</span></code> files). Note that to call a <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code> function from another contract, you should use <code class="docutils literal notranslate"><span class="pre">raw_call</span></code> instead of an interface call, since the return data may not be ABI-encoded.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">&#64;raw_return</span></code>, ensure all return paths in your function use raw bytes. Having multiple return statements where some use ABI-encoded data and others don’t can lead to decoding errors.</p>
+</div>
+</section>
+</section>
+<section id="if-statements">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span></code> statements<a class="headerlink" href="#if-statements" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is a control flow construct used for conditional execution:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">if</span><span class="w"> </span><span class="nv">CONDITION:</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CONDITION</span></code> is a boolean or boolean operation. The boolean is evaluated left-to-right, one expression at a time, until the condition is found to be true or false.  If true, the logic in the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is executed.</p>
+<p>Note that unlike Python, Vyper does not allow implicit conversion from non-boolean types within the condition of an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">1:</span> <span class="pre">pass</span></code> will fail to compile with a type mismatch.</p>
+<p>You can also include <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements, to add more conditional statements and a body that executes when the conditionals are false:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">if</span><span class="w"> </span><span class="nv">CONDITION:</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-3"><span class="k">elif</span><span class="w"> </span><span class="nv">OTHER_CONDITION:</span>
+</span><span id="1-4"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-5"><span class="k">else</span><span class="p">:</span>
+</span><span id="1-6"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+</section>
+<section id="for-loops">
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is a control flow construct used to iterate over a value:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">TYPE</span><span class="o">&gt;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">ITERABLE</span><span class="o">&gt;</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>The iterated value can be a static array, a dynamic array, or generated from the built-in <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p>
+<section id="array-iteration">
+<h3>Array Iteration<a class="headerlink" href="#array-iteration" title="Link to this heading">¶</a></h3>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">for</span></code> to iterate through the values of any array variable:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">foo:</span><span class="w"> </span><span class="kt">int128</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">]</span>
+</span><span id="1-2"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">foo:</span>
+</span><span id="1-3"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>In the above, example, the loop executes three times with <code class="docutils literal notranslate"><span class="pre">i</span></code> assigned the values of <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code>, and then <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
+<p>You can also iterate over a literal array, as long as the annotated type is valid for each item in the array:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">]:</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Some restrictions:</p>
+<ul class="simple">
+<li><p>You cannot iterate over a multi-dimensional array.  <code class="docutils literal notranslate"><span class="pre">i</span></code> must always be a base type.</p></li>
+<li><p>You cannot modify a value in an array while it is being iterated, or call to a function that might modify the array being iterated.</p></li>
+</ul>
+</section>
+<section id="range-iteration">
+<h3>Range Iteration<a class="headerlink" href="#range-iteration" title="Link to this heading">¶</a></h3>
+<p>Ranges are created using the <code class="docutils literal notranslate"><span class="pre">range</span></code> function. The following examples are valid uses of <code class="docutils literal notranslate"><span class="pre">range</span></code>:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">STOP</span><span class="p">):</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">STOP</span></code> is a literal integer greater than zero. <code class="docutils literal notranslate"><span class="pre">i</span></code> begins as zero and increments by one until it is equal to <code class="docutils literal notranslate"><span class="pre">STOP</span></code>. <code class="docutils literal notranslate"><span class="pre">i</span></code> must be of the same type as <code class="docutils literal notranslate"><span class="pre">STOP</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span><span class="w"> </span><span class="n">bound</span><span class="o">=</span><span class="n">N</span><span class="p">):</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">stop</span></code> can be a variable with integer type, greater than zero. <code class="docutils literal notranslate"><span class="pre">N</span></code> must be a compile-time constant. <code class="docutils literal notranslate"><span class="pre">i</span></code> begins as zero and increments by one until it is equal to <code class="docutils literal notranslate"><span class="pre">stop</span></code>. If <code class="docutils literal notranslate"><span class="pre">stop</span></code> is larger than <code class="docutils literal notranslate"><span class="pre">N</span></code>, execution will revert at runtime. In certain cases, you may not have a guarantee that <code class="docutils literal notranslate"><span class="pre">stop</span></code> is less than <code class="docutils literal notranslate"><span class="pre">N</span></code>, but still want to avoid the possibility of runtime reversion. To accomplish this, use the <code class="docutils literal notranslate"><span class="pre">bound=</span></code> keyword in combination with <code class="docutils literal notranslate"><span class="pre">min(stop,</span> <span class="pre">N)</span></code> as the argument to <code class="docutils literal notranslate"><span class="pre">range</span></code>, like <code class="docutils literal notranslate"><span class="pre">range(min(stop,</span> <span class="pre">N),</span> <span class="pre">bound=N)</span></code>. This is helpful for use cases like chunking up operations on larger arrays across multiple transactions. <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code> must be of the same type.</p>
+<p>Another use of range can be with <code class="docutils literal notranslate"><span class="pre">START</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP</span></code> bounds.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">START</span><span class="p">,</span><span class="w"> </span><span class="n">STOP</span><span class="p">):</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">START</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP</span></code> are literal integers, with <code class="docutils literal notranslate"><span class="pre">STOP</span></code> being a greater value than <code class="docutils literal notranslate"><span class="pre">START</span></code>. <code class="docutils literal notranslate"><span class="pre">i</span></code> begins as <code class="docutils literal notranslate"><span class="pre">START</span></code> and increments by one until it is equal to <code class="docutils literal notranslate"><span class="pre">STOP</span></code>. <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">START</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP</span></code> must be of the same type.</p>
+<p>Finally, it is possible to use <code class="docutils literal notranslate"><span class="pre">range</span></code> with runtime <cite>start</cite> and <cite>stop</cite> values as long as a constant <cite>bound</cite> value is provided.
+In this case, Vyper checks at runtime that <cite>end - start &lt;= bound</cite>.
+<code class="docutils literal notranslate"><span class="pre">N</span></code> must be a compile-time constant. <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code> must be of the same type.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">bound</span><span class="o">=</span><span class="n">N</span><span class="p">):</span>
+</span><span id="1-2"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="statements.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">陳述句</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="scoping-and-declarations.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">Scoping and Declarations</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

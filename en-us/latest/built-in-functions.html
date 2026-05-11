@@ -1,0 +1,1415 @@
+
+  <!DOCTYPE html>
+<html lang="en-US" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Built-in Functions - Vyper documentation</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Modules" href="using-modules.html" /><link rel="prev" title="Scoping and Declarations" href="scoping-and-declarations.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/built-in-functions.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/built-in-functions.html"/>
+<meta property="og:title" content="Built-in Functions"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="Switch to light color mode"
+        data-aria-light="Switch to dark color mode"
+        data-aria-dark="Switch to auto color mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>On this page</h3>
+    <ul>
+<li><a class="reference internal" href="#bitwise-operations">Bitwise Operations</a><ul>
+<li><a class="reference internal" href="#shift"><code class="docutils literal notranslate"><span class="pre">shift()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chain-interaction">Chain Interaction</a><ul>
+<li><a class="reference internal" href="#create_minimal_proxy_to"><code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to()</span></code></a></li>
+<li><a class="reference internal" href="#create_copy_of"><code class="docutils literal notranslate"><span class="pre">create_copy_of()</span></code></a></li>
+<li><a class="reference internal" href="#create_from_blueprint"><code class="docutils literal notranslate"><span class="pre">create_from_blueprint()</span></code></a></li>
+<li><a class="reference internal" href="#raw_create"><code class="docutils literal notranslate"><span class="pre">raw_create()</span></code></a></li>
+<li><a class="reference internal" href="#raw_call"><code class="docutils literal notranslate"><span class="pre">raw_call()</span></code></a></li>
+<li><a class="reference internal" href="#raw_log"><code class="docutils literal notranslate"><span class="pre">raw_log()</span></code></a></li>
+<li><a class="reference internal" href="#raw_revert"><code class="docutils literal notranslate"><span class="pre">raw_revert()</span></code></a></li>
+<li><a class="reference internal" href="#selfdestruct"><code class="docutils literal notranslate"><span class="pre">selfdestruct()</span></code></a></li>
+<li><a class="reference internal" href="#send"><code class="docutils literal notranslate"><span class="pre">send()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cryptography">Cryptography</a><ul>
+<li><a class="reference internal" href="#ecadd"><code class="docutils literal notranslate"><span class="pre">ecadd()</span></code></a></li>
+<li><a class="reference internal" href="#ecmul"><code class="docutils literal notranslate"><span class="pre">ecmul()</span></code></a></li>
+<li><a class="reference internal" href="#ecrecover"><code class="docutils literal notranslate"><span class="pre">ecrecover()</span></code></a></li>
+<li><a class="reference internal" href="#keccak256"><code class="docutils literal notranslate"><span class="pre">keccak256()</span></code></a></li>
+<li><a class="reference internal" href="#sha256"><code class="docutils literal notranslate"><span class="pre">sha256()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-manipulation">Data Manipulation</a><ul>
+<li><a class="reference internal" href="#concat"><code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
+<li><a class="reference internal" href="#convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
+<li><a class="reference internal" href="#uint2str"><code class="docutils literal notranslate"><span class="pre">uint2str()</span></code></a></li>
+<li><a class="reference internal" href="#extract32"><code class="docutils literal notranslate"><span class="pre">extract32()</span></code></a></li>
+<li><a class="reference internal" href="#slice"><code class="docutils literal notranslate"><span class="pre">slice()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#math">Math</a><ul>
+<li><a class="reference internal" href="#abs"><code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li><a class="reference internal" href="#ceil"><code class="docutils literal notranslate"><span class="pre">ceil()</span></code></a></li>
+<li><a class="reference internal" href="#epsilon"><code class="docutils literal notranslate"><span class="pre">epsilon()</span></code></a></li>
+<li><a class="reference internal" href="#floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li><a class="reference internal" href="#max"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li><a class="reference internal" href="#max_value"><code class="docutils literal notranslate"><span class="pre">max_value()</span></code></a></li>
+<li><a class="reference internal" href="#min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li><a class="reference internal" href="#min_value"><code class="docutils literal notranslate"><span class="pre">min_value()</span></code></a></li>
+<li><a class="reference internal" href="#pow_mod256"><code class="docutils literal notranslate"><span class="pre">pow_mod256()</span></code></a></li>
+<li><a class="reference internal" href="#sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li><a class="reference internal" href="#isqrt"><code class="docutils literal notranslate"><span class="pre">isqrt()</span></code></a></li>
+<li><a class="reference internal" href="#uint256_addmod"><code class="docutils literal notranslate"><span class="pre">uint256_addmod()</span></code></a></li>
+<li><a class="reference internal" href="#uint256_mulmod"><code class="docutils literal notranslate"><span class="pre">uint256_mulmod()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_add"><code class="docutils literal notranslate"><span class="pre">unsafe_add()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_sub"><code class="docutils literal notranslate"><span class="pre">unsafe_sub()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_mul"><code class="docutils literal notranslate"><span class="pre">unsafe_mul()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_div"><code class="docutils literal notranslate"><span class="pre">unsafe_div()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilities">Utilities</a><ul>
+<li><a class="reference internal" href="#as_wei_value"><code class="docutils literal notranslate"><span class="pre">as_wei_value()</span></code></a></li>
+<li><a class="reference internal" href="#blockhash"><code class="docutils literal notranslate"><span class="pre">blockhash()</span></code></a></li>
+<li><a class="reference internal" href="#blobhash"><code class="docutils literal notranslate"><span class="pre">blobhash()</span></code></a></li>
+<li><a class="reference internal" href="#empty"><code class="docutils literal notranslate"><span class="pre">empty()</span></code></a></li>
+<li><a class="reference internal" href="#len"><code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li><a class="reference internal" href="#method_id"><code class="docutils literal notranslate"><span class="pre">method_id()</span></code></a></li>
+<li><a class="reference internal" href="#abi_encode"><code class="docutils literal notranslate"><span class="pre">abi_encode()</span></code></a></li>
+<li><a class="reference internal" href="#abi_decode"><code class="docutils literal notranslate"><span class="pre">abi_decode()</span></code></a></li>
+<li><a class="reference internal" href="#print"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/built-in-functions.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Built-in Functions</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="built-in-functions">
+<span id="index-0"></span><span id="id1"></span><h1>Built-in Functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">¶</a></h1>
+<p>Vyper provides a collection of built-in functions available in the global namespace of all contracts.</p>
+<section id="bitwise-operations">
+<h2>Bitwise Operations<a class="headerlink" href="#bitwise-operations" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#shift" title="Link to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">x</span></code> with the bits shifted <code class="docutils literal notranslate"><span class="pre">_shift</span></code> places. A positive <code class="docutils literal notranslate"><span class="pre">_shift</span></code> value equals a left shift, a negative value is a right shift.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int128</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">shift</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">512</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function has been deprecated from version 0.3.8 onwards. Please use the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operators instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">bitwise_and</span></code>, <code class="docutils literal notranslate"><span class="pre">bitwise_or</span></code>, <code class="docutils literal notranslate"><span class="pre">bitwise_xor</span></code> and <code class="docutils literal notranslate"><span class="pre">bitwise_not</span></code> have been deprecated from version 0.3.4., and removed in version 0.4.2. Please use their operator versions instead: <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p>
+</div>
+</section>
+<section id="chain-interaction">
+<h2>Chain Interaction<a class="headerlink" href="#chain-interaction" title="Link to this heading">¶</a></h2>
+<p>Vyper has four built-ins for contract creation; the first three contract creation built-ins rely on the code to deploy already being stored on-chain, but differ in call vs deploy overhead, and whether or not they invoke the constructor of the contract to be deployed. The following list provides a short summary of the differences between them.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>Creates an immutable proxy to <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
+<li><p>Expensive to call (incurs a single <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> overhead on every invocation), cheap to create (since it only deploys <code class="docutils literal notranslate"><span class="pre">EIP-1167</span></code> forwarder bytecode)</p></li>
+<li><p>Does not have the ability to call a constructor</p></li>
+<li><p>Does <strong>not</strong> check that there is code at <code class="docutils literal notranslate"><span class="pre">target</span></code> (allows one to deploy proxies counterfactually)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_copy_of(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>Creates a byte-for-byte copy of runtime code stored at <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
+<li><p>Cheap to call (no <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> overhead), expensive to create (200 gas per deployed byte)</p></li>
+<li><p>Does not have the ability to call a constructor</p></li>
+<li><p>Performs an <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> check to check there is code at <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_from_blueprint(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>Deploys a contract using the initcode stored at <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
+<li><p>Cheap to call (no <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> overhead), expensive to create (200 gas per deployed byte)</p></li>
+<li><p>Invokes constructor, requires a special “blueprint” contract to be deployed</p></li>
+<li><p>Performs an <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> check to check there is code at <code class="docutils literal notranslate"><span class="pre">target</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">raw_create(initcode:</span> <span class="pre">Bytes[...],</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>Low-level create. Takes the given initcode, along with the arguments to be abi-encoded, and deploys the initcode after concatenating the abi-encoded arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_minimal_proxy_to">
+<span class="sig-name descname"><span class="pre">create_minimal_proxy_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_minimal_proxy_to" title="Link to this definition">¶</a></dt>
+<dd><p>Deploys a small, EIP1167-compliant “minimal proxy contract” that duplicates the logic of the contract at <code class="docutils literal notranslate"><span class="pre">target</span></code>, but has its own state since every call to <code class="docutils literal notranslate"><span class="pre">target</span></code> is made using <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code>. To the end user, this should be indistinguishable from an independently deployed contract with the same code as <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Address of the contract to proxy to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the new contract address (Optional, default 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>: If <code class="docutils literal notranslate"><span class="pre">False</span></code>, instead of reverting when the create operation fails, return the zero address (Optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>: A <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> value utilized by the deterministic <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> opcode (Optional, if not supplied, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> is used)</p></li>
+</ul>
+<p>Returns the address of the newly created proxy contract. If the create operation fails (for instance, in the case of a <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> collision), execution will revert.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_minimal_proxy_to</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is very important that the deployed contract at <code class="docutils literal notranslate"><span class="pre">target</span></code> is code you know and trust, and does not implement the <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> opcode or have upgradeable code as this will affect the operation of the proxy contract.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no runtime check that there is code already deployed at <code class="docutils literal notranslate"><span class="pre">target</span></code> (since a proxy may be deployed counterfactually). Most applications may want to insert this check.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before version 0.3.4, this function was named <code class="docutils literal notranslate"><span class="pre">create_forwarder_to</span></code>.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_copy_of">
+<span class="sig-name descname"><span class="pre">create_copy_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_copy_of" title="Link to this definition">¶</a></dt>
+<dd><p>Create a physical copy of the runtime code at <code class="docutils literal notranslate"><span class="pre">target</span></code>. The code at <code class="docutils literal notranslate"><span class="pre">target</span></code> is byte-for-byte copied into a newly deployed contract.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Address of the contract to copy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the new contract address (Optional, default 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>: If <code class="docutils literal notranslate"><span class="pre">False</span></code>, instead of reverting when the create operation fails, return the zero address (Optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>: A <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> value utilized by the deterministic <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> opcode (Optional, if not supplied, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> is used)</p></li>
+</ul>
+<p>Returns the address of the created contract. If the create operation fails (for instance, in the case of a <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> collision), execution will revert. If there is no code at <code class="docutils literal notranslate"><span class="pre">target</span></code>, execution will revert.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_copy_of</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation of <code class="docutils literal notranslate"><span class="pre">create_copy_of</span></code> assumes that the code at <code class="docutils literal notranslate"><span class="pre">target</span></code> is smaller than 16MB. While this is much larger than the EIP-170 constraint of 24KB, it is a conservative size limit intended to future-proof deployer contracts in case the EIP-170 constraint is lifted. If the code at <code class="docutils literal notranslate"><span class="pre">target</span></code> is larger than 16MB, the behavior of <code class="docutils literal notranslate"><span class="pre">create_copy_of</span></code> is undefined.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_from_blueprint">
+<span class="sig-name descname"><span class="pre">create_from_blueprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_args:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code_offset:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_from_blueprint" title="Link to this definition">¶</a></dt>
+<dd><p>Copy the code of <code class="docutils literal notranslate"><span class="pre">target</span></code> into memory and execute it as initcode. In other words, this operation interprets the code at <code class="docutils literal notranslate"><span class="pre">target</span></code> not as regular runtime code, but directly as initcode. The <code class="docutils literal notranslate"><span class="pre">*args</span></code> are interpreted as constructor arguments, and are ABI-encoded and included when executing the initcode.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Address of the blueprint to invoke</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: Constructor arguments to forward to the initcode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the new contract address (Optional, default 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw_args</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">*args</span></code> must be a single <code class="docutils literal notranslate"><span class="pre">Bytes[...]</span></code> argument, which will be interpreted as a raw bytes buffer to forward to the create operation (which is useful for instance, if pre- ABI-encoded data is passed in from elsewhere). (Optional, default <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code_offset</span></code>: The offset to start the <code class="docutils literal notranslate"><span class="pre">EXTCODECOPY</span></code> from (Optional, default 3)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>: If <code class="docutils literal notranslate"><span class="pre">False</span></code>, instead of reverting when the create operation fails, return the zero address (Optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>: A <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> value utilized by the deterministic <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> opcode (Optional, if not supplied, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> is used)</p></li>
+</ul>
+<p>Returns the address of the created contract. If the create operation fails (for instance, in the case of a <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> collision), execution will revert. If <code class="docutils literal notranslate"><span class="pre">code_offset</span> <span class="pre">&gt;=</span> <span class="pre">target.codesize</span></code> (ex. if there is no code at <code class="docutils literal notranslate"><span class="pre">target</span></code>), execution will revert.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">blueprint:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">arg1:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">arg2:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;some string&quot;</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_from_blueprint</span><span class="p">(</span><span class="n">blueprint</span><span class="p">,</span><span class="w"> </span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="n">code_offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To properly deploy a blueprint contract, special deploy bytecode must be used. The output of <code class="docutils literal notranslate"><span class="pre">vyper</span> <span class="pre">-f</span> <span class="pre">blueprint_bytecode</span></code> will produce bytecode which deploys an ERC-5202 compatible blueprint.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prior to Vyper version <code class="docutils literal notranslate"><span class="pre">0.4.0</span></code>, the <code class="docutils literal notranslate"><span class="pre">code_offset</span></code> parameter defaulted to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is recommended to deploy blueprints with an <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-5202">ERC-5202</a> preamble like <code class="docutils literal notranslate"><span class="pre">0xFE7100</span></code> to guard them from being called as regular contracts. This is particularly important for factories where the constructor has side effects (including <code class="docutils literal notranslate"><span class="pre">SELFDESTRUCT</span></code>!), as those could get executed by <em>anybody</em> calling the blueprint contract directly. The <code class="docutils literal notranslate"><span class="pre">code_offset=</span></code> kwarg is provided (and defaults to the ERC-5202 default of 3) to enable this pattern:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">blueprint:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="c1"># `blueprint` is a blueprint contract with some known preamble b&quot;abcd...&quot;</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_from_blueprint</span><span class="p">(</span><span class="n">blueprint</span><span class="p">,</span><span class="w"> </span><span class="n">code_offset</span><span class="o">=&lt;</span><span class="n">preamble</span><span class="w"> </span><span class="n">length</span><span class="o">&gt;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_create">
+<span class="sig-name descname"><span class="pre">raw_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">initcode:</span> <span class="pre">Bytes[...],</span> <span class="pre">*args,</span> <span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True[,</span> <span class="pre">salt:</span> <span class="pre">bytes32]</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#raw_create" title="Link to this definition">¶</a></dt>
+<dd><p>Create a contract using the given <code class="docutils literal notranslate"><span class="pre">initcode</span></code>. Provides low-level access to the <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> and <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> opcodes.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initcode</span></code>: Initcode bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the new contract address (Optional, default 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: Constructor arguments to forward to the initcode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>: If <code class="docutils literal notranslate"><span class="pre">False</span></code>, instead of reverting when the create operation fails, return the zero address (Optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>: A <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> value utilized by the deterministic <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> opcode (Optional, if not supplied, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> is used)</p></li>
+</ul>
+<p>Returns the address of the created contract. If the create operation fails (for instance, in the case of a <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> collision), execution will revert.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="c1"># create the bytes of an empty vyper contract</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">raw_create</span><span class="p">(</span><span class="n">x</span><span class="s2">&quot;0x61000361000f6000396100036000f35f5ffd855820cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6038000a1657679706572830004020033&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_call">
+<span class="sig-name descname"><span class="pre">raw_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_outsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">gasLeft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_delegate_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_static_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="pre">max_outsize</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#raw_call" title="Link to this definition">¶</a></dt>
+<dd><p>Call to the specified Ethereum address.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: Destination address to call to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Data to send to the destination address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_outsize</span></code>: Maximum length of the bytes array returned from the call. If the returned call data exceeds this length, only this number of bytes is returned. (Optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gas</span></code>: The amount of gas to attach to the call. (Optional, defaults to <code class="docutils literal notranslate"><span class="pre">msg.gas</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the address (Optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_delegate_call</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the call will be sent as <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> (Optional, default <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_static_call</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the call will be sent as <code class="docutils literal notranslate"><span class="pre">STATICCALL</span></code> (Optional, default <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the call will revert on a failure, otherwise <code class="docutils literal notranslate"><span class="pre">success</span></code> will be returned (Optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Returns the data returned by the call as a <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> list, with <code class="docutils literal notranslate"><span class="pre">max_outsize</span></code> as the max length. The actual size of the returned data may be less than <code class="docutils literal notranslate"><span class="pre">max_outsize</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">len</span></code> to obtain the actual size.</p>
+<p>Returns nothing if <code class="docutils literal notranslate"><span class="pre">max_outsize</span></code> is omitted or set to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">success</span></code> in a tuple with return value if <code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">response:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span><span class="n">_target</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;someMethodName()&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span><span class="p">)</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="nd">@payable</span>
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">_target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">:</span>
+</span><span id="1-10"><span class="w">    </span><span class="nv">success:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+</span><span id="1-11"><span class="w">    </span><span class="nv">response:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="s2">&quot;&quot;</span>
+</span><span id="1-12"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
+</span><span id="1-13"><span class="w">    </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span>
+</span><span id="1-14"><span class="w">        </span><span class="n">_target</span><span class="p">,</span>
+</span><span id="1-15"><span class="w">        </span><span class="n">abi_encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="o">=</span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;someMethodName(uint256)&quot;</span><span class="p">)),</span>
+</span><span id="1-16"><span class="w">        </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+</span><span id="1-17"><span class="w">        </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span><span class="p">,</span>
+</span><span id="1-18"><span class="w">        </span><span class="n">revert_on_failure</span><span class="o">=</span><span class="n">False</span>
+</span><span id="1-19"><span class="w">        </span><span class="p">)</span>
+</span><span id="1-20"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">success</span>
+</span><span id="1-21"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Regarding “forwarding all gas”, note that, while Vyper will provide <code class="docutils literal notranslate"><span class="pre">msg.gas</span></code> to the call, in practice, there are some subtleties around forwarding all remaining gas on the EVM which are out of scope of this documentation and could be subject to change. For instance, see the language in EIP-150 around “all but one 64th”.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_log">
+<span class="sig-name descname"><span class="pre">raw_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes32</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#raw_log" title="Link to this definition">¶</a></dt>
+<dd><p>Provides low level access to the <code class="docutils literal notranslate"><span class="pre">LOG</span></code> opcodes, emitting a log without having to specify an ABI type.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>: List of <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> log topics. The length of this array determines which opcode is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Unindexed event data to include in the log. May be given as <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_topic:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">_data:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">raw_log</span><span class="p">([</span><span class="n">_topic</span><span class="p">],</span><span class="w"> </span><span class="n">_data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_revert">
+<span class="sig-name descname"><span class="pre">raw_revert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#raw_revert" title="Link to this definition">¶</a></dt>
+<dd><p>Provides low level access to the <code class="docutils literal notranslate"><span class="pre">REVERT</span></code> opcode, reverting execution with the specified data returned.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: Data representing the error message causing the revert.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_data:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">raw_revert</span><span class="p">(</span><span class="n">_data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="selfdestruct">
+<span class="sig-name descname"><span class="pre">selfdestruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#selfdestruct" title="Link to this definition">¶</a></dt>
+<dd><p>Trigger the <code class="docutils literal notranslate"><span class="pre">SELFDESTRUCT</span></code> opcode (<code class="docutils literal notranslate"><span class="pre">0xFF</span></code>), causing the contract to be destroyed.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: Address to forward the contract’s ether balance to</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of the Cancun hardfork (EIP-6780), this opcode no longer deletes contract code unless called in the same transaction as contract creation. It only transfers the contract’s ETH balance to the specified address.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function has been deprecated from version 0.3.8 onwards. The underlying opcode will eventually undergo breaking changes, and its use is not recommended.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">do_the_needful</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">selfdestruct</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#send" title="Link to this definition">¶</a></dt>
+<dd><p>Send ether from the contract to the specified Ethereum address.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: The destination address to send ether to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The wei value to send to the address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gas</span></code>: The amount of gas (the “stipend”) to attach to the call. If not set, the stipend defaults to 0.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The amount to send is always specified in <code class="docutils literal notranslate"><span class="pre">wei</span></code>.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_receiver:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">_amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">gas:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">send</span><span class="p">(</span><span class="n">_receiver</span><span class="p">,</span><span class="w"> </span><span class="n">_amount</span><span class="p">,</span><span class="w"> </span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="cryptography">
+<h2>Cryptography<a class="headerlink" href="#cryptography" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ecadd">
+<span class="sig-name descname"><span class="pre">ecadd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ecadd" title="Link to this definition">¶</a></dt>
+<dd><p>Take two points on the Alt-BN128 curve and add them together.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecadd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">])</span>
+</span><span id="1-2"><span class="p">[</span>
+</span><span id="1-3"><span class="w">    </span><span class="mi">1368015179489954701390400359078579693043519447331113978918064868415326638035</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">    </span><span class="mi">9918110051302171585080402603319702774565515993150576347155970296011118125764</span><span class="p">,</span>
+</span><span id="1-5"><span class="p">]</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ecmul">
+<span class="sig-name descname"><span class="pre">ecmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ecmul" title="Link to this definition">¶</a></dt>
+<dd><p>Take a point on the Alt-BN128 curve (<code class="docutils literal notranslate"><span class="pre">p</span></code>) and a scalar value (<code class="docutils literal notranslate"><span class="pre">s</span></code>), and return the result of adding the point to itself <code class="docutils literal notranslate"><span class="pre">s</span></code> times, i.e. <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">*</span> <span class="pre">s</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">point</span></code>: Point to be multiplied</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code>: Scalar value</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">point:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">scalar:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecmul</span><span class="p">(</span><span class="n">point</span><span class="p">,</span><span class="w"> </span><span class="n">scalar</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="p">[</span>
+</span><span id="1-3"><span class="w">    </span><span class="mi">3353031288059533942658390886683067124040920775575537747144343083137631628272</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">    </span><span class="mi">19321533766552368860946552437480515441416830039777911637913418824951667761761</span><span class="p">,</span>
+</span><span id="1-5"><span class="p">]</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ecrecover">
+<span class="sig-name descname"><span class="pre">ecrecover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">uint8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#ecrecover" title="Link to this definition">¶</a></dt>
+<dd><p>Recover the address associated with the public key from the given elliptic curve signature.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>: first 32 bytes of signature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: second 32 bytes of signature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code>: final 1 byte of signature</p></li>
+</ul>
+<p>Returns the associated address, or <code class="docutils literal notranslate"><span class="pre">empty(address)</span></code> on error.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prior to Vyper <code class="docutils literal notranslate"><span class="pre">0.3.10</span></code>, the <code class="docutils literal notranslate"><span class="pre">ecrecover</span></code> function could return an undefined (possibly nonzero) value for invalid inputs to <code class="docutils literal notranslate"><span class="pre">ecrecover</span></code>. For more information, please see <a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories/GHSA-f5x6-7qgp-jhf3">GHSA-f5x6-7qgp-jhf3</a>.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">hash:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">v:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">r:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">s:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecrecover</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code> can be passed as <code class="docutils literal notranslate"><span class="pre">uint256</span></code>:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">hash:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">v:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">r:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">s:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecrecover</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="s1">&#39;0x6c9c5e133b8aafb2ea74f524a5263495e7ae5701c7248805f7b511d973dc7055&#39;</span><span class="p">,</span>
+</span><span id="1-2"><span class="w">     </span><span class="mi">28</span><span class="p">,</span>
+</span><span id="1-3"><span class="w">     </span><span class="mi">78616903610408968922803823221221116251138855211764625814919875002740131251724</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">     </span><span class="mi">37668412420813231458864536126575229553064045345107737433087067088194345044408</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">)</span>
+</span><span id="1-6"><span class="s1">&#39;0x9eE53ad38Bb67d745223a4257D7d48cE973FeB7A&#39;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="keccak256">
+<span class="sig-name descname"><span class="pre">keccak256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#keccak256" title="Link to this definition">¶</a></dt>
+<dd><p>Return a <code class="docutils literal notranslate"><span class="pre">keccak256</span></code> hash of the given value.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>: Value to hash. Can be a <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, or <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_value:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="n">b</span><span class="s2">&quot;potato&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0x9e159dfcfe557cc1ca6c716e87af98fdcb94cd8c832386d0429b2b7bec02754f</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sha256">
+<span class="sig-name descname"><span class="pre">sha256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#sha256" title="Link to this definition">¶</a></dt>
+<dd><p>Return a <code class="docutils literal notranslate"><span class="pre">sha256</span></code> (SHA2 256-bit output) hash of the given value.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>: Value to hash. Can be a <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, or <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_value:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">sha256</span><span class="p">(</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="n">b</span><span class="s2">&quot;potato&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0xe91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="data-manipulation">
+<h2>Data Manipulation<a class="headerlink" href="#data-manipulation" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="concat">
+<span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></span><a class="headerlink" href="#concat" title="Link to this definition">¶</a></dt>
+<dd><p>Take 2 or more bytes arrays of type <code class="docutils literal notranslate"><span class="pre">bytesM</span></code>, <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code> and combine them into a single value.</p>
+<p>If the input arguments are <code class="docutils literal notranslate"><span class="pre">String</span></code> the return type is <code class="docutils literal notranslate"><span class="pre">String</span></code>.  Otherwise the return type is <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">100</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">concat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;why&quot;</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="s2">&quot;there&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;why hello there!&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#convert" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a variable or literal from one type to another.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Value to convert</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_</span></code>: The destination type to convert to (e.g., <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, <code class="docutils literal notranslate"><span class="pre">int128</span></code>, <code class="docutils literal notranslate"><span class="pre">uint256</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>)</p></li>
+</ul>
+<p>Returns a value of the type specified by <code class="docutils literal notranslate"><span class="pre">type_</span></code>.</p>
+<p>For more details on available type conversions, see <a class="reference internal" href="types.html#type-conversions"><span class="std std-ref">Type Conversions</span></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint2str">
+<span class="sig-name descname"><span class="pre">uint2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">unsigned</span> <span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">String</span></span></span><a class="headerlink" href="#uint2str" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an unsigned integer’s string representation.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Unsigned integer to convert.</p></li>
+</ul>
+<p>Returns the string representation of <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">78</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint2str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">420</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;420&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="extract32">
+<span class="sig-name descname"><span class="pre">extract32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#extract32" title="Link to this definition">¶</a></dt>
+<dd><p>Extract a value from a <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> list.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> list to extract from</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: Start point to extract from</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>: Type of output (<code class="docutils literal notranslate"><span class="pre">bytesM</span></code>, <code class="docutils literal notranslate"><span class="pre">integer</span></code>, or <code class="docutils literal notranslate"><span class="pre">address</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>.</p></li>
+</ul>
+<p>Returns a value of the type specified by <code class="docutils literal notranslate"><span class="pre">output_type</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">b:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">extract32</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">output_type</span><span class="o">=</span><span class="kt">address</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;0x0000000000000000000000009f8F72aA9304c8B593d555F12eF6589cC3A579A2&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="slice">
+<span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></span><a class="headerlink" href="#slice" title="Link to this definition">¶</a></dt>
+<dd><p>Copy a list of bytes and return a specified slice.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: value being sliced</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: start position of the slice</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: length of the slice</p></li>
+</ul>
+<p>If the value being sliced is a <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>, the return type is <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>.  If it is a <code class="docutils literal notranslate"><span class="pre">String</span></code>, the return type is <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">slice</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;why hello! how are you?&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;hello&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="math">
+<h2>Math<a class="headerlink" href="#math" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="abs">
+<span class="sig-name descname"><span class="pre">abs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#abs" title="Link to this definition">¶</a></dt>
+<dd><p>Return the absolute value of a signed integer.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Integer to return the absolute value of</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">value:</span><span class="w"> </span><span class="kt">int256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="o">-</span><span class="mi">31337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">31337</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ceil">
+<span class="sig-name descname"><span class="pre">ceil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#ceil" title="Link to this definition">¶</a></dt>
+<dd><p>Round a decimal up to the nearest integer.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Decimal value to round up</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">4</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#epsilon" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the smallest non-zero value for a decimal type.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typename</span></code>: Name of the decimal type (currently only <code class="docutils literal notranslate"><span class="pre">decimal</span></code>)</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">decimal</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">epsilon</span><span class="p">(</span><span class="kt">decimal</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1E-10&#39;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floor">
+<span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#floor" title="Link to this definition">¶</a></dt>
+<dd><p>Round a decimal down to the nearest integer.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: Decimal value to round down</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">3</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#max" title="Link to this definition">¶</a></dt>
+<dd><p>Return the greater value of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. The input values may be any numeric type as long as they are both of the same type.  The output value is of the same type as the input values.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">42</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="max_value">
+<span class="sig-name descname"><span class="pre">max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#max_value" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the maximum value of the numeric type specified by <code class="docutils literal notranslate"><span class="pre">type_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">int128</span></code>, <code class="docutils literal notranslate"><span class="pre">uint256</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>).</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">max_value</span><span class="p">(</span><span class="kt">int256</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mi">57896044618658097711785492504343953926634992332820282019728792003956564819967</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#min" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the lesser value of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. The input values may be any numeric type as long as they are both of the same type.  The output value is of the same type as the input values.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">23</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="min_value">
+<span class="sig-name descname"><span class="pre">min_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#min_value" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the minimum value of the numeric type specified by <code class="docutils literal notranslate"><span class="pre">type_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">int128</span></code>, <code class="docutils literal notranslate"><span class="pre">uint256</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>).</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">min_value</span><span class="p">(</span><span class="kt">int256</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="o">-</span><span class="mi">57896044618658097711785492504343953926634992332820282019728792003956564819968</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pow_mod256">
+<span class="sig-name descname"><span class="pre">pow_mod256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#pow_mod256" title="Link to this definition">¶</a></dt>
+<dd><p>Return the result of <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">b</span> <span class="pre">%</span> <span class="pre">(2</span> <span class="pre">**</span> <span class="pre">256)</span></code>.</p>
+<p>This method is used to perform exponentiation without overflow checks.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">pow_mod256</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">8</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">59041770658110225754900818312084884949620587934026984283048776718299468660736</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sqrt">
+<span class="sig-name descname"><span class="pre">sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">decimal</span></span></span><a class="headerlink" href="#sqrt" title="Link to this definition">¶</a></dt>
+<dd><p>Return the square root of the provided decimal number, using the Babylonian square root algorithm. The rounding mode is to round down to the nearest epsilon. For instance, <code class="docutils literal notranslate"><span class="pre">sqrt(0.9999999998)</span> <span class="pre">==</span> <span class="pre">0.9999999998</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">d:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">decimal</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="isqrt">
+<span class="sig-name descname"><span class="pre">isqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#isqrt" title="Link to this definition">¶</a></dt>
+<dd><p>Return the (integer) square root of the provided integer number, using the Babylonian square root algorithm. The rounding mode is to round down to the nearest integer. For instance, <code class="docutils literal notranslate"><span class="pre">isqrt(101)</span> <span class="pre">==</span> <span class="pre">10</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">isqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">10</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint256_addmod">
+<span class="sig-name descname"><span class="pre">uint256_addmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#uint256_addmod" title="Link to this definition">¶</a></dt>
+<dd><p>Return the modulo of <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">%</span> <span class="pre">c</span></code>. Reverts if <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">==</span> <span class="pre">0</span></code>. As this built-in function is intended to provides access to the underlying <code class="docutils literal notranslate"><span class="pre">ADDMOD</span></code> opcode, all intermediate calculations of this operation are not subject to the <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">256</span></code> modulo according to the EVM specifications.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint256_addmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span>
+</span><span id="1-2"><span class="mi">3</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">3</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint256_mulmod">
+<span class="sig-name descname"><span class="pre">uint256_mulmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#uint256_mulmod" title="Link to this definition">¶</a></dt>
+<dd><p>Return the modulo from <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">*</span> <span class="pre">b)</span> <span class="pre">%</span> <span class="pre">c</span></code>. Reverts if <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">==</span> <span class="pre">0</span></code>. As this built-in function is intended to provides access to the underlying <code class="docutils literal notranslate"><span class="pre">MULMOD</span></code> opcode, all intermediate calculations of this operation are not subject to the <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">256</span></code> modulo according to the EVM specifications.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint256_mulmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="1-2"><span class="mi">2</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">2</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_add">
+<span class="sig-name descname"><span class="pre">unsafe_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_add" title="Link to this definition">¶</a></dt>
+<dd><p>Add <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, without checking for overflow. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be integers of the same type. If the result exceeds the bounds of the input type, it will be wrapped.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">2</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">254</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">)</span>
+</span><span id="1-8"><span class="o">-</span><span class="mi">2</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Performance note: for the native word types of the EVM <code class="docutils literal notranslate"><span class="pre">uint256</span></code> and <code class="docutils literal notranslate"><span class="pre">int256</span></code>, this will compile to a single <code class="docutils literal notranslate"><span class="pre">ADD</span></code> instruction, since the EVM natively wraps addition on 256-bit words.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_sub">
+<span class="sig-name descname"><span class="pre">unsafe_sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_sub" title="Link to this definition">¶</a></dt>
+<dd><p>Subtract <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, without checking for overflow. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be integers of the same type. If the result underflows the bounds of the input type, it will be wrapped.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">255</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-8"><span class="mi">127</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Performance note: for the native word types of the EVM <code class="docutils literal notranslate"><span class="pre">uint256</span></code> and <code class="docutils literal notranslate"><span class="pre">int256</span></code>, this will compile to a single <code class="docutils literal notranslate"><span class="pre">SUB</span></code> instruction, since the EVM natively wraps subtraction on 256-bit words.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_mul">
+<span class="sig-name descname"><span class="pre">unsafe_mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_mul" title="Link to this definition">¶</a></dt>
+<dd><p>Multiply <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, without checking for overflow. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be integers of the same type. If the result exceeds the bounds of the input type, it will be wrapped.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">1</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">128</span><span class="p">)</span>
+</span><span id="1-8"><span class="mi">0</span>
+</span><span id="1-9">
+</span><span id="1-10"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">128</span><span class="p">)</span>
+</span><span id="1-11"><span class="o">-</span><span class="mi">128</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Performance note: for the native word types of the EVM <code class="docutils literal notranslate"><span class="pre">uint256</span></code> and <code class="docutils literal notranslate"><span class="pre">int256</span></code>, this will compile to a single <code class="docutils literal notranslate"><span class="pre">MUL</span></code> instruction, since the EVM natively wraps multiplication on 256-bit words.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_div">
+<span class="sig-name descname"><span class="pre">unsafe_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_div" title="Link to this definition">¶</a></dt>
+<dd><p>Divide <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, without checking for division-by-zero. <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> must both be integers of the same type. If the denominator is zero, the result will (following EVM semantics) be zero.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">0</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-8"><span class="o">-</span><span class="mi">128</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Performance note: this will compile to a single <code class="docutils literal notranslate"><span class="pre">SDIV</span></code> or <code class="docutils literal notranslate"><span class="pre">DIV</span></code> instruction, depending on if the inputs are signed or unsigned (respectively).</p>
+</div>
+</section>
+<section id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="as_wei_value">
+<span class="sig-name descname"><span class="pre">as_wei_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#as_wei_value" title="Link to this definition">¶</a></dt>
+<dd><p>Take an amount of ether currency specified by a number and a unit and return the integer quantity of wei equivalent to that amount.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>: Value for the ether unit. Any numeric type may be used, however, the value cannot be negative.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: Ether unit name (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;wei&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ether&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gwei&quot;</span></code>, etc.) indicating the denomination of <code class="docutils literal notranslate"><span class="pre">_value</span></code>. Must be given as a literal string.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">as_wei_value</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">337</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ether&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1337000000000000000</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">as_wei_value</span></code> is given some <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, the result might be rounded down to the nearest integer, for example, the following is true: <code class="docutils literal notranslate"><span class="pre">as_wei_value(12.2,</span> <span class="pre">&quot;wei&quot;)</span> <span class="pre">==</span> <span class="pre">12</span></code>.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockhash">
+<span class="sig-name descname"><span class="pre">blockhash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#blockhash" title="Link to this definition">¶</a></dt>
+<dd><p>Return the hash of the block at the specified height.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The EVM only provides access to the most recent 256 blocks. This function reverts if the block number is greater than or equal to the current block number or more than 256 blocks behind the current block.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">blockhash</span><span class="p">(</span><span class="bp">block.number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mh">0xf3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhash">
+<span class="sig-name descname"><span class="pre">blobhash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#blobhash" title="Link to this definition">¶</a></dt>
+<dd><p>Return the versioned hash of the <code class="docutils literal notranslate"><span class="pre">index</span></code>-th BLOB associated with the current transaction.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A versioned hash consists of a single byte representing the version (currently <code class="docutils literal notranslate"><span class="pre">0x01</span></code>), followed by the last 31 bytes of the <code class="docutils literal notranslate"><span class="pre">SHA256</span></code> hash of the KZG commitment (<a class="reference external" href="https://eips.ethereum.org/EIPS/eip-4844">EIP-4844</a>). For the case <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">&gt;=</span> <span class="pre">len(tx.blob_versioned_hashes)</span></code>, <code class="docutils literal notranslate"><span class="pre">blobhash(index:</span> <span class="pre">uint256)</span></code> returns <code class="docutils literal notranslate"><span class="pre">empty(bytes32)</span></code>.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">index:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">blobhash</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0xfd28610fb309939bfec12b6db7c4525446f596a5a5a66b8e2cb510b45b2bbeb5</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span><span id="1-5"><span class="mh">0x0000000000000000000000000000000000000000000000000000000000000000</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#empty" title="Link to this definition">¶</a></dt>
+<dd><p>Return a value which is the default (zero-ed) value of its type. Useful for initializing new memory variables.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typename</span></code>: Name of the type, except <code class="docutils literal notranslate"><span class="pre">HashMap[_KeyType,</span> <span class="pre">_ValueType]</span></code></p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">])</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="len">
+<span class="sig-name descname"><span class="pre">len</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DynArray</span><span class="p"><span class="pre">[</span></span><span class="pre">_Type</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_Integer</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#len" title="Link to this definition">¶</a></dt>
+<dd><p>Return the length of a given <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">DynArray[_Type,</span> <span class="pre">_Integer]</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">5</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="method_id">
+<span class="sig-name descname"><span class="pre">method_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(in Python v3.11)"><span class="pre">type</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Bytes[4]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes4</span></span></span><a class="headerlink" href="#method_id" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a function declaration and returns its method_id (used in data field to call it).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: Method declaration as given as a literal string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>: The type of output (<code class="docutils literal notranslate"><span class="pre">Bytes[4]</span></code> or <code class="docutils literal notranslate"><span class="pre">bytes4</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">Bytes[4]</span></code>.</p></li>
+</ul>
+<p>Returns a value of the type specified by <code class="docutils literal notranslate"><span class="pre">output_type</span></code>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[4]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">method_id</span><span class="p">(</span><span class="s1">&#39;transfer(address,uint256)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">output_type</span><span class="o">=</span><span class="kt">Bytes[4]</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mh">0xa9059cbb</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abi_encode">
+<span class="sig-name descname"><span class="pre">abi_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_tuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes[&lt;depends</span> <span class="pre">on</span> <span class="pre">input&gt;]</span></span></span><a class="headerlink" href="#abi_encode" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a variable number of args as input, and returns the ABIv2-encoded bytestring. Used for packing arguments to raw_call, EIP712 and other cases where a consistent and efficient serialization method is needed.
+Once this function has seen more use we provisionally plan to put it into the <code class="docutils literal notranslate"><span class="pre">ethereum.abi</span></code> namespace.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>: Arbitrary arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ensure_tuple</span></code>: If set to True, ensures that even a single argument is encoded as a tuple. In other words, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> gets encoded as <code class="docutils literal notranslate"><span class="pre">(bytes,)</span></code>, and <code class="docutils literal notranslate"><span class="pre">(bytes,)</span></code> gets encoded as <code class="docutils literal notranslate"><span class="pre">((bytes,),)</span></code> This is the calling convention for Vyper and Solidity functions. Except for very specific use cases, this should be set to True. Must be a literal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_id</span></code>: A literal hex or Bytes[4] value to append to the beginning of the abi-encoded bytestring.</p></li>
+</ul>
+<p>Returns a bytestring whose max length is determined by the arguments. For example, encoding a <code class="docutils literal notranslate"><span class="pre">Bytes[32]</span></code> results in a <code class="docutils literal notranslate"><span class="pre">Bytes[64]</span></code> (first word is the length of the bytestring variable).</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[132]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">y:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="s2">&quot;234&quot;</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">abi_encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="o">=</span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;foo()&quot;</span><span class="p">))</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">().</span><span class="n">hex</span><span class="p">()</span>
+</span><span id="1-2"><span class="s2">&quot;c2985578&quot;</span>
+</span><span id="1-3"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000001&quot;</span>
+</span><span id="1-4"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000040&quot;</span>
+</span><span id="1-5"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000003&quot;</span>
+</span><span id="1-6"><span class="s2">&quot;3233340000000000000000000000000000000000000000000000000000000000&quot;</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prior to v0.4.0, this function was named <code class="docutils literal notranslate"><span class="pre">_abi_encode</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abi_decode">
+<span class="sig-name descname"><span class="pre">abi_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unwrap_tuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#abi_decode" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a byte array as input, and returns the decoded values according to the specified output types. Used for unpacking ABIv2-encoded values.
+Once this function has seen more use we provisionally plan to put it into the <code class="docutils literal notranslate"><span class="pre">ethereum.abi</span></code> namespace.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>: A byte array of a length that is between the minimum and maximum ABIv2 size bounds of the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">type</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>: Name of the output type, or tuple of output types, to be decoded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unwrap_tuple</span></code>: If set to True, the input is decoded as a tuple even if only one output type is specified. In other words, <code class="docutils literal notranslate"><span class="pre">abi_decode(b,</span> <span class="pre">Bytes[32])</span></code> gets decoded as <code class="docutils literal notranslate"><span class="pre">(Bytes[32],)</span></code>. This is the convention for ABIv2-encoded values generated by Vyper and Solidity functions. Except for very specific use cases, this should be set to True. Must be a literal.</p></li>
+</ul>
+<p>Returns the decoded value(s), with type as specified by <cite>output_type</cite>.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">someInput:</span><span class="w"> </span><span class="kt">Bytes[128]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">):</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">y:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">Bytes[32]</span><span class="p">)</span>
+</span><span id="1-6"><span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">abi_decode</span><span class="p">(</span><span class="n">someInput</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">))</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prior to v0.4.0, this function was named <code class="docutils literal notranslate"><span class="pre">_abi_decode</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hardhat_compat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#print" title="Link to this definition">¶</a></dt>
+<dd><p>“prints” the arguments by issuing a static call to the “console” address, <code class="docutils literal notranslate"><span class="pre">0x000000000000000000636F6E736F6C652E6C6F67</span></code>. This is supported by some smart contract development frameworks.</p>
+<p>The default mode works natively with titanoboa. For hardhat-style frameworks, use <code class="docutils literal notranslate"><span class="pre">hardhat_compat=True)</span></code>.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Issuing of the static call is <em>NOT</em> mode-dependent (that is, it is not removed from production code), although the compiler will issue a warning whenever <code class="docutils literal notranslate"><span class="pre">print</span></code> is used.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In Vyper, as of v0.4.0, the order of argument evaluation of builtins is not defined. That means that the compiler may choose to reorder evaluation of arguments. For example, <code class="docutils literal notranslate"><span class="pre">extract32(x(),</span> <span class="pre">y())</span></code> may yield unexpected results if <code class="docutils literal notranslate"><span class="pre">x()</span></code> and <code class="docutils literal notranslate"><span class="pre">y()</span></code> both touch the same data. For this reason, it is best to avoid calling functions with side-effects inside of builtins. For more information, see <a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories/GHSA-g2xh-c426-v8mf">GHSA-g2xh-c426-v8mf</a> and <a class="reference external" href="https://github.com/vyperlang/vyper/issues/4019">issue #4019</a>.</p>
+</div>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="scoping-and-declarations.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>Previous</span>
+        
+        <div class="title">Scoping and Declarations</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="using-modules.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Modules</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=ccd1e645"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

@@ -1,0 +1,423 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>NatSpec Metadata - Vyper 文档</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="Compiling a Contract" href="compiling-a-contract.html" /><link rel="prev" title="Event Logging" href="event-logging.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/natspec.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/natspec.html"/>
+<meta property="og:title" content="NatSpec Metadata"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#tags">Tags</a></li>
+<li><a class="reference internal" href="#documentation-output">Documentation Output</a><ul>
+<li><a class="reference internal" href="#user-documentation">User Documentation</a></li>
+<li><a class="reference internal" href="#developer-documentation">Developer Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/natspec.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">NatSpec Metadata</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="natspec-metadata">
+<span id="natspec"></span><h1>NatSpec Metadata<a class="headerlink" href="#natspec-metadata" title="Link to this heading">¶</a></h1>
+<p>Vyper contracts can use a special form of docstring to provide rich documentation for functions, return variables and more. This special form is named the Ethereum Natural Language Specification Format (NatSpec).</p>
+<p>This documentation is segmented into developer-focused messages and end-user-facing messages. These messages may be shown to the end user (the human) at the time that they will interact with the contract (i.e. sign a transaction).</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>Vyper supports structured documentation for contracts and external functions using the doxygen notation format.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The compiler does not parse docstrings of internal functions. You are welcome to NatSpec in comments for internal functions, however they are not processed or included in the compiler output.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-2"><span class="cm">@title A simulator for Bug Bunny, the most famous Rabbit</span>
+</span><span id="1-3"><span class="cm">@license MIT</span>
+</span><span id="1-4"><span class="cm">@author Warned Bros</span>
+</span><span id="1-5"><span class="cm">@notice You can use this contract for only the most basic simulation</span>
+</span><span id="1-6"><span class="cm">@dev</span>
+</span><span id="1-7"><span class="cm">    Simply chewing a carrot does not count, carrots must pass</span>
+</span><span id="1-8"><span class="cm">    the throat to be considered eaten</span>
+</span><span id="1-9"><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="nd">@external</span>
+</span><span id="1-12"><span class="nd">@payable</span>
+</span><span id="1-13"><span class="k">def</span><span class="w"> </span><span class="nf">doesEat</span><span class="p">(</span><span class="nv">food:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span><span class="w"> </span><span class="nv">qty:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-14"><span class="w">    </span><span class="cm">&quot;&quot;&quot;</span>
+</span><span id="1-15"><span class="cm">    @notice Determine if Bugs will accept `qty` of `food` to eat</span>
+</span><span id="1-16"><span class="cm">    @dev Compares the entire string and does not rely on a hash</span>
+</span><span id="1-17"><span class="cm">    @param food The name of a food to evaluate (in English)</span>
+</span><span id="1-18"><span class="cm">    @param qty The number of food items to evaluate</span>
+</span><span id="1-19"><span class="cm">    @return True if Bugs will eat it, False otherwise</span>
+</span><span id="1-20"><span class="cm">    &quot;&quot;&quot;</span>
+</span></pre></div>
+</div>
+</section>
+<section id="tags">
+<h2>Tags<a class="headerlink" href="#tags" title="Link to this heading">¶</a></h2>
+<p>All tags are optional. The following table explains the purpose of each NatSpec tag and where it may be used:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Context</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;title</span></code></p></td>
+<td><p>Title that describes the contract</p></td>
+<td><p>contract</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;license</span></code></p></td>
+<td><p>License of the contract</p></td>
+<td><p>contract</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;author</span></code></p></td>
+<td><p>Name of the author</p></td>
+<td><p>contract, function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;notice</span></code></p></td>
+<td><p>Explain to an end user what this does</p></td>
+<td><p>contract, function</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;dev</span></code></p></td>
+<td><p>Explain to a developer any extra details</p></td>
+<td><p>contract, function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;param</span></code></p></td>
+<td><p>Documents a single parameter</p></td>
+<td><p>function</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;return</span></code></p></td>
+<td><p>Documents one or all return variable(s)</p></td>
+<td><p>function</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;custom:...</span></code></p></td>
+<td><p>Custom tag, semantics is application-defined</p></td>
+<td><p>contract, function</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some rules / restrictions:</p>
+<ol class="arabic simple">
+<li><p>A single tag description may span multiple lines. All whitespace between lines is interpreted as a single space.</p></li>
+<li><p>If a docstring is included with no NatSpec tags, it is interpreted as a <code class="docutils literal notranslate"><span class="pre">&#64;notice</span></code>.</p></li>
+<li><p>Each use of <code class="docutils literal notranslate"><span class="pre">&#64;param</span></code> must be followed by the name of an input argument. Including invalid or duplicate argument names raises a <a class="reference internal" href="compiler-exceptions.html#NatSpecSyntaxException" title="NatSpecSyntaxException"><code class="xref py py-func docutils literal notranslate"><span class="pre">NatSpecSyntaxException</span></code></a>.</p></li>
+<li><p>The preferred use of <code class="docutils literal notranslate"><span class="pre">&#64;return</span></code> is one entry for each output value, however you may also use it once for all outputs. Including more <code class="docutils literal notranslate"><span class="pre">&#64;return</span></code> values than output values raises a <a class="reference internal" href="compiler-exceptions.html#NatSpecSyntaxException" title="NatSpecSyntaxException"><code class="xref py py-func docutils literal notranslate"><span class="pre">NatSpecSyntaxException</span></code></a>.</p></li>
+</ol>
+</section>
+<section id="documentation-output">
+<h2>Documentation Output<a class="headerlink" href="#documentation-output" title="Link to this heading">¶</a></h2>
+<p>When parsed by the compiler, documentation such as the one from the above example will produce two different JSON outputs. One is meant to be consumed by the end user as a notice when a function is executed and the other to be used by the developer.</p>
+<p>If the above contract is saved as <code class="docutils literal notranslate"><span class="pre">carrots.vy</span></code> then you can generate the documentation using:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span id="1-1">$<span class="w"> </span>vyper<span class="w"> </span>-f<span class="w"> </span>userdoc,devdoc<span class="w"> </span>carrots.vy
+</span></pre></div>
+</div>
+<section id="user-documentation">
+<h3>User Documentation<a class="headerlink" href="#user-documentation" title="Link to this heading">¶</a></h3>
+<p>The above documentation will produce the following user documentation JSON as output:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="p">{</span>
+</span><span id="1-2"><span class="w">  </span><span class="nt">&quot;methods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-3"><span class="w">    </span><span class="nt">&quot;doesEat(string,uint256)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-4"><span class="w">      </span><span class="nt">&quot;notice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Determine if Bugs will accept `qty` of `food` to eat&quot;</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="1-6"><span class="w">  </span><span class="p">},</span>
+</span><span id="1-7"><span class="w">  </span><span class="nt">&quot;notice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You can use this contract for only the most basic simulation&quot;</span>
+</span><span id="1-8"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Note that the key by which to find the methods is the function’s
+canonical signature as defined in the contract ABI, not simply the function’s
+name.</p>
+</section>
+<section id="developer-documentation">
+<h3>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Link to this heading">¶</a></h3>
+<p>Apart from the user documentation file, a developer documentation JSON
+file should also be produced and should look like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="p">{</span>
+</span><span id="1-2"><span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warned Bros&quot;</span><span class="p">,</span>
+</span><span id="1-3"><span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Simply chewing a carrot does not count, carrots must pass the throat to be considered eaten&quot;</span><span class="p">,</span>
+</span><span id="1-5"><span class="w">  </span><span class="nt">&quot;methods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-6"><span class="w">    </span><span class="nt">&quot;doesEat(string,uint256)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-7"><span class="w">      </span><span class="nt">&quot;details&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compares the entire string and does not rely on a hash&quot;</span><span class="p">,</span>
+</span><span id="1-8"><span class="w">      </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-9"><span class="w">        </span><span class="nt">&quot;food&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The name of a food to evaluate (in English)&quot;</span><span class="p">,</span>
+</span><span id="1-10"><span class="w">        </span><span class="nt">&quot;qty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The number of food items to evaluate&quot;</span>
+</span><span id="1-11"><span class="w">      </span><span class="p">},</span>
+</span><span id="1-12"><span class="w">      </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-13"><span class="w">        </span><span class="nt">&quot;_0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;True if Bugs will eat it, False otherwise&quot;</span>
+</span><span id="1-14"><span class="w">      </span><span class="p">}</span>
+</span><span id="1-15"><span class="w">    </span><span class="p">}</span>
+</span><span id="1-16"><span class="w">  </span><span class="p">},</span>
+</span><span id="1-17"><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A simulator for Bug Bunny, the most famous Rabbit&quot;</span>
+</span><span id="1-18"><span class="p">}</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="event-logging.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Event Logging</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="compiling-a-contract.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Compiling a Contract</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=7d86a446"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
