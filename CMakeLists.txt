@@ -112,6 +112,9 @@ set(BASEURL_HREF "file://${PROJECT_SOURCE_DIR}/out/$CACHE{SPHINX_BUILDER}"
 set(VERSION_OF_PYTHON "[default]"
     CACHE STRING "The version of Python to install.")
 
+set(VERSION_OF_UV "[default]"
+    CACHE STRING "The version of Uv to install.")
+
 #[============================================================[
 # Directory-Related Variables.
 #]============================================================]
@@ -268,12 +271,15 @@ endif()
 
 if     (VERSION MATCHES "^(latest)$")
     set(VERSION_OF_PYTHON   "3.11")
+    set(VERSION_OF_UV       "")
 elseif (VERSION MATCHES "^(stable)$")
     set(VERSION_OF_PYTHON   "3.11")
+    set(VERSION_OF_UV       "[none]")
 elseif (VERSION MATCHES "^([0-9]+)$")
     if     (VERSION VERSION_LESS_EQUAL    "0" AND
             VERSION VERSION_GREATER_EQUAL "0")
         set(VERSION_OF_PYTHON   "3.11")
+        set(VERSION_OF_UV       "[none]")
     else()
         message(FATAL_ERROR "Invalid VERSION value. (${VERSION})")
     endif()
@@ -282,6 +288,9 @@ else()
 endif()
 if (NOT "$CACHE{VERSION_OF_PYTHON}" STREQUAL "[default]")
     set(VERSION_OF_PYTHON "$CACHE{VERSION_OF_PYTHON}")
+endif()
+if (NOT "$CACHE{VERSION_OF_UV}" STREQUAL "[default]")
+    set(VERSION_OF_UV "$CACHE{VERSION_OF_UV}")
 endif()
 
 #[============================================================[
@@ -386,6 +395,7 @@ message(STATUS "REMOTE_URL_OF_L10N              = ${REMOTE_URL_OF_L10N}")
 message(STATUS "REMOTE_URL_OF_DOCS              = ${REMOTE_URL_OF_DOCS}")
 message(STATUS "BASEURL_HREF                    = ${BASEURL_HREF}")
 message(STATUS "VERSION_OF_PYTHON               = ${VERSION_OF_PYTHON} (CACHE: $CACHE{VERSION_OF_PYTHON})")
+message(STATUS "VERSION_OF_UV                   = ${VERSION_OF_UV} (CACHE: $CACHE{VERSION_OF_UV})")
 message(STATUS "---------- Directory-Related Variables ----------")
 message(STATUS "PROJ_SOURCE_DIR                 = ${PROJ_SOURCE_DIR}")
 message(STATUS "PROJ_BINARY_DIR                 = ${PROJ_BINARY_DIR}")
@@ -485,6 +495,7 @@ set(SCRIPT_MODE_CACHE
     -D REMOTE_URL_OF_DOCS=${REMOTE_URL_OF_DOCS}
     -D BASEURL_HREF=${BASEURL_HREF}
     -D VERSION_OF_PYTHON=${VERSION_OF_PYTHON}
+    -D VERSION_OF_UV=${VERSION_OF_UV}
     # [Directory-Related Variables]
     -D PROJ_SOURCE_DIR=${PROJ_SOURCE_DIR}
     -D PROJ_BINARY_DIR=${PROJ_BINARY_DIR}
