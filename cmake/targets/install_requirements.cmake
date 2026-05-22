@@ -233,6 +233,18 @@ message("")
 restore_cmake_message_indent()
 
 
+message(STATUS "Running 'python -m ensurepip' command to bootstrap the 'pip' installer...")
+remove_cmake_message_indent()
+message("")
+execute_process(
+    COMMAND ${Python_EXECUTABLE} -m ensurepip --default-pip
+    WORKING_DIRECTORY ${PROJ_OUT_REPO_DIR}
+    ECHO_OUTPUT_VARIABLE
+    ECHO_ERROR_VARIABLE)
+message("")
+restore_cmake_message_indent()
+
+
 if     (VERSION MATCHES "^(latest)$")
     find_package(Uv MODULE REQUIRED)
 
