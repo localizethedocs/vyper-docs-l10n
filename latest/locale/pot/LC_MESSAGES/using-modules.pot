@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-05-22 03:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,11 +152,11 @@ msgid ""
 "    self.an_ownable.transfer_ownership(...)"
 msgstr ""
 
-#: ../../../using-modules.rst:81
+#: ../../../using-modules.rst:83
 msgid "Initializing a module"
 msgstr ""
 
-#: ../../../using-modules.rst:83
+#: ../../../using-modules.rst:85
 msgid ""
 "In order to use a module's state, it must be \"initialized\". A module can "
 "be initialized with the ``initializes`` keyword. This declares the module's "
@@ -167,7 +167,7 @@ msgid ""
 "its ``__init__()`` function has been called."
 msgstr ""
 
-#: ../../../using-modules.rst:85
+#: ../../../using-modules.rst:87
 msgid ""
 "import ownable\n"
 "\n"
@@ -184,19 +184,19 @@ msgid ""
 "    ... # do things that only the owner can do"
 msgstr ""
 
-#: ../../../using-modules.rst:101
+#: ../../../using-modules.rst:103
 msgid ""
 "It is a compile-time error to invoke a module's ``__init__()`` function more "
 "than once!"
 msgstr ""
 
-#: ../../../using-modules.rst:103
+#: ../../../using-modules.rst:105
 msgid ""
 "A module's state can be directly accessed just by prefixing the name of a "
 "variable with the module's alias, like follows:"
 msgstr ""
 
-#: ../../../using-modules.rst:105
+#: ../../../using-modules.rst:107
 msgid ""
 "@external\n"
 "def get_owner() -> address:\n"
@@ -204,10 +204,16 @@ msgid ""
 msgstr ""
 
 #: ../../../using-modules.rst:113
+msgid ""
+"The ``initializes`` statement is also required when overriding the abstract "
+"methods of an :ref:`abstract module <abstract-modules>`."
+msgstr ""
+
+#: ../../../using-modules.rst:118
 msgid "The ``uses`` statement"
 msgstr ""
 
-#: ../../../using-modules.rst:115
+#: ../../../using-modules.rst:120
 msgid ""
 "Another way of using a contract's state without directly initializing it is "
 "to use the ``uses`` keyword. This is a more advanced usage which is expected "
@@ -217,11 +223,11 @@ msgid ""
 "question)."
 msgstr ""
 
-#: ../../../using-modules.rst:117
+#: ../../../using-modules.rst:122
 msgid "This is best illustrated with an example:"
 msgstr ""
 
-#: ../../../using-modules.rst:119
+#: ../../../using-modules.rst:124
 msgid ""
 "# ownable_2step.vy\n"
 "import ownable\n"
@@ -250,7 +256,7 @@ msgid ""
 "    self.pending_owner = empty(address)"
 msgstr ""
 
-#: ../../../using-modules.rst:147
+#: ../../../using-modules.rst:152
 msgid ""
 "Here, the ``ownable_2step`` module does not want to seal off access to "
 "calling the ``ownable`` module's ``__init__()`` function. So, it utilizes "
@@ -263,24 +269,31 @@ msgid ""
 "`initializing dependencies <init-dependencies>`)."
 msgstr ""
 
-#: ../../../using-modules.rst:149
+#: ../../../using-modules.rst:154
+msgid ""
+"The ``uses`` statement is also required when calling abstract methods of "
+"another module. See :ref:`Calling abstract methods <abstract-modules>` for "
+"details."
+msgstr ""
+
+#: ../../../using-modules.rst:156
 msgid ""
 "Whether to ``use`` or ``initialize`` a module is a choice which is left up "
 "to the library designer."
 msgstr ""
 
-#: ../../../using-modules.rst:152
+#: ../../../using-modules.rst:159
 msgid "Technical notes on the design"
 msgstr ""
 
-#: ../../../using-modules.rst:154
+#: ../../../using-modules.rst:161
 msgid ""
 "This section contains some notes on the design from a language design "
 "perspective. It can be safely skipped if you are just interested in how to "
 "use modules, and not necessarily in programming language theory."
 msgstr ""
 
-#: ../../../using-modules.rst:156
+#: ../../../using-modules.rst:163
 msgid ""
 "The design of the module system takes inspiration from (but is not directly "
 "related to) the rust language's `borrow checker <https://doc.rust-lang."
@@ -290,34 +303,34 @@ msgid ""
 "compilation target. In practice, what this means is:"
 msgstr ""
 
-#: ../../../using-modules.rst:158
+#: ../../../using-modules.rst:165
 msgid ""
 "A module must be \"used\" or \"initialized\" before its state can be "
 "accessed in an import"
 msgstr ""
 
-#: ../../../using-modules.rst:159
+#: ../../../using-modules.rst:166
 msgid "A module may be \"used\" many times"
 msgstr ""
 
-#: ../../../using-modules.rst:160
+#: ../../../using-modules.rst:167
 msgid ""
 "A module which is \"used\" or its state touched must be \"initialized\" "
 "exactly once"
 msgstr ""
 
-#: ../../../using-modules.rst:162
+#: ../../../using-modules.rst:169
 msgid ""
 "To read more about the design background of Vyper's module system, please "
 "see its original `design document <https://github.com/vyperlang/vyper/"
 "issues/3722>`_."
 msgstr ""
 
-#: ../../../using-modules.rst:167
+#: ../../../using-modules.rst:174
 msgid "Initializing a module with dependencies"
 msgstr ""
 
-#: ../../../using-modules.rst:169
+#: ../../../using-modules.rst:176
 msgid ""
 "Sometimes, you may encounter a module which itself ``uses`` other modules. "
 "Vyper's module system is designed to allow this, but it requires you make "
@@ -327,7 +340,7 @@ msgid ""
 "(aka \"walrus\") syntax, and look something like this:"
 msgstr ""
 
-#: ../../../using-modules.rst:171
+#: ../../../using-modules.rst:178
 msgid ""
 "import ownable\n"
 "import ownable_2step\n"
@@ -346,7 +359,7 @@ msgid ""
 "exports: ownable_2step.__interface__"
 msgstr ""
 
-#: ../../../using-modules.rst:190
+#: ../../../using-modules.rst:197
 msgid ""
 "In normal usage, you should make sure that ``__init__()`` functions are "
 "called in dependency order. In the above example, you can get unexpected "
@@ -354,11 +367,11 @@ msgid ""
 "__init__()``! The compiler may enforce this behavior in the future."
 msgstr ""
 
-#: ../../../using-modules.rst:195
+#: ../../../using-modules.rst:203
 msgid "Exporting functions"
 msgstr ""
 
-#: ../../../using-modules.rst:197
+#: ../../../using-modules.rst:205
 msgid ""
 "In Vyper, ``@external`` functions are not automatically exposed (i.e., "
 "included in the runtime code) in the importing contract. This is a safety "
@@ -366,7 +379,7 @@ msgid ""
 "explicitly defined in the top-level of the compilation target."
 msgstr ""
 
-#: ../../../using-modules.rst:199
+#: ../../../using-modules.rst:207
 msgid ""
 "So, exporting external functions from modules is accomplished using the "
 "``exports`` keyword. In Vyper, functions can be exported individually, or, a "
@@ -375,12 +388,12 @@ msgid ""
 "which automatically includes all the functions in a module."
 msgstr ""
 
-#: ../../../using-modules.rst:201
+#: ../../../using-modules.rst:209
 msgid ""
 "The following are all ways of exporting functions from an imported module."
 msgstr ""
 
-#: ../../../using-modules.rst:203
+#: ../../../using-modules.rst:211
 msgid ""
 "# export a single function from `ownable_2step`\n"
 "exports: ownable_2step.transfer_ownership\n"
@@ -399,7 +412,7 @@ msgid ""
 "exports: ownable_2step.__interface__"
 msgstr ""
 
-#: ../../../using-modules.rst:222
+#: ../../../using-modules.rst:230
 msgid ""
 "Any exported interfaces must be implemented by the module. For example, in "
 "the above example, ``base_token`` must contain ``implements: IERC20``, or "

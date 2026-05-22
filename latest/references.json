@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-04-27 08:30:35 +0300",
-      "hash" : "ecc24e272c79b5e3cec5e7f27cd116583741eedb",
-      "title" : "fix[venom]: spiller stack invalidation (#4936)"
+      "date" : "2026-05-21 16:02:51 +0000",
+      "hash" : "243d6557600a4d7d5c0a2d358295d883ab7483fe",
+      "title" : "feat[lang]!: add unbounded types (#4967)"
     }
   },
   "type" : "branch",
