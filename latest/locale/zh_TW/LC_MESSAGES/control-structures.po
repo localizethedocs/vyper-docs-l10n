@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-05-22 03:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -327,14 +327,14 @@ msgstr ""
 msgid "Nonreentrancy Locks"
 msgstr ""
 
-#: ../../../control-structures.rst:177
+#: ../../../control-structures.rst:179
 msgid ""
 "The ``@nonreentrant`` decorator places a global nonreentrancy lock on a "
 "function. An attempt by an external contract to call back into any other "
 "``@nonreentrant`` function causes the transaction to revert."
 msgstr ""
 
-#: ../../../control-structures.rst:179
+#: ../../../control-structures.rst:181
 msgid ""
 "@external\n"
 "@nonreentrant\n"
@@ -343,7 +343,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:187
+#: ../../../control-structures.rst:189
 msgid ""
 "Nonreentrancy locks work by setting a specially allocated storage slot to a "
 "``<locked>`` value on function entrance, and setting it to an ``<unlocked>`` "
@@ -351,7 +351,7 @@ msgid ""
 "detected to be the ``<locked>`` value, execution reverts."
 msgstr ""
 
-#: ../../../control-structures.rst:189
+#: ../../../control-structures.rst:191
 msgid ""
 "You cannot put the ``@nonreentrant`` decorator on a ``pure`` function. You "
 "can put it on a ``view`` function, but it only checks that the function is "
@@ -359,21 +359,21 @@ msgid ""
 "``view`` functions can only read the state, not change it."
 msgstr ""
 
-#: ../../../control-structures.rst:191
+#: ../../../control-structures.rst:193
 msgid ""
 "You can put the ``@nonreentrant`` decorator on a ``__default__`` function, "
 "but keep in mind that this will result in the contract rejecting ETH "
 "payments from callbacks."
 msgstr ""
 
-#: ../../../control-structures.rst:193
+#: ../../../control-structures.rst:195
 msgid ""
 "You can view where the nonreentrant key is physically laid out in storage by "
 "using ``vyper`` with the ``-f layout`` option (e.g., ``vyper -f layout foo."
 "vy``). Unless it is overridden, the compiler will allocate it at slot ``0``."
 msgstr ""
 
-#: ../../../control-structures.rst:196
+#: ../../../control-structures.rst:198
 msgid ""
 "A mutable function can protect a ``view`` function from being called back "
 "into (which is useful for instance, if a ``view`` function would return "
@@ -384,7 +384,7 @@ msgid ""
 "``STATICCALL`` opcode."
 msgstr ""
 
-#: ../../../control-structures.rst:200
+#: ../../../control-structures.rst:202
 msgid ""
 "A nonreentrant lock has an ``<unlocked>`` value of 3, and a ``<locked>`` "
 "value of 2. Nonzero values are used to take advantage of net gas metering - "
@@ -393,18 +393,18 @@ msgid ""
 "were 0 and 1, respectively."
 msgstr ""
 
-#: ../../../control-structures.rst:203
+#: ../../../control-structures.rst:205
 msgid ""
 "Prior to 0.4.0, nonreentrancy keys took a \"key\" argument for fine-grained "
 "nonreentrancy control. As of 0.4.0, only a global nonreentrancy lock is "
 "available."
 msgstr ""
 
-#: ../../../control-structures.rst:206
+#: ../../../control-structures.rst:208
 msgid "The nonreentrant pragma"
 msgstr ""
 
-#: ../../../control-structures.rst:208
+#: ../../../control-structures.rst:210
 msgid ""
 "Beginning in 0.4.2, the ``#pragma nonreentrancy on`` pragma is available, "
 "and it enables nonreentrancy on all external functions and public getters "
@@ -413,14 +413,14 @@ msgid ""
 "nonreentrant locks will be enabled by default language-wide."
 msgstr ""
 
-#: ../../../control-structures.rst:210
+#: ../../../control-structures.rst:212
 msgid ""
 "When the pragma is on, to re-enable reentrancy for a specific function, add "
 "the ``@reentrant`` decorator. For getters, add the ``reentrant()`` modifier. "
 "Here is an example:"
 msgstr ""
 
-#: ../../../control-structures.rst:212
+#: ../../../control-structures.rst:214
 msgid ""
 "# pragma nonreentrancy on\n"
 "\n"
@@ -445,20 +445,20 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:235
+#: ../../../control-structures.rst:237
 msgid ""
 "The default is ``#pragma nonreentrancy off``, which can be used to signal "
 "specifically that nonreentrancy protection is off in this file."
 msgstr ""
 
-#: ../../../control-structures.rst:237
+#: ../../../control-structures.rst:239
 msgid ""
 "Note that the same caveats about nonreentrancy on ``__default__()`` as "
 "mentioned in the previous section apply here, since the ``__default__()`` "
 "function will be nonreentrant by default with the pragma on."
 msgstr ""
 
-#: ../../../control-structures.rst:239
+#: ../../../control-structures.rst:241
 msgid ""
 "With the pragma on, internal functions remain unlocked by default but can "
 "still use the ``@nonreentrant`` decorator. External ``view`` functions are "
@@ -467,7 +467,7 @@ msgid ""
 "lock."
 msgstr ""
 
-#: ../../../control-structures.rst:241
+#: ../../../control-structures.rst:243
 msgid ""
 "Internal functions, ``__init__`` function and getters for ``constants`` and "
 "``immutables`` can be marked ``reentrant``. Reentrant behavior is the "
@@ -475,18 +475,18 @@ msgid ""
 "explicitly highlight the fact."
 msgstr ""
 
-#: ../../../control-structures.rst:244
+#: ../../../control-structures.rst:246
 msgid "All the protected functions share the same, global lock."
 msgstr ""
 
-#: ../../../control-structures.rst:247
+#: ../../../control-structures.rst:249
 msgid ""
 "Vyper disallows calling a ``nonreentrant`` function from another "
 "``nonreentrant`` function, since the compiler implements nonreentrancy as a "
 "global lock which is acquired at function entry."
 msgstr ""
 
-#: ../../../control-structures.rst:250
+#: ../../../control-structures.rst:252
 msgid ""
 "The ``nonreentrancy on/off`` pragma is scoped to the current file. If you "
 "import a file without the ``nonreentrancy on`` pragma, the functions in that "
@@ -494,17 +494,17 @@ msgid ""
 "unless marked otherwise."
 msgstr ""
 
-#: ../../../control-structures.rst:253
+#: ../../../control-structures.rst:255
 msgid ""
 "The ``constant`` and ``immutable`` state variable getters don't check the "
 "lock because the value of the variables can't change."
 msgstr ""
 
-#: ../../../control-structures.rst:257
+#: ../../../control-structures.rst:259
 msgid "The ``__default__`` Function"
 msgstr "``__default__`` 函式"
 
-#: ../../../control-structures.rst:259
+#: ../../../control-structures.rst:261
 msgid ""
 "A contract can also have a default function, which is executed on a call to "
 "the contract if no other functions match the given function identifier (or "
@@ -514,13 +514,13 @@ msgid ""
 "function>`_."
 msgstr ""
 
-#: ../../../control-structures.rst:261
+#: ../../../control-structures.rst:263
 msgid ""
 "This function is always named ``__default__``. It must be annotated with "
 "``@external``. It cannot expect any input arguments."
 msgstr ""
 
-#: ../../../control-structures.rst:263
+#: ../../../control-structures.rst:265
 msgid ""
 "If the function is annotated as ``@payable``, this function is executed "
 "whenever the contract is sent Ether (without data). This is why the default "
@@ -529,7 +529,7 @@ msgid ""
 "address."
 msgstr ""
 
-#: ../../../control-structures.rst:265
+#: ../../../control-structures.rst:267
 msgid ""
 "event Payment:\n"
 "    amount: uint256\n"
@@ -541,18 +541,18 @@ msgid ""
 "    log Payment(msg.value, msg.sender)"
 msgstr ""
 
-#: ../../../control-structures.rst:277
+#: ../../../control-structures.rst:279
 msgid "Considerations"
 msgstr ""
 
-#: ../../../control-structures.rst:279
+#: ../../../control-structures.rst:281
 msgid ""
 "Just as in Solidity, Vyper generates a default function if one isn't found, "
 "in the form of a ``REVERT`` call. Note that this rolls back state changes, "
 "and thus will not succeed in receiving funds."
 msgstr ""
 
-#: ../../../control-structures.rst:281
+#: ../../../control-structures.rst:283
 msgid ""
 "Ethereum specifies that the operations will be rolled back if the contract "
 "runs out of gas in execution. ``send`` calls to the contract come with a "
@@ -562,132 +562,152 @@ msgid ""
 "functionality can be run."
 msgstr ""
 
-#: ../../../control-structures.rst:283
+#: ../../../control-structures.rst:285
 msgid ""
 "It is considered a best practice to ensure your payable default function is "
 "compatible with this stipend. The following operations will consume more "
 "than 2300 gas:"
 msgstr ""
 
-#: ../../../control-structures.rst:285
+#: ../../../control-structures.rst:287
 msgid "Writing to storage"
 msgstr ""
 
-#: ../../../control-structures.rst:286
+#: ../../../control-structures.rst:288
 msgid "Creating a contract"
 msgstr ""
 
-#: ../../../control-structures.rst:287
+#: ../../../control-structures.rst:289
 msgid "Calling an external function which consumes a large amount of gas"
 msgstr ""
 
-#: ../../../control-structures.rst:288
+#: ../../../control-structures.rst:290
 msgid "Sending Ether"
 msgstr ""
 
-#: ../../../control-structures.rst:290
+#: ../../../control-structures.rst:292
 msgid ""
 "Lastly, although the default function receives no arguments, it can still "
 "access the ``msg`` object, including:"
 msgstr ""
 
-#: ../../../control-structures.rst:292
+#: ../../../control-structures.rst:294
 msgid "the address of who is interacting with the contract (``msg.sender``)"
 msgstr ""
 
-#: ../../../control-structures.rst:293
+#: ../../../control-structures.rst:295
 msgid "the amount of ETH sent (``msg.value``)"
 msgstr ""
 
-#: ../../../control-structures.rst:294
+#: ../../../control-structures.rst:296
 msgid "the gas provided (``msg.gas``)."
 msgstr ""
 
-#: ../../../control-structures.rst:299
+#: ../../../control-structures.rst:301
 msgid "Decorators Reference"
 msgstr ""
 
-#: ../../../control-structures.rst:302
+#: ../../../control-structures.rst:304
 msgid "Decorator"
 msgstr ""
 
-#: ../../../control-structures.rst:302
+#: ../../../control-structures.rst:304
 msgid "Description"
 msgstr ""
 
-#: ../../../control-structures.rst:304
+#: ../../../control-structures.rst:306
 msgid "``@external``"
 msgstr ""
 
-#: ../../../control-structures.rst:304
+#: ../../../control-structures.rst:306
 msgid ""
 "Function can only be called externally, it is part of the runtime selector "
 "table"
 msgstr ""
 
-#: ../../../control-structures.rst:305
+#: ../../../control-structures.rst:307
 msgid "``@internal``"
 msgstr ""
 
-#: ../../../control-structures.rst:305
+#: ../../../control-structures.rst:307
 msgid "Function can only be called within current contract"
 msgstr ""
 
-#: ../../../control-structures.rst:306
+#: ../../../control-structures.rst:308
 msgid "``@deploy``"
 msgstr ""
 
-#: ../../../control-structures.rst:306
+#: ../../../control-structures.rst:308
 msgid "Function is called only at deploy time"
 msgstr ""
 
-#: ../../../control-structures.rst:307
+#: ../../../control-structures.rst:309
 msgid "``@pure``"
 msgstr ""
 
-#: ../../../control-structures.rst:307
+#: ../../../control-structures.rst:309
 msgid "Function does not read contract state or environment variables"
 msgstr ""
 
-#: ../../../control-structures.rst:308
+#: ../../../control-structures.rst:310
 msgid "``@view``"
 msgstr ""
 
-#: ../../../control-structures.rst:308
+#: ../../../control-structures.rst:310
 msgid "Function does not alter contract state"
 msgstr ""
 
-#: ../../../control-structures.rst:309
+#: ../../../control-structures.rst:311
 msgid "``@payable``"
 msgstr ""
 
-#: ../../../control-structures.rst:309
+#: ../../../control-structures.rst:311
 msgid "Function is able to receive Ether"
 msgstr ""
 
-#: ../../../control-structures.rst:310
+#: ../../../control-structures.rst:312
 msgid "``@nonreentrant``"
 msgstr ""
 
-#: ../../../control-structures.rst:310
+#: ../../../control-structures.rst:312
 msgid "Function cannot be called back into during an external call"
 msgstr ""
 
-#: ../../../control-structures.rst:311
+#: ../../../control-structures.rst:313
 msgid "``@raw_return``"
 msgstr ""
 
-#: ../../../control-structures.rst:311
+#: ../../../control-structures.rst:313
 msgid ""
 "Function returns raw bytes without ABI-encoding (``@external`` functions "
 "only)"
 msgstr ""
 
+#: ../../../control-structures.rst:314
+msgid "``@abstract``"
+msgstr ""
+
+#: ../../../control-structures.rst:314
+msgid ""
+"Function body must be ``...``; an ``@override`` must provide the "
+"implementation (see :ref:`abstract-modules`)"
+msgstr ""
+
 #: ../../../control-structures.rst:315
+msgid "``@override(module)``"
+msgstr ""
+
+#: ../../../control-structures.rst:315
+msgid ""
+"Function provides the implementation for an ``@abstract`` function in "
+"``module`` (see :ref:`abstract-modules`)"
+msgstr ""
+
+#: ../../../control-structures.rst:319
 msgid "Raw Return"
 msgstr ""
 
-#: ../../../control-structures.rst:317
+#: ../../../control-structures.rst:321
 msgid ""
 "The ``@raw_return`` decorator allows a function to return raw bytes without "
 "ABI-encoding. This is particularly useful for proxy contracts and other "
@@ -695,7 +715,7 @@ msgid ""
 "another contract call without adding an additional layer of ABI-encoding."
 msgstr ""
 
-#: ../../../control-structures.rst:319
+#: ../../../control-structures.rst:323
 msgid ""
 "@external\n"
 "@payable\n"
@@ -706,36 +726,36 @@ msgid ""
 "is_delegate_call=True)"
 msgstr ""
 
-#: ../../../control-structures.rst:328
+#: ../../../control-structures.rst:332
 msgid "The ``@raw_return`` decorator has the following restrictions:"
 msgstr ""
 
-#: ../../../control-structures.rst:330
+#: ../../../control-structures.rst:334
 msgid "It can only be used on ``@external`` functions"
 msgstr ""
 
-#: ../../../control-structures.rst:331
+#: ../../../control-structures.rst:335
 msgid "The function must have a ``Bytes[N]`` return type"
 msgstr ""
 
-#: ../../../control-structures.rst:332
+#: ../../../control-structures.rst:336
 msgid ""
 "It cannot be used on ``@deploy`` (constructor) functions (you can however "
 "use it in the ``__default__()`` function)"
 msgstr ""
 
-#: ../../../control-structures.rst:333
+#: ../../../control-structures.rst:337
 msgid "It cannot be used on ``@internal`` functions"
 msgstr ""
 
-#: ../../../control-structures.rst:335
+#: ../../../control-structures.rst:339
 msgid ""
 "When a function is marked with ``@raw_return``, the compiler directly "
 "returns the bytes value using the EVM ``RETURN`` opcode, bypassing the "
 "normal ABI-encoding that would wrap the bytes in a ``(bytes)`` tuple."
 msgstr ""
 
-#: ../../../control-structures.rst:338
+#: ../../../control-structures.rst:342
 msgid ""
 "The ``@raw_return`` decorator cannot be used in interface definitions (``."
 "vyi`` files). Note that to call a ``@raw_return`` function from another "
@@ -743,30 +763,30 @@ msgid ""
 "the return data may not be ABI-encoded."
 msgstr ""
 
-#: ../../../control-structures.rst:341
+#: ../../../control-structures.rst:345
 msgid ""
 "When using ``@raw_return``, ensure all return paths in your function use raw "
 "bytes. Having multiple return statements where some use ABI-encoded data and "
 "others don't can lead to decoding errors."
 msgstr ""
 
-#: ../../../control-structures.rst:344
+#: ../../../control-structures.rst:348
 msgid "``if`` statements"
 msgstr ""
 
-#: ../../../control-structures.rst:346
+#: ../../../control-structures.rst:350
 msgid ""
 "The ``if`` statement is a control flow construct used for conditional "
 "execution:"
 msgstr ""
 
-#: ../../../control-structures.rst:348
+#: ../../../control-structures.rst:352
 msgid ""
 "if CONDITION:\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:353
+#: ../../../control-structures.rst:357
 msgid ""
 "``CONDITION`` is a boolean or boolean operation. The boolean is evaluated "
 "left-to-right, one expression at a time, until the condition is found to be "
@@ -774,21 +794,21 @@ msgid ""
 "executed."
 msgstr ""
 
-#: ../../../control-structures.rst:355
+#: ../../../control-structures.rst:359
 msgid ""
 "Note that unlike Python, Vyper does not allow implicit conversion from non-"
 "boolean types within the condition of an ``if`` statement. ``if 1: pass`` "
 "will fail to compile with a type mismatch."
 msgstr ""
 
-#: ../../../control-structures.rst:357
+#: ../../../control-structures.rst:361
 msgid ""
 "You can also include ``elif`` and ``else`` statements, to add more "
 "conditional statements and a body that executes when the conditionals are "
 "false:"
 msgstr ""
 
-#: ../../../control-structures.rst:359
+#: ../../../control-structures.rst:363
 msgid ""
 "if CONDITION:\n"
 "    ...\n"
@@ -798,108 +818,108 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:369
+#: ../../../control-structures.rst:373
 msgid "``for`` loops"
 msgstr ""
 
-#: ../../../control-structures.rst:371
+#: ../../../control-structures.rst:375
 msgid ""
 "The ``for`` statement is a control flow construct used to iterate over a "
 "value:"
 msgstr ""
 
-#: ../../../control-structures.rst:373
+#: ../../../control-structures.rst:377
 msgid ""
 "for i: <TYPE> in <ITERABLE>:\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:378
+#: ../../../control-structures.rst:382
 msgid ""
 "The iterated value can be a static array, a dynamic array, or generated from "
 "the built-in ``range`` function."
 msgstr ""
 
-#: ../../../control-structures.rst:381
+#: ../../../control-structures.rst:385
 msgid "Array Iteration"
 msgstr ""
 
-#: ../../../control-structures.rst:383
+#: ../../../control-structures.rst:387
 msgid ""
 "You can use ``for`` to iterate through the values of any array variable:"
 msgstr ""
 
-#: ../../../control-structures.rst:385
+#: ../../../control-structures.rst:389
 msgid ""
 "foo: int128[3] = [4, 23, 42]\n"
 "for i: int128 in foo:\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:391
+#: ../../../control-structures.rst:395
 msgid ""
 "In the above, example, the loop executes three times with ``i`` assigned the "
 "values of ``4``, ``23``, and then ``42``."
 msgstr ""
 
-#: ../../../control-structures.rst:393
+#: ../../../control-structures.rst:397
 msgid ""
 "You can also iterate over a literal array, as long as the annotated type is "
 "valid for each item in the array:"
 msgstr ""
 
-#: ../../../control-structures.rst:395
+#: ../../../control-structures.rst:399
 msgid ""
 "for i: int128 in [4, 23, 42]:\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:400
+#: ../../../control-structures.rst:404
 msgid "Some restrictions:"
 msgstr ""
 
-#: ../../../control-structures.rst:402
+#: ../../../control-structures.rst:406
 msgid ""
 "You cannot iterate over a multi-dimensional array.  ``i`` must always be a "
 "base type."
 msgstr ""
 
-#: ../../../control-structures.rst:403
+#: ../../../control-structures.rst:407
 msgid ""
 "You cannot modify a value in an array while it is being iterated, or call to "
 "a function that might modify the array being iterated."
 msgstr ""
 
-#: ../../../control-structures.rst:406
+#: ../../../control-structures.rst:410
 msgid "Range Iteration"
 msgstr ""
 
-#: ../../../control-structures.rst:408
+#: ../../../control-structures.rst:412
 msgid ""
 "Ranges are created using the ``range`` function. The following examples are "
 "valid uses of ``range``:"
 msgstr ""
 
-#: ../../../control-structures.rst:410
+#: ../../../control-structures.rst:414
 msgid ""
 "for i: uint256 in range(STOP):\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:415
+#: ../../../control-structures.rst:419
 msgid ""
 "``STOP`` is a literal integer greater than zero. ``i`` begins as zero and "
 "increments by one until it is equal to ``STOP``. ``i`` must be of the same "
 "type as ``STOP``."
 msgstr ""
 
-#: ../../../control-structures.rst:417
+#: ../../../control-structures.rst:421
 msgid ""
 "for i: uint256 in range(stop, bound=N):\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:422
+#: ../../../control-structures.rst:426
 msgid ""
 "Here, ``stop`` can be a variable with integer type, greater than zero. ``N`` "
 "must be a compile-time constant. ``i`` begins as zero and increments by one "
@@ -913,17 +933,17 @@ msgid ""
 "``stop`` and ``N`` must be of the same type."
 msgstr ""
 
-#: ../../../control-structures.rst:424
+#: ../../../control-structures.rst:428
 msgid "Another use of range can be with ``START`` and ``STOP`` bounds."
 msgstr ""
 
-#: ../../../control-structures.rst:426
+#: ../../../control-structures.rst:430
 msgid ""
 "for i: uint256 in range(START, STOP):\n"
 "    ..."
 msgstr ""
 
-#: ../../../control-structures.rst:431
+#: ../../../control-structures.rst:435
 msgid ""
 "Here, ``START`` and ``STOP`` are literal integers, with ``STOP`` being a "
 "greater value than ``START``. ``i`` begins as ``START`` and increments by "
@@ -931,7 +951,7 @@ msgid ""
 "the same type."
 msgstr ""
 
-#: ../../../control-structures.rst:433
+#: ../../../control-structures.rst:437
 msgid ""
 "Finally, it is possible to use ``range`` with runtime `start` and `stop` "
 "values as long as a constant `bound` value is provided. In this case, Vyper "
@@ -939,7 +959,7 @@ msgid ""
 "constant. ``i``, ``stop`` and ``N`` must be of the same type."
 msgstr ""
 
-#: ../../../control-structures.rst:437
+#: ../../../control-structures.rst:441
 msgid ""
 "for i: uint256 in range(start, end, bound=N):\n"
 "    ..."

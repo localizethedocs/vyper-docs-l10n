@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-05-22 03:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -627,6 +627,7 @@ msgid ""
 "        //    evm.deployedBytecode.sourceMap - Deployed source mapping "
 "(useful for debugging)\n"
 "        //    evm.methodIdentifiers - The list of function hashes\n"
+"        //    layout - Storage layout of the contract\n"
 "        //\n"
 "        // Using `evm`, `evm.bytecode`, etc. will select every target part "
 "of that output.\n"
@@ -647,18 +648,18 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:365
+#: ../../../compiling-a-contract.rst:366
 msgid "Output JSON Description"
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:367
+#: ../../../compiling-a-contract.rst:368
 msgid ""
 "The following example describes the output format of ``vyper-json``. "
 "Comments are of course not permitted and used here *only for explanatory "
 "purposes*."
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:369
+#: ../../../compiling-a-contract.rst:370
 msgid ""
 "{\n"
 "    // The compiler version used to generate the JSON\n"
@@ -721,6 +722,16 @@ msgid ""
 "                \"ir\": \"\",\n"
 "                // Natspec developer documentation\n"
 "                \"userdoc\": {},\n"
+"                // Storage layout of the contract\n"
+"                \"layout\": {\n"
+"                    \"storage_layout\": {\n"
+"                        \"variableName\": {\n"
+"                            \"type\": \"uint256\",\n"
+"                            \"slot\": 0,\n"
+"                            \"n_slots\": 1\n"
+"                        }\n"
+"                    }\n"
+"                },\n"
 "                // EVM-related outputs\n"
 "                \"evm\": {\n"
 "                    \"bytecode\": {\n"
@@ -770,39 +781,39 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:474
+#: ../../../compiling-a-contract.rst:485
 msgid "Errors"
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:476
+#: ../../../compiling-a-contract.rst:487
 msgid ""
 "Each error includes a ``component`` field, indicating the stage at which it "
 "occurred:"
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:478
+#: ../../../compiling-a-contract.rst:489
 msgid ""
 "``json``: Errors that occur while parsing the input JSON. Usually, a result "
 "of invalid JSON or a required value that is missing."
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:479
+#: ../../../compiling-a-contract.rst:490
 msgid ""
 "``parser``: Errors that occur while parsing the contracts. Usually, a result "
 "of invalid Vyper syntax."
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:480
+#: ../../../compiling-a-contract.rst:491
 msgid "``compiler``: Errors that occur while compiling the contracts."
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:481
+#: ../../../compiling-a-contract.rst:492
 msgid ""
 "``vyper``: Unexpected errors that occur within Vyper. If you receive an "
 "error of this type, please open an issue."
 msgstr ""
 
-#: ../../../compiling-a-contract.rst:483
+#: ../../../compiling-a-contract.rst:494
 msgid ""
 "You can also use the ``--traceback`` flag to receive a standard Python "
 "traceback when an error is encountered."
