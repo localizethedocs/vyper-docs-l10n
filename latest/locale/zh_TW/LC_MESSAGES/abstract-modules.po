@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:4
 msgid "Abstract Modules"
-msgstr ""
+msgstr "抽象模組"
 
 #: ../../../abstract-modules.rst:6
 msgid ""
@@ -99,7 +99,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:57
 msgid "Abstract methods"
-msgstr ""
+msgstr "抽象方法"
 
 #: ../../../abstract-modules.rst:59
 msgid ""
@@ -345,7 +345,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:198
 msgid "Calling abstract methods"
-msgstr ""
+msgstr "呼叫抽象方法"
 
 #: ../../../abstract-modules.rst:200
 msgid ""

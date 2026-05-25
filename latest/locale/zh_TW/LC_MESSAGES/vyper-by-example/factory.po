@@ -93,7 +93,7 @@ msgstr ""
 
 #: ../../../vyper-by-example/factory.rst:23
 msgid "Exchange Contract"
-msgstr ""
+msgstr "交換合約"
 
 #: ../../../vyper-by-example/factory.rst:25
 msgid ""

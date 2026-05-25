@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../../../index.rst:30
 msgid "**Predictable execution**"
-msgstr ""
+msgstr "**可預測的執行**"
 
 #: ../../../index.rst:32
 msgid ""
@@ -184,7 +184,7 @@ msgstr "無限迴圈"
 
 #: ../../../index.rst:64
 msgid "Gas costs are always bounded and predictable"
-msgstr ""
+msgstr "燃料成本始終是有上限且可預測的"
 
 #: ../../../index.rst:65
 msgid "Recursive calls"

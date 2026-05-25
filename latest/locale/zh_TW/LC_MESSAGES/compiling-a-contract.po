@@ -199,7 +199,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:104
 msgid "Online Compilers"
-msgstr ""
+msgstr "在線編譯器"
 
 #: ../../../compiling-a-contract.rst:107
 msgid "Try VyperLang!"
@@ -233,7 +233,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:123
 msgid "Compiler Optimization Modes"
-msgstr ""
+msgstr "編譯器最佳化模式"
 
 #: ../../../compiling-a-contract.rst:125
 msgid ""

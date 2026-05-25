@@ -139,19 +139,19 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:26
 msgid "``chain.id``"
-msgstr ""
+msgstr "``chain.id``"
 
 #: ../../../constants-and-vars.rst:26
 msgid "Chain ID"
-msgstr ""
+msgstr "鏈 ID"
 
 #: ../../../constants-and-vars.rst:27
 msgid "``msg.data``"
-msgstr ""
+msgstr "``msg.data``"
 
 #: ../../../constants-and-vars.rst:27
 msgid "``Bytes``"
-msgstr ""
+msgstr "``Bytes``"
 
 #: ../../../constants-and-vars.rst:27
 msgid "Message data"
@@ -159,23 +159,23 @@ msgstr "訊息資料"
 
 #: ../../../constants-and-vars.rst:28
 msgid "``msg.gas``"
-msgstr ""
+msgstr "``msg.gas``"
 
 #: ../../../constants-and-vars.rst:28
 msgid "Remaining gas"
-msgstr ""
+msgstr "剩餘的燃料"
 
 #: ../../../constants-and-vars.rst:29
 msgid "``msg.mana``"
-msgstr ""
+msgstr "``msg.mana``"
 
 #: ../../../constants-and-vars.rst:29
 msgid "Remaining gas (alias for ``msg.gas``)"
-msgstr ""
+msgstr "剩餘的燃料（``msg.gas`` 的別名）"
 
 #: ../../../constants-and-vars.rst:30
 msgid "``msg.sender``"
-msgstr ""
+msgstr "``msg.sender``"
 
 #: ../../../constants-and-vars.rst:30
 msgid "Sender of the message (current call)"

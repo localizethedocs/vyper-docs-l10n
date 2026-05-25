@@ -94,7 +94,7 @@ msgstr ""
 
 #: ../../../scoping-and-declarations.rst:39
 msgid "Declaring Immutable Variables"
-msgstr ""
+msgstr "宣告不可變變數"
 
 #: ../../../scoping-and-declarations.rst:41
 msgid "Variables can be marked as ``immutable`` during declaration:"
@@ -442,7 +442,7 @@ msgstr ""
 msgid ""
 "The following contract fails to compile because ``a`` has not been declared "
 "outside of the loop."
-msgstr ""
+msgstr "以下合約無法編譯，因為 ``a`` 尚未在迴圈外被宣告。"
 
 #: ../../../scoping-and-declarations.rst:243
 msgid ""

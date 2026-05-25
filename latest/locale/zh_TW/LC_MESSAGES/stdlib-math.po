@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../stdlib-math.rst:6
 msgid "Math Module"
-msgstr ""
+msgstr "數學模組"
 
 #: ../../../stdlib-math.rst:8
 msgid ""
@@ -29,7 +29,7 @@ msgstr ""
 
 #: ../../../stdlib-math.rst:10
 msgid "import math"
-msgstr ""
+msgstr "import math"
 
 #: ../../../stdlib-math.rst:14
 msgid "Functions are then called as ``math.isqrt(x)``, ``math.sqrt(d)``, etc."
@@ -61,12 +61,20 @@ msgid ""
 "def foo(d: decimal) -> decimal:\n"
 "    return math.sqrt(d)"
 msgstr ""
+"import math\n"
+"\n"
+"@external\n"
+"@view\n"
+"def foo(d: decimal) -> decimal:\n"
+"    return math.sqrt(d)"
 
 #: ../../../stdlib-math.rst:36
 msgid ""
 ">>> ExampleContract.foo(9.0)\n"
 "3.0"
 msgstr ""
+">>> ExampleContract.foo(9.0)\n"
+"3.0"
 
 #: ../../../stdlib-math.rst:43
 msgid ""
@@ -84,12 +92,20 @@ msgid ""
 "def foo(x: uint256) -> uint256:\n"
 "    return math.isqrt(x)"
 msgstr ""
+"import math\n"
+"\n"
+"@external\n"
+"@view\n"
+"def foo(x: uint256) -> uint256:\n"
+"    return math.isqrt(x)"
 
 #: ../../../stdlib-math.rst:54
 msgid ""
 ">>> ExampleContract.foo(101)\n"
 "10"
 msgstr ""
+">>> ExampleContract.foo(101)\n"
+"10"
 
 #: ../../../stdlib-math.rst:1
 msgid "module"

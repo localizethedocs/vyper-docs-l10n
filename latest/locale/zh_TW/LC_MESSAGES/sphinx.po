@@ -3435,11 +3435,11 @@ msgstr ""
 
 #: sphinx/themes/basic/changes/versionchanges.html:23
 msgid "C API changes"
-msgstr ""
+msgstr "C API 變更"
 
 #: sphinx/themes/basic/changes/versionchanges.html:25
 msgid "Other changes"
-msgstr ""
+msgstr "其他變更"
 
 #: sphinx/themes/basic/static/searchtools.js:118
 msgid ""

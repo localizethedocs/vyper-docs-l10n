@@ -578,6 +578,8 @@ msgid ""
 "Decorators specify visibility (``@external``, ``@internal``) and mutability "
 "(``@payable``, ``@view``, ``@pure``)."
 msgstr ""
+"裝飾器指定了可見性（``@external``、``@internal``）與可變性（``@payable``、"
+"``@view``、``@pure``）。"
 
 #: ../../../solidity-differences.rst:279
 msgid "Constructor"
@@ -699,7 +701,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:384
 msgid "Self Reference"
-msgstr ""
+msgstr "自我參考"
 
 #: ../../../solidity-differences.rst:386
 msgid "State variables require ``self.`` prefix:"
@@ -873,9 +875,3 @@ msgid ""
 "**You want no global opt-out for safety checks.** Overflow and bounds checks "
 "can only be bypassed per-operation via ``unsafe_*`` builtins."
 msgstr ""
-
-#~ msgid "``import`` + ``exports``"
-#~ msgstr "``import`` + ``exports``"
-
-#~ msgid "No Class Inheritance"
-#~ msgstr "沒有類別繼承"
