@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-05-21 16:02:51 +0000",
-      "hash" : "243d6557600a4d7d5c0a2d358295d883ab7483fe",
-      "title" : "feat[lang]!: add unbounded types (#4967)"
+      "date" : "2026-05-30 17:23:25 +0000",
+      "hash" : "b4145b73ed7d6f2e1056b23a530eba508697f67a",
+      "title" : "fix[parser]: reject non-name for-loop targets early (#5022)"
     }
   },
   "type" : "branch",
