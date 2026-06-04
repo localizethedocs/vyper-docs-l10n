@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-01 13:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../deep-verification.rst:5
+msgid "Deep Verification"
+msgstr ""
+
+#: ../../../deep-verification.rst:7
+msgid ""
+"Formal verification is becoming substantially more practical for smart "
+"contracts. Better tooling and accessible machine-checked semantics now make "
+"it feasible to prove properties on production code that were previously out "
+"of reach."
+msgstr ""
+
+#: ../../../deep-verification.rst:9
+msgid ""
+"However, formal verification only proves that a program satisfies a "
+"specified property *within its formal model*. In practice, most verification "
+"work today establishes that property at only one layer of the stack. "
+"Everything else (from the accuracy and completeness of the model itself, "
+"through the compiler, to the EVM execution semantics), is taken on trust."
+msgstr ""
+
+#: ../../../deep-verification.rst:11
+msgid ""
+"This distance between what is formally proved and what actually executes on "
+"chain is the **verification gap**."
+msgstr ""
+
+#: ../../../deep-verification.rst:13
+msgid ""
+"**Deep verification** is the discipline of reducing that gap by formally "
+"bridging as many layers as possible. The fewer unverified assumptions remain "
+"in the chain, the stronger the resulting guarantee."
+msgstr ""
+
+#: ../../../deep-verification.rst:16
+msgid "Verification Depth and Breadth"
+msgstr ""
+
+#: ../../../deep-verification.rst:18
+msgid "Two concepts help clarify the verification gap:"
+msgstr ""
+
+#: ../../../deep-verification.rst:20
+msgid ""
+"**Verification depth** — how far the proof carries through the stack, from a "
+"high-level security property through source semantics and compiler "
+"correctness down to the EVM execution model."
+msgstr ""
+
+#: ../../../deep-verification.rst:21
+msgid ""
+"**Verification breadth** — how much of the contract’s actual behavior is "
+"covered: which functions, which properties, which sequences of operations, "
+"and which environment assumptions."
+msgstr ""
+
+#: ../../../deep-verification.rst:23
+msgid ""
+"Every verification effort has some gap. Deep verification is the discipline "
+"of reducing it to its irreducible minimum."
+msgstr ""
+
+#: ../../../deep-verification.rst:26
+msgid "The Layers"
+msgstr ""
+
+#: ../../../deep-verification.rst:30
+msgid ""
+"High-level properties\n"
+"        │\n"
+"        ▼\n"
+"  Source semantics\n"
+"        │\n"
+"        ▼\n"
+" Compiler correctness\n"
+"        │\n"
+"        ▼\n"
+"   EVM semantics\n"
+"        │\n"
+"        ▼\n"
+"  Deployed bytecode"
+msgstr ""
+
+#: ../../../deep-verification.rst:44
+msgid ""
+"A source-level proof establishes a property under the language’s formal "
+"semantics. A bytecode-level proof establishes the analogous statement "
+"against a formal EVM model. A verified compiler connects the two. The fewer "
+"layers a guarantee skips by assumption, the smaller the verification gap."
+msgstr ""
+
+#: ../../../deep-verification.rst:47
+msgid "The Technical Foundation"
+msgstr ""
+
+#: ../../../deep-verification.rst:49
+msgid ""
+"Two of those layers already exist as public, machine-checked artifacts "
+"developed in the Verifereum project using HOL4:"
+msgstr ""
+
+#: ../../../deep-verification.rst:51
+msgid "A formal semantics for the Vyper source language."
+msgstr ""
+
+#: ../../../deep-verification.rst:52
+msgid "A formal semantics for the EVM."
+msgstr ""
+
+#: ../../../deep-verification.rst:54
+msgid ""
+"Together they provide the mathematical foundation against which source-level "
+"and bytecode-level proofs about Vyper programs can be stated. The work is "
+"fully open and available in the `vyper-hol <https://github.com/verifereum/"
+"vyper-hol>`_ repository."
+msgstr ""
+
+#: ../../../deep-verification.rst:57
+msgid "Current Status"
+msgstr ""
+
+#: ../../../deep-verification.rst:59
+msgid ""
+"Source-level verification on Vyper contracts and libraries is available "
+"today. Compiler verification (the critical link that connects source "
+"semantics to deployed bytecode) is in active development, with substantial "
+"proof engineering already underway."
+msgstr ""
+
+#: ../../../deep-verification.rst:61
+msgid ""
+"No complete deep verification pipeline exists yet for any widely deployed "
+"smart-contract language. Vyper is one of the places where the pieces are "
+"actively being assembled, and the stack is already in place for meaningful "
+"source-level work."
+msgstr ""
+
+#: ../../../deep-verification.rst:66
+msgid "`vyper-hol on GitHub <https://github.com/verifereum/vyper-hol>`_"
+msgstr ""
+
+#: ../../../deep-verification.rst:66
+msgid ""
+"The open-source repository containing the formal semantics for Vyper and the "
+"EVM."
+msgstr ""
+
+#: ../../../deep-verification.rst:68
+msgid "`Verifereum project <https://verifereum.org>`_"
+msgstr ""
+
+#: ../../../deep-verification.rst:69
+msgid ""
+"The project developing the HOL4 semantics and compiler verification work."
+msgstr ""
