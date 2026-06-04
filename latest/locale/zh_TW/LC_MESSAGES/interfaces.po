@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-06-01 13:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -282,16 +282,99 @@ msgstr ""
 
 #: ../../../interfaces.rst:131
 msgid ""
-"Interfaces that implement functions with return values that require an upper "
-"bound (e.g. ``Bytes``, ``DynArray``, or ``String``), the upper bound defined "
-"in the interface represents the lower bound of the implementation. Assuming "
-"a function ``my_func`` returns a value ``String[1]`` in the interface, this "
-"would mean for the implementation function of ``my_func`` that the return "
-"value must have **at least** length 1. This behavior might change in the "
-"future."
+"Functions involving length-bounded types (``Bytes``, ``DynArray``, "
+"``String``) follow standard variance rules:"
 msgstr ""
 
-#: ../../../interfaces.rst:135
+#: ../../../interfaces.rst:133
+msgid ""
+"**Return types are covariant**: if the interface declares ``String[10]``, "
+"the implementation's declared maximum must be **at most** 10 (it may be "
+"narrower)."
+msgstr ""
+
+#: ../../../interfaces.rst:134
+msgid ""
+"**Parameter types are contravariant**: if the interface declares "
+"``Bytes[10]``, the implementation's declared maximum must be **at least** 10 "
+"(it may be wider)."
+msgstr ""
+
+#: ../../../interfaces.rst:136
+msgid "For example, given the interface:"
+msgstr ""
+
+#: ../../../interfaces.rst:138
+msgid ""
+"interface IFoo:\n"
+"    def foo(x: Bytes[10]) -> String[10]: view"
+msgstr ""
+
+#: ../../../interfaces.rst:143
+msgid "the following implementation is accepted:"
+msgstr ""
+
+#: ../../../interfaces.rst:145
+msgid ""
+"implements: IFoo\n"
+"\n"
+"@external\n"
+"@view\n"
+"def foo(x: Bytes[20]) -> String[5]:  # wider parameter, narrower return\n"
+"    return \"\""
+msgstr ""
+
+#: ../../../interfaces.rst:154
+msgid ""
+"Matching bounds are also valid: an implementation declared as ``def foo(x: "
+"Bytes[10]) -> String[10]`` satisfies the same interface."
+msgstr ""
+
+#: ../../../interfaces.rst:156
+msgid ""
+"Think of a function as a funnel. To swap it for another, the input has to be "
+"at least as wide (the new function must accept everything the original did, "
+"and may accept more), and the output has to be no wider (whatever it "
+"produces must still fit where the original output went). A narrower input "
+"would let some valid arguments fall through, and a wider output would exceed "
+"what the caller is prepared to receive."
+msgstr ""
+
+#: ../../../interfaces.rst:158
+msgid ""
+"To declare \"any length\" in an interface, use the wildcard ``...`` with one "
+"of the length-bounded types: ``Bytes[...]``, ``DynArray[uint256, ...]``, or "
+"``String[...]``. The wildcard is only valid inside interface declarations "
+"and only for these types; static arrays (e.g. ``uint256[5]``) still require "
+"a concrete length."
+msgstr ""
+
+#: ../../../interfaces.rst:160
+msgid ""
+"At the call site, a wildcard in a return type resolves against the type "
+"Vyper infers from context (e.g. an assignment target). If there is no such "
+"type (for example when the return value is discarded), it resolves to an "
+"unbounded length."
+msgstr ""
+
+#: ../../../interfaces.rst:162
+msgid ""
+"Because ``...`` leaves the actual bound up to the implementation, the call-"
+"site type check accepts arguments of any declared length. If the value the "
+"caller passes is longer than the implementation's declared bound, the callee "
+"reverts when decoding the argument. For example, given an interface ``def "
+"foo(x: String[...])`` and an implementation ``def foo(x: String[2])``, "
+"calling ``IFoo(addr).foo(\"hello\")`` passes the call-site type check but "
+"reverts at the callee, because the value's length (5) exceeds the "
+"implementation's bound (2). A concrete bound in the interface (e.g. "
+"``String[5]``) is checked at compile time instead. The compiler rejects "
+"arguments whose declared type allows lengths greater than 5 before the "
+"contract is deployed. In this sense ``...`` is less safe than a concrete "
+"bound, where \"safe\" means \"program might revert unexpectedly\", not "
+"\"program is vulnerable to attackers\"."
+msgstr ""
+
+#: ../../../interfaces.rst:166
 msgid ""
 "Prior to v0.4.0, ``implements`` required that events defined in an interface "
 "were re-defined in the \"implementing\" contract. As of v0.4.0, this is no "
@@ -299,7 +382,7 @@ msgid ""
 "events used in a contract will automatically be exported in the ABI output."
 msgstr ""
 
-#: ../../../interfaces.rst:139
+#: ../../../interfaces.rst:170
 msgid ""
 "An interface function with default parameters (e.g. ``deposit(assets: "
 "uint256, receiver: address = msg.sender)``) implies that the contract being "
@@ -309,18 +392,18 @@ msgid ""
 "the callee to implement the behavior associated with these defaults."
 msgstr ""
 
-#: ../../../interfaces.rst:142
+#: ../../../interfaces.rst:173
 msgid "Standalone Interfaces"
 msgstr ""
 
-#: ../../../interfaces.rst:144
+#: ../../../interfaces.rst:175
 msgid ""
 "Standalone interfaces are written using a variant of standard Vyper syntax. "
 "The body of each function must be an ellipsis (``...``). Interface files "
 "must have a ``.vyi`` suffix in order to be found by an import statement."
 msgstr ""
 
-#: ../../../interfaces.rst:146
+#: ../../../interfaces.rst:177
 msgid ""
 "# ISomeInterface.vyi\n"
 "\n"
@@ -333,17 +416,17 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../interfaces.rst:159
+#: ../../../interfaces.rst:190
 msgid "Extracting Interfaces"
 msgstr ""
 
-#: ../../../interfaces.rst:161
+#: ../../../interfaces.rst:192
 msgid ""
 "Vyper has a built-in format option to allow you to easily export a Vyper "
 "interface from a pre-existing contract."
 msgstr ""
 
-#: ../../../interfaces.rst:165
+#: ../../../interfaces.rst:196
 msgid ""
 "$ vyper -f interface examples/voting/ballot.vy\n"
 "\n"
@@ -367,13 +450,13 @@ msgstr ""
 "\n"
 "# ..."
 
-#: ../../../interfaces.rst:176
+#: ../../../interfaces.rst:207
 msgid ""
 "If you want to export it as an inline interface, Vyper provides a utility to "
 "extract that as well."
 msgstr ""
 
-#: ../../../interfaces.rst:180
+#: ../../../interfaces.rst:211
 msgid ""
 "$ vyper -f external_interface examples/voting/ballot.vy\n"
 "\n"
@@ -395,7 +478,7 @@ msgstr ""
 "    def forwardWeight(delegate_with_weight_to_forward: address): nonpayable\n"
 "    # ..."
 
-#: ../../../interfaces.rst:190
+#: ../../../interfaces.rst:221
 msgid ""
 "The output can then easily be copy-pasted directly in a regular vyper file."
 msgstr ""

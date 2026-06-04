@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-06-01 13:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,10 +201,27 @@ msgid ""
 msgstr ""
 
 #: ../../../index.rst:71
+msgid "Deep Verification"
+msgstr ""
+
+#: ../../../index.rst:73
+msgid ""
+"Vyper’s design makes **deep verification** practical on a production smart-"
+"contract language."
+msgstr ""
+
+#: ../../../index.rst:75
+msgid ""
+"See :doc:`deep-verification` for the full discussion of verification depth, "
+"verification gap, and the current state of Vyper’s formal semantics and "
+"compiler verification work."
+msgstr ""
+
+#: ../../../index.rst:78
 msgid "Decimal Fixed Point"
 msgstr "十進位定點數"
 
-#: ../../../index.rst:73
+#: ../../../index.rst:80
 msgid ""
 "Vyper uses decimal (not binary) fixed point numbers. This ensures that "
 "literals like ``0.1`` have exact representations, avoiding the subtle "
