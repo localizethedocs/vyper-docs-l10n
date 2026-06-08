@@ -1698,7 +1698,7 @@ msgstr ""
 
 #: ../../../release-notes.rst:386
 msgid "Breaking Changes"
-msgstr ""
+msgstr "重大變更"
 
 #: ../../../release-notes.rst:387
 msgid ""
