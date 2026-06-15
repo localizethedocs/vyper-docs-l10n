@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-05-30 17:23:25 +0000",
-      "hash" : "b4145b73ed7d6f2e1056b23a530eba508697f67a",
-      "title" : "fix[parser]: reject non-name for-loop targets early (#5022)"
+      "date" : "2026-06-15 12:28:12 +0300",
+      "hash" : "172e262de2ca22396fd7c0e04586253b8f91e33f",
+      "title" : "fix[venom]: only kill mem liveness on must-write stores (#5089)"
     }
   },
   "type" : "branch",
