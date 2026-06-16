@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-06-15 14:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,31 +190,51 @@ msgstr ""
 msgid "raise \"something went wrong\""
 msgstr ""
 
-#: ../../../statements.rst:99 ../../../statements.rst:110
+#: ../../../statements.rst:99 ../../../statements.rst:123
 msgid ""
 "The error string is not required. If it is provided, it is limited to 1024 "
 "bytes."
 msgstr ""
 
-#: ../../../statements.rst:102
+#: ../../../statements.rst:101
+msgid ""
+"Custom errors can also be raised. They are declared at module scope and are "
+"encoded with a 4-byte selector followed by ABI-encoded arguments:"
+msgstr ""
+
+#: ../../../statements.rst:103
+msgid ""
+"error Unauthorized:\n"
+"    caller: address\n"
+"    expected: address\n"
+"\n"
+"raise Unauthorized(caller=msg.sender, expected=owner)"
+msgstr ""
+
+#: ../../../statements.rst:111
+msgid ""
+"Custom errors are included in the generated ABI with ``type: \"error\"``."
+msgstr ""
+
+#: ../../../statements.rst:114
 msgid "assert"
 msgstr ""
 
-#: ../../../statements.rst:104
+#: ../../../statements.rst:117
 msgid ""
 "The ``assert`` statement makes an assertion about a given condition. If the "
 "condition evaluates falsely, the transaction is reverted."
 msgstr ""
 
-#: ../../../statements.rst:106
+#: ../../../statements.rst:119
 msgid "assert x > 5, \"value too low\""
 msgstr ""
 
-#: ../../../statements.rst:112
+#: ../../../statements.rst:125
 msgid "This method's behavior is equivalent to:"
 msgstr ""
 
-#: ../../../statements.rst:114
+#: ../../../statements.rst:127
 msgid ""
 "if not cond:\n"
 "    raise \"reason\""
