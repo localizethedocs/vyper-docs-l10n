@@ -77,7 +77,7 @@ msgstr "運算子"
 #: ../../../types.rst:254 ../../../types.rst:270 ../../../types.rst:413
 #: ../../../types.rst:425
 msgid "Operator"
-msgstr ""
+msgstr "運算子"
 
 #: ../../../types.rst:39 ../../../types.rst:76 ../../../types.rst:92
 #: ../../../types.rst:109 ../../../types.rst:122 ../../../types.rst:165
@@ -810,7 +810,7 @@ msgstr ""
 
 #: ../../../types.rst:492
 msgid "Fixed-size Lists"
-msgstr ""
+msgstr "固定大小的列表"
 
 #: ../../../types.rst:494
 msgid ""
@@ -956,7 +956,7 @@ msgstr ""
 
 #: ../../../types.rst:585
 msgid "Struct members can be accessed via ``struct.argname``."
-msgstr ""
+msgstr "結構體成員可以透過 ``struct.argname`` 存取。"
 
 #: ../../../types.rst:587
 msgid ""

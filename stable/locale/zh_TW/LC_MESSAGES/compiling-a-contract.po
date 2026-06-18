@@ -28,21 +28,21 @@ msgstr "命令行編譯器工具"
 #: ../../../compiling-a-contract.rst:7
 msgid ""
 "Vyper includes the following command-line scripts for compiling contracts:"
-msgstr ""
+msgstr "Vyper 包含以下用於編譯合約的命令行腳本："
 
 #: ../../../compiling-a-contract.rst:9
 msgid "``vyper``: Compiles vyper contract or archive files"
-msgstr ""
+msgstr "``vyper``：編譯 vyper 合約或封存檔案"
 
 #: ../../../compiling-a-contract.rst:10
 msgid "``vyper-json``: Provides a JSON interface to the compiler"
-msgstr ""
+msgstr "``vyper-json``：提供編譯器的 JSON 介面"
 
 #: ../../../compiling-a-contract.rst:14
 msgid ""
 "The ``--help`` flag gives verbose explanations of how to use each of these "
 "scripts."
-msgstr ""
+msgstr "``--help`` 旗標提供每個腳本使用方式的詳細說明。"
 
 #: ../../../compiling-a-contract.rst:19
 msgid "vyper"
@@ -53,10 +53,12 @@ msgid ""
 "``vyper`` provides CLI access to the compiler. It can generate various "
 "outputs including simple binaries, ASTs, interfaces and source mappings."
 msgstr ""
+"``vyper`` 提供編譯器的命令列存取。它可以生成各種輸出，包括簡單的二進位檔、"
+"AST、介面和原始碼映射。"
 
 #: ../../../compiling-a-contract.rst:23
 msgid "To compile a contract:"
-msgstr ""
+msgstr "要編譯合約："
 
 #: ../../../compiling-a-contract.rst:25
 msgid "$ vyper yourFileName.vy"
@@ -67,6 +69,8 @@ msgid ""
 "Include the ``-f`` flag to specify which output formats to return. Use "
 "``vyper --help`` for a full list of output options."
 msgstr ""
+"使用 ``-f`` 旗標指定要傳回的輸出格式。使用 ``vyper --help`` 查看完整的輸出選"
+"項列表。"
 
 #: ../../../compiling-a-contract.rst:32
 msgid ""
@@ -85,6 +89,9 @@ msgid ""
 "you rely on these functions for debugging, please use the latest patched "
 "versions."
 msgstr ""
+"自 ``0.2.0`` 起，編譯器的 ``opcodes`` 和 ``opcodes_runtime`` 輸出由於缺少 0 "
+"填充而一直傳回不正確的 opcode（已透過 `PR 3735 <https://github.com/vyperlang/"
+"vyper/pull/3735>`_ 修補）。如果您依賴這些函數進行除錯，請使用最新的修補版本。"
 
 #: ../../../compiling-a-contract.rst:39
 msgid ""
@@ -93,6 +100,8 @@ msgid ""
 "current working directory. See :ref:`searching_for_imports` for more "
 "information."
 msgstr ""
+"``-p`` 旗標允許您設定搜尋要匯入的介面檔案時使用的根路徑。如果未指定，則預設為"
+"目前工作目錄。請參閱 :ref:`searching_for_imports` 以取得更多資訊。"
 
 #: ../../../compiling-a-contract.rst:41
 msgid "$ vyper -p yourProject yourProject/yourFileName.vy"
@@ -100,11 +109,11 @@ msgstr "$ vyper -p yourProject yourProject/yourFileName.vy"
 
 #: ../../../compiling-a-contract.rst:49
 msgid "Storage Layout"
-msgstr ""
+msgstr "儲存佈局"
 
 #: ../../../compiling-a-contract.rst:51
 msgid "To display the default storage layout for a contract:"
-msgstr ""
+msgstr "顯示合約的預設儲存佈局："
 
 #: ../../../compiling-a-contract.rst:53
 msgid "$ vyper -f layout yourFileName.vy"
@@ -114,11 +123,11 @@ msgstr "$ vyper -f layout yourFileName.vy"
 msgid ""
 "This outputs a JSON object detailing the locations for all state variables "
 "as determined by the compiler."
-msgstr ""
+msgstr "這會輸出一個 JSON 物件，詳細列出由編譯器決定的所有狀態變數位置。"
 
 #: ../../../compiling-a-contract.rst:59
 msgid "To override the default storage layout for a contract:"
-msgstr ""
+msgstr "覆寫合約的預設儲存佈局："
 
 #: ../../../compiling-a-contract.rst:61
 msgid "$ vyper --storage-layout-file storageLayout.json yourFileName.vy"
@@ -129,6 +138,8 @@ msgid ""
 "The input to the ``--storage-layout-file`` flag must match the format of the "
 "``.storage_layout`` field from the ``vyper -f layout`` command."
 msgstr ""
+"``--storage-layout-file`` 旗標的輸入格式必須與 ``vyper -f layout`` 命令的 ``."
+"storage_layout`` 欄位格式相符。"
 
 #: ../../../compiling-a-contract.rst:71
 msgid "vyper-json"
@@ -140,10 +151,13 @@ msgid ""
 "`JSON formatted input<vyper-json-input>` and returns the compilation result "
 "in a :ref:`JSON formatted output<vyper-json-output>`."
 msgstr ""
+"``vyper-json`` 提供編譯器的 JSON 介面。它期望一個 :ref:`JSON 格式化的輸入"
+"<vyper-json-input>`，並以 :ref:`JSON 格式化的輸出<vyper-json-output>` 傳回編"
+"譯結果。"
 
 #: ../../../compiling-a-contract.rst:75
 msgid "To compile from JSON supplied via ``stdin``:"
-msgstr ""
+msgstr "從透過 ``stdin`` 提供的 JSON 進行編譯："
 
 #: ../../../compiling-a-contract.rst:77
 msgid "$ vyper-json"
@@ -151,7 +165,7 @@ msgstr "$ vyper-json"
 
 #: ../../../compiling-a-contract.rst:81
 msgid "To compile from a JSON file:"
-msgstr ""
+msgstr "從 JSON 檔案進行編譯："
 
 #: ../../../compiling-a-contract.rst:83
 msgid "$ vyper-json yourProject.json"
@@ -162,6 +176,7 @@ msgid ""
 "By default, the output is sent to ``stdout``. To redirect to a file, use the "
 "``-o`` flag:"
 msgstr ""
+"預設情況下，輸出會傳送到 ``stdout``。要重定向到檔案，請使用 ``-o`` 旗標："
 
 #: ../../../compiling-a-contract.rst:89
 msgid "$ vyper-json -o compiled.json"
@@ -169,28 +184,28 @@ msgstr "$ vyper-json -o compiled.json"
 
 #: ../../../compiling-a-contract.rst:94
 msgid "Importing Interfaces"
-msgstr ""
+msgstr "匯入介面"
 
 #: ../../../compiling-a-contract.rst:96
 msgid ""
 "``vyper-json`` searches for imported interfaces in the following sequence:"
-msgstr ""
+msgstr "``vyper-json`` 按以下順序搜尋匯入的介面："
 
 #: ../../../compiling-a-contract.rst:98
 msgid "Interfaces defined in the ``interfaces`` field of the input JSON."
-msgstr ""
+msgstr "在輸入 JSON 的 ``interfaces`` 欄位中定義的介面。"
 
 #: ../../../compiling-a-contract.rst:99
 msgid ""
 "Derived interfaces generated from contracts in the ``sources`` field of the "
 "input JSON."
-msgstr ""
+msgstr "從輸入 JSON 的 ``sources`` 欄位中的合約所生成的衍生介面。"
 
 #: ../../../compiling-a-contract.rst:101
 msgid ""
 "See :ref:`searching_for_imports` for more information on Vyper's import "
 "system."
-msgstr ""
+msgstr "請參閱 :ref:`searching_for_imports` 以取得 Vyper 匯入系統的更多資訊。"
 
 #: ../../../compiling-a-contract.rst:104
 msgid "Online Compilers"
@@ -207,6 +222,9 @@ msgid ""
 "in Vyper. It requires github for login, and supports deployment via the "
 "browser."
 msgstr ""
+"`Try VyperLang! <https://try.vyperlang.org>`_ 是由 Vyper 團隊託管的 "
+"JupyterHub 實例，作為使用 Vyper 開發和測試合約的沙盒環境。它需要 GitHub 進行"
+"登入，並支援透過瀏覽器進行部署。"
 
 #: ../../../compiling-a-contract.rst:112
 msgid "Remix IDE"
@@ -217,6 +235,8 @@ msgid ""
 "`Remix IDE <https://remix.ethereum.org>`_ is a compiler and JavaScript VM "
 "for developing and testing contracts in Vyper, as well as Solidity."
 msgstr ""
+"`Remix IDE <https://remix.ethereum.org>`_ 是一個編譯器和 JavaScript VM，用於"
+"以 Vyper 以及 Solidity 開發和測試合約。"
 
 #: ../../../compiling-a-contract.rst:118
 msgid ""
@@ -225,6 +245,8 @@ msgid ""
 "branch of the repository. Make sure the byte code matches the output from "
 "your local compiler."
 msgstr ""
+"雖然 Remix IDE 的 Vyper 版本編譯器會定期更新，但可能比儲存庫 master 分支中的"
+"最新版本稍落後。請確保位元組碼與您本機編譯器的輸出相符。"
 
 #: ../../../compiling-a-contract.rst:123
 msgid "Compiler Optimization Modes"
@@ -240,36 +262,41 @@ msgid ""
 "optimized mode, the compiler will try to generate bytecode which minimizes "
 "gas (up to a point), including:"
 msgstr ""
+"Vyper CLI 工具接受 ``\"none\"``、``\"codesize\"`` 或 ``\"gas\"``（預設）最佳"
+"化模式。可以使用 ``--optimize`` 旗標進行設定。例如，呼叫 ``vyper --optimize "
+"codesize MyContract.vy`` 將編譯合約並針對程式碼大小進行最佳化。粗略總結 gas "
+"和 codesize 模式之間的差異，在 gas 最佳化模式下，編譯器會嘗試生成最小化 gas "
+"使用的位元組碼（在某種程度上），包括："
 
 #: ../../../compiling-a-contract.rst:127
 msgid "using a sparse selector table which optimizes for gas over codesize"
-msgstr ""
+msgstr "使用稀疏選擇器表，相對於程式碼大小更優化 gas"
 
 #: ../../../compiling-a-contract.rst:128
 msgid "inlining some constants, and"
-msgstr ""
+msgstr "內聯一些常數，以及"
 
 #: ../../../compiling-a-contract.rst:129
 msgid "trying to unroll some loops, especially for data copies."
-msgstr ""
+msgstr "嘗試展開一些迴圈，尤其是針對資料複製。"
 
 #: ../../../compiling-a-contract.rst:131
 msgid ""
 "In codesize optimized mode, the compiler will try hard to minimize codesize "
 "by"
-msgstr ""
+msgstr "在 codesize 最佳化模式下，編譯器會努力透過以下方式最小化程式碼大小"
 
 #: ../../../compiling-a-contract.rst:133
 msgid "using a dense selector table"
-msgstr ""
+msgstr "使用密集選擇器表"
 
 #: ../../../compiling-a-contract.rst:134
 msgid "out-lining code, and"
-msgstr ""
+msgstr "將程式碼外聯（out-lining），以及"
 
 #: ../../../compiling-a-contract.rst:135
 msgid "using more loops for data copies."
-msgstr ""
+msgstr "對資料複製使用更多迴圈。"
 
 #: ../../../compiling-a-contract.rst:138
 msgid "Enabling Experimental Code Generation"
@@ -285,7 +312,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:146
 msgid "Setting the Target EVM Version"
-msgstr ""
+msgstr "設定目標 EVM 版本"
 
 #: ../../../compiling-a-contract.rst:148
 msgid ""
@@ -297,6 +324,10 @@ msgid ""
 "and the source code pragma when you want bytecode reproducibility (for "
 "instance, when verifying code on a block explorer)."
 msgstr ""
+"編譯合約程式碼時，您可以指定要編譯的目標以太坊虛擬機版本，以存取或避免特定功"
+"能。您可以透過原始碼 pragma 或編譯器選項來指定版本。當您需要靈活性時（例如，"
+"方便在不同鏈上部署），建議使用編譯器選項；當您需要位元組碼可重現性時（例如，"
+"在區塊瀏覽器上驗證程式碼），則建議使用原始碼 pragma。"
 
 #: ../../../compiling-a-contract.rst:151
 msgid ""
@@ -304,12 +335,15 @@ msgid ""
 "source code pragma, an exception will be raised and compilation will not "
 "continue."
 msgstr ""
+"如果編譯器選項指定的 EVM 版本與原始碼 pragma 衝突，將會引發例外且編譯不會繼"
+"續。"
 
 #: ../../../compiling-a-contract.rst:153
 msgid ""
 "For instance, the adding the following pragma to a contract indicates that "
 "it should be compiled for the \"prague\" fork of the EVM."
 msgstr ""
+"例如，將以下 pragma 新增到合約中表示應針對 EVM 的「prague」分叉進行編譯。"
 
 #: ../../../compiling-a-contract.rst:155
 msgid "#pragma evm-version prague"
@@ -321,12 +355,16 @@ msgid ""
 "behavior. Please ensure, especially if running a private chain, that you use "
 "matching EVM versions."
 msgstr ""
+"針對錯誤的 EVM 版本進行編譯可能導致錯誤、異常或失敗的行為。請確保使用相符的 "
+"EVM 版本，尤其是在執行私有鏈時。"
 
 #: ../../../compiling-a-contract.rst:163
 msgid ""
 "When compiling via the ``vyper`` CLI, you can specify the EVM version option "
 "using the ``--evm-version`` flag:"
 msgstr ""
+"透過 ``vyper`` CLI 編譯時，您可以使用 ``--evm-version`` 旗標指定 EVM 版本選"
+"項："
 
 #: ../../../compiling-a-contract.rst:165
 msgid "$ vyper --evm-version [VERSION]"
@@ -337,6 +375,8 @@ msgid ""
 "When using the JSON interface, you can include the ``\"evmVersion\"`` key "
 "within the ``\"settings\"`` field:"
 msgstr ""
+"使用 JSON 介面時，您可以在 ``\"settings\"`` 欄位中包含 ``\"evmVersion\"`` "
+"鍵："
 
 #: ../../../compiling-a-contract.rst:171
 msgid ""
@@ -364,36 +404,40 @@ msgid ""
 "informal policy that the compiler will support 3 years of hard fork "
 "rulesets, but this policy may be revisited as appropriate."
 msgstr ""
+"以下是支援的 EVM 版本列表，以及每個版本引入的編譯器變更。各版本之間不保證向後"
+"相容性。一般來說，編譯器團隊維持非正式政策，即編譯器將支援 3 年的硬分叉規則"
+"集，但此政策可能會根據情況重新檢視。"
 
 #: ../../../compiling-a-contract.rst:189
 msgid ""
 "``block.difficulty`` is deprecated in favor of its new alias, ``block."
 "prevrandao``."
-msgstr ""
+msgstr "``block.difficulty`` 已被棄用，改為使用其新別名 ``block.prevrandao``。"
 
 #: ../../../compiling-a-contract.rst:193
 msgid ""
 "The ``PUSH0`` opcode is automatically generated by the compiler instead of "
 "``PUSH1 0``"
-msgstr ""
+msgstr "``PUSH0`` opcode 由編譯器自動生成，取代 ``PUSH1 0``"
 
 #: ../../../compiling-a-contract.rst:197
 msgid ""
 "The ``transient`` keyword allows declaration of variables which live in "
 "transient storage"
-msgstr ""
+msgstr "``transient`` 關鍵字允許宣告存在於暫態儲存中的變數"
 
 #: ../../../compiling-a-contract.rst:198
 msgid ""
 "Functions marked with ``@nonreentrant`` are protected with TLOAD/TSTORE "
 "instead of SLOAD/SSTORE"
 msgstr ""
+"標記為 ``@nonreentrant`` 的函數使用 TLOAD/TSTORE 而非 SLOAD/SSTORE 進行保護"
 
 #: ../../../compiling-a-contract.rst:199
 msgid ""
 "The ``MCOPY`` opcode will be generated automatically by the compiler for "
 "most memory operations."
-msgstr ""
+msgstr "對於大多數記憶體操作，編譯器將自動生成 ``MCOPY`` opcode。"
 
 #: ../../../compiling-a-contract.rst:206
 msgid "Controlling Warnings"
@@ -404,10 +448,12 @@ msgid ""
 "Vyper allows suppression of warnings via the CLI flag ``-Wnone``, or "
 "promotion of (all) warnings to errors via the ``-Werror`` flag."
 msgstr ""
+"Vyper 允許透過 CLI 旗標 ``-Wnone`` 來抑制警告，或透過 ``-Werror`` 旗標將（所"
+"有）警告升級為錯誤。"
 
 #: ../../../compiling-a-contract.rst:210
 msgid "$ vyper -Wnone foo.vy   # suppress warnings"
-msgstr ""
+msgstr "$ vyper -Wnone foo.vy   # 抑制警告"
 
 #: ../../../compiling-a-contract.rst:214
 msgid "$ vyper -Werror foo.vy   # promote warnings to errors"
@@ -415,7 +461,7 @@ msgstr "$ vyper -Werror foo.vy   # 將警告升級成錯誤"
 
 #: ../../../compiling-a-contract.rst:222
 msgid "Integrity Hash"
-msgstr ""
+msgstr "完整性雜湊"
 
 #: ../../../compiling-a-contract.rst:224
 msgid ""
@@ -425,10 +471,13 @@ msgid ""
 "the integrity hashes of its dependencies (imports) and storage layout "
 "overrides (if provided)."
 msgstr ""
+"為了幫助工具檢測兩個建置是否相同，Vyper 提供了 ``-f integrity`` 輸出，它會輸"
+"出合約的完整性雜湊。完整性雜湊遞迴定義為原始碼的 sha256 加上其依賴項（匯入）"
+"的完整性雜湊和儲存佈局覆寫（如果有提供的話）。"
 
 #: ../../../compiling-a-contract.rst:229
 msgid "Vyper Archives"
-msgstr ""
+msgstr "Vyper 封存檔"
 
 #: ../../../compiling-a-contract.rst:231
 msgid ""
@@ -439,6 +488,10 @@ msgid ""
 "zip`` suffix or ``.vyz`` suffix. It must contain a ``MANIFEST/`` folder, "
 "with the following directory structure."
 msgstr ""
+"Vyper 封存檔是一個可編譯的輸入原始碼和設定組合。技術上來說，它是一個 `ZIP 檔"
+"案 <https://en.wikipedia.org/wiki/ZIP_(file_format)>`_，具有特殊結構使其可作"
+"為編譯器的輸入。它可以使用任何副檔名，但慣例是使用 ``.zip`` 或 ``.vyz`` 副檔"
+"名。它必須包含一個 ``MANIFEST/`` 資料夾，具有以下目錄結構。"
 
 #: ../../../compiling-a-contract.rst:235
 msgid ""
@@ -464,31 +517,31 @@ msgstr ""
 msgid ""
 "``cli_settings.txt`` is a text representation of the settings that were used "
 "on the compilation run that generated this archive."
-msgstr ""
+msgstr "``cli_settings.txt`` 是生成此封存檔的編譯執行中所使用設定的文字表示。"
 
 #: ../../../compiling-a-contract.rst:245
 msgid ""
 "``compilation_targets`` is a newline separated list of compilation targets. "
 "Currently only one compilation is supported"
-msgstr ""
+msgstr "``compilation_targets`` 是以換行分隔的編譯目標列表。目前僅支援一個編譯"
 
 #: ../../../compiling-a-contract.rst:246
 msgid ""
 "``compiler_version`` is a text representation of the compiler version used "
 "to generate this archive"
-msgstr ""
+msgstr "``compiler_version`` 是用於生成此封存檔的編譯器版本的文字表示"
 
 #: ../../../compiling-a-contract.rst:247
 msgid ""
 "``integrity`` is the :ref:`integrity hash <integrity-hash>` of the input "
 "contract"
-msgstr ""
+msgstr "``integrity`` 是輸入合約的 :ref:`完整性雜湊 <integrity-hash>`"
 
 #: ../../../compiling-a-contract.rst:248
 msgid ""
 "``searchpaths`` is a newline-separated list of the search paths used on this "
 "compilation run"
-msgstr ""
+msgstr "``searchpaths`` 是以換行分隔的此次編譯執行中使用的搜尋路徑列表"
 
 #: ../../../compiling-a-contract.rst:249
 msgid ""
@@ -497,12 +550,17 @@ msgid ""
 "as they are convenient for different workflows (typically, manually vs "
 "automated)."
 msgstr ""
+"``settings.json`` 是此次編譯執行中使用的設定的 JSON 表示。它與 "
+"``cli_settings.txt`` 是 1:1 對應的，但兩者都提供，因為它們對不同的工作流程"
+"（通常分別用於手動和自動化）都很方便。"
 
 #: ../../../compiling-a-contract.rst:250
 msgid ""
 "``storage_layout.json`` is a json representation of the storage layout "
 "overrides to be used on this compilation run. It is optional."
 msgstr ""
+"``storage_layout.json`` 是要在此次編譯執行中使用的儲存佈局覆寫的 JSON 表示。"
+"此為選用項目。"
 
 #: ../../../compiling-a-contract.rst:252
 msgid ""
@@ -511,6 +569,9 @@ msgid ""
 "using the ``--base64`` flag. The Vyper compiler can accept both ``.vyz`` and "
 "base64-encoded Vyper archives directly as input."
 msgstr ""
+"Vyper 封存檔案可以透過請求 ``-f archive`` 輸出格式來產生。編譯器也可以使用 "
+"``--base64`` 旗標以 base64 編碼形式產生封存檔。Vyper 編譯器可以直接接受 ``."
+"vyz`` 和 base64 編碼的 Vyper 封存檔作為輸入。"
 
 #: ../../../compiling-a-contract.rst:254
 msgid ""
@@ -530,7 +591,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:262
 msgid "Compiler Input and Output JSON Description"
-msgstr ""
+msgstr "編譯器輸入與輸出 JSON 說明"
 
 #: ../../../compiling-a-contract.rst:264
 msgid ""
@@ -539,6 +600,9 @@ msgid ""
 "archives>`. So-called \"standard json\" input can be generated from a "
 "contract using the ``vyper -f solc_json`` output format."
 msgstr ""
+"提供 JSON 輸入/輸出是為了與 Solidity 相容，然而建議的方式是使用前述的 :ref:"
+"`Vyper 封存檔 <vyper-archives>`。所謂的「標準 json」輸入可以使用 ``vyper -f "
+"solc_json`` 輸出格式從合約生成。"
 
 #: ../../../compiling-a-contract.rst:266
 msgid ""
@@ -546,10 +610,13 @@ msgid ""
 "<https://solidity.readthedocs.io/en/latest/using-the-compiler.html#compiler-"
 "input-and-output-json-description>`_."
 msgstr ""
+"在可能的情況下，Vyper JSON 編譯器格式遵循 `Solidity <https://solidity."
+"readthedocs.io/en/latest/using-the-compiler.html#compiler-input-and-output-"
+"json-description>`_ 的格式。"
 
 #: ../../../compiling-a-contract.rst:271
 msgid "Input JSON Description"
-msgstr ""
+msgstr "輸入 JSON 說明"
 
 #: ../../../compiling-a-contract.rst:273
 msgid ""
@@ -557,6 +624,8 @@ msgid ""
 "(Comments are not normally permitted in JSON and are used here for "
 "explanatory purposes)."
 msgstr ""
+"以下範例描述了 ``vyper-json`` 的預期輸入格式。（註解通常不允許在 JSON 中使"
+"用，此處僅用於說明目的）。"
 
 #: ../../../compiling-a-contract.rst:275
 msgid ""
@@ -668,7 +737,7 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:365
 msgid "Output JSON Description"
-msgstr ""
+msgstr "輸出 JSON 說明"
 
 #: ../../../compiling-a-contract.rst:367
 msgid ""
@@ -676,6 +745,8 @@ msgid ""
 "Comments are of course not permitted and used here *only for explanatory "
 "purposes*."
 msgstr ""
+"以下範例描述了 ``vyper-json`` 的輸出格式。註解當然不允許使用，此處僅用於說明"
+"目的。"
 
 #: ../../../compiling-a-contract.rst:369
 msgid ""
@@ -791,38 +862,42 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:474
 msgid "Errors"
-msgstr ""
+msgstr "錯誤"
 
 #: ../../../compiling-a-contract.rst:476
 msgid ""
 "Each error includes a ``component`` field, indicating the stage at which it "
 "occurred:"
-msgstr ""
+msgstr "每個錯誤都包含一個 ``component`` 欄位，指示錯誤發生的階段："
 
 #: ../../../compiling-a-contract.rst:478
 msgid ""
 "``json``: Errors that occur while parsing the input JSON. Usually, a result "
 "of invalid JSON or a required value that is missing."
 msgstr ""
+"``json``：解析輸入 JSON 時發生的錯誤。通常是無效的 JSON 或缺少必要值的結果。"
 
 #: ../../../compiling-a-contract.rst:479
 msgid ""
 "``parser``: Errors that occur while parsing the contracts. Usually, a result "
 "of invalid Vyper syntax."
-msgstr ""
+msgstr "``parser``：解析合約時發生的錯誤。通常是無效的 Vyper 語法的結果。"
 
 #: ../../../compiling-a-contract.rst:480
 msgid "``compiler``: Errors that occur while compiling the contracts."
-msgstr ""
+msgstr "``compiler``：編譯合約時發生的錯誤。"
 
 #: ../../../compiling-a-contract.rst:481
 msgid ""
 "``vyper``: Unexpected errors that occur within Vyper. If you receive an "
 "error of this type, please open an issue."
 msgstr ""
+"``vyper``：Vyper 內部發生的意外錯誤。如果您收到此類型的錯誤，請開啟一個 "
+"Issue。"
 
 #: ../../../compiling-a-contract.rst:483
 msgid ""
 "You can also use the ``--traceback`` flag to receive a standard Python "
 "traceback when an error is encountered."
 msgstr ""
+"您也可以使用 ``--traceback`` 旗標，在遇到錯誤時接收標準的 Python traceback。"

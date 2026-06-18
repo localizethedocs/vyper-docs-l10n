@@ -39,7 +39,7 @@ msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:11
 msgid "Getting Started"
-msgstr ""
+msgstr "開始使用"
 
 #: ../../../testing-contracts-brownie.rst:13
 msgid ""
