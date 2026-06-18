@@ -23,7 +23,7 @@ msgstr "概覽"
 
 #: ../../../toctree.rst:10
 msgid "Getting Started"
-msgstr ""
+msgstr "開始使用"
 
 #: ../../../toctree.rst:19
 msgid "Language Description"

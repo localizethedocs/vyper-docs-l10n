@@ -29,6 +29,10 @@ msgid ""
 "decorated with ``@abstract``. These methods can then be overridden to supply "
 "the custom logic. Here is an example:"
 msgstr ""
+"抽象模組是一種特殊的 :ref:`模組 <modules>`，它提供了可自訂其邏輯的插入點。這"
+"些插入點以 **抽象方法**（abstract methods）的形式存在，即使用 ``@abstract`` "
+"修飾的 :ref:`內部 <structure-functions-internal>` 方法。這些方法可以被覆寫"
+"（override）來提供自訂邏輯。以下是一個範例："
 
 #: ../../../abstract-modules.rst:11
 msgid ""
@@ -58,12 +62,17 @@ msgid ""
 "this module focus on *where* custom logic runs, while the overriding module "
 "decides *what* it does."
 msgstr ""
+"``base_token`` 模組定義了一個傳輸掛鉤 ``_before_transfer()`` 作為抽象方法。它"
+"在每次傳輸時被呼叫，但沒有實作——實作留給初始化此模組的人。這讓此模組專注於自"
+"訂邏輯執行於「何處」，而覆寫模組則決定它「做什麼」。"
 
 #: ../../../abstract-modules.rst:32
 msgid ""
 "To supply an implementation, a module imports and ``initializes`` the "
 "abstract module, then provides an ``@override`` for each abstract method:"
 msgstr ""
+"要提供實作，模組需要匯入並 ``initializes`` 抽象模組，然後為每個抽象方法提供 "
+"``@override``："
 
 #: ../../../abstract-modules.rst:34
 msgid ""
@@ -88,6 +97,8 @@ msgid ""
 "moving tokens. The override is resolved at compile time — there is no "
 "runtime dispatch or inheritance involved."
 msgstr ""
+"現在每次呼叫 ``base_token.transfer()`` 都會在轉移代幣之前檢查暫停旗標。覆寫在"
+"編譯時期解析——不涉及執行時期分派或繼承。"
 
 #: ../../../abstract-modules.rst:53
 msgid ""
@@ -107,6 +118,9 @@ msgid ""
 "internal>` decorated with ``@abstract``. Its body must consist of an "
 "Ellipsis literal (``...``) potentially preceded by a docstring and comments."
 msgstr ""
+"抽象方法是使用 ``@abstract`` 修飾的 :ref:`內部方法 <structure-functions-"
+"internal>`。其主體必須由省略符號字面值（``...``）組成，前面可以有文件字串"
+"（docstring）和註解。"
 
 #: ../../../abstract-modules.rst:62
 msgid ""
@@ -122,6 +136,8 @@ msgid ""
 "signature, can take any decorator (provided they are valid on internal "
 "methods), and be called like concrete methods:"
 msgstr ""
+"抽象方法沒有其他限制，它們可以有任何簽章（signature），可以使用任何修飾器（只"
+"要是內部方法有效的修飾器即可），並且可以像具體方法一樣被呼叫："
 
 #: ../../../abstract-modules.rst:71
 msgid ""
@@ -143,7 +159,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:89
 msgid "Overriding an abstract module"
-msgstr ""
+msgstr "覆寫抽象模組"
 
 #: ../../../abstract-modules.rst:91
 msgid ""
@@ -151,6 +167,8 @@ msgid ""
 "module to complete them, by providing implementations for its abstract "
 "methods:"
 msgstr ""
+"由於抽象模組本質上是不完整的，因此需要另一個模組來完成它們，為其抽象方法提供"
+"實作："
 
 #: ../../../abstract-modules.rst:93
 msgid ""
@@ -165,17 +183,19 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:103
 msgid "For module M1 to override module M2:"
-msgstr ""
+msgstr "若要讓模組 M1 覆寫模組 M2："
 
 #: ../../../abstract-modules.rst:105
 msgid "M1 must :ref:`initialize <initializing-module>` M2"
-msgstr ""
+msgstr "M1 必須 :ref:`初始化 <initializing-module>` M2"
 
 #: ../../../abstract-modules.rst:106
 msgid ""
 "M1 must override each abstract method of M2, see :ref:`Overriding abstract "
 "methods <overriding-abstract-methods>`"
 msgstr ""
+"M1 必須覆寫 M2 的每個抽象方法，請參閱 :ref:`覆寫抽象方法 <overriding-"
+"abstract-methods>`"
 
 #: ../../../abstract-modules.rst:109
 msgid ""
@@ -183,10 +203,12 @@ msgid ""
 "modules can only be overridden once. This is guaranteed by the "
 "initialization system."
 msgstr ""
+"因此不需要選擇要使用哪個覆寫，抽象模組只能被覆寫一次。這是由初始化系統保證"
+"的。"
 
 #: ../../../abstract-modules.rst:114
 msgid "Overriding abstract methods"
-msgstr ""
+msgstr "覆寫抽象方法"
 
 #: ../../../abstract-modules.rst:116
 msgid ""
@@ -194,6 +216,9 @@ msgid ""
 "the overriding module must define an internal method ``_before_transfer`` "
 "with an ``@override(my_abstract_module)`` decorator:"
 msgstr ""
+"要覆寫模組 ``base_token`` 的抽象方法 ``_before_transfer``，覆寫模組必須定義一"
+"個內部方法 ``_before_transfer``，並加上 ``@override(my_abstract_module)`` 修"
+"飾器："
 
 #: ../../../abstract-modules.rst:118
 msgid ""
@@ -208,6 +233,9 @@ msgid ""
 "compile-time to a call to the overriding ``_before_transfer``, it is "
 "necessary that any call to the former is a valid call to the latter:"
 msgstr ""
+"由於對 ``base_token._before_transfer`` 的任何呼叫都會在編譯時期被替換為對覆寫"
+"的 ``_before_transfer`` 的呼叫，因此對前者的任何呼叫都必須是對後者的有效呼"
+"叫："
 
 #: ../../../abstract-modules.rst:126
 msgid ""
@@ -269,23 +297,23 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:178
 msgid "A good heuristic is the following; the override must have:"
-msgstr ""
+msgstr "一個良好的經驗法則如下；覆寫必須具有："
 
 #: ../../../abstract-modules.rst:180
 msgid ""
 "The same parameters as the abstract method: same name, same type, and same "
 "default value."
-msgstr ""
+msgstr "與抽象方法相同的參數：相同名稱、相同型別和相同預設值。"
 
 #: ../../../abstract-modules.rst:181
 msgid "The same return type as the abstract method."
-msgstr ""
+msgstr "與抽象方法相同的回傳型別。"
 
 #: ../../../abstract-modules.rst:182
 msgid ""
 "The same decorators as the abstract method, except ``@override`` and "
 "``@abstract``."
-msgstr ""
+msgstr "與抽象方法相同的修飾器，除了 ``@override`` 和 ``@abstract``。"
 
 #: ../../../abstract-modules.rst:184
 msgid ""
@@ -293,12 +321,14 @@ msgid ""
 "these might prove too restrictive in your use-case, for this reason the "
 "actual rules are more flexible:"
 msgstr ""
+"遵循上述規則將始終產生有效的覆寫。然而，這些規則在某些使用情境中可能過於嚴"
+"格，因此實際規則更加靈活："
 
 #: ../../../abstract-modules.rst:187
 msgid ""
 "Each parameter of the abstract method must appear in the override at the "
 "same position, with the same name."
-msgstr ""
+msgstr "抽象方法的每個參數必須出現在覆寫中的相同位置，且使用相同的名稱。"
 
 #: ../../../abstract-modules.rst:188
 msgid ""
@@ -306,42 +336,46 @@ msgid ""
 "of the default argument must match in the override. Any value matches an "
 "ellipsis (``...``)."
 msgstr ""
+"如果抽象方法為參數定義了預設引數，則預設引數的值在覆寫中必須相符。任何值都與"
+"省略符號（``...``）相符。"
 
 #: ../../../abstract-modules.rst:189
 msgid ""
 "The override may add extra parameters to the right, as long as they have "
 "default values."
-msgstr ""
+msgstr "覆寫可以在右側新增額外的參數，只要它們具有預設值即可。"
 
 #: ../../../abstract-modules.rst:190
 msgid ""
 "The override may add a default value to a parameter that was mandatory in "
 "the abstract method."
-msgstr ""
+msgstr "覆寫可以為抽象方法中的強制參數新增預設值。"
 
 #: ../../../abstract-modules.rst:191
 msgid ""
 "Each parameter type in the override must be a super-type of the "
 "corresponding parameter type in the abstract method."
 msgstr ""
+"覆寫中的每個參數型別必須是抽象方法中對應參數型別的超型別（super-type）。"
 
 #: ../../../abstract-modules.rst:192
 msgid ""
 "The return type of the override must be a sub-type of the abstract method's "
 "return type."
-msgstr ""
+msgstr "覆寫的回傳型別必須是抽象方法回傳型別的子型別（sub-type）。"
 
 #: ../../../abstract-modules.rst:193
 msgid ""
 "The override's :ref:`mutability <function-mutability>` must be the same (or "
 "stricter) than the abstract's."
 msgstr ""
+"覆寫的 :ref:`可變性 <function-mutability>` 必須與抽象方法的相同（或更嚴格）。"
 
 #: ../../../abstract-modules.rst:194
 msgid ""
 "The override's :ref:`reentrancy <reentrancy>` must match exactly the one of "
 "the abstract method."
-msgstr ""
+msgstr "覆寫的 :ref:`可重入性 <reentrancy>` 必須與抽象方法的完全相符。"
 
 #: ../../../abstract-modules.rst:198
 msgid "Calling abstract methods"
@@ -353,6 +387,8 @@ msgid ""
 "Additionally, calling the abstract methods of another module requires :ref:"
 "`using <uses-statement>` it."
 msgstr ""
+"抽象方法的呼叫方式與具體方法相同。此外，呼叫另一個模組的抽象方法需要使用 :"
+"ref:`uses <uses-statement>` 陳述式。"
 
 #: ../../../abstract-modules.rst:203
 msgid ""
@@ -387,7 +423,7 @@ msgstr ""
 msgid ""
 "All calls to abstract methods are resolved at compile time to the concrete "
 "override: there is no runtime dispatch."
-msgstr ""
+msgstr "所有對抽象方法的呼叫都會在編譯時期解析為具體的覆寫：沒有執行時期分派。"
 
 #: ../../../abstract-modules.rst:231
 msgid ""
@@ -396,6 +432,9 @@ msgid ""
 "_before_transfer`` overrides ``base_token._before_transfer``, any call "
 "within that module must go through ``self``, not through ``base_token``:"
 msgstr ""
+"當模組覆寫抽象方法時，編譯器要求呼叫者使用最具體的路徑。特別是，如果 ``self."
+"_before_transfer`` 覆寫了 ``base_token._before_transfer``，則該模組內的任何呼"
+"叫都必須透過 ``self``，而不是透過 ``base_token``："
 
 #: ../../../abstract-modules.rst:234
 msgid ""
@@ -418,17 +457,19 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:254
 msgid "Advanced Uses"
-msgstr ""
+msgstr "進階用法"
 
 #: ../../../abstract-modules.rst:256
 msgid ""
 "In this section we will explain consequences of the above specification "
 "which might not jump to mind, and are useful in advanced contexts."
 msgstr ""
+"在本節中，我們將解釋上述規範的一些可能不會立即想到的後果，這些在進階情境中很"
+"有用。"
 
 #: ../../../abstract-modules.rst:259
 msgid "Abstract overriding modules"
-msgstr ""
+msgstr "抽象的覆寫模組"
 
 #: ../../../abstract-modules.rst:261
 msgid ""
@@ -436,6 +477,8 @@ msgid ""
 "and ``@override`` can co-exist in the same module (and even :ref:`on the "
 "same method <deferring_overriding>`):"
 msgstr ""
+"覆寫模組本身也可以是抽象的。換句話說，``@abstract`` 和 ``@override`` 可以共存"
+"於同一個模組中（甚至可以 :ref:`在同一個方法上 <deferring_overriding>`）："
 
 #: ../../../abstract-modules.rst:264
 msgid ""
@@ -467,6 +510,9 @@ msgid ""
 "``check_cap`` and ``check_address``. A final module completes the chain by "
 "overriding those:"
 msgstr ""
+"這裡 ``checked_token.vy`` 為 ``base_token`` 提供了一個具體的 "
+"``_before_transfer``，但它本身是一個抽象模組，因為它引入了 ``check_cap`` 和 "
+"``check_address``。最終模組透過覆寫這些方法來完成鏈："
 
 #: ../../../abstract-modules.rst:288
 msgid ""
@@ -489,7 +535,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:307
 msgid "Overriding multiple modules"
-msgstr ""
+msgstr "覆寫多個模組"
 
 #: ../../../abstract-modules.rst:309
 msgid ""
@@ -498,12 +544,16 @@ msgid ""
 "concerns, for instance combining transfer validation from one module with "
 "fee configuration from another."
 msgstr ""
+"單一模組可以初始化多個抽象模組，並為每個模組獨立提供覆寫。這就是組合不相關關"
+"注點的方式，例如將一個模組的傳輸驗證與另一個模組的手續費設定結合在一起。"
 
 #: ../../../abstract-modules.rst:312
 msgid ""
 "Using ``base_token`` from the :ref:`earlier example <abstract-modules>`, "
 "consider a second abstract module that manages access control:"
 msgstr ""
+"使用來自 :ref:`前面範例 <abstract-modules>` 的 ``base_token``，考慮一個管理存"
+"取控制的第二個抽象模組："
 
 #: ../../../abstract-modules.rst:314
 msgid ""
@@ -520,7 +570,7 @@ msgstr ""
 #: ../../../abstract-modules.rst:325
 msgid ""
 "A contract can initialize both modules and override each abstract method:"
-msgstr ""
+msgstr "合約可以初始化兩個模組並覆寫每個抽象方法："
 
 #: ../../../abstract-modules.rst:327
 msgid ""
@@ -550,10 +600,12 @@ msgid ""
 "The overriding module weaves both concerns together: ``_before_transfer`` "
 "delegates to the access control module to gate who can send tokens."
 msgstr ""
+"覆寫模組將兩個關注點交織在一起：``_before_transfer`` 委派給存取控制模組來把關"
+"誰可以發送代幣。"
 
 #: ../../../abstract-modules.rst:352
 msgid "Overriding multiple abstract methods"
-msgstr ""
+msgstr "覆寫多個抽象方法"
 
 #: ../../../abstract-modules.rst:354
 msgid ""
@@ -563,6 +615,10 @@ msgid ""
 "decorators. Note however that the method must be a :ref:`valid override "
 "<overriding-abstract-methods>` for every abstract method:"
 msgstr ""
+"當一個模組覆寫多個其他模組時，可能會發生抽象模組共用方法名稱的情況。為了處理"
+"這種情況，單一方法可以透過新增多個 ``@override`` 修飾器來覆寫多個方法。但請注"
+"意，該方法必須是每個抽象方法的 :ref:`有效覆寫 <overriding-abstract-"
+"methods>`："
 
 #: ../../../abstract-modules.rst:358
 msgid ""
@@ -613,7 +669,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:404
 msgid "Deferring overriding"
-msgstr ""
+msgstr "延遲覆寫"
 
 #: ../../../abstract-modules.rst:406
 msgid ""
@@ -621,6 +677,8 @@ msgid ""
 "if such is the case, ``@abstract`` and ``@override`` can be combined to "
 "defer providing an implementation:"
 msgstr ""
+"在某些情況下，模組可能不想覆寫另一個模組的每個方法。如果是這種情況，可以組合 "
+"``@abstract`` 和 ``@override`` 來延遲提供實作："
 
 #: ../../../abstract-modules.rst:408
 msgid ""
@@ -671,10 +729,11 @@ msgid ""
 "Any call to ``base.method_b`` resolves to a call to the concrete "
 "implementation: ``top.method_b``."
 msgstr ""
+"任何對 ``base.method_b`` 的呼叫都會解析為對具體實作的呼叫：``top.method_b``。"
 
 #: ../../../abstract-modules.rst:452
 msgid "Default Implementation"
-msgstr ""
+msgstr "預設實作"
 
 #: ../../../abstract-modules.rst:454
 msgid ""
@@ -682,6 +741,8 @@ msgid ""
 "method, this can be done by defining a separate method which holds this "
 "logic:"
 msgstr ""
+"有時需要為抽象方法提供預設實作，這可以透過定義一個包含此邏輯的單獨方法來完"
+"成："
 
 #: ../../../abstract-modules.rst:456
 msgid ""
@@ -699,7 +760,7 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:468
 msgid "This allows accepting the default implementation downstream as:"
-msgstr ""
+msgstr "這允許在下游接受預設實作，如下所示："
 
 #: ../../../abstract-modules.rst:470
 msgid ""
@@ -717,7 +778,7 @@ msgstr ""
 #: ../../../abstract-modules.rst:482
 msgid ""
 "And even allows using the default implementation while adding extra logic:"
-msgstr ""
+msgstr "甚至允許在使用預設實作的同時新增額外的邏輯："
 
 #: ../../../abstract-modules.rst:484
 msgid ""
@@ -741,13 +802,13 @@ msgstr ""
 
 #: ../../../abstract-modules.rst:503
 msgid "Recommendations:"
-msgstr ""
+msgstr "建議："
 
 #: ../../../abstract-modules.rst:505
 msgid ""
 "The default implementation should have the same name as the abstract method "
 "followed by ``_default``."
-msgstr ""
+msgstr "預設實作的名稱應與抽象方法相同，並在後面加上 ``_default``。"
 
 #: ../../../abstract-modules.rst:506
 msgid ""
@@ -755,3 +816,5 @@ msgid ""
 "override), as this defeats the purpose of making the method abstract in the "
 "first place."
 msgstr ""
+"預設實作不應該在任何地方被呼叫（除了在覆寫中），因為這會使將方法設為抽象的初"
+"衷失去意義。"
