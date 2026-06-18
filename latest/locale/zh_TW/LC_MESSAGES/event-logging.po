@@ -23,11 +23,11 @@ msgstr "事件日誌紀錄"
 
 #: ../../../event-logging.rst:6
 msgid "Vyper can log events to be caught and displayed by user interfaces."
-msgstr ""
+msgstr "Vyper 可以記錄事件，以便由使用者介面捕獲和顯示。"
 
 #: ../../../event-logging.rst:9
 msgid "Example of Logging"
-msgstr ""
+msgstr "日誌紀錄範例"
 
 #: ../../../event-logging.rst:11
 msgid ""
@@ -35,6 +35,8 @@ msgid ""
 "vyperlang/vyper/blob/master/examples/tokens/ERC20.vy>`_ and shows the basic "
 "flow of event logging:"
 msgstr ""
+"此範例取自 `ERC20 合約範例 <https://github.com/vyperlang/vyper/blob/master/"
+"examples/tokens/ERC20.vy>`_，展示了事件日誌紀錄的基本流程："
 
 #: ../../../event-logging.rst:13
 msgid ""
@@ -61,7 +63,7 @@ msgstr ""
 
 #: ../../../event-logging.rst:35
 msgid "Let's look at what this is doing."
-msgstr ""
+msgstr "讓我們看看這段程式碼在做什麼。"
 
 #: ../../../event-logging.rst:37
 msgid ""
@@ -71,6 +73,10 @@ msgid ""
 "event. Also, each event contains one single data field, in each case called "
 "``value``. Events can contain several arguments with any names desired."
 msgstr ""
+"我們宣告了兩個要記錄的事件型別。這兩個事件相似之處在於都包含兩個已索引的地址"
+"欄位。已索引欄位不構成事件資料本身的一部分，但可以由想要捕獲事件的客戶端進行"
+"搜尋。此外，每個事件都包含一個資料欄位，在每個案例中稱為 ``value``。事件可以"
+"包含多個任意名稱的引數。"
 
 #: ../../../event-logging.rst:38
 msgid ""
@@ -78,6 +84,8 @@ msgid ""
 "the event. We pass three arguments, corresponding with the three arguments "
 "of the Transfer event declaration."
 msgstr ""
+"在 ``transfer`` 函數中，在我們執行完必要的工作後，我們記錄事件。我們傳遞三個"
+"引數，對應 Transfer 事件宣告的三個引數。"
 
 #: ../../../event-logging.rst:40
 msgid ""
@@ -85,6 +93,8 @@ msgid ""
 "interested in using a `library such as web3.js <https://solidity.readthedocs."
 "io/en/latest/contracts.html#events>`_:"
 msgstr ""
+"監聽事件的客戶端將使用 `如 web3.js 的函式庫 <https://solidity.readthedocs.io/"
+"en/latest/contracts.html#events>`_ 來宣告和處理他們感興趣的事件："
 
 #: ../../../event-logging.rst:42
 msgid ""
@@ -106,6 +116,8 @@ msgid ""
 "In this example, the listening client declares the event to listen for. Any "
 "time the contract sends this log event, the callback will be invoked."
 msgstr ""
+"在此範例中，監聽客戶端宣告了要監聽的事件。每當合約發送此日誌事件時，回呼就會"
+"被呼叫。"
 
 #: ../../../event-logging.rst:59
 msgid "Declaring Events"
@@ -113,7 +125,7 @@ msgstr "宣告事件"
 
 #: ../../../event-logging.rst:61
 msgid "Let's look at an event declaration in more detail."
-msgstr ""
+msgstr "讓我們更詳細地看看事件宣告。"
 
 #: ../../../event-logging.rst:63
 msgid ""
@@ -138,6 +150,14 @@ msgid ""
 "arguments that are passed to the event. Typical events will contain two "
 "kinds of arguments:"
 msgstr ""
+"EVM 目前有五個用於發送事件日誌的 opcode：``LOG0``、``LOG1``、``LOG2``、"
+"``LOG3`` 和 ``LOG4``。這些 opcode 可用於建立日誌記錄，其中每個日誌記錄由**主"
+"題（topics）**和**資料（data）**組成。主題是 32 位元組的「字組」，用於描述事"
+"件中發生的情況。雖然主題是可搜尋的，但資料不是。然而事件資料不受限制，這意味"
+"著您可以包含大型或複雜的資料，如陣列或字串。不同的 opcode（``LOG0`` 到 "
+"``LOG4``）允許不同數量的主題。例如，``LOG1`` 包含一個主題，``LOG2`` 包含兩個"
+"主題，依此類推。事件宣告看起來類似於結構宣告，包含一個或多個傳遞給事件的引"
+"數。典型的事件將包含兩種引數："
 
 #: ../../../event-logging.rst:79
 msgid ""
@@ -148,12 +168,18 @@ msgid ""
 "although some of this information (such as the sender) may be available in "
 "the listener's `results` object."
 msgstr ""
+"**已索引**引數（主題），可以被監聽器搜尋。每個已索引引數由 ``indexed`` 關鍵字"
+"標識。在此處，每個已索引引數都是一個地址。您最多可以有四個已索引引數"
+"（``LOG4``），但已索引引數不會直接傳遞給監聽器，儘管其中一些資訊（如發送者）"
+"可能在監聽器的 `results` 物件中可用。"
 
 #: ../../../event-logging.rst:80
 msgid ""
 "**Value** arguments (data), which are passed through to listeners. You can "
 "have any number of value arguments and they can have arbitrary names."
 msgstr ""
+"**值**引數（資料），會直接傳遞給監聽器。您可以有任意數量的值引數，且它們可以"
+"具有任意名稱。"
 
 #: ../../../event-logging.rst:82
 msgid ""
@@ -162,6 +188,8 @@ msgid ""
 "is also possible to create an event with no arguments. In this case, use the "
 "``pass`` statement:"
 msgstr ""
+"請注意，日誌記錄的第一個主題由已發生事件名稱的簽名組成，包括其參數的型別。也"
+"可以建立沒有引數的事件。在這種情況下，請使用 ``pass`` 陳述式："
 
 #: ../../../event-logging.rst:85
 msgid "event Foo: pass"
@@ -179,10 +207,13 @@ msgid ""
 "than storage operations. However, the drawback is that events are not "
 "available to contracts, only to clients."
 msgstr ""
+"一旦事件被宣告，您就可以記錄（發送）事件。您可以根據需要多次發送事件。請注"
+"意，事件儲存在交易日誌中而非合約狀態儲存中，這使其比儲存操作便宜得多。然而，"
+"缺點是事件對合約不可用，僅對客戶端可用。"
 
 #: ../../../event-logging.rst:94
 msgid "Logging events is done using the ``log`` statement:"
-msgstr ""
+msgstr "記錄事件是使用 ``log`` 陳述式完成的："
 
 #: ../../../event-logging.rst:96
 msgid "log Transfer(sender=msg.sender, receiver=_to, value=_value)"
@@ -193,6 +224,8 @@ msgid ""
 "The types of arguments given must match those used when declaring the event. "
 "When using keyword arguments (as shown above), the order does not matter."
 msgstr ""
+"給定的引數型別必須與宣告事件時使用的型別相符。使用關鍵字引數時（如上所示），"
+"順序不重要。"
 
 #: ../../../event-logging.rst:103
 msgid "Listening for Events"
@@ -208,3 +241,8 @@ msgid ""
 "indexed properties, which can only be searched in the original ``myToken."
 "Transfer`` that created the callback."
 msgstr ""
+"在上面的監聽器範例中，``result`` 引數實際上傳遞了`大量資訊 <https://web3js."
+"readthedocs.io/en/v1.2.6/web3-eth-contract.html#contract-events-return>`_。這"
+"裡我們最感興趣的是 ``result.returnValues``。這是一個屬性與事件中宣告的屬性相"
+"符的物件。請注意，此物件不包含已索引的屬性，這些屬性只能在建立回呼的原始 "
+"``myToken.Transfer`` 中進行搜尋。"

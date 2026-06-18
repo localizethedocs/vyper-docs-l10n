@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../deep-verification.rst:5
 msgid "Deep Verification"
-msgstr ""
+msgstr "深度驗證"
 
 #: ../../../deep-verification.rst:7
 msgid ""

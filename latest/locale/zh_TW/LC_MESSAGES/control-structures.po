@@ -23,13 +23,15 @@ msgstr "控制結構"
 
 #: ../../../control-structures.rst:9
 msgid "Functions"
-msgstr "函式"
+msgstr "函數"
 
 #: ../../../control-structures.rst:11
 msgid ""
 "Functions are executable units of code within a contract. Functions may only "
 "be declared within a contract's :ref:`module scope <scoping-module>`."
 msgstr ""
+"函數是合約內的可執行程式碼單元。函數只能在合約的 :ref:`模組範圍 <scoping-"
+"module>` 內宣告。"
 
 #: ../../../control-structures.rst:13
 msgid ""
@@ -47,10 +49,12 @@ msgid ""
 "`visibility <function-visibility>`. Functions may accept input arguments and "
 "return variables in order to pass values between them."
 msgstr ""
+"函數可以根據其 :ref:`可見性 <function-visibility>` 被內部或外部呼叫。函數可以"
+"接受輸入引數並傳回變數，以便在它們之間傳遞值。"
 
 #: ../../../control-structures.rst:22
 msgid "Visibility"
-msgstr ""
+msgstr "可見性"
 
 #: ../../../control-structures.rst:26
 msgid ""
@@ -58,18 +62,20 @@ msgid ""
 "`decorator <function-decorators>`. There are three visibility levels in "
 "Vyper:"
 msgstr ""
+"您可以選擇使用 :ref:`裝飾器 <function-decorators>` 來宣告函數的可見性。Vyper "
+"中有三個可見性層級："
 
 #: ../../../control-structures.rst:28
 msgid ""
 "``@external``: exposed in the selector table, can be called by an external "
 "call into this contract"
-msgstr ""
+msgstr "``@external``：在選擇器表中公開，可以透過外部呼叫來呼叫此合約"
 
 #: ../../../control-structures.rst:29
 msgid ""
 "``@internal`` (default): can be invoked only from within this contract. Not "
 "available to external callers"
-msgstr ""
+msgstr "``@internal``（預設）：只能從此合約內部呼叫。外部呼叫者無法使用"
 
 #: ../../../control-structures.rst:30
 msgid ""
@@ -78,10 +84,13 @@ msgid ""
 "either external callers or internal call invocations. At this time, only "
 "the :ref:`__init__() function <init-function>` may be marked as ``@deploy``."
 msgstr ""
+"``@deploy``：建構子程式碼。這是在合約生命週期中僅在部署時呼叫一次的程式碼。它"
+"在執行時期對外部呼叫者或內部呼叫都不可用。目前，只有 :ref:`__init__() 函數 "
+"<init-function>` 可以標記為 ``@deploy``。"
 
 #: ../../../control-structures.rst:35
 msgid "External Functions"
-msgstr "外部函式"
+msgstr "外部函數"
 
 #: ../../../control-structures.rst:37
 msgid ""
@@ -89,6 +98,8 @@ msgid ""
 "the contract interface and may only be called via transactions or from other "
 "contracts."
 msgstr ""
+"外部函數（標記為 ``@external`` 裝飾器）是合約介面的一部分，只能透過交易或從其"
+"他合約呼叫。"
 
 #: ../../../control-structures.rst:39
 msgid ""
@@ -106,12 +117,15 @@ msgid ""
 "A Vyper contract cannot call directly between two external functions. If you "
 "must do this, you can use an :ref:`interface <interfaces>`."
 msgstr ""
+"Vyper 合約不能直接在兩個外部函數之間互相呼叫。如果您必須這樣做，可以使用 :"
+"ref:`介面 <interfaces>`。"
 
 #: ../../../control-structures.rst:51
 msgid ""
 "External functions can use the ``@raw_return`` decorator to return raw bytes "
 "without ABI-encoding:"
 msgstr ""
+"外部函數可以使用 ``@raw_return`` 裝飾器來傳回原始位元組而不進行 ABI 編碼："
 
 #: ../../../control-structures.rst:53
 msgid ""
@@ -138,6 +152,9 @@ msgid ""
 "functions) excludes optional arguments when their default values are used in "
 "the function call."
 msgstr ""
+"對於具有預設引數的外部函數，如 ``def my_function(x: uint256, b: uint256 = "
+"1)``，Vyper 編譯器將基於 ``N`` 個預設引數生成 ``N+1`` 個覆載的函數選擇器。因"
+"此，函數的 ABI 簽名（包括介面函數）在函數呼叫中使用預設值時會排除可選引數。"
 
 #: ../../../control-structures.rst:71
 msgid ""
@@ -153,7 +170,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:83
 msgid "Internal Functions"
-msgstr "內部函式"
+msgstr "內部函數"
 
 #: ../../../control-structures.rst:85
 msgid ""
@@ -161,6 +178,8 @@ msgid ""
 "only accessible from other functions within the same contract. They are "
 "invoked via the :ref:`self<constants-self>` object:"
 msgstr ""
+"內部函數（可選擇標記為 ``@internal`` 裝飾器）只能從同一合約內的其他函數存取。"
+"它們透過 :ref:`self<constants-self>` 物件呼叫："
 
 #: ../../../control-structures.rst:87
 msgid ""
@@ -184,6 +203,8 @@ msgid ""
 "<modules>`, they are invoked by prefixing the name of the module to the "
 "function name:"
 msgstr ""
+"或者，對於在 :ref:`匯入模組 <modules>` 中定義的內部函數，它們透過將模組名稱前"
+"綴到函數名稱來呼叫："
 
 #: ../../../control-structures.rst:98
 msgid ""
@@ -201,6 +222,9 @@ msgid ""
 "called from an external ``payable`` function, but it cannot access ``msg."
 "value``."
 msgstr ""
+"將內部函數標記為 ``payable`` 表示該函數可以與 ``msg.value`` 互動。"
+"``nonpayable`` 內部函數可以從外部 ``payable`` 函數呼叫，但它不能存取 ``msg."
+"value``。"
 
 #: ../../../control-structures.rst:108
 msgid ""
@@ -214,6 +238,8 @@ msgid ""
 "As of v0.4.0, the ``@internal`` decorator is optional. That is, functions "
 "with no visibility decorator default to being ``internal``."
 msgstr ""
+"自 v0.4.0 起，``@internal`` 裝飾器是可選的。也就是說，沒有可見性裝飾器的函數"
+"預設為 ``internal``。"
 
 #: ../../../control-structures.rst:118
 msgid ""
@@ -222,10 +248,13 @@ msgid ""
 "advisory `GHSA-ph9x-4vc9-m39g <https://github.com/vyperlang/vyper/security/"
 "advisories/GHSA-ph9x-4vc9-m39g>`_."
 msgstr ""
+"請注意，對於使用多個預設參數的 ``internal`` 函數，由於安全通報 `GHSA-"
+"ph9x-4vc9-m39g <https://github.com/vyperlang/vyper/security/advisories/GHSA-"
+"ph9x-4vc9-m39g>`_，建議使用 Vyper ``>=0.3.8`` 版本。"
 
 #: ../../../control-structures.rst:122
 msgid "The ``__init__`` Function"
-msgstr "``__init__`` 函式"
+msgstr "``__init__`` 函數"
 
 #: ../../../control-structures.rst:126
 msgid ""
@@ -235,6 +264,9 @@ msgid ""
 "variables. It must be declared with the ``@deploy`` decorator. A common use "
 "case is to set an ``owner`` variable with the creator of the contract:"
 msgstr ""
+"``__init__()`` 函數，也稱為建構子，是一個特殊的初始化函數，僅在部署合約時呼"
+"叫。它可用於設定儲存變數或不可變變數的初始值。它必須使用 ``@deploy`` 裝飾器宣"
+"告。常見的用例是使用合約的建立者設定 ``owner`` 變數："
 
 #: ../../../control-structures.rst:128
 msgid ""
@@ -249,39 +281,43 @@ msgstr ""
 msgid ""
 "Additionally, :ref:`immutable variables <immutable-variables>` may only be "
 "set within the constructor."
-msgstr ""
+msgstr "此外，:ref:`不可變變數 <immutable-variables>` 只能在建構子中設定。"
 
 #: ../../../control-structures.rst:140
 msgid "Mutability"
-msgstr ""
+msgstr "可變性"
 
 #: ../../../control-structures.rst:144
 msgid ""
 "You can optionally declare a function's mutability by using a :ref:"
 "`decorator <function-decorators>`. There are four mutability levels:"
 msgstr ""
+"您可以選擇使用 :ref:`裝飾器 <function-decorators>` 來宣告函數的可變性。有四個"
+"可變性層級："
 
 #: ../../../control-structures.rst:146
 msgid ""
 "``@pure``: does not read from the contract state or any environment "
 "variables."
-msgstr ""
+msgstr "``@pure``：不讀取合約狀態或任何環境變數。"
 
 #: ../../../control-structures.rst:147
 msgid "``@view``: may read from the contract state, but does not alter it."
-msgstr ""
+msgstr "``@view``：可以讀取合約狀態，但不能更改它。"
 
 #: ../../../control-structures.rst:148
 msgid ""
 "``@nonpayable`` (default): may read from and write to the contract state, "
 "but cannot receive Ether."
-msgstr ""
+msgstr "``@nonpayable``（預設）：可以讀取和寫入合約狀態，但不能接收以太幣。"
 
 #: ../../../control-structures.rst:149
 msgid ""
 "``@payable``: may read from and write to the contract state, and can receive "
 "and access Ether via ``msg.value``."
 msgstr ""
+"``@payable``：可以讀取和寫入合約狀態，並且可以透過 ``msg.value`` 接收和存取以"
+"太幣。"
 
 #: ../../../control-structures.rst:151
 msgid ""
@@ -301,7 +337,7 @@ msgstr ""
 #: ../../../control-structures.rst:165
 msgid ""
 "Functions default to ``nonpayable`` when no mutability decorator is used."
-msgstr ""
+msgstr "當不使用可變性裝飾器時，函數預設為 ``nonpayable``。"
 
 #: ../../../control-structures.rst:167
 msgid ""
@@ -309,10 +345,13 @@ msgid ""
 "``nonpayable``) functions. Any external calls are made using the special "
 "``STATICCALL`` opcode, which prevents state changes at the EVM level."
 msgstr ""
+"標記為 ``@view`` 的函數不能呼叫可變（``payable`` 或 ``nonpayable``）函數。任"
+"何外部呼叫都使用特殊的 ``STATICCALL`` opcode 進行，這會在 EVM 層級防止狀態更"
+"改。"
 
 #: ../../../control-structures.rst:169
 msgid "Functions marked with ``@pure`` cannot call non-``pure`` functions."
-msgstr ""
+msgstr "標記為 ``@pure`` 的函數不能呼叫非 ``pure`` 函數。"
 
 #: ../../../control-structures.rst:172
 msgid ""
@@ -322,10 +361,14 @@ msgid ""
 "``internal`` ``nonpayable`` function. However, the ``nonpayable`` "
 "``internal`` function cannot have access to ``msg.value``."
 msgstr ""
+"當透過 ``external`` ``payable`` 函數呼叫 ``internal`` 函數時，"
+"``@nonpayable`` 裝飾器不會被嚴格執行。因此，``external`` ``payable`` 函數可以"
+"呼叫 ``internal`` ``nonpayable`` 函數。然而，``nonpayable`` ``internal`` 函數"
+"不能存取 ``msg.value``。"
 
 #: ../../../control-structures.rst:175
 msgid "Nonreentrancy Locks"
-msgstr ""
+msgstr "非重入鎖"
 
 #: ../../../control-structures.rst:179
 msgid ""
@@ -333,6 +376,8 @@ msgid ""
 "function. An attempt by an external contract to call back into any other "
 "``@nonreentrant`` function causes the transaction to revert."
 msgstr ""
+"``@nonreentrant`` 裝飾器在函數上放置一個全域非重入鎖。外部合約嘗試回呼任何其"
+"他 ``@nonreentrant`` 函數將導致交易還原。"
 
 #: ../../../control-structures.rst:181
 msgid ""
@@ -350,6 +395,9 @@ msgid ""
 "value on function exit. On function entrance, if the storage slot is "
 "detected to be the ``<locked>`` value, execution reverts."
 msgstr ""
+"非重入鎖的運作方式是，在函數進入時將一個特別分配的儲存槽設定為 ``<locked>`` "
+"值，並在函數退出時將其設定為 ``<unlocked>`` 值。在函數進入時，如果檢測到儲存"
+"槽為 ``<locked>`` 值，執行將會還原。"
 
 #: ../../../control-structures.rst:191
 msgid ""
@@ -358,6 +406,9 @@ msgid ""
 "not in a callback (the storage slot is not in the ``<locked>`` state), as "
 "``view`` functions can only read the state, not change it."
 msgstr ""
+"您不能將 ``@nonreentrant`` 裝飾器放在 ``pure`` 函數上。您可以將其放在 "
+"``view`` 函數上，但它只檢查函數是否不在回呼中（儲存槽不在 ``<locked>`` 狀"
+"態），因為 ``view`` 函數只能讀取狀態，不能更改它。"
 
 #: ../../../control-structures.rst:193
 msgid ""
@@ -365,6 +416,8 @@ msgid ""
 "but keep in mind that this will result in the contract rejecting ETH "
 "payments from callbacks."
 msgstr ""
+"您可以將 ``@nonreentrant`` 裝飾器放在 ``__default__`` 函數上，但請記住這將導"
+"致合約拒絕來自回呼的 ETH 付款。"
 
 #: ../../../control-structures.rst:195
 msgid ""
@@ -372,6 +425,9 @@ msgid ""
 "using ``vyper`` with the ``-f layout`` option (e.g., ``vyper -f layout foo."
 "vy``). Unless it is overridden, the compiler will allocate it at slot ``0``."
 msgstr ""
+"您可以透過使用 ``vyper`` 的 ``-f layout`` 選項（例如 ``vyper -f layout foo."
+"vy``）來查看非重入鍵在儲存中的物理佈局。除非被覆寫，否則編譯器會將其分配在槽"
+"位 ``0``。"
 
 #: ../../../control-structures.rst:198
 msgid ""
@@ -383,6 +439,10 @@ msgid ""
 "calls out from a ``view`` function are protected by the use of the "
 "``STATICCALL`` opcode."
 msgstr ""
+"可變函數可以保護 ``view`` 函數不被回呼（例如，如果 ``view`` 函數在可變函數期"
+"間會傳回不一致的狀態，這很有用），但 ``view`` 函數無法保護自己不被回呼。請注"
+"意，可變函數永遠無法從 ``view`` 函數呼叫，因為來自 ``view`` 函數的所有外部呼"
+"叫都受到 ``STATICCALL`` opcode 的保護。"
 
 #: ../../../control-structures.rst:202
 msgid ""
@@ -392,6 +452,9 @@ msgid ""
 "is 2300 gas. Prior to v0.3.4, the ``<unlocked>`` and ``<locked>`` values "
 "were 0 and 1, respectively."
 msgstr ""
+"非重入鎖的 ``<unlocked>`` 值為 3，``<locked>`` 值為 2。使用非零值是為了利用"
+"淨 gas 計量——自 Berlin 硬分叉起，使用非重入鎖的淨成本為 2300 gas。在 v0.3.4 "
+"之前，``<unlocked>`` 和 ``<locked>`` 值分別為 0 和 1。"
 
 #: ../../../control-structures.rst:205
 msgid ""
@@ -502,7 +565,7 @@ msgstr ""
 
 #: ../../../control-structures.rst:259
 msgid "The ``__default__`` Function"
-msgstr "``__default__`` 函式"
+msgstr "``__default__`` 函數"
 
 #: ../../../control-structures.rst:261
 msgid ""
