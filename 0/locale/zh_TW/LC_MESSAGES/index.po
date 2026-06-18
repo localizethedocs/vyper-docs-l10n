@@ -23,7 +23,7 @@ msgstr "Vyper 標誌"
 
 #: ../../../index.rst:7
 msgid "Vyper"
-msgstr "Vyper"
+msgstr ""
 
 #: ../../../index.rst:9
 msgid ""
