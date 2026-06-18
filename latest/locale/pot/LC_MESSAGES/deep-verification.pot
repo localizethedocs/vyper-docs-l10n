@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 14:04+0000\n"
+"POT-Creation-Date: 2026-06-18 09:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,24 +83,13 @@ msgstr ""
 msgid "The Layers"
 msgstr ""
 
-#: ../../../deep-verification.rst:30
+#: ../../../deep-verification.rst:-1
 msgid ""
-"High-level properties\n"
-"        │\n"
-"        ▼\n"
-"  Source semantics\n"
-"        │\n"
-"        ▼\n"
-" Compiler correctness\n"
-"        │\n"
-"        ▼\n"
-"   EVM semantics\n"
-"        │\n"
-"        ▼\n"
-"  Deployed bytecode"
+"The verification stack, from high-level properties down through source\n"
+"semantics, compiler correctness, and EVM semantics to deployed bytecode."
 msgstr ""
 
-#: ../../../deep-verification.rst:44
+#: ../../../deep-verification.rst:34
 msgid ""
 "A source-level proof establishes a property under the language’s formal "
 "semantics. A bytecode-level proof establishes the analogous statement "
@@ -108,25 +97,25 @@ msgid ""
 "layers a guarantee skips by assumption, the smaller the verification gap."
 msgstr ""
 
-#: ../../../deep-verification.rst:47
+#: ../../../deep-verification.rst:37
 msgid "The Technical Foundation"
 msgstr ""
 
-#: ../../../deep-verification.rst:49
+#: ../../../deep-verification.rst:39
 msgid ""
 "Two of those layers already exist as public, machine-checked artifacts "
 "developed in the Verifereum project using HOL4:"
 msgstr ""
 
-#: ../../../deep-verification.rst:51
+#: ../../../deep-verification.rst:41
 msgid "A formal semantics for the Vyper source language."
 msgstr ""
 
-#: ../../../deep-verification.rst:52
+#: ../../../deep-verification.rst:42
 msgid "A formal semantics for the EVM."
 msgstr ""
 
-#: ../../../deep-verification.rst:54
+#: ../../../deep-verification.rst:44
 msgid ""
 "Together they provide the mathematical foundation against which source-level "
 "and bytecode-level proofs about Vyper programs can be stated. The work is "
@@ -134,11 +123,11 @@ msgid ""
 "vyper-hol>`_ repository."
 msgstr ""
 
-#: ../../../deep-verification.rst:57
+#: ../../../deep-verification.rst:47
 msgid "Current Status"
 msgstr ""
 
-#: ../../../deep-verification.rst:59
+#: ../../../deep-verification.rst:49
 msgid ""
 "Source-level verification on Vyper contracts and libraries is available "
 "today. Compiler verification (the critical link that connects source "
@@ -146,7 +135,7 @@ msgid ""
 "proof engineering already underway."
 msgstr ""
 
-#: ../../../deep-verification.rst:61
+#: ../../../deep-verification.rst:51
 msgid ""
 "No complete deep verification pipeline exists yet for any widely deployed "
 "smart-contract language. Vyper is one of the places where the pieces are "
@@ -154,21 +143,21 @@ msgid ""
 "source-level work."
 msgstr ""
 
-#: ../../../deep-verification.rst:66
+#: ../../../deep-verification.rst:56
 msgid "`vyper-hol on GitHub <https://github.com/verifereum/vyper-hol>`_"
 msgstr ""
 
-#: ../../../deep-verification.rst:66
+#: ../../../deep-verification.rst:56
 msgid ""
 "The open-source repository containing the formal semantics for Vyper and the "
 "EVM."
 msgstr ""
 
-#: ../../../deep-verification.rst:68
+#: ../../../deep-verification.rst:58
 msgid "`Verifereum project <https://verifereum.org>`_"
 msgstr ""
 
-#: ../../../deep-verification.rst:69
+#: ../../../deep-verification.rst:59
 msgid ""
 "The project developing the HOL4 semantics and compiler verification work."
 msgstr ""
