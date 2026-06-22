@@ -1,0 +1,431 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Testing with Brownie - Vyper 文档</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="Other resources and learning material" href="resources.html" /><link rel="prev" title="Testing with Titanoboa" href="testing-contracts-titanoboa.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/testing-contracts-brownie.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/testing-contracts-brownie.html"/>
+<meta property="og:title" content="Testing with Brownie"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example.html">Vyper by Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-titanoboa.html">Testing with Titanoboa</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing with Brownie</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#writing-a-basic-test">Writing a Basic Test</a></li>
+<li><a class="reference internal" href="#testing-events">Testing Events</a></li>
+<li><a class="reference internal" href="#handling-reverted-transactions">Handling Reverted Transactions</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/testing-contracts-brownie.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="testing-contracts.html"><span itemprop="name">Testing a Contract</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Testing with Brownie</strong>
+        <meta itemprop="position" content="3" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="testing-with-brownie">
+<span id="testing-contracts-brownie"></span><h1>Testing with Brownie<a class="headerlink" href="#testing-with-brownie" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://github.com/iamdefinitelyahuman/brownie">Brownie</a> is a Python-based development and testing framework for smart contracts. It includes a pytest plugin with fixtures that simplify testing your contract.</p>
+<p>This section provides a quick overview of testing with Brownie. To learn more, you can view the Brownie documentation on <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/tests-pytest-intro.html">writing unit tests</a> or join the <a class="reference external" href="https://discord.gg/abJEARdx3Q">Ethereum Python Dev Discord</a> <code class="docutils literal notranslate"><span class="pre">#brownie</span></code> channel.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<p>In order to use Brownie for testing you must first <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/init.html">initialize a new project</a>. Create a new directory for the project, and from within that directory type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span id="1-1">$<span class="w"> </span>brownie<span class="w"> </span>init
+</span></pre></div>
+</div>
+<p>This will create an empty <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/structure.html#structure">project structure</a> within the directory. Store your contract sources within the project’s <code class="docutils literal notranslate"><span class="pre">contracts/</span></code> directory and your tests within <code class="docutils literal notranslate"><span class="pre">tests/</span></code>.</p>
+</section>
+<section id="writing-a-basic-test">
+<h2>Writing a Basic Test<a class="headerlink" href="#writing-a-basic-test" title="Link to this heading">¶</a></h2>
+<p>Assume the following simple contract <code class="docutils literal notranslate"><span class="pre">Storage.vy</span></code>. It has a single integer variable and a function to set that value.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">storage.vy</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos"> 1</span><span class="c1">#pragma version &gt;0.3.10</span>
+</span><span id="1-2"><span class="linenos"> 2</span>
+</span><span id="1-3"><span class="linenos"> 3</span><span class="nv">storedData:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">int128</span><span class="p">)</span>
+</span><span id="1-4"><span class="linenos"> 4</span>
+</span><span id="1-5"><span class="linenos"> 5</span><span class="nd">@deploy</span>
+</span><span id="1-6"><span class="linenos"> 6</span><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">(</span><span class="nv">_x:</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-7"><span class="linenos"> 7</span><span class="w">  </span><span class="na">self</span><span class="p">.</span><span class="n">storedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span>
+</span><span id="1-8"><span class="linenos"> 8</span>
+</span><span id="1-9"><span class="linenos"> 9</span><span class="nd">@external</span>
+</span><span id="1-10"><span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="nv">_x:</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-11"><span class="linenos">11</span><span class="w">  </span><span class="na">self</span><span class="p">.</span><span class="n">storedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_x</span>
+</span></pre></div>
+</div>
+</div>
+<p>We create a test file <code class="docutils literal notranslate"><span class="pre">tests/test_storage.py</span></code> where we write our tests in pytest style.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">test_storage.py</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+</span><span id="1-2"><span class="linenos"> 2</span>
+</span><span id="1-3"><span class="linenos"> 3</span><span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="1-4"><span class="linenos"> 4</span>
+</span><span id="1-5"><span class="linenos"> 5</span>
+</span><span id="1-6"><span class="linenos"> 6</span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+</span><span id="1-7"><span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">storage_contract</span><span class="p">(</span><span class="n">Storage</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-8"><span class="linenos"> 8</span>    <span class="c1"># deploy the contract with the initial value as a constructor argument</span>
+</span><span id="1-9"><span class="linenos"> 9</span>    <span class="k">yield</span> <span class="n">Storage</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">INITIAL_VALUE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-10"><span class="linenos">10</span>
+</span><span id="1-11"><span class="linenos">11</span>
+</span><span id="1-12"><span class="linenos">12</span><span class="k">def</span><span class="w"> </span><span class="nf">test_initial_state</span><span class="p">(</span><span class="n">storage_contract</span><span class="p">):</span>
+</span><span id="1-13"><span class="linenos">13</span>    <span class="c1"># Check if the constructor of the contract is set up properly</span>
+</span><span id="1-14"><span class="linenos">14</span>    <span class="k">assert</span> <span class="n">storage_contract</span><span class="o">.</span><span class="n">storedData</span><span class="p">()</span> <span class="o">==</span> <span class="n">INITIAL_VALUE</span>
+</span><span id="1-15"><span class="linenos">15</span>
+</span><span id="1-16"><span class="linenos">16</span>
+</span><span id="1-17"><span class="linenos">17</span><span class="k">def</span><span class="w"> </span><span class="nf">test_set</span><span class="p">(</span><span class="n">storage_contract</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-18"><span class="linenos">18</span>    <span class="c1"># set the value to 10</span>
+</span><span id="1-19"><span class="linenos">19</span>    <span class="n">storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-20"><span class="linenos">20</span>    <span class="k">assert</span> <span class="n">storage_contract</span><span class="o">.</span><span class="n">storedData</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>  <span class="c1"># Directly access storedData</span>
+</span><span id="1-21"><span class="linenos">21</span>
+</span><span id="1-22"><span class="linenos">22</span>    <span class="c1"># set the value to -5</span>
+</span><span id="1-23"><span class="linenos">23</span>    <span class="n">storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-24"><span class="linenos">24</span>    <span class="k">assert</span> <span class="n">storage_contract</span><span class="o">.</span><span class="n">storedData</span><span class="p">()</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span>
+</span></pre></div>
+</div>
+</div>
+<p>In this example we are using two fixtures which are provided by Brownie:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">accounts</span></code> provides access to the <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-network.html#brownie.network.account.Accounts" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">Accounts</span></code></a> container, containing all of your local accounts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Storage</span></code> is a dynamically named fixture that provides access to a <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-network.html#brownie.network.contract.ContractContainer" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractContainer</span></code></a> object, used to deploy your contract</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To run the tests, use the <code class="docutils literal notranslate"><span class="pre">brownie</span> <span class="pre">test</span></code> command from the root directory of your project.</p>
+</div>
+</section>
+<section id="testing-events">
+<h2>Testing Events<a class="headerlink" href="#testing-events" title="Link to this heading">¶</a></h2>
+<p>For the remaining examples, we expand our simple storage contract to include an event and two conditions for a failed transaction: <code class="docutils literal notranslate"><span class="pre">advanced_storage.vy</span></code></p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">advanced_storage.vy</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos"> 1</span><span class="c1">#pragma version &gt;0.3.10</span>
+</span><span id="1-2"><span class="linenos"> 2</span>
+</span><span id="1-3"><span class="linenos"> 3</span><span class="n">event</span> <span class="n">DataChange</span><span class="p">:</span>
+</span><span id="1-4"><span class="linenos"> 4</span>    <span class="n">setter</span><span class="p">:</span> <span class="n">indexed</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+</span><span id="1-5"><span class="linenos"> 5</span>    <span class="n">value</span><span class="p">:</span> <span class="n">int128</span>
+</span><span id="1-6"><span class="linenos"> 6</span>
+</span><span id="1-7"><span class="linenos"> 7</span><span class="n">storedData</span><span class="p">:</span> <span class="n">public</span><span class="p">(</span><span class="n">int128</span><span class="p">)</span>
+</span><span id="1-8"><span class="linenos"> 8</span>
+</span><span id="1-9"><span class="linenos"> 9</span><span class="nd">@deploy</span>
+</span><span id="1-10"><span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">_x</span><span class="p">:</span> <span class="n">int128</span><span class="p">):</span>
+</span><span id="1-11"><span class="linenos">11</span>  <span class="bp">self</span><span class="o">.</span><span class="n">storedData</span> <span class="o">=</span> <span class="n">_x</span>
+</span><span id="1-12"><span class="linenos">12</span>
+</span><span id="1-13"><span class="linenos">13</span><span class="nd">@external</span>
+</span><span id="1-14"><span class="linenos">14</span><span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="n">_x</span><span class="p">:</span> <span class="n">int128</span><span class="p">):</span>
+</span><span id="1-15"><span class="linenos">15</span>  <span class="k">assert</span> <span class="n">_x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;No negative values&quot;</span>
+</span><span id="1-16"><span class="linenos">16</span>  <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">storedData</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Storage is locked when 100 or more is stored&quot;</span>
+</span><span id="1-17"><span class="linenos">17</span>  <span class="bp">self</span><span class="o">.</span><span class="n">storedData</span> <span class="o">=</span> <span class="n">_x</span>
+</span><span id="1-18"><span class="linenos">18</span>  <span class="n">log</span> <span class="n">DataChange</span><span class="p">(</span><span class="n">setter</span><span class="o">=</span><span class="n">msg</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">_x</span><span class="p">)</span>
+</span><span id="1-19"><span class="linenos">19</span>
+</span><span id="1-20"><span class="linenos">20</span><span class="nd">@external</span>
+</span><span id="1-21"><span class="linenos">21</span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">():</span>
+</span><span id="1-22"><span class="linenos">22</span>  <span class="bp">self</span><span class="o">.</span><span class="n">storedData</span> <span class="o">=</span> <span class="mi">0</span>
+</span></pre></div>
+</div>
+</div>
+<p>To test events, we examine the <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-network.html#brownie.network.transaction.TransactionReceipt" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">TransactionReceipt</span></code></a> object which is returned after each successful transaction. It contains an <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-network.html#brownie.network.event.EventDict" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">events</span></code></a> member with information about events that fired.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">brownie</span>
+</span><span id="1-2"><span class="linenos"> 2</span>
+</span><span id="1-3"><span class="linenos"> 3</span><span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="1-4"><span class="linenos"> 4</span>
+</span><span id="1-5"><span class="linenos"> 5</span>
+</span><span id="1-6"><span class="linenos"> 6</span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+</span><span id="1-7"><span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">adv_storage_contract</span><span class="p">(</span><span class="n">AdvancedStorage</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-8"><span class="linenos"> 8</span>    <span class="k">yield</span> <span class="n">AdvancedStorage</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">INITIAL_VALUE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-9"><span class="linenos"> 9</span>
+</span><span id="1-10"><span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="nf">test_events</span><span class="p">(</span><span class="n">adv_storage_contract</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-11"><span class="linenos">11</span>    <span class="n">tx1</span> <span class="o">=</span> <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-12"><span class="linenos">12</span>    <span class="n">tx2</span> <span class="o">=</span> <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-13"><span class="linenos">13</span>    <span class="n">tx3</span> <span class="o">=</span> <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">reset</span><span class="p">({</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-14"><span class="linenos">14</span>
+</span><span id="1-15"><span class="linenos">15</span>    <span class="c1"># Check log contents</span>
+</span><span id="1-16"><span class="linenos">16</span>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tx1</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span id="1-17"><span class="linenos">17</span>    <span class="k">assert</span> <span class="n">tx1</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span>
+</span><span id="1-18"><span class="linenos">18</span>
+</span><span id="1-19"><span class="linenos">19</span>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tx2</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span id="1-20"><span class="linenos">20</span>    <span class="k">assert</span> <span class="n">tx2</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;setter&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="1-21"><span class="linenos">21</span>
+</span><span id="1-22"><span class="linenos">22</span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">tx3</span><span class="o">.</span><span class="n">events</span>   <span class="c1"># tx3 does not generate a log</span>
+</span></pre></div>
+</div>
+</section>
+<section id="handling-reverted-transactions">
+<h2>Handling Reverted Transactions<a class="headerlink" href="#handling-reverted-transactions" title="Link to this heading">¶</a></h2>
+<p>Transactions that revert raise a <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-brownie.html#brownie.exceptions.VirtualMachineError" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">VirtualMachineError</span></code></a> exception. To write assertions around this you can use <a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-test.html#brownie.test.plugin.RevertContextManager" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">brownie.reverts</span></code></a> as a context manager. It functions very similarly to <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.raises" title="（在 pytest v9.2.0.dev22）"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.raises</span></code></a>.</p>
+<p><a class="reference external" href="https://eth-brownie.readthedocs.io/en/stable/api-test.html#brownie.test.plugin.RevertContextManager" title="（在 Brownie v1.20.3）"><code class="xref py py-class docutils literal notranslate"><span class="pre">brownie.reverts</span></code></a> optionally accepts a string as an argument. If given, the error string returned by the transaction must match it in order for the test to pass.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">brownie</span>
+</span><span id="1-2"><span class="linenos"> 2</span>
+</span><span id="1-3"><span class="linenos"> 3</span><span class="n">INITIAL_VALUE</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="1-4"><span class="linenos"> 4</span>
+</span><span id="1-5"><span class="linenos"> 5</span>
+</span><span id="1-6"><span class="linenos"> 6</span><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+</span><span id="1-7"><span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">adv_storage_contract</span><span class="p">(</span><span class="n">AdvancedStorage</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-8"><span class="linenos"> 8</span>    <span class="k">yield</span> <span class="n">AdvancedStorage</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">INITIAL_VALUE</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+</span><span id="1-9"><span class="linenos"> 9</span>
+</span><span id="1-10"><span class="linenos">10</span>
+</span><span id="1-11"><span class="linenos">11</span><span class="k">def</span><span class="w"> </span><span class="nf">test_failed_transactions</span><span class="p">(</span><span class="n">adv_storage_contract</span><span class="p">,</span> <span class="n">accounts</span><span class="p">):</span>
+</span><span id="1-12"><span class="linenos">12</span>    <span class="c1"># Try to set the storage to a negative amount</span>
+</span><span id="1-13"><span class="linenos">13</span>    <span class="k">with</span> <span class="n">brownie</span><span class="o">.</span><span class="n">reverts</span><span class="p">(</span><span class="s2">&quot;No negative values&quot;</span><span class="p">):</span>
+</span><span id="1-14"><span class="linenos">14</span>        <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-15"><span class="linenos">15</span>
+</span><span id="1-16"><span class="linenos">16</span>    <span class="c1"># Lock the contract by storing more than 100. Then try to change the value</span>
+</span><span id="1-17"><span class="linenos">17</span>
+</span><span id="1-18"><span class="linenos">18</span>    <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-19"><span class="linenos">19</span>    <span class="k">with</span> <span class="n">brownie</span><span class="o">.</span><span class="n">reverts</span><span class="p">(</span><span class="s2">&quot;Storage is locked when 100 or more is stored&quot;</span><span class="p">):</span>
+</span><span id="1-20"><span class="linenos">20</span>        <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-21"><span class="linenos">21</span>
+</span><span id="1-22"><span class="linenos">22</span>    <span class="c1"># Reset the contract and try to change the value</span>
+</span><span id="1-23"><span class="linenos">23</span>    <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">reset</span><span class="p">({</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-24"><span class="linenos">24</span>    <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="n">accounts</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+</span><span id="1-25"><span class="linenos">25</span>    <span class="k">assert</span> <span class="n">adv_storage_contract</span><span class="o">.</span><span class="n">storedData</span><span class="p">()</span> <span class="o">==</span> <span class="mi">10</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="testing-contracts-titanoboa.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Testing with Titanoboa</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="resources.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Other resources and learning material</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=7d86a446"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
