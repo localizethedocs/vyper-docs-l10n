@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-18 09:40+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../deep-verification.rst:5
+msgid "Deep Verification"
+msgstr "深度驗證"
+
+#: ../../../deep-verification.rst:7
+msgid ""
+"Formal verification is becoming substantially more practical for smart "
+"contracts. Better tooling and accessible machine-checked semantics now make "
+"it feasible to prove properties on production code that were previously out "
+"of reach."
+msgstr ""
+"形式化驗證對智慧合約而言正變得越來越實用。更好的工具和可存取的機器檢查語意，"
+"使得現在可以在生產程式碼上證明先前無法達到的屬性。"
+
+#: ../../../deep-verification.rst:9
+msgid ""
+"However, formal verification only proves that a program satisfies a "
+"specified property *within its formal model*. In practice, most verification "
+"work today establishes that property at only one layer of the stack. "
+"Everything else (from the accuracy and completeness of the model itself, "
+"through the compiler, to the EVM execution semantics), is taken on trust."
+msgstr ""
+"然而，形式化驗證僅證明一個程式*在其形式模型中*滿足指定的屬性。實際上，當今大"
+"多數驗證工作僅在堆疊的一層上建立該屬性。其他一切（從模型本身的準確性和完整"
+"性，到編譯器，再到 EVM 執行語意）都是基於信任的。"
+
+#: ../../../deep-verification.rst:11
+msgid ""
+"This distance between what is formally proved and what actually executes on "
+"chain is the **verification gap**."
+msgstr "形式證明與鏈上實際執行之間的這個距離就是**驗證差距**。"
+
+#: ../../../deep-verification.rst:13
+msgid ""
+"**Deep verification** is the discipline of reducing that gap by formally "
+"bridging as many layers as possible. The fewer unverified assumptions remain "
+"in the chain, the stronger the resulting guarantee."
+msgstr ""
+"**深度驗證**是透過形式化地橋接盡可能多的層級來縮小此差距的學科。鏈中剩餘的未"
+"驗證假設越少，所產生的保證就越強。"
+
+#: ../../../deep-verification.rst:16
+msgid "Verification Depth and Breadth"
+msgstr "驗證深度與廣度"
+
+#: ../../../deep-verification.rst:18
+msgid "Two concepts help clarify the verification gap:"
+msgstr "有兩個概念有助於釐清驗證差距："
+
+#: ../../../deep-verification.rst:20
+msgid ""
+"**Verification depth** — how far the proof carries through the stack, from a "
+"high-level security property through source semantics and compiler "
+"correctness down to the EVM execution model."
+msgstr ""
+"**驗證深度**——證明在堆疊中延伸的距離，從高層安全屬性經過原始碼語意、編譯器正"
+"確性，一直到 EVM 執行模型。"
+
+#: ../../../deep-verification.rst:21
+msgid ""
+"**Verification breadth** — how much of the contract’s actual behavior is "
+"covered: which functions, which properties, which sequences of operations, "
+"and which environment assumptions."
+msgstr ""
+"\"\"**驗證廣度**——覆蓋了多少合約的實際行為：哪些函數、哪些屬性、哪些操作序列"
+"以及哪些環境假設。"
+
+#: ../../../deep-verification.rst:23
+msgid ""
+"Every verification effort has some gap. Deep verification is the discipline "
+"of reducing it to its irreducible minimum."
+msgstr ""
+"每個驗證工作都存在一些差距。深度驗證是將其縮小到不可化簡的最小值的學科。"
+
+#: ../../../deep-verification.rst:26
+msgid "The Layers"
+msgstr "各層級"
+
+#: ../../../deep-verification.rst:-1
+msgid ""
+"The verification stack, from high-level properties down through source\n"
+"semantics, compiler correctness, and EVM semantics to deployed bytecode."
+msgstr ""
+"驗證堆疊，從高層屬性向下經過原始碼\n"
+"語意、編譯器正確性和 EVM 語意，直到部署的位元組碼。"
+
+#: ../../../deep-verification.rst:34
+msgid ""
+"A source-level proof establishes a property under the language’s formal "
+"semantics. A bytecode-level proof establishes the analogous statement "
+"against a formal EVM model. A verified compiler connects the two. The fewer "
+"layers a guarantee skips by assumption, the smaller the verification gap."
+msgstr ""
+"\"\"原始碼層級的證明在語言的形式語意下建立屬性。位元組碼層級的證明針對形式 "
+"EVM 模型建立類似的陳述。經過驗證的編譯器將兩者連接起來。保證以假設跳過的層級"
+"越少，驗證差距就越小。"
+
+#: ../../../deep-verification.rst:37
+msgid "The Technical Foundation"
+msgstr "技術基礎"
+
+#: ../../../deep-verification.rst:39
+msgid ""
+"Two of those layers already exist as public, machine-checked artifacts "
+"developed in the Verifereum project using HOL4:"
+msgstr ""
+"其中兩個層級已經以公開的、機器檢查的工件形式存在，由 Verifereum 專案使用 "
+"HOL4 開發："
+
+#: ../../../deep-verification.rst:41
+msgid "A formal semantics for the Vyper source language."
+msgstr "Vyper 原始碼語言的形式語意。"
+
+#: ../../../deep-verification.rst:42
+msgid "A formal semantics for the EVM."
+msgstr "EVM 的形式語意。"
+
+#: ../../../deep-verification.rst:44
+msgid ""
+"Together they provide the mathematical foundation against which source-level "
+"and bytecode-level proofs about Vyper programs can be stated. The work is "
+"fully open and available in the `vyper-hol <https://github.com/verifereum/"
+"vyper-hol>`_ repository."
+msgstr ""
+"它們共同提供了數學基礎，可以據此陳述關於 Vyper 程式的原始碼層級和位元組碼層級"
+"證明。這項工作完全開放，可在 `vyper-hol <https://github.com/verifereum/vyper-"
+"hol>`_ 儲存庫中取得。"
+
+#: ../../../deep-verification.rst:47
+msgid "Current Status"
+msgstr "目前狀態"
+
+#: ../../../deep-verification.rst:49
+msgid ""
+"Source-level verification on Vyper contracts and libraries is available "
+"today. Compiler verification (the critical link that connects source "
+"semantics to deployed bytecode) is in active development, with substantial "
+"proof engineering already underway."
+msgstr ""
+"如今已可對 Vyper 合約和函式庫進行原始碼層級驗證。編譯器驗證（連接原始碼語意與"
+"已部署位元組碼的關鍵環節）正在積極開發中，大量的證明工程已經在進行中。"
+
+#: ../../../deep-verification.rst:51
+msgid ""
+"No complete deep verification pipeline exists yet for any widely deployed "
+"smart-contract language. Vyper is one of the places where the pieces are "
+"actively being assembled, and the stack is already in place for meaningful "
+"source-level work."
+msgstr ""
+"目前還沒有任何廣泛部署的智慧合約語言存在完整的深度驗證管線。Vyper 是正在積極"
+"組裝各個部分的領域之一，並且堆疊已經就位，可以進行有意義的原始碼層級工作。"
+
+#: ../../../deep-verification.rst:56
+msgid "`vyper-hol on GitHub <https://github.com/verifereum/vyper-hol>`_"
+msgstr ""
+
+#: ../../../deep-verification.rst:56
+msgid ""
+"The open-source repository containing the formal semantics for Vyper and the "
+"EVM."
+msgstr "包含 Vyper 和 EVM 形式語意的開源儲存庫。"
+
+#: ../../../deep-verification.rst:58
+msgid "`Verifereum project <https://verifereum.org>`_"
+msgstr ""
+
+#: ../../../deep-verification.rst:59
+msgid ""
+"The project developing the HOL4 semantics and compiler verification work."
+msgstr "開發 HOL4 語意和編譯器驗證工作的專案。"
