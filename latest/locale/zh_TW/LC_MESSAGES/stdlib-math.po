@@ -25,7 +25,7 @@ msgstr "數學模組"
 msgid ""
 "The ``math`` module is a standard library module that provides mathematical "
 "functions. Import it with:"
-msgstr ""
+msgstr "``math`` 模組是一個提供數學函數的標準程式庫模組。使用以下方式匯入："
 
 #: ../../../stdlib-math.rst:10
 msgid "import math"
@@ -33,17 +33,19 @@ msgstr "import math"
 
 #: ../../../stdlib-math.rst:14
 msgid "Functions are then called as ``math.isqrt(x)``, ``math.sqrt(d)``, etc."
-msgstr ""
+msgstr "然後以 ``math.isqrt(x)``、``math.sqrt(d)`` 等形式呼叫函數。"
 
 #: ../../../stdlib-math.rst:18
 msgid ""
 "``import math`` always refers to the standard library module. To import a "
 "local file named ``math.vy``, use a relative import: ``from . import math``."
 msgstr ""
+"``import math`` 始終指向標準程式庫模組。若要匯入名為 ``math.vy`` 的本機檔案，"
+"請使用相對匯入：``from . import math``。"
 
 #: ../../../stdlib-math.rst:21
 msgid "Functions"
-msgstr ""
+msgstr "函數"
 
 #: ../../../stdlib-math.rst:25
 msgid ""
@@ -51,6 +53,8 @@ msgid ""
 "square root algorithm. The rounding mode is to round down to the nearest "
 "epsilon. For instance, ``math.sqrt(0.9999999998) == 0.9999999998``."
 msgstr ""
+"使用巴比倫平方根演算法傳回所提供 decimal 數字的平方根。捨入模式為向下捨入到最"
+"接近的 epsilon。例如，``math.sqrt(0.9999999998) == 0.9999999998``。"
 
 #: ../../../stdlib-math.rst:27
 msgid ""
@@ -82,6 +86,8 @@ msgid ""
 "Babylonian square root algorithm. The rounding mode is to round down to the "
 "nearest integer. For instance, ``math.isqrt(101) == 10``."
 msgstr ""
+"使用巴比倫平方根演算法傳回所提供整數的（整數）平方根。捨入模式為向下捨入到最"
+"接近的整數。例如，``math.isqrt(101) == 10``。"
 
 #: ../../../stdlib-math.rst:45
 msgid ""
@@ -109,7 +115,7 @@ msgstr ""
 
 #: ../../../stdlib-math.rst:1
 msgid "module"
-msgstr ""
+msgstr "模組"
 
 #: ../../../stdlib-math.rst:1
 msgid "stdlib"

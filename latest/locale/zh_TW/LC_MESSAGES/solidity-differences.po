@@ -637,7 +637,7 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:328
 msgid "Mappings"
-msgstr ""
+msgstr "對映"
 
 #: ../../../solidity-differences.rst:332
 msgid ""

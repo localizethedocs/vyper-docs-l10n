@@ -211,7 +211,7 @@ msgstr "深度驗證"
 msgid ""
 "Vyper’s design makes **deep verification** practical on a production smart-"
 "contract language."
-msgstr "Vyper 的設計使**深度驗證**在生產級智慧合約語言上變得可行。"
+msgstr "Vyper 的設計使\\ **深度驗證**\\ 在生產級智慧合約語言上變得可行。"
 
 #: ../../../index.rst:80
 msgid ""
