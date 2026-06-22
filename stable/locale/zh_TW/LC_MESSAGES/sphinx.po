@@ -1977,7 +1977,7 @@ msgstr ""
 
 #: sphinx/domains/c.py:3738 sphinx/domains/cpp.py:7910
 msgid "type"
-msgstr ""
+msgstr "型別"
 
 #: sphinx/domains/c.py:3740 sphinx/domains/cpp.py:7915
 msgid "function parameter"

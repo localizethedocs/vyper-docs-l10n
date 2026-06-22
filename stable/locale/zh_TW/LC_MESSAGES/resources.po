@@ -26,22 +26,27 @@ msgid ""
 "Vyper has an active community. You can find third-party tutorials, examples, "
 "courses, and other learning material."
 msgstr ""
+"Vyper 擁有一個活躍的社群。您可以找到第三方教學、範例、課程和其他學習材料。"
 
 #: ../../../resources.rst:9
 msgid "General"
-msgstr ""
+msgstr "一般資源"
 
 #: ../../../resources.rst:11
 msgid ""
 "`Ape Academy – Learn how to build Vyper projects <https://academy.apeworx.io/"
 ">`_ by ApeWorX"
 msgstr ""
+"`Ape Academy – Learn how to build Vyper projects <https://academy.apeworx.io/"
+">`_，ApeWorX 製作"
 
 #: ../../../resources.rst:12
 msgid ""
 "`More Vyper by Example <https://vyper-by-example.org/>`_ by Smart Contract "
 "Engineer"
 msgstr ""
+"`More Vyper by Example <https://vyper-by-example.org/>`_，Smart Contract "
+"Engineer 製作"
 
 #: ../../../resources.rst:13
 msgid "`Vyper cheat Sheet <https://reference.auditless.com/cheatsheet>`_"
@@ -65,7 +70,7 @@ msgstr ""
 
 #: ../../../resources.rst:19
 msgid "Frameworks and tooling"
-msgstr ""
+msgstr "框架與工具"
 
 #: ../../../resources.rst:21
 msgid ""
@@ -112,7 +117,7 @@ msgstr ""
 
 #: ../../../resources.rst:30
 msgid "Security"
-msgstr ""
+msgstr "安全性"
 
 #: ../../../resources.rst:32
 msgid ""
@@ -128,7 +133,7 @@ msgstr ""
 
 #: ../../../resources.rst:36
 msgid "Conference presentations"
-msgstr ""
+msgstr "會議演講"
 
 #: ../../../resources.rst:38
 msgid ""
@@ -156,13 +161,13 @@ msgstr ""
 
 #: ../../../resources.rst:44
 msgid "Unmaintained"
-msgstr ""
+msgstr "不再維護"
 
 #: ../../../resources.rst:46
 msgid ""
 "These resources have not been updated for a while, but may still offer "
 "interesting content."
-msgstr ""
+msgstr "這些資源已有一段時間沒有更新，但仍可能提供有趣的內容。"
 
 #: ../../../resources.rst:48
 msgid ""
