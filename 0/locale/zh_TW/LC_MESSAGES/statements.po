@@ -25,7 +25,7 @@ msgstr "陳述句"
 msgid ""
 "Vyper's statements are syntactically similar to Python, with some notable "
 "exceptions."
-msgstr ""
+msgstr "Vyper 的陳述句在語法上與 Python 相似，但有一些顯著的例外。"
 
 #: ../../../statements.rst:9
 msgid "Control Flow"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: ../../../statements.rst:14
 msgid "The ``break`` statement terminates the nearest enclosing ``for`` loop."
-msgstr ""
+msgstr "``break`` 陳述句會終止最近的封閉 ``for`` 迴圈。"
 
 #: ../../../statements.rst:16
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 
 #: ../../../statements.rst:22
 msgid "In the above example, the ``for`` loop terminates if ``i == a``."
-msgstr ""
+msgstr "在上面的範例中，如果 ``i == a``，``for`` 迴圈會終止。"
 
 #: ../../../statements.rst:25
 msgid "continue"
@@ -61,7 +61,7 @@ msgstr "continue"
 msgid ""
 "The ``continue`` statement begins the next cycle of the nearest enclosing "
 "``for`` loop."
-msgstr ""
+msgstr "``continue`` 陳述句會開始最近封閉 ``for`` 迴圈的下一個週期。"
 
 #: ../../../statements.rst:29
 msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 msgid ""
 "In the above example, the ``for`` loop begins the next cycle immediately "
 "whenever ``i != a``."
-msgstr ""
+msgstr "在上面的範例中，每當 ``i != a`` 時，``for`` 迴圈會立即開始下一個週期。"
 
 #: ../../../statements.rst:39
 msgid "pass"
@@ -91,6 +91,8 @@ msgid ""
 "useful as a placeholder when a statement is required syntactically, but no "
 "code needs to be executed:"
 msgstr ""
+"``pass`` 是一個空操作——當它被執行時，什麼都不會發生。當語法上需要一個陳述句但"
+"不需要執行任何程式碼時，它可用作佔位符："
 
 #: ../../../statements.rst:43
 msgid ""
@@ -100,6 +102,11 @@ msgid ""
 "def foo():\n"
 "    pass"
 msgstr ""
+"# 此函數不做任何事（目前為止！）\n"
+"\n"
+"@external\n"
+"def foo():\n"
+"    pass"
 
 #: ../../../statements.rst:52
 msgid "return"
@@ -109,7 +116,7 @@ msgstr ""
 msgid ""
 "``return`` leaves the current function call with the expression list (or "
 "None) as a return value."
-msgstr ""
+msgstr "``return`` 會以運算式列表（或 None）作為傳回值離開目前的函數呼叫。"
 
 #: ../../../statements.rst:56
 msgid "return RETURN_VALUE"
@@ -121,12 +128,14 @@ msgid ""
 "statement, otherwise, the function must end with a ``return`` statement, or "
 "another terminating action such as ``raise``."
 msgstr ""
+"如果函數沒有傳回型別，則允許省略 ``return`` 陳述句，否則函數必須以 "
+"``return`` 陳述句或其他終止動作（如 ``raise``）結尾。"
 
 #: ../../../statements.rst:62
 msgid ""
 "It is not allowed to have additional, unreachable statements after a "
 "``return`` statement."
-msgstr ""
+msgstr "不允許在 ``return`` 陳述句之後有其他無法到達的陳述句。"
 
 #: ../../../statements.rst:65
 msgid "Event Logging"
@@ -138,7 +147,7 @@ msgstr ""
 
 #: ../../../statements.rst:70
 msgid "The ``log`` statement is used to log an event:"
-msgstr ""
+msgstr "``log`` 陳述句用於記錄事件："
 
 #: ../../../statements.rst:72
 msgid "log MyEvent(...)"
@@ -146,11 +155,11 @@ msgstr "log MyEvent(...)"
 
 #: ../../../statements.rst:76
 msgid "The event must have been previously declared."
-msgstr ""
+msgstr "事件必須先前已宣告。"
 
 #: ../../../statements.rst:78
 msgid "See :ref:`Event Logging<event-logging>` for more information on events."
-msgstr ""
+msgstr "更多事件資訊請參閱 :ref:`事件日誌紀錄<event-logging>`。"
 
 #: ../../../statements.rst:81
 msgid ""
@@ -159,6 +168,9 @@ msgid ""
 "effects should be evaluated in separate statements before the ``log`` call "
 "to ensure predictable behavior."
 msgstr ""
+"傳遞給 ``log`` 的引數的求值順序是未定義的。編譯器可能以任意順序對它們進行求"
+"值。因此，具有副作用的引數應在 ``log`` 呼叫之前以單獨的陳述句進行求值，以確保"
+"行為可預測。"
 
 #: ../../../statements.rst:84
 msgid "Assertions and Exceptions"
@@ -183,6 +195,10 @@ msgid ""
 "usage, but is available for interoperability with various tools that use the "
 "``INVALID`` opcode to perform dynamic analysis."
 msgstr ""
+"如果原因字串設為 ``UNREACHABLE``，則會使用 ``INVALID`` opcode（``0xFE``）而"
+"非 ``REVERT``。在這種情況下，還原的呼叫不會收到 gas 退款。這不是一般用途的建"
+"議做法，但可用於與使用 ``INVALID`` opcode 進行動態分析的各種工具之間的互通"
+"性。"
 
 #: ../../../statements.rst:91
 msgid "raise"
@@ -212,6 +228,7 @@ msgid ""
 "The ``assert`` statement makes an assertion about a given condition. If the "
 "condition evaluates falsely, the transaction is reverted."
 msgstr ""
+"``assert`` 陳述句對給定條件進行斷言。如果條件求值為假，則交易會被還原。"
 
 #: ../../../statements.rst:106
 msgid "assert x > 5, \"value too low\""
@@ -219,7 +236,7 @@ msgstr "assert x > 5, \"value too low\""
 
 #: ../../../statements.rst:112
 msgid "This method's behavior is equivalent to:"
-msgstr ""
+msgstr "此方法的行為等同於："
 
 #: ../../../statements.rst:114
 msgid ""

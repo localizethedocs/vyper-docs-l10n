@@ -41,7 +41,7 @@ msgstr ""
 
 #: ../../../constants-and-vars.rst:15 ../../../constants-and-vars.rst:52
 msgid "Type"
-msgstr ""
+msgstr "型別"
 
 #: ../../../constants-and-vars.rst:15 ../../../constants-and-vars.rst:52
 msgid "Value"

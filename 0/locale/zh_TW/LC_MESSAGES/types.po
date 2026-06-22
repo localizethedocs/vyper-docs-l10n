@@ -27,12 +27,14 @@ msgid ""
 "local) must be specified or at least known at compile-time. Vyper provides "
 "several elementary types which can be combined to form complex types."
 msgstr ""
+"Vyper 是一種靜態型別語言。每個變數（狀態和區域）的型別必須在編譯時期指定或至"
+"少已知。Vyper 提供了幾種基本型別，可以組合成複雜型別。"
 
 #: ../../../types.rst:10
 msgid ""
 "In addition, types can interact with each other in expressions containing "
 "operators."
-msgstr ""
+msgstr "此外，型別可以在包含運算子的運算式中彼此互動。"
 
 #: ../../../types.rst:15
 msgid "Value Types"
@@ -47,15 +49,15 @@ msgstr ""
 
 #: ../../../types.rst:24
 msgid "Boolean"
-msgstr ""
+msgstr "布林值"
 
 #: ../../../types.rst:26
 msgid "**Keyword:** ``bool``"
-msgstr "**關鍵字：**``bool``"
+msgstr "**關鍵字：** ``bool``"
 
 #: ../../../types.rst:28
 msgid "A boolean is a type to store a logical/truth value."
-msgstr ""
+msgstr "布林值是一種用於儲存邏輯/真值的型別。"
 
 #: ../../../types.rst:31 ../../../types.rst:61 ../../../types.rst:147
 #: ../../../types.rst:237 ../../../types.rst:292
@@ -64,7 +66,7 @@ msgstr ""
 
 #: ../../../types.rst:33
 msgid "The only possible values are the constants ``True`` and ``False``."
-msgstr ""
+msgstr "唯一可能的值是常數 ``True`` 和 ``False``。"
 
 #: ../../../types.rst:36 ../../../types.rst:68 ../../../types.rst:157
 #: ../../../types.rst:246 ../../../types.rst:338 ../../../types.rst:405
@@ -137,11 +139,11 @@ msgstr ""
 
 #: ../../../types.rst:54
 msgid "Signed Integer (N bit)"
-msgstr ""
+msgstr "有符號整數（N 位元）"
 
 #: ../../../types.rst:56
 msgid "**Keyword:** ``intN`` (e.g., ``int128``)"
-msgstr ""
+msgstr "**關鍵字：**``intN``（例如，``int128``）"
 
 #: ../../../types.rst:58
 msgid ""
@@ -171,7 +173,7 @@ msgstr "比較"
 #: ../../../types.rst:73 ../../../types.rst:162 ../../../types.rst:251
 #: ../../../types.rst:410
 msgid "Comparisons return a boolean value."
-msgstr ""
+msgstr "比較運算傳回布林值。"
 
 #: ../../../types.rst:78 ../../../types.rst:167 ../../../types.rst:256
 msgid "``x < y``"
@@ -217,7 +219,7 @@ msgstr "大於"
 
 #: ../../../types.rst:86 ../../../types.rst:103
 msgid "``x`` and ``y`` must both be of the same type."
-msgstr ""
+msgstr "``x`` 和 ``y`` 必須是相同的型別。"
 
 #: ../../../types.rst:89 ../../../types.rst:178 ../../../types.rst:267
 msgid "Arithmetic Operators"
@@ -245,7 +247,7 @@ msgstr "``-x``"
 
 #: ../../../types.rst:96 ../../../types.rst:274
 msgid "Unary minus/Negation"
-msgstr ""
+msgstr "一元負號/取反"
 
 #: ../../../types.rst:97 ../../../types.rst:185 ../../../types.rst:275
 msgid "``x * y``"
@@ -269,7 +271,7 @@ msgstr "``x**y``"
 
 #: ../../../types.rst:99 ../../../types.rst:187
 msgid "Exponentiation"
-msgstr ""
+msgstr "指數運算"
 
 #: ../../../types.rst:100 ../../../types.rst:188 ../../../types.rst:277
 msgid "``x % y``"
@@ -289,7 +291,7 @@ msgstr ""
 
 #: ../../../types.rst:111 ../../../types.rst:199 ../../../types.rst:427
 msgid "Bitwise and"
-msgstr ""
+msgstr "位元 AND"
 
 #: ../../../types.rst:112 ../../../types.rst:200 ../../../types.rst:428
 msgid "``x | y``"
@@ -297,7 +299,7 @@ msgstr ""
 
 #: ../../../types.rst:112 ../../../types.rst:200 ../../../types.rst:428
 msgid "Bitwise or"
-msgstr ""
+msgstr "位元 OR"
 
 #: ../../../types.rst:113 ../../../types.rst:201 ../../../types.rst:429
 msgid "``x ^ y``"
@@ -305,16 +307,16 @@ msgstr ""
 
 #: ../../../types.rst:113 ../../../types.rst:201 ../../../types.rst:429
 msgid "Bitwise xor"
-msgstr ""
+msgstr "位元 XOR"
 
 #: ../../../types.rst:116 ../../../types.rst:175 ../../../types.rst:191
 #: ../../../types.rst:205
 msgid "``x`` and ``y`` must be of the same type."
-msgstr ""
+msgstr "``x`` 和 ``y`` 必須是相同的型別。"
 
 #: ../../../types.rst:119 ../../../types.rst:211
 msgid "Shifts"
-msgstr ""
+msgstr "位移"
 
 #: ../../../types.rst:124 ../../../types.rst:216
 msgid "``x << y``"
@@ -322,7 +324,7 @@ msgstr ""
 
 #: ../../../types.rst:124 ../../../types.rst:216
 msgid "Left shift"
-msgstr ""
+msgstr "左移"
 
 #: ../../../types.rst:125 ../../../types.rst:217
 msgid "``x >> y``"
@@ -330,7 +332,7 @@ msgstr ""
 
 #: ../../../types.rst:125 ../../../types.rst:217
 msgid "Right shift"
-msgstr ""
+msgstr "右移"
 
 #: ../../../types.rst:128
 msgid ""
@@ -362,11 +364,11 @@ msgstr ""
 
 #: ../../../types.rst:140
 msgid "Unsigned Integer (N bit)"
-msgstr ""
+msgstr "無符號整數（N 位元）"
 
 #: ../../../types.rst:142
 msgid "**Keyword:** ``uintN`` (e.g., ``uint8``)"
-msgstr ""
+msgstr "**關鍵字：**``uintN``（例如，``uint8``）"
 
 #: ../../../types.rst:144
 msgid ""
@@ -392,7 +394,7 @@ msgstr ""
 
 #: ../../../types.rst:202 ../../../types.rst:430
 msgid "Bitwise not"
-msgstr ""
+msgstr "位元 NOT"
 
 #: ../../../types.rst:208
 msgid ""
@@ -409,11 +411,11 @@ msgstr ""
 
 #: ../../../types.rst:229
 msgid "Decimals"
-msgstr ""
+msgstr "十進位定點數"
 
 #: ../../../types.rst:231
 msgid "**Keyword:** ``decimal``"
-msgstr "**關鍵字：**``decimal``"
+msgstr "**關鍵字：** ``decimal``"
 
 #: ../../../types.rst:233
 msgid ""
@@ -442,15 +444,15 @@ msgstr ""
 
 #: ../../../types.rst:257
 msgid "Less or equal"
-msgstr ""
+msgstr "小於或等於"
 
 #: ../../../types.rst:260
 msgid "Greater or equal"
-msgstr ""
+msgstr "大於或等於"
 
 #: ../../../types.rst:264 ../../../types.rst:280
 msgid "``x`` and ``y`` must be of the type ``decimal``."
-msgstr ""
+msgstr "``x`` 和 ``y`` 必須是 ``decimal`` 型別。"
 
 #: ../../../types.rst:276
 msgid "``x / y``"
@@ -458,19 +460,19 @@ msgstr ""
 
 #: ../../../types.rst:276
 msgid "Decimal division"
-msgstr ""
+msgstr "小數除法"
 
 #: ../../../types.rst:285
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: ../../../types.rst:287
 msgid "**Keyword:** ``address``"
-msgstr "**關鍵字：**``address``"
+msgstr "**關鍵字：** ``address``"
 
 #: ../../../types.rst:289
 msgid "The address type holds an Ethereum address."
-msgstr ""
+msgstr "address 型別儲存一個以太坊地址。"
 
 #: ../../../types.rst:294
 msgid ""
@@ -482,15 +484,15 @@ msgstr ""
 
 #: ../../../types.rst:299
 msgid "Members"
-msgstr ""
+msgstr "成員"
 
 #: ../../../types.rst:302
 msgid "Member"
-msgstr ""
+msgstr "成員"
 
 #: ../../../types.rst:302 ../../../types.rst:647
 msgid "Type"
-msgstr ""
+msgstr "型別"
 
 #: ../../../types.rst:304
 msgid "``balance``"
@@ -502,7 +504,7 @@ msgstr ""
 
 #: ../../../types.rst:304
 msgid "Balance of an address"
-msgstr ""
+msgstr "地址的餘額"
 
 #: ../../../types.rst:305
 msgid "``codehash``"
@@ -526,7 +528,7 @@ msgstr ""
 
 #: ../../../types.rst:306
 msgid "Size of code deployed at an address, in bytes"
-msgstr ""
+msgstr "部署在地址處的程式碼大小（位元組）"
 
 #: ../../../types.rst:307
 msgid "``is_contract``"
@@ -538,7 +540,7 @@ msgstr ""
 
 #: ../../../types.rst:307
 msgid "Boolean indicating if a contract is deployed at an address"
-msgstr ""
+msgstr "指示地址處是否部署了合約的布林值"
 
 #: ../../../types.rst:308
 msgid "``code``"
@@ -550,7 +552,7 @@ msgstr ""
 
 #: ../../../types.rst:308
 msgid "Contract bytecode"
-msgstr ""
+msgstr "合約位元組碼"
 
 #: ../../../types.rst:311
 msgid ""
@@ -575,7 +577,7 @@ msgstr ""
 
 #: ../../../types.rst:322
 msgid "M-byte-wide Fixed Size Byte Array"
-msgstr ""
+msgstr "M 位元組寬的固定大小位元組陣列"
 
 #: ../../../types.rst:324
 msgid ""
@@ -586,7 +588,7 @@ msgstr ""
 
 #: ../../../types.rst:327
 msgid "**Example:** ::"
-msgstr ""
+msgstr "**範例：** ::"
 
 #: ../../../types.rst:330
 msgid ""
@@ -608,7 +610,7 @@ msgstr ""
 
 #: ../../../types.rst:343
 msgid "Return the keccak256 hash as bytes32."
-msgstr ""
+msgstr "傳回 keccak256 雜湊作為 bytes32。"
 
 #: ../../../types.rst:344
 msgid "``concat(x, ...)``"
@@ -616,7 +618,7 @@ msgstr ""
 
 #: ../../../types.rst:344
 msgid "Concatenate multiple inputs."
-msgstr ""
+msgstr "串接多個輸入。"
 
 #: ../../../types.rst:345
 msgid "``slice(x, start=_start, len=_len)``"
@@ -634,15 +636,15 @@ msgstr ""
 
 #: ../../../types.rst:353
 msgid "Byte Arrays"
-msgstr ""
+msgstr "位元組陣列"
 
 #: ../../../types.rst:355
 msgid "**Keyword:** ``Bytes``"
-msgstr ""
+msgstr "**關鍵字：**``Bytes``"
 
 #: ../../../types.rst:357
 msgid "A byte array with a max size."
-msgstr ""
+msgstr "具有最大大小的位元組陣列。"
 
 #: ../../../types.rst:359
 msgid ""
@@ -653,7 +655,7 @@ msgstr ""
 
 #: ../../../types.rst:362
 msgid "Bytes literals may be given as bytes strings or as hex strings."
-msgstr ""
+msgstr "位元組字面值可以作為位元組字串或十六進位字串給出。"
 
 #: ../../../types.rst:364
 msgid ""
@@ -667,7 +669,7 @@ msgstr "字串"
 
 #: ../../../types.rst:374
 msgid "**Keyword:** ``String``"
-msgstr "**關鍵字：**``String``"
+msgstr "**關鍵字：** ``String``"
 
 #: ../../../types.rst:376
 msgid ""
@@ -686,7 +688,7 @@ msgstr "旗標"
 
 #: ../../../types.rst:386
 msgid "**Keyword:** ``flag``"
-msgstr "**關鍵字：**``flag``"
+msgstr "**關鍵字：** ``flag``"
 
 #: ../../../types.rst:388
 msgid ""
@@ -716,7 +718,7 @@ msgstr ""
 
 #: ../../../types.rst:417
 msgid "x is in y"
-msgstr ""
+msgstr "x 屬於 y"
 
 #: ../../../types.rst:418
 msgid "``x not in y``"
@@ -724,7 +726,7 @@ msgstr ""
 
 #: ../../../types.rst:418
 msgid "x is not in y"
-msgstr ""
+msgstr "x 不屬於 y"
 
 #: ../../../types.rst:433
 msgid ""
@@ -946,7 +948,7 @@ msgstr "結構體"
 
 #: ../../../types.rst:581
 msgid "Structs are custom defined types that can group several variables."
-msgstr ""
+msgstr "結構體是可以將多個變數組合在一起的自訂型別。"
 
 #: ../../../types.rst:583
 msgid ""
@@ -974,7 +976,7 @@ msgstr ""
 
 #: ../../../types.rst:603
 msgid "Mappings"
-msgstr ""
+msgstr "對映"
 
 #: ../../../types.rst:605
 msgid ""
@@ -993,7 +995,7 @@ msgstr ""
 
 #: ../../../types.rst:609
 msgid "Mapping types are declared as ``HashMap[_KeyType, _ValueType]``."
-msgstr ""
+msgstr "對映型別宣告為 ``HashMap[_KeyType, _ValueType]``。"
 
 #: ../../../types.rst:611
 msgid ""
@@ -1003,11 +1005,11 @@ msgstr ""
 
 #: ../../../types.rst:612
 msgid "``_ValueType`` can actually be any type, including mappings."
-msgstr ""
+msgstr "``_ValueType`` 實際上可以是任何型別，包括對映。"
 
 #: ../../../types.rst:615
 msgid "Mappings are only allowed as state variables."
-msgstr ""
+msgstr "對映僅允許作為狀態變數。"
 
 #: ../../../types.rst:617
 msgid ""
@@ -1020,7 +1022,7 @@ msgstr ""
 
 #: ../../../types.rst:627
 msgid "Mappings have no concept of length and so cannot be iterated over."
-msgstr ""
+msgstr "對映沒有長度的概念，因此無法對其進行迭代。"
 
 #: ../../../types.rst:634
 msgid "Initial Values"
@@ -1047,7 +1049,7 @@ msgstr ""
 
 #: ../../../types.rst:644
 msgid "Here you can find a list of all types and default values:"
-msgstr ""
+msgstr "以下是所有型別及其預設值的列表："
 
 #: ../../../types.rst:647
 msgid "Default Value"
@@ -1123,7 +1125,7 @@ msgstr ""
 
 #: ../../../types.rst:674
 msgid "Conversions to bool map all nonzero inputs to 1."
-msgstr ""
+msgstr "轉換為 bool 將所有非零輸入對映到 1。"
 
 #: ../../../types.rst:675
 msgid ""
@@ -1175,7 +1177,7 @@ msgstr ""
 
 #: ../../../types.rst:682
 msgid "Flags can be converted to and from ``uint256`` only."
-msgstr ""
+msgstr "旗標只能從 ``uint256`` 轉換和轉換為 ``uint256``。"
 
 #: ../../../types.rst:684
 msgid ""
@@ -1188,7 +1190,7 @@ msgstr ""
 
 #: ../../../types.rst:1
 msgid "type"
-msgstr ""
+msgstr "型別"
 
 #: ../../../types.rst:12
 msgid "value"
@@ -1196,7 +1198,7 @@ msgstr ""
 
 #: ../../../types.rst:21
 msgid "bool"
-msgstr ""
+msgstr "布林"
 
 #: ../../../types.rst:21
 msgid "true"
@@ -1216,7 +1218,7 @@ msgstr ""
 
 #: ../../../types.rst:51
 msgid "signed integer"
-msgstr ""
+msgstr "有符號整數"
 
 #: ../../../types.rst:137
 msgid "uint"
@@ -1228,7 +1230,7 @@ msgstr ""
 
 #: ../../../types.rst:137
 msgid "unsigned integer"
-msgstr ""
+msgstr "無符號整數"
 
 #: ../../../types.rst:350
 msgid "bytes"
@@ -1244,16 +1246,16 @@ msgstr ""
 
 #: ../../../types.rst:489
 msgid "arrays"
-msgstr ""
+msgstr "陣列"
 
 #: ../../../types.rst:531
 msgid "dynarrays"
-msgstr ""
+msgstr "動態陣列"
 
 #: ../../../types.rst:600
 msgid "mapping"
-msgstr ""
+msgstr "對映"
 
 #: ../../../types.rst:629
 msgid "initial"
-msgstr ""
+msgstr "初始"
