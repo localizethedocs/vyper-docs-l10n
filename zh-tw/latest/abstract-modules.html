@@ -1,0 +1,725 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>抽象模組 - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="Interfaces" href="interfaces.html" /><link rel="prev" title="模組" href="using-modules.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/abstract-modules.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/abstract-modules.html"/>
+<meta property="og:title" content="抽象模組"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">開始使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速開始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">與 Solidity 的區別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">工廠模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">數學模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">抽象模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">深度驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#abstract-methods">&#25277;&#35937;&#26041;&#27861;</a></li>
+<li><a class="reference internal" href="#overriding-an-abstract-module">&#35206;&#23531;&#25277;&#35937;&#27169;&#32068;</a></li>
+<li><a class="reference internal" href="#overriding-abstract-methods">&#35206;&#23531;&#25277;&#35937;&#26041;&#27861;</a></li>
+<li><a class="reference internal" href="#calling-abstract-methods">&#21628;&#21483;&#25277;&#35937;&#26041;&#27861;</a></li>
+<li><a class="reference internal" href="#advanced-uses">&#36914;&#38542;&#29992;&#27861;</a><ul>
+<li><a class="reference internal" href="#abstract-overriding-modules">&#25277;&#35937;&#30340;&#35206;&#23531;&#27169;&#32068;</a></li>
+<li><a class="reference internal" href="#overriding-multiple-modules">&#35206;&#23531;&#22810;&#20491;&#27169;&#32068;</a></li>
+<li><a class="reference internal" href="#overriding-multiple-abstract-methods">&#35206;&#23531;&#22810;&#20491;&#25277;&#35937;&#26041;&#27861;</a></li>
+<li><a class="reference internal" href="#deferring-overriding">&#24310;&#36978;&#35206;&#23531;</a></li>
+<li><a class="reference internal" href="#default-implementation">&#38928;&#35373;&#23526;&#20316;</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/abstract-modules.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">抽象模組</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="abstract-modules">
+<span id="id1"></span><h1>抽象模組<a class="headerlink" href="#abstract-modules" title="Link to this heading">¶</a></h1>
+<p>抽象模組是一種特殊的 <a class="reference internal" href="using-modules.html#modules"><span class="std std-ref">模組</span></a>，它提供了可自訂其邏輯的插入點。這些插入點以 <a href="#id1"><span class="problematic" id="id2">**</span></a>抽象方法**（abstract methods）的形式存在，即使用 <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> 修飾的 <a class="reference internal" href="control-structures.html#structure-functions-internal"><span class="std std-ref">內部</span></a> 方法。這些方法可以被覆寫（override）來提供自訂邏輯。以下是一個範例：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># base_token.vy</span>
+</span><span id="1-2"><span class="c1"># This is the abstract module</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">balances:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">])</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="c1"># Abstract method is declared here</span>
+</span><span id="1-7"><span class="nd">@abstract</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-9"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="nd">@external</span>
+</span><span id="1-12"><span class="k">def</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-13"><span class="w">    </span><span class="c1"># and used here</span>
+</span><span id="1-14"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">_before_transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span><span id="1-15"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balances</span><span class="p">[</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span>
+</span><span id="1-16"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balances</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">amount</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">base_token</span></code> 模組定義了一個傳輸掛鉤 <code class="docutils literal notranslate"><span class="pre">_before_transfer()</span></code> 作為抽象方法。它在每次傳輸時被呼叫，但沒有實作——實作留給初始化此模組的人。這讓此模組專注於自訂邏輯執行於「何處」，而覆寫模組則決定它「做什麼」。</p>
+<p>要提供實作，模組需要匯入並 <code class="docutils literal notranslate"><span class="pre">initializes</span></code> 抽象模組，然後為每個抽象方法提供 <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code>：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># pausable_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nv">exports:</span><span class="w"> </span><span class="n">base_token</span><span class="p">.</span><span class="n">transfer</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="nv">paused:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-12"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-13"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">paused</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transfers are paused&quot;</span>
+</span></pre></div>
+</div>
+<p>現在每次呼叫 <code class="docutils literal notranslate"><span class="pre">base_token.transfer()</span></code> 都會在轉移代幣之前檢查暫停旗標。覆寫在編譯時期解析——不涉及執行時期分派或繼承。</p>
+<p>As you can see in the example above, what makes a module 「abstract」 is only the presence of abstract methods.
+Furthermore, that is the only difference, everything that can be done in a concrete (i.e. non-abstract) module can also be done in an abstract module.</p>
+<section id="abstract-methods">
+<h2>抽象方法<a class="headerlink" href="#abstract-methods" title="Link to this heading">¶</a></h2>
+<p>抽象方法是使用 <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> 修飾的 <a class="reference internal" href="control-structures.html#structure-functions-internal"><span class="std std-ref">內部方法</span></a>。其主體必須由省略符號字面值（<code class="docutils literal notranslate"><span class="pre">...</span></code>）組成，前面可以有文件字串（docstring）和註解。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@abstract</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">an_abstract_method</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="cm">&quot;&quot;&quot;This is a docstring&quot;&quot;&quot;</span>
+</span><span id="1-4"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>抽象方法沒有其他限制，它們可以有任何簽章（signature），可以使用任何修飾器（只要是內部方法有效的修飾器即可），並且可以像具體方法一樣被呼叫：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@pure</span>
+</span><span id="1-2"><span class="nd">@abstract</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@payable</span>
+</span><span id="1-7"><span class="nd">@nonreentrant</span>
+</span><span id="1-8"><span class="nd">@abstract</span>
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">bar:</span><span class="w"> </span><span class="n">DynArray</span><span class="p">[</span><span class="kt">Bytes[20]</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">DynArray</span><span class="p">[</span><span class="kt">String</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span><span class="w"> </span><span class="mi">38</span><span class="p">]:</span>
+</span><span id="1-10"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-11">
+</span><span id="1-12"><span class="k">def</span><span class="w"> </span><span class="nf">concrete_calls</span><span class="p">():</span>
+</span><span id="1-13"><span class="w">    </span><span class="nv">_name:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">name</span><span class="p">()</span>
+</span><span id="1-14"><span class="w">    </span><span class="nv">complex_expression:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">foo</span><span class="p">([]).</span><span class="n">pop</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</section>
+<section id="overriding-an-abstract-module">
+<h2>覆寫抽象模組<a class="headerlink" href="#overriding-an-abstract-module" title="Link to this heading">¶</a></h2>
+<p>由於抽象模組本質上是不完整的，因此需要另一個模組來完成它們，為其抽象方法提供實作：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">paused</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transfers are paused&quot;</span>
+</span></pre></div>
+</div>
+<p>若要讓模組 M1 覆寫模組 M2：</p>
+<ol class="arabic simple">
+<li><p>M1 必須 <a class="reference internal" href="using-modules.html#initializing-module"><span class="std std-ref">初始化</span></a> M2</p></li>
+<li><p>M1 必須覆寫 M2 的每個抽象方法，請參閱 <a class="reference internal" href="#overriding-abstract-methods"><span class="std std-ref">覆寫抽象方法</span></a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>因此不需要選擇要使用哪個覆寫，抽象模組只能被覆寫一次。這是由初始化系統保證的。</p>
+</div>
+</section>
+<section id="overriding-abstract-methods">
+<span id="id2"></span><h2>覆寫抽象方法<a class="headerlink" href="#overriding-abstract-methods" title="Link to this heading">¶</a></h2>
+<p>要覆寫模組 <code class="docutils literal notranslate"><span class="pre">base_token</span></code> 的抽象方法 <code class="docutils literal notranslate"><span class="pre">_before_transfer</span></code>，覆寫模組必須定義一個內部方法 <code class="docutils literal notranslate"><span class="pre">_before_transfer</span></code>，並加上 <code class="docutils literal notranslate"><span class="pre">&#64;override(my_abstract_module)</span></code> 修飾器：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">paused</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transfers are paused&quot;</span>
+</span></pre></div>
+</div>
+<p>由於對 <code class="docutils literal notranslate"><span class="pre">base_token._before_transfer</span></code> 的任何呼叫都會在編譯時期被替換為對覆寫的 <code class="docutils literal notranslate"><span class="pre">_before_transfer</span></code> 的呼叫，因此對前者的任何呼叫都必須是對後者的有效呼叫：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># abstract_m.vy</span>
+</span><span id="1-2"><span class="nd">@pure</span>
+</span><span id="1-3"><span class="nd">@abstract</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-2"><span class="nv">initializes:</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Valid: signature matches exactly</span>
+</span><span id="1-5"><span class="nd">@pure</span>
+</span><span id="1-6"><span class="nd">@override</span><span class="p">(</span><span class="n">abstract_m</span><span class="p">)</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-2"><span class="nv">initializes:</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Invalid: parameter and return type don&#39;t match the ones in abstract_m.compute</span>
+</span><span id="1-5"><span class="nd">@pure</span>
+</span><span id="1-6"><span class="nd">@override</span><span class="p">(</span><span class="n">abstract_m</span><span class="p">)</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-2"><span class="nv">initializes:</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Invalid: parameter name doesn&#39;t match</span>
+</span><span id="1-5"><span class="nd">@pure</span>
+</span><span id="1-6"><span class="nd">@override</span><span class="p">(</span><span class="n">abstract_m</span><span class="p">)</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-2"><span class="nv">initializes:</span><span class="w"> </span><span class="n">abstract_m</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Invalid: Has looser mutability: nonpayable vs the original which is pure</span>
+</span><span id="1-5"><span class="nd">@nonpayable</span>
+</span><span id="1-6"><span class="nd">@override</span><span class="p">(</span><span class="n">abstract_m</span><span class="p">)</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<p>一個良好的經驗法則如下；覆寫必須具有：</p>
+<ul class="simple">
+<li><p>與抽象方法相同的參數：相同名稱、相同型別和相同預設值。</p></li>
+<li><p>與抽象方法相同的回傳型別。</p></li>
+<li><p>與抽象方法相同的修飾器，除了 <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code>。</p></li>
+</ul>
+<p>遵循上述規則將始終產生有效的覆寫。然而，這些規則在某些使用情境中可能過於嚴格，因此實際規則更加靈活：</p>
+<ul class="simple">
+<li><p>抽象方法的每個參數必須出現在覆寫中的相同位置，且使用相同的名稱。</p></li>
+<li><p>如果抽象方法為參數定義了預設引數，則預設引數的值在覆寫中必須相符。任何值都與省略符號（<code class="docutils literal notranslate"><span class="pre">...</span></code>）相符。</p></li>
+<li><p>覆寫可以在右側新增額外的參數，只要它們具有預設值即可。</p></li>
+<li><p>覆寫可以為抽象方法中的強制參數新增預設值。</p></li>
+<li><p>覆寫中的每個參數型別必須是抽象方法中對應參數型別的超型別（super-type）。</p></li>
+<li><p>覆寫的回傳型別必須是抽象方法回傳型別的子型別（sub-type）。</p></li>
+<li><p>覆寫的 <a class="reference internal" href="control-structures.html#function-mutability"><span class="std std-ref">可變性</span></a> 必須與抽象方法的相同（或更嚴格）。</p></li>
+<li><p>覆寫的 <a class="reference internal" href="control-structures.html#reentrancy"><span class="std std-ref">可重入性</span></a> 必須與抽象方法的完全相符。</p></li>
+</ul>
+</section>
+<section id="calling-abstract-methods">
+<h2>呼叫抽象方法<a class="headerlink" href="#calling-abstract-methods" title="Link to this heading">¶</a></h2>
+<p>抽象方法的呼叫方式與具體方法相同。此外，呼叫另一個模組的抽象方法需要使用 <a class="reference internal" href="using-modules.html#uses-statement"><span class="std std-ref">uses</span></a> 陳述式。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># base_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@abstract</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-9"><span class="w">    </span><span class="c1"># call to abstract method in same module</span>
+</span><span id="1-10"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">_before_transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span><span id="1-11"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balances</span><span class="p">[</span><span class="bp">msg.sender</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">amount</span>
+</span><span id="1-12"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">balances</span><span class="p">[</span><span class="n">recipient</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">amount</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="c1"># required by the call below</span>
+</span><span id="1-4"><span class="nv">uses:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">simulate_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-7"><span class="w">    </span><span class="c1"># call to abstract method in different module</span>
+</span><span id="1-8"><span class="w">    </span><span class="n">base_token</span><span class="p">.</span><span class="n">_before_transfer</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>所有對抽象方法的呼叫都會在編譯時期解析為具體的覆寫：沒有執行時期分派。</p>
+<p>當模組覆寫抽象方法時，編譯器要求呼叫者使用最具體的路徑。特別是，如果 <code class="docutils literal notranslate"><span class="pre">self._before_transfer</span></code> 覆寫了 <code class="docutils literal notranslate"><span class="pre">base_token._before_transfer</span></code>，則該模組內的任何呼叫都必須透過 <code class="docutils literal notranslate"><span class="pre">self</span></code>，而不是透過 <code class="docutils literal notranslate"><span class="pre">base_token</span></code>：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">paused</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transfers are paused&quot;</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-10"><span class="w">    </span><span class="c1"># Valid: uses the override directly</span>
+</span><span id="1-11"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">_before_transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="w">    </span><span class="c1"># Invalid: base_token._before_transfer is overridden by</span>
+</span><span id="1-14"><span class="w">    </span><span class="c1"># self._before_transfer, call that instead.</span>
+</span><span id="1-15"><span class="w">    </span><span class="n">base_token</span><span class="p">.</span><span class="n">_before_transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</section>
+<section id="advanced-uses">
+<h2>進階用法<a class="headerlink" href="#advanced-uses" title="Link to this heading">¶</a></h2>
+<p>在本節中，我們將解釋上述規範的一些可能不會立即想到的後果，這些在進階情境中很有用。</p>
+<section id="abstract-overriding-modules">
+<h3>抽象的覆寫模組<a class="headerlink" href="#abstract-overriding-modules" title="Link to this heading">¶</a></h3>
+<p>覆寫模組本身也可以是抽象的。換句話說，<code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code> 可以共存於同一個模組中（甚至可以 <a class="reference internal" href="#deferring-overriding"><span class="std std-ref">在同一個方法上</span></a>）：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># checked_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">check_address</span><span class="p">(</span><span class="n">sender</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;Invalid sender&quot;</span>
+</span><span id="1-10"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">check_address</span><span class="p">(</span><span class="n">recipient</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;Invalid recipient&quot;</span>
+</span><span id="1-11"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">check_cap</span><span class="p">(</span><span class="n">amount</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;Invalid amount&quot;</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="nd">@abstract</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">check_cap</span><span class="p">(</span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-15"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-16">
+</span><span id="1-17"><span class="nd">@abstract</span>
+</span><span id="1-18"><span class="k">def</span><span class="w"> </span><span class="nf">check_address</span><span class="p">(</span><span class="nv">addr:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-19"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<p>這裡 <code class="docutils literal notranslate"><span class="pre">checked_token.vy</span></code> 為 <code class="docutils literal notranslate"><span class="pre">base_token</span></code> 提供了一個具體的 <code class="docutils literal notranslate"><span class="pre">_before_transfer</span></code>，但它本身是一個抽象模組，因為它引入了 <code class="docutils literal notranslate"><span class="pre">check_cap</span></code> 和 <code class="docutils literal notranslate"><span class="pre">check_address</span></code>。最終模組透過覆寫這些方法來完成鏈：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># my_token.vy</span>
+</span><span id="1-2"><span class="k">import</span><span class="w"> </span><span class="n">checked_token</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">initializes:</span><span class="w"> </span><span class="n">checked_token</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nv">MAX_AMOUNT:</span><span class="w"> </span><span class="kd">constant</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">**</span><span class="mi">24</span>
+</span><span id="1-7"><span class="nv">total_supply:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="nd">@override</span><span class="p">(</span><span class="n">checked_token</span><span class="p">)</span>
+</span><span id="1-10"><span class="k">def</span><span class="w"> </span><span class="nf">check_cap</span><span class="p">(</span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-11"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">MAX_AMOUNT</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="nd">@override</span><span class="p">(</span><span class="n">checked_token</span><span class="p">)</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">check_address</span><span class="p">(</span><span class="nv">addr:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-15"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</section>
+<section id="overriding-multiple-modules">
+<h3>覆寫多個模組<a class="headerlink" href="#overriding-multiple-modules" title="Link to this heading">¶</a></h3>
+<p>單一模組可以初始化多個抽象模組，並為每個模組獨立提供覆寫。這就是組合不相關關注點的方式，例如將一個模組的傳輸驗證與另一個模組的手續費設定結合在一起。</p>
+<p>使用來自 <a class="reference internal" href="#abstract-modules"><span class="std std-ref">前面範例</span></a> 的 <code class="docutils literal notranslate"><span class="pre">base_token</span></code>，考慮一個管理存取控制的第二個抽象模組：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># access_control.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@abstract</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">_is_allowed</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">check_allowed</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">_is_allowed</span><span class="p">(</span><span class="n">user</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;access denied&quot;</span>
+</span></pre></div>
+</div>
+<p>合約可以初始化兩個模組並覆寫每個抽象方法：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># my_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4"><span class="k">import</span><span class="w"> </span><span class="n">access_control</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-7"><span class="nv">initializes:</span><span class="w"> </span><span class="n">access_control</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="nv">exports:</span><span class="w"> </span><span class="n">base_token</span><span class="p">.</span><span class="n">transfer</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="nv">allowed:</span><span class="w"> </span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="p">]</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="nd">@override</span><span class="p">(</span><span class="n">access_control</span><span class="p">)</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">_is_allowed</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-15"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">allowed</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+</span><span id="1-16">
+</span><span id="1-17"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-18"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-19"><span class="w">    </span><span class="n">access_control</span><span class="p">.</span><span class="n">check_allowed</span><span class="p">(</span><span class="n">sender</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>覆寫模組將兩個關注點交織在一起：<code class="docutils literal notranslate"><span class="pre">_before_transfer</span></code> 委派給存取控制模組來把關誰可以發送代幣。</p>
+</section>
+<section id="overriding-multiple-abstract-methods">
+<h3>覆寫多個抽象方法<a class="headerlink" href="#overriding-multiple-abstract-methods" title="Link to this heading">¶</a></h3>
+<p>當一個模組覆寫多個其他模組時，可能會發生抽象模組共用方法名稱的情況。為了處理這種情況，單一方法可以透過新增多個 <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code> 修飾器來覆寫多個方法。但請注意，該方法必須是每個抽象方法的 <a class="reference internal" href="#overriding-abstract-methods"><span class="std std-ref">有效覆寫</span></a>：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># minter.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">my_roles</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@abstract</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="nv">ROLE:</span>
+</span><span id="1-7"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># authentication_provider.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">my_roles</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@abstract</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">default_role:</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="nv">ROLE:</span>
+</span><span id="1-7"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">minter</span>
+</span><span id="1-2"><span class="k">import</span><span class="w"> </span><span class="n">authentication_provider</span>
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">my_roles</span>
+</span><span id="1-4"><span class="nv">initializes:</span><span class="w"> </span><span class="n">minter</span>
+</span><span id="1-5"><span class="nv">initializes:</span><span class="w"> </span><span class="n">authentication_provider</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nv">roles:</span><span class="w"> </span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="p">]</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="c1"># By having `default_role` as an optional parameter, it&#39;s a valid override of both</span>
+</span><span id="1-10"><span class="c1"># `minter.get_role` which does not have that parameter, and</span>
+</span><span id="1-11"><span class="c1"># `authentication_provider.get_role` which has it as a mandatory parameter</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="nd">@override</span><span class="p">(</span><span class="n">minter</span><span class="p">)</span>
+</span><span id="1-14"><span class="nd">@override</span><span class="p">(</span><span class="n">authentication_provider</span><span class="p">)</span>
+</span><span id="1-15"><span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="nv">user:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">default_role:</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="p">))</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="nv">ROLE:</span>
+</span><span id="1-16"><span class="w">    </span><span class="nv">role:</span><span class="w"> </span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">roles</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+</span><span id="1-17"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">role</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="n">my_roles</span><span class="p">.</span><span class="n">ROLE</span><span class="p">):</span>
+</span><span id="1-18"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">default_role</span>
+</span><span id="1-19"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">role</span>
+</span></pre></div>
+</div>
+</section>
+<section id="deferring-overriding">
+<span id="id3"></span><h3>延遲覆寫<a class="headerlink" href="#deferring-overriding" title="Link to this heading">¶</a></h3>
+<p>在某些情況下，模組可能不想覆寫另一個模組的每個方法。如果是這種情況，可以組合 <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code> 來延遲提供實作：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># base.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@abstract</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">method_a</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@abstract</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">method_b</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># middle.vy</span>
+</span><span id="1-2"><span class="k">import</span><span class="w"> </span><span class="n">base</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="c1"># Concrete override</span>
+</span><span id="1-7"><span class="nd">@override</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">method_a</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="1-10">
+</span><span id="1-11"><span class="c1"># Delegates</span>
+</span><span id="1-12"><span class="nd">@abstract</span>
+</span><span id="1-13"><span class="nd">@override</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">method_b</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-15"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># top.vy</span>
+</span><span id="1-2"><span class="k">import</span><span class="w"> </span><span class="n">middle</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">initializes:</span><span class="w"> </span><span class="n">middle</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@override</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">method_b</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span>
+</span></pre></div>
+</div>
+<p>任何對 <code class="docutils literal notranslate"><span class="pre">base.method_b</span></code> 的呼叫都會解析為對具體實作的呼叫：<code class="docutils literal notranslate"><span class="pre">top.method_b</span></code>。</p>
+</section>
+<section id="default-implementation">
+<h3>預設實作<a class="headerlink" href="#default-implementation" title="Link to this heading">¶</a></h3>
+<p>有時需要為抽象方法提供預設實作，這可以透過定義一個包含此邏輯的單獨方法來完成：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># base_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@abstract</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer_default</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;transfer from zero address&quot;</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">recipient</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">address</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;transfer to zero address&quot;</span>
+</span></pre></div>
+</div>
+<p>這允許在下游接受預設實作，如下所示：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># simple_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-9"><span class="w">    </span><span class="n">base_token</span><span class="p">.</span><span class="n">_before_transfer_default</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>甚至允許在使用預設實作的同時新增額外的邏輯：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># pausable_token.vy</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">import</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">initializes:</span><span class="w"> </span><span class="n">base_token</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nv">paused:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="nd">@override</span><span class="p">(</span><span class="n">base_token</span><span class="p">)</span>
+</span><span id="1-10"><span class="k">def</span><span class="w"> </span><span class="nf">_before_transfer</span><span class="p">(</span><span class="nv">sender:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">recipient:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-11">
+</span><span id="1-12"><span class="w">    </span><span class="c1"># Use default check</span>
+</span><span id="1-13"><span class="w">    </span><span class="n">base_token</span><span class="p">.</span><span class="n">_before_transfer_default</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">recipient</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span><span id="1-14">
+</span><span id="1-15"><span class="w">    </span><span class="c1"># Add custom logic</span>
+</span><span id="1-16"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">paused</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;transfers are paused&quot;</span>
+</span></pre></div>
+</div>
+<p>建議：</p>
+<ol class="arabic simple">
+<li><p>預設實作的名稱應與抽象方法相同，並在後面加上 <code class="docutils literal notranslate"><span class="pre">_default</span></code>。</p></li>
+<li><p>預設實作不應該在任何地方被呼叫（除了在覆寫中），因為這會使將方法設為抽象的初衷失去意義。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="using-modules.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">模組</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="interfaces.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">Interfaces</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

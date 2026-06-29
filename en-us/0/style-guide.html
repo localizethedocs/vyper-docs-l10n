@@ -1,0 +1,638 @@
+
+  <!DOCTYPE html>
+<html lang="en-US" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Style Guide - Vyper documentation</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Vyper Versioning Guideline" href="versioning.html" /><link rel="prev" title="Contributing" href="contributing.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/style-guide.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/style-guide.html"/>
+<meta property="og:title" content="Style Guide"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="Switch to light color mode"
+        data-aria-light="Switch to dark color mode"
+        data-aria-dark="Switch to auto color mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example.html">Vyper by Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-titanoboa.html">Testing with Titanoboa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-brownie.html">Testing with Brownie</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>On this page</h3>
+    <ul>
+<li><a class="reference internal" href="#project-organization">Project Organization</a></li>
+<li><a class="reference internal" href="#code-style">Code Style</a><ul>
+<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a><ul>
+<li><a class="reference internal" href="#leading-underscores">Leading Underscores</a></li>
+<li><a class="reference internal" href="#booleans">Booleans</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#imports">Imports</a><ul>
+<li><a class="reference internal" href="#standard-library-imports">Standard Library Imports</a></li>
+<li><a class="reference internal" href="#internal-imports">Internal Imports</a></li>
+<li><a class="reference internal" href="#cross-package-imports">Cross-Package Imports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li><a class="reference internal" href="#strings">Strings</a></li>
+<li><a class="reference internal" href="#type-annotations">Type Annotations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests">Tests</a><ul>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li><a class="reference internal" href="#filenames">Filenames</a></li>
+<li><a class="reference internal" href="#fixtures">Fixtures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li><a class="reference internal" href="#writing-style">Writing Style</a></li>
+<li><a class="reference internal" href="#api-directives">API Directives</a></li>
+<li><a class="reference internal" href="#headers">Headers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#internal-documentation">Internal Documentation</a></li>
+<li><a class="reference internal" href="#commit-messages">Commit Messages</a><ul>
+<li><a class="reference internal" href="#conventional-commits">Conventional Commits</a></li>
+<li><a class="reference internal" href="#id3">Best Practices</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/style-guide.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Style Guide</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="style-guide">
+<span id="id1"></span><h1>Style Guide<a class="headerlink" href="#style-guide" title="Link to this heading">¶</a></h1>
+<p>This document outlines the code style, project structure and practices followed by the Vyper development team.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Portions of the current codebase do not adhere to this style guide. We are in the process of a large-scale refactor and this guide is intended to outline the structure and best practices <em>during and beyond</em> this refactor. Refactored code and added functionality <strong>must</strong> adhere to this guide. Bugfixes and modifications to existing functionality <strong>may</strong> adopt the same style as the related code.</p>
+</div>
+<section id="project-organization">
+<h2>Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Each subdirectory within Vyper <strong>should</strong> be a self-contained package representing a single pass of the compiler or other logical component.</p></li>
+<li><p>Functionality intended to be called from modules outside of a package <strong>must</strong> be exposed within the base <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>. All other functionality is for internal use only.</p></li>
+<li><p>It <strong>should</strong> be possible to remove any package and replace it with another that exposes the same API, without breaking functionality in other packages.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Link to this heading">¶</a></h2>
+<p>All code <strong>must</strong> conform to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008">PEP 8 style guide</a> with the following exceptions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Maximum line length of 100</p></li>
+</ul>
+</div></blockquote>
+<p>We handle code formatting with <a class="reference external" href="https://github.com/psf/black">black</a> with the line-length option set to 80. This ensures a consistent style across the project and saves time by not having to be opinionated.</p>
+<section id="naming-conventions">
+<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading">¶</a></h3>
+<p>Names <strong>must</strong> adhere to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#prescriptive-naming-conventions">PEP 8 naming conventions</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Modules</strong> have short, all-lowercase names. Underscores can be used in the module name if it improves readability.</p></li>
+<li><p><strong>Class names</strong> use the CapWords convention.</p></li>
+<li><p><strong>Exceptions</strong> follow the same conventions as other classes.</p></li>
+<li><p><strong>Function</strong> names are lowercase, with words separated by underscores when it improves readability.</p></li>
+<li><p><strong>Method</strong> names and <strong>instance</strong> variables follow the same conventions as functions.</p></li>
+<li><p><strong>Constants</strong> use all capital letters with underscores separating words.</p></li>
+</ul>
+</div></blockquote>
+<section id="leading-underscores">
+<h4>Leading Underscores<a class="headerlink" href="#leading-underscores" title="Link to this heading">¶</a></h4>
+<p>A single leading underscore marks an object as private.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Classes and functions with one leading underscore are only used in the module where they are declared. They <strong>must not</strong> be imported.</p></li>
+<li><p>Class attributes and methods with one leading underscore <strong>must</strong> only be accessed by methods within the same class.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="booleans">
+<h4>Booleans<a class="headerlink" href="#booleans" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>Boolean values <strong>should</strong> be prefixed with <code class="docutils literal notranslate"><span class="pre">is_</span></code>.</p></li>
+<li><p>Booleans <strong>must not</strong> represent <em>negative</em> properties, (e.g. <code class="docutils literal notranslate"><span class="pre">is_not_set</span></code>). This can result in double-negative evaluations which are not intuitive for readers.</p></li>
+<li><p>Methods that return a single boolean <strong>should</strong> use the <a class="reference external" href="https://docs.python.org/3.10/library/functions.html#property" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;property</span></code></a> decorator.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="methods">
+<h4>Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h4>
+<p>The following conventions <strong>should</strong> be used when naming functions or methods. Consistent naming provides logical consistency throughout the codebase and makes it easier for future readers to understand what a method does (and does not) do.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_</span></code>: For simple data retrieval without any side effects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fetch_</span></code>: For retreivals that may have some sort of side effect.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_</span></code>: For creation of a new object that is derived from some other data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_</span></code>: For adding a new value or modifying an existing one within an object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_</span></code>: For adding a new attribute or other value to an object. Raises an exception if the value already exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">replace_</span></code>: For mutating an object. Should return <code class="docutils literal notranslate"><span class="pre">None</span></code> on success or raise an exception if something is wrong.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare_</span></code>: For comparing values. Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, does not raise an exception.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">validate_</span></code>: Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> or raises an exception if something is wrong.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from_</span></code>: For class methods that instantiate an object based on the given input data.</p></li>
+</ul>
+</div></blockquote>
+<p>For other functionality, choose names that clearly communicate intent without being overly verbose. Focus on <em>what</em> the method does, not on <em>how</em> the method does it.</p>
+</section>
+</section>
+<section id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="Link to this heading">¶</a></h3>
+<p>Import sequencing is handled with <a class="reference external" href="https://github.com/timothycrosley/isort">isort</a>. We follow these additional rules:</p>
+<section id="standard-library-imports">
+<h4>Standard Library Imports<a class="headerlink" href="#standard-library-imports" title="Link to this heading">¶</a></h4>
+<p>Standard libraries <strong>should</strong> be imported absolutely and without aliasing. Importing the library aids readability, as other users may be familiar with that library.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Good</span>
+</span><span id="1-2"><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="1-3"><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="c1"># Bad</span>
+</span><span id="1-6"><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">stat</span>
+</span><span id="1-7"><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="internal-imports">
+<h4>Internal Imports<a class="headerlink" href="#internal-imports" title="Link to this heading">¶</a></h4>
+<p>Internal imports are those between two modules inside the same Vyper package.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Internal imports <strong>may</strong> use either <code class="docutils literal notranslate"><span class="pre">import</span></code> or <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">..</span></code> syntax. The imported value <strong>should</strong> be a module, not an object. Importing modules instead of objects avoids circular dependency issues.</p></li>
+<li><p>Internal imports <strong>may</strong> be aliased where it aids readability.</p></li>
+<li><p>Internal imports <strong>must</strong> use absolute paths. Relative imports cause issues when the module is moved.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Good</span>
+</span><span id="1-2"><span class="kn">import</span><span class="w"> </span><span class="nn">vyper.ast.nodes</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nodes</span>
+</span><span id="1-3"><span class="kn">from</span><span class="w"> </span><span class="nn">vyper.ast</span><span class="w"> </span><span class="kn">import</span> <span class="n">nodes</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="c1"># Bad, `get_node` is a function</span>
+</span><span id="1-6"><span class="kn">from</span><span class="w"> </span><span class="nn">vyper.ast.nodes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_node</span>
+</span><span id="1-7">
+</span><span id="1-8"><span class="c1"># Bad, do not use relative import paths</span>
+</span><span id="1-9"><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">nodes</span>
+</span></pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="cross-package-imports">
+<h4>Cross-Package Imports<a class="headerlink" href="#cross-package-imports" title="Link to this heading">¶</a></h4>
+<p>Cross-package imports are imports between one Vyper package and another.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Cross-package imports <strong>must not</strong> request anything beyond the root namespace of the target package.</p></li>
+<li><p>Cross-package imports <strong>may</strong> be aliased where it aids readability.</p></li>
+<li><p>Cross-package imports <strong>may</strong> use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">[module]</span> <span class="pre">import</span> <span class="pre">[package]</span></code> syntax.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Good</span>
+</span><span id="1-2"><span class="kn">from</span><span class="w"> </span><span class="nn">vyper.ast</span><span class="w"> </span><span class="kn">import</span> <span class="n">fold</span>
+</span><span id="1-3"><span class="kn">from</span><span class="w"> </span><span class="nn">vyper</span><span class="w"> </span><span class="kn">import</span> <span class="n">ast</span> <span class="k">as</span> <span class="n">vy_ast</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="c1"># Bad, do not import beyond the root namespace</span>
+</span><span id="1-6"><span class="kn">from</span><span class="w"> </span><span class="nn">vyper.ast.annotation</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotate_python_ast</span>
+</span></pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h3>
+<p>We use <a class="reference internal" href="compiler-exceptions.html#compiler-exceptions"><span class="std std-ref">custom exception classes</span></a> to indicate what has gone wrong during compilation.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>All raised exceptions <strong>must</strong> use an exception class that appropriately describes what has gone wrong. When none fits, or when using a single exception class for an overly broad range of errors, consider creating a new class.</p></li>
+<li><p>Builtin Python exceptions <strong>must not</strong> be raised intentionally. An unhandled builtin exception indicates a bug in the codebase.</p></li>
+<li><p>Use <a class="reference internal" href="compiler-exceptions.html#CompilerPanic" title="CompilerPanic"><code class="xref py py-func docutils literal notranslate"><span class="pre">CompilerPanic</span></code></a> for errors that are not caused by the user.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">¶</a></h3>
+<p>Strings substitutions <strong>should</strong> be performed via <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals">formatted string literals</a> rather than the <code class="docutils literal notranslate"><span class="pre">str.format</span></code> method or other techniques.</p>
+</section>
+<section id="type-annotations">
+<h3>Type Annotations<a class="headerlink" href="#type-annotations" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>All publicly exposed classes and methods <strong>should</strong> include <a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> annotations for all arguments and return values.</p></li>
+<li><p>Type annotations <strong>should</strong> be included directly in the source. <a class="reference external" href="https://www.python.org/dev/peps/pep-0484/#stub-files">Stub files</a> <strong>may</strong> be used where there is a valid reason. Source files using stubs <strong>must</strong> still be annotated to aid readability.</p></li>
+<li><p>Internal methods <strong>should</strong> include type annotations.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading">¶</a></h2>
+<p>We use the <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a> framework for testing.</p>
+<section id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pytest</span></code> functionality <strong>should not</strong> be imported with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">...</span></code> style syntax, particularly <a class="reference external" href="https://docs.pytest.org/en/latest/reference/reference.html#pytest.raises" title="(in pytest v9.2.0.dev41)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pytest.raises</span></code></a>. Importing the library itself aids readability.</p></li>
+<li><p>Tests <strong>must not</strong> be interdependent. We use <code class="docutils literal notranslate"><span class="pre">xdist</span></code> to execute tests in parallel. You <strong>cannot</strong> rely on which order tests will execute in, or that two tests will execute in the same process.</p></li>
+<li><p>Test cases <strong>should</strong> be designed with a minimalistic approach. Each test should verify a single behavior. A good test is one with few assertions, and where it is immediately obvious exactly what is being tested.</p></li>
+<li><p>Where logical, tests <strong>should</strong> be <a class="reference external" href="https://docs.pytest.org/en/latest/parametrize.html">parametrized</a> or use <a class="reference external" href="https://hypothesis.works/">property-based</a> testing.</p></li>
+<li><p>Tests <strong>must not</strong> involve mocking.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="directory-structure">
+<h3>Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading">¶</a></h3>
+<p>Where possible, the test suite <strong>should</strong> copy the structure of main Vyper package. For example, test cases for <code class="docutils literal notranslate"><span class="pre">vyper/context/types/</span></code> should exist at <code class="docutils literal notranslate"><span class="pre">tests/context/types/</span></code>.</p>
+</section>
+<section id="filenames">
+<h3>Filenames<a class="headerlink" href="#filenames" title="Link to this heading">¶</a></h3>
+<p>Test files <strong>must</strong> use the following naming conventions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">test_[module].py</span></code>: When all tests for a module are contained in a single file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_[module]_[functionality].py</span></code>: When tests for a module are split across multiple files.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="fixtures">
+<h3>Fixtures<a class="headerlink" href="#fixtures" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fixtures <strong>should</strong> be stored in <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code> rather than the test file itself.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conftest.py</span></code> files <strong>must not</strong> exist more than one subdirectory beyond the initial <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory.</p></li>
+<li><p>The functionality of a fixture <strong>must</strong> be fully documented, either via docstrings or comments.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h2>
+<p>It is important to maintain comprehensive and up-to-date documentation for the Vyper language.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Documentation <strong>must</strong> accurately reflect the current state of the master branch on Github.</p></li>
+<li><p>New functionality <strong>must not</strong> be added without corresponding documentation updates.</p></li>
+</ul>
+</div></blockquote>
+<section id="writing-style">
+<h3>Writing Style<a class="headerlink" href="#writing-style" title="Link to this heading">¶</a></h3>
+<p>We use imperative, present tense to describe APIs: “return” not “returns”. One way to test if we have it right is to complete the following sentence:</p>
+<blockquote>
+<div><p>“If we call this API it will: …”</p>
+</div></blockquote>
+<p>For narrative style documentation, we prefer the use of first-person “we” form over second-person “you” form.</p>
+<p>Additionally, we <strong>recommend</strong> the following best practices when writing documentation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use terms consistently.</p></li>
+<li><p>Avoid ambiguous pronouns.</p></li>
+<li><p>Eliminate unneeded words.</p></li>
+<li><p>Establish key points at the start of a document.</p></li>
+<li><p>Focus each paragraph on a single topic.</p></li>
+<li><p>Focus each sentence on a single idea.</p></li>
+<li><p>Use a numbered list when order is important and a bulleted list when order is irrelevant.</p></li>
+<li><p>Introduce lists and tables appropriately.</p></li>
+</ul>
+</div></blockquote>
+<p>Google’s <a class="reference external" href="https://developers.google.com/tech-writing">technical writing courses</a> are a valuable resource. We recommend reviewing them before any significant documentation work.</p>
+</section>
+<section id="api-directives">
+<h3>API Directives<a class="headerlink" href="#api-directives" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>All API documentation <strong>must</strong> use standard Python <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-python-domain">directives</a>.</p></li>
+<li><p>Where possible, references to syntax <strong>should</strong> use appropriate <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-syntax">Python roles</a>.</p></li>
+<li><p>External references <strong>may</strong> use <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html">intersphinx roles</a>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="headers">
+<h3>Headers<a class="headerlink" href="#headers" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Each documentation section <strong>must</strong> begin with a <a class="reference external" href="https://www.sphinx-doc.org/en/stable/usage/restructuredtext/roles.html#cross-referencing-arbitrary-locations">label</a> of the same name as the filename for that section. For example, this section’s filename is <code class="docutils literal notranslate"><span class="pre">style-guide.rst</span></code>, so the RST opens with a label <code class="docutils literal notranslate"><span class="pre">_style-guide</span></code>.</p></li>
+<li><p>Section headers <strong>should</strong> use the following sequence, from top to bottom: <code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="internal-documentation">
+<h2>Internal Documentation<a class="headerlink" href="#internal-documentation" title="Link to this heading">¶</a></h2>
+<p>Internal documentation is vital to aid other contributors in understanding the layout of the Vyper codebase.</p>
+<p>We handle internal documentation in the following ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">README.md</span></code> <strong>must</strong> be included in each first-level subdirectory of the Vyper package. The readme explain the purpose, organization and control flow of the subdirectory.</p></li>
+<li><p>All publicly exposed classes and methods <strong>must</strong> include detailed docstrings.</p></li>
+<li><p>Internal methods <strong>should</strong> include docstrings, or at minimum comments.</p></li>
+<li><p>Any code that may be considered “clever” or “magic” <strong>must</strong> include comments explaining exactly what is happening.</p></li>
+</ul>
+</div></blockquote>
+<p>Docstrings <strong>should</strong> be formatted according to the <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy docstring style</a>.</p>
+</section>
+<section id="commit-messages">
+<h2>Commit Messages<a class="headerlink" href="#commit-messages" title="Link to this heading">¶</a></h2>
+<p>Contributors <strong>should</strong> adhere to the following standards and best practices when making commits to be merged into the Vyper codebase.</p>
+<p>Maintainers  <strong>may</strong> request a rebase, or choose to squash merge pull requests that do not follow these standards.</p>
+<section id="conventional-commits">
+<h3>Conventional Commits<a class="headerlink" href="#conventional-commits" title="Link to this heading">¶</a></h3>
+<p>Commit messages <strong>should</strong> adhere to the <a class="reference external" href="https://www.conventionalcommits.org/">Conventional Commits</a> standard. A conventional commit message is structured as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">[</span><span class="n">optional</span> <span class="n">scope</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="p">[</span><span class="n">optional</span> <span class="n">body</span><span class="p">]</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="p">[</span><span class="n">optional</span> <span class="n">footer</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<p>The commit contains the following elements, to communicate intent to the consumers of your library:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>fix</strong>: a commit of the <em>type</em> <code class="docutils literal notranslate"><span class="pre">fix</span></code> patches a bug in your codebase (this correlates with <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> in semantic versioning).</p></li>
+<li><p><strong>feat</strong>: a commit of the <em>type</em> <code class="docutils literal notranslate"><span class="pre">feat</span></code> introduces a new feature to the codebase (this correlates with <code class="docutils literal notranslate"><span class="pre">MINOR</span></code> in semantic versioning).</p></li>
+<li><p><strong>BREAKING CHANGE</strong>: a commit that has the text <code class="docutils literal notranslate"><span class="pre">BREAKING</span> <span class="pre">CHANGE:</span></code> at the beginning of its optional body or footer section introduces a breaking API change (correlating with <code class="docutils literal notranslate"><span class="pre">MAJOR</span></code> in semantic versioning). A BREAKING CHANGE can be part of commits of any <em>type</em>.</p></li>
+</ul>
+</div></blockquote>
+<p>The use of commit types other than <code class="docutils literal notranslate"><span class="pre">fix:</span></code> and <code class="docutils literal notranslate"><span class="pre">feat:</span></code> is recommended. For example: <code class="docutils literal notranslate"><span class="pre">docs:</span></code>, <code class="docutils literal notranslate"><span class="pre">style:</span></code>, <code class="docutils literal notranslate"><span class="pre">refactor:</span></code>, <code class="docutils literal notranslate"><span class="pre">test:</span></code>, <code class="docutils literal notranslate"><span class="pre">chore:</span></code>, or <code class="docutils literal notranslate"><span class="pre">improvement:</span></code>. These tags are not mandated by the specification and have no implicit effect in semantic versioning.</p>
+</section>
+<section id="id3">
+<h3>Best Practices<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>We <strong>recommend</strong> the following best practices for commit messages (taken from <a class="reference external" href="https://chris.beams.io/posts/git-commit/">How To Write a Commit Message</a>):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Limit the subject line to 50 characters.</p></li>
+<li><p>Use imperative, present tense in the subject line.</p></li>
+<li><p>Capitalize the subject line.</p></li>
+<li><p>Do not end the subject line with a period.</p></li>
+<li><p>Separate the subject from the body with a blank line.</p></li>
+<li><p>Wrap the body at 72 characters.</p></li>
+<li><p>Use the body to explain what and why vs. how.</p></li>
+</ul>
+</div></blockquote>
+<p>Here’s an example commit message adhering to the above practices:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">Summarize changes in around 50 characters or less
+</span><span id="1-2">
+</span><span id="1-3">More detailed explanatory text, if necessary. Wrap it to about 72
+</span><span id="1-4">characters or so. In some contexts, the first line is treated as the
+</span><span id="1-5">subject of the commit and the rest of the text as the body. The
+</span><span id="1-6">blank line separating the summary from the body is critical (unless
+</span><span id="1-7">you omit the body entirely); various tools like `log`, `shortlog`
+</span><span id="1-8">and `rebase` can get confused if you run the two together.
+</span><span id="1-9">
+</span><span id="1-10">Explain the problem that this commit is solving. Focus on why you
+</span><span id="1-11">are making this change as opposed to how (the code explains that).
+</span><span id="1-12">Are there side effects or other unintuitive consequences of this
+</span><span id="1-13">change? Here&#39;s the place to explain them.
+</span><span id="1-14">
+</span><span id="1-15">Further paragraphs come after blank lines.
+</span><span id="1-16">
+</span><span id="1-17"> - Bullet points are okay, too
+</span><span id="1-18">
+</span><span id="1-19"> - Typically a hyphen or asterisk is used for the bullet, preceded
+</span><span id="1-20">   by a single space, with blank lines in between, but conventions
+</span><span id="1-21">   vary here
+</span><span id="1-22">
+</span><span id="1-23">If you use an issue tracker, put references to them at the bottom,
+</span><span id="1-24">like this:
+</span><span id="1-25">
+</span><span id="1-26">Resolves: #XXX
+</span><span id="1-27">See also: #XXY, #XXXZ
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="contributing.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>Previous</span>
+        
+        <div class="title">Contributing</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="versioning.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Vyper Versioning Guideline</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=ccd1e645"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

@@ -1,0 +1,1434 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>內建函數 - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="數學模組" href="stdlib-math.html" /><link rel="prev" title="Scoping and Declarations" href="scoping-and-declarations.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/built-in-functions.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/built-in-functions.html"/>
+<meta property="og:title" content="內建函數"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">開始使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速開始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">與 Solidity 的區別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">工廠模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">內建函數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">數學模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">抽象模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">深度驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#bitwise-operations">&#20301;&#20803;&#36939;&#31639;</a><ul>
+<li><a class="reference internal" href="#shift"><code class="docutils literal notranslate"><span class="pre">shift()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chain-interaction">&#37832;&#20114;&#21205;</a><ul>
+<li><a class="reference internal" href="#create_minimal_proxy_to"><code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to()</span></code></a></li>
+<li><a class="reference internal" href="#create_copy_of"><code class="docutils literal notranslate"><span class="pre">create_copy_of()</span></code></a></li>
+<li><a class="reference internal" href="#create_from_blueprint"><code class="docutils literal notranslate"><span class="pre">create_from_blueprint()</span></code></a></li>
+<li><a class="reference internal" href="#raw_create"><code class="docutils literal notranslate"><span class="pre">raw_create()</span></code></a></li>
+<li><a class="reference internal" href="#raw_call"><code class="docutils literal notranslate"><span class="pre">raw_call()</span></code></a></li>
+<li><a class="reference internal" href="#raw_log"><code class="docutils literal notranslate"><span class="pre">raw_log()</span></code></a></li>
+<li><a class="reference internal" href="#raw_revert"><code class="docutils literal notranslate"><span class="pre">raw_revert()</span></code></a></li>
+<li><a class="reference internal" href="#selfdestruct"><code class="docutils literal notranslate"><span class="pre">selfdestruct()</span></code></a></li>
+<li><a class="reference internal" href="#send"><code class="docutils literal notranslate"><span class="pre">send()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cryptography">&#23494;&#30908;&#23416;</a><ul>
+<li><a class="reference internal" href="#ecadd"><code class="docutils literal notranslate"><span class="pre">ecadd()</span></code></a></li>
+<li><a class="reference internal" href="#ecmul"><code class="docutils literal notranslate"><span class="pre">ecmul()</span></code></a></li>
+<li><a class="reference internal" href="#ecrecover"><code class="docutils literal notranslate"><span class="pre">ecrecover()</span></code></a></li>
+<li><a class="reference internal" href="#keccak256"><code class="docutils literal notranslate"><span class="pre">keccak256()</span></code></a></li>
+<li><a class="reference internal" href="#sha256"><code class="docutils literal notranslate"><span class="pre">sha256()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-manipulation">&#36039;&#26009;&#25805;&#32305;</a><ul>
+<li><a class="reference internal" href="#concat"><code class="docutils literal notranslate"><span class="pre">concat()</span></code></a></li>
+<li><a class="reference internal" href="#convert"><code class="docutils literal notranslate"><span class="pre">convert()</span></code></a></li>
+<li><a class="reference internal" href="#uint2str"><code class="docutils literal notranslate"><span class="pre">uint2str()</span></code></a></li>
+<li><a class="reference internal" href="#extract32"><code class="docutils literal notranslate"><span class="pre">extract32()</span></code></a></li>
+<li><a class="reference internal" href="#slice"><code class="docutils literal notranslate"><span class="pre">slice()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#math">&#25976;&#23416;</a><ul>
+<li><a class="reference internal" href="#abs"><code class="docutils literal notranslate"><span class="pre">abs()</span></code></a></li>
+<li><a class="reference internal" href="#ceil"><code class="docutils literal notranslate"><span class="pre">ceil()</span></code></a></li>
+<li><a class="reference internal" href="#epsilon"><code class="docutils literal notranslate"><span class="pre">epsilon()</span></code></a></li>
+<li><a class="reference internal" href="#floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li><a class="reference internal" href="#max"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a></li>
+<li><a class="reference internal" href="#max_value"><code class="docutils literal notranslate"><span class="pre">max_value()</span></code></a></li>
+<li><a class="reference internal" href="#min"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a></li>
+<li><a class="reference internal" href="#min_value"><code class="docutils literal notranslate"><span class="pre">min_value()</span></code></a></li>
+<li><a class="reference internal" href="#pow_mod256"><code class="docutils literal notranslate"><span class="pre">pow_mod256()</span></code></a></li>
+<li><a class="reference internal" href="#sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li><a class="reference internal" href="#isqrt"><code class="docutils literal notranslate"><span class="pre">isqrt()</span></code></a></li>
+<li><a class="reference internal" href="#uint256_addmod"><code class="docutils literal notranslate"><span class="pre">uint256_addmod()</span></code></a></li>
+<li><a class="reference internal" href="#uint256_mulmod"><code class="docutils literal notranslate"><span class="pre">uint256_mulmod()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_add"><code class="docutils literal notranslate"><span class="pre">unsafe_add()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_sub"><code class="docutils literal notranslate"><span class="pre">unsafe_sub()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_mul"><code class="docutils literal notranslate"><span class="pre">unsafe_mul()</span></code></a></li>
+<li><a class="reference internal" href="#unsafe_div"><code class="docutils literal notranslate"><span class="pre">unsafe_div()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilities">&#24037;&#20855;</a><ul>
+<li><a class="reference internal" href="#as_wei_value"><code class="docutils literal notranslate"><span class="pre">as_wei_value()</span></code></a></li>
+<li><a class="reference internal" href="#blockhash"><code class="docutils literal notranslate"><span class="pre">blockhash()</span></code></a></li>
+<li><a class="reference internal" href="#blobhash"><code class="docutils literal notranslate"><span class="pre">blobhash()</span></code></a></li>
+<li><a class="reference internal" href="#empty"><code class="docutils literal notranslate"><span class="pre">empty()</span></code></a></li>
+<li><a class="reference internal" href="#len"><code class="docutils literal notranslate"><span class="pre">len()</span></code></a></li>
+<li><a class="reference internal" href="#method_id"><code class="docutils literal notranslate"><span class="pre">method_id()</span></code></a></li>
+<li><a class="reference internal" href="#abi_encode"><code class="docutils literal notranslate"><span class="pre">abi_encode()</span></code></a></li>
+<li><a class="reference internal" href="#abi_decode"><code class="docutils literal notranslate"><span class="pre">abi_decode()</span></code></a></li>
+<li><a class="reference internal" href="#print"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/built-in-functions.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">內建函數</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="built-in-functions">
+<span id="index-0"></span><span id="id1"></span><h1>內建函數<a class="headerlink" href="#built-in-functions" title="Link to this heading">¶</a></h1>
+<p>Vyper 提供了一組內建函數，可在所有合約的全域命名空間中使用。</p>
+<section id="bitwise-operations">
+<h2>位元運算<a class="headerlink" href="#bitwise-operations" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#shift" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">x</span></code> 將其位元移位 <code class="docutils literal notranslate"><span class="pre">_shift</span></code> 個位置。正 <code class="docutils literal notranslate"><span class="pre">_shift</span></code> 值表示左移，負值表示右移。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int128</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">shift</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">512</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>此函數自 0.3.8 版起已被棄用。請改用 <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> 運算子。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>函數 <code class="docutils literal notranslate"><span class="pre">bitwise_and</span></code>、<code class="docutils literal notranslate"><span class="pre">bitwise_or</span></code>、<code class="docutils literal notranslate"><span class="pre">bitwise_xor</span></code> 和 <code class="docutils literal notranslate"><span class="pre">bitwise_not</span></code> 自 0.3.4 版起已被棄用，並在 0.4.2 版中移除。請改用其運算子版本：<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>、<code class="docutils literal notranslate"><span class="pre">|</span></code>、<code class="docutils literal notranslate"><span class="pre">^</span></code>、<code class="docutils literal notranslate"><span class="pre">~</span></code>。</p>
+</div>
+</section>
+<section id="chain-interaction">
+<h2>鏈互動<a class="headerlink" href="#chain-interaction" title="Link to this heading">¶</a></h2>
+<p>Vyper 有四個用於合約建立的內建函數；前三個合約建立內建函數依賴已儲存在鏈上的程式碼來部署，但在呼叫與部署的開銷、以及是否呼叫要部署合約的建構函數方面有所不同。以下列表簡要總結了它們之間的差異。</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>建立一個指向 <code class="docutils literal notranslate"><span class="pre">target</span></code> 的不可變代理</p></li>
+<li><p>呼叫成本高（每次呼叫都會產生一次 <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> 開銷），建立成本低（因為只部署 <code class="docutils literal notranslate"><span class="pre">EIP-1167</span></code> 轉發器位元組碼）</p></li>
+<li><p>無法呼叫建構函數</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>不**檢查 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處是否有程式碼（允許反事實地部署代理）</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_copy_of(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>建立 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處儲存的執行時期程式碼的逐位元組副本</p></li>
+<li><p>呼叫成本低（無 <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> 開銷），建立成本高（每部署一個位元組 200 gas）</p></li>
+<li><p>無法呼叫建構函數</p></li>
+<li><p>執行 <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> 檢查以確認 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處有程式碼</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">create_from_blueprint(target:</span> <span class="pre">address,</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>使用儲存在 <code class="docutils literal notranslate"><span class="pre">target</span></code> 的 initcode 來部署合約</p></li>
+<li><p>呼叫成本低（無 <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> 開銷），建立成本高（每部署一個位元組 200 gas）</p></li>
+<li><p>呼叫建構函數，需要部署一個特殊的「藍圖」合約</p></li>
+<li><p>執行 <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> 檢查以確認 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處有程式碼</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">raw_create(initcode:</span> <span class="pre">Bytes[...],</span> <span class="pre">...)</span></code></dt><dd><ul>
+<li><p>低階建立。接受給定的 initcode 以及要進行 ABI 編碼的引數，並在串接 ABI 編碼後的引數之後部署 initcode。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_minimal_proxy_to">
+<span class="sig-name descname"><span class="pre">create_minimal_proxy_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_minimal_proxy_to" title="Link to this definition">¶</a></dt>
+<dd><p>部署一個小型、符合 EIP1167 的「最小代理合約」，該合約複製 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處合約的邏輯，但擁有自己的狀態，因為對 <code class="docutils literal notranslate"><span class="pre">target</span></code> 的每次呼叫都是透過 <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> 對 <code class="docutils literal notranslate"><span class="pre">target</span></code> 進行的。對終端使用者而言，這應該與具有相同程式碼的獨立部署合約無法區分。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>：要代理到的合約位址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到新合約位址的 wei 值（選用，默認 0）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">False</span></code>，則在建立操作失敗時不回退，而是回傳零位址（選用，默認 <code class="docutils literal notranslate"><span class="pre">True</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>：用於確定性 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 操作碼的 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 值（選用，如果未提供則使用 <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>）</p></li>
+</ul>
+<p>回傳新建立的代理合約的位址。如果建立操作失敗（例如在 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 衝突的情況下），執行將會還原。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_minimal_proxy_to</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>非常重要的是，<code class="docutils literal notranslate"><span class="pre">target</span></code> 處部署的合約必須是你了解且信任的程式碼，並且不實作 <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> 操作碼或具有可升級的程式碼，因為這將影響代理合約的操作。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>沒有執行時期檢查來確認 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處是否已部署程式碼（因為代理可能是反事實部署的）。大多數應用程式可能希望加入此檢查。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>在 0.3.4 版之前，此函數名為 <code class="docutils literal notranslate"><span class="pre">create_forwarder_to</span></code>。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_copy_of">
+<span class="sig-name descname"><span class="pre">create_copy_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_copy_of" title="Link to this definition">¶</a></dt>
+<dd><p>建立 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處執行時期程式碼的實體副本。<code class="docutils literal notranslate"><span class="pre">target</span></code> 處的程式碼會逐位元組複製到新部署的合約中。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>：要複製的合約位址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到新合約位址的 wei 值（選用，默認 0）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">False</span></code>，則在建立操作失敗時不回退，而是回傳零位址（選用，默認 <code class="docutils literal notranslate"><span class="pre">True</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>：用於確定性 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 操作碼的 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 值（選用，如果未提供則使用 <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>）</p></li>
+</ul>
+<p>回傳建立的合約的位址。如果建立操作失敗（例如在 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 衝突的情況下），執行將會還原。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_copy_of</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p><code class="docutils literal notranslate"><span class="pre">create_copy_of</span></code> 的實作假設 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處的程式碼小於 16MB。雖然這遠大於 EIP-170 的 24KB 約束，但這是一個保守的大小限制，旨在為部署者合約提供未來保障，以防 EIP-170 約束被取消。如果 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處的程式碼大於 16MB，<code class="docutils literal notranslate"><span class="pre">create_copy_of</span></code> 的行為是未定義的。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="create_from_blueprint">
+<span class="sig-name descname"><span class="pre">create_from_blueprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_args:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code_offset:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">salt:</span> <span class="pre">bytes32</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#create_from_blueprint" title="Link to this definition">¶</a></dt>
+<dd><p>將 <code class="docutils literal notranslate"><span class="pre">target</span></code> 的程式碼複製到記憶體中並作為 initcode 執行。換句話說，此操作將 <code class="docutils literal notranslate"><span class="pre">target</span></code> 處的程式碼不是作為常規執行時期程式碼，而是直接作為 initcode 來解釋。<code class="docutils literal notranslate"><span class="pre">*args</span></code> 被解釋為建構函數引數，並在執行 initcode 時進行 ABI 編碼並包含在內。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>：要呼叫的藍圖合約位址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>：要轉發給 initcode 的建構函數引數。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到新合約位址的 wei 值（選用，默認 0）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw_args</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">True</span></code>，<code class="docutils literal notranslate"><span class="pre">*args</span></code> 必須是單個 <code class="docutils literal notranslate"><span class="pre">Bytes[...]</span></code> 引數，將被解讀為要轉發給建立操作的原始位元組緩衝區（例如，當從其他地方傳入預先 ABI 編碼的資料時很有用）。（選用，默認 <code class="docutils literal notranslate"><span class="pre">False</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code_offset</span></code>：開始 <code class="docutils literal notranslate"><span class="pre">EXTCODECOPY</span></code> 的偏移量（選用，默認 3）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">False</span></code>，則在建立操作失敗時不回退，而是回傳零位址（選用，默認 <code class="docutils literal notranslate"><span class="pre">True</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>：用於確定性 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 操作碼的 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 值（選用，如果未提供則使用 <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>）</p></li>
+</ul>
+<p>回傳建立的合約的位址。如果建立操作失敗（例如在 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 衝突的情況下），執行將會還原。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">blueprint:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">arg1:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">arg2:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;some string&quot;</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_from_blueprint</span><span class="p">(</span><span class="n">blueprint</span><span class="p">,</span><span class="w"> </span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="n">code_offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>要正確部署藍圖合約，必須使用特殊的部署位元組碼。<code class="docutils literal notranslate"><span class="pre">vyper</span> <span class="pre">-f</span> <span class="pre">blueprint_bytecode</span></code> 的輸出將產生部署 ERC-5202 相容藍圖的位元組碼。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>在 Vyper <code class="docutils literal notranslate"><span class="pre">0.4.0</span></code> 版之前，<code class="docutils literal notranslate"><span class="pre">code_offset</span></code> 參數默認為 <code class="docutils literal notranslate"><span class="pre">0</span></code>。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>建議使用 <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-5202">ERC-5202</a> 前導碼（如 <code class="docutils literal notranslate"><span class="pre">0xFE7100</span></code>）來部署藍圖，以防止它們被當作常規合約呼叫。這對於建構函數有副作用（包括 <code class="docutils literal notranslate"><span class="pre">SELFDESTRUCT</span></code>！）的工廠特別重要，因為這些副作用可能會被*任何人*直接呼叫藍圖合約而執行。提供了 <code class="docutils literal notranslate"><span class="pre">code_offset=</span></code> 關鍵字引數（默認為 ERC-5202 的默認值 3）以啟用此模式：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">blueprint:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="c1"># `blueprint` is a blueprint contract with some known preamble b&quot;abcd...&quot;</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">create_from_blueprint</span><span class="p">(</span><span class="n">blueprint</span><span class="p">,</span><span class="w"> </span><span class="n">code_offset</span><span class="o">=&lt;</span><span class="n">preamble</span><span class="w"> </span><span class="n">length</span><span class="o">&gt;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_create">
+<span class="sig-name descname"><span class="pre">raw_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">initcode:</span> <span class="pre">Bytes[...],</span> <span class="pre">*args,</span> <span class="pre">value:</span> <span class="pre">uint256</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">revert_on_failure:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True[,</span> <span class="pre">salt:</span> <span class="pre">bytes32]</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#raw_create" title="Link to this definition">¶</a></dt>
+<dd><p>使用給定的 <code class="docutils literal notranslate"><span class="pre">initcode</span></code> 建立合約。提供對 <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 操作碼的低階存取。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initcode</span></code>：Initcode 位元組</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到新合約位址的 wei 值（選用，默認 0）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>：要轉發給 initcode 的建構函數引數。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">False</span></code>，則在建立操作失敗時不回退，而是回傳零位址（選用，默認 <code class="docutils literal notranslate"><span class="pre">True</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salt</span></code>：用於確定性 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 操作碼的 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 值（選用，如果未提供則使用 <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>）</p></li>
+</ul>
+<p>回傳建立的合約的位址。如果建立操作失敗（例如在 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code> 衝突的情況下），執行將會還原。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="c1"># create the bytes of an empty vyper contract</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">raw_create</span><span class="p">(</span><span class="n">x</span><span class="s2">&quot;0x61000361000f6000396100036000f35f5ffd855820cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6038000a1657679706572830004020033&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_call">
+<span class="sig-name descname"><span class="pre">raw_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_outsize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">gasLeft</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_delegate_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(於 Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_static_call</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(於 Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revert_on_failure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(於 Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="pre">max_outsize</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#raw_call" title="Link to this definition">¶</a></dt>
+<dd><p>呼叫指定的以太坊位址。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>：要呼叫的目標位址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>：要發送到目標位址的資料</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_outsize</span></code>：從呼叫回傳的位元組陣列的最大長度。如果回傳的呼叫資料超過此長度，則只回傳此數量的位元組。（選用，默認 <code class="docutils literal notranslate"><span class="pre">0</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gas</span></code>：附加到呼叫的 gas 數量。（選用，默認為 <code class="docutils literal notranslate"><span class="pre">msg.gas</span></code>）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到該位址的 wei 值（選用，默認 <code class="docutils literal notranslate"><span class="pre">0</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_delegate_call</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">True</span></code>，呼叫將作為 <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> 發送（選用，默認 <code class="docutils literal notranslate"><span class="pre">False</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_static_call</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">True</span></code>，呼叫將作為 <code class="docutils literal notranslate"><span class="pre">STATICCALL</span></code> 發送（選用，默認 <code class="docutils literal notranslate"><span class="pre">False</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code>：如果為 <code class="docutils literal notranslate"><span class="pre">True</span></code>，呼叫將在失敗時還原，否則將回傳 <code class="docutils literal notranslate"><span class="pre">success``（選用，默認</span> <span class="pre">``True</span></code>）</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>將呼叫回傳的資料作為 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 列表回傳，<code class="docutils literal notranslate"><span class="pre">max_outsize</span></code> 為最大長度。回傳資料的實際大小可能小於 <code class="docutils literal notranslate"><span class="pre">max_outsize</span></code>。你可以使用 <code class="docutils literal notranslate"><span class="pre">len</span></code> 來取得實際大小。</p>
+<p>如果省略 <code class="docutils literal notranslate"><span class="pre">max_outsize</span></code> 或設為 <code class="docutils literal notranslate"><span class="pre">0</span></code>，則不回傳任何內容。</p>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">revert_on_failure</span></code> 設為 <code class="docutils literal notranslate"><span class="pre">False</span></code>，則在元組中回傳 <code class="docutils literal notranslate"><span class="pre">success</span></code> 以及回傳值。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">response:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span><span class="n">_target</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;someMethodName()&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span><span class="p">)</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="nd">@payable</span>
+</span><span id="1-9"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">_target:</span><span class="w"> </span><span class="kt">address</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">:</span>
+</span><span id="1-10"><span class="w">    </span><span class="nv">success:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+</span><span id="1-11"><span class="w">    </span><span class="nv">response:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="s2">&quot;&quot;</span>
+</span><span id="1-12"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">123</span>
+</span><span id="1-13"><span class="w">    </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">raw_call</span><span class="p">(</span>
+</span><span id="1-14"><span class="w">        </span><span class="n">_target</span><span class="p">,</span>
+</span><span id="1-15"><span class="w">        </span><span class="n">abi_encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="o">=</span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;someMethodName(uint256)&quot;</span><span class="p">)),</span>
+</span><span id="1-16"><span class="w">        </span><span class="n">max_outsize</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+</span><span id="1-17"><span class="w">        </span><span class="n">value</span><span class="o">=</span><span class="bp">msg.value</span><span class="p">,</span>
+</span><span id="1-18"><span class="w">        </span><span class="n">revert_on_failure</span><span class="o">=</span><span class="n">False</span>
+</span><span id="1-19"><span class="w">        </span><span class="p">)</span>
+</span><span id="1-20"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">success</span>
+</span><span id="1-21"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>關於「轉送所有 gas」，請注意，雖然 Vyper 會向呼叫提供 <code class="docutils literal notranslate"><span class="pre">msg.gas</span></code>，但實際上在 EVM 上轉送所有剩餘 gas 存在一些細微之處，這些超出了本文件的範圍且可能會有變更。例如，請參閱 EIP-150 中關於「all but one 64th」的說明。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_log">
+<span class="sig-name descname"><span class="pre">raw_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes32</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(於 Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#raw_log" title="Link to this definition">¶</a></dt>
+<dd><p>提供對 <code class="docutils literal notranslate"><span class="pre">LOG</span></code> 操作碼的低階存取，無需指定 ABI 型別即可發出日誌。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">topics</span></code>：<code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 日誌主題的列表。此陣列的長度決定使用哪個操作碼。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>：要包含在日誌中的未索引事件資料。可以作為 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code> 提供。</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_topic:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">_data:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">raw_log</span><span class="p">([</span><span class="n">_topic</span><span class="p">],</span><span class="w"> </span><span class="n">_data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="raw_revert">
+<span class="sig-name descname"><span class="pre">raw_revert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(於 Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#raw_revert" title="Link to this definition">¶</a></dt>
+<dd><p>提供對 <code class="docutils literal notranslate"><span class="pre">REVERT</span></code> 操作碼的低階存取，以指定的回傳資料還原執行。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>：表示導致還原的錯誤訊息的資料。</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_data:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">raw_revert</span><span class="p">(</span><span class="n">_data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="selfdestruct">
+<span class="sig-name descname"><span class="pre">selfdestruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(於 Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#selfdestruct" title="Link to this definition">¶</a></dt>
+<dd><p>觸發 <code class="docutils literal notranslate"><span class="pre">SELFDESTRUCT</span></code> 操作碼（<code class="docutils literal notranslate"><span class="pre">0xFF</span></code>），導致合約被銷毀。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>：要將合約的以太幣餘額轉發到的位址</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>自 Cancun 硬分叉（EIP-6780）起，此操作碼不再刪除合約程式碼，除非在與合約建立相同的交易中呼叫。它只將合約的 ETH 餘額轉移到指定位址。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>此函數自 0.3.8 版起已被棄用。底層操作碼最終將經歷重大變更，不建議使用。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">do_the_needful</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">selfdestruct</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(於 Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#send" title="Link to this definition">¶</a></dt>
+<dd><p>從合約發送以太幣到指定的以太坊位址。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>：要發送以太幣的目標位址</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要發送到該位址的 wei 值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gas</span></code>：附加到呼叫的 gas 數量（「津貼」）。如果未設定，津貼默認為 0。</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>發送的金額始終以 <code class="docutils literal notranslate"><span class="pre">wei</span></code> 為單位指定。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p><code class="docutils literal notranslate"><span class="pre">gas</span></code> 參數默認為 <code class="docutils literal notranslate"><span class="pre">0</span></code>。當轉移**非零數量的 ETH** 時，EVM <a class="reference external" href="https://github.com/ethereum/execution-specs/blob/6137bb32f9b8eda6194096992cb97b28be06957d/src/ethereum/forks/amsterdam/vm/gas.py#L371">自動</a> 授予被呼叫者 2300 gas 的津貼（<code class="docutils literal notranslate"><span class="pre">GAS_STIPEND</span></code>）。然而，當 <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">==</span> <span class="pre">0</span></code> 時不會新增津貼。</p>
+<p>因此，<code class="docutils literal notranslate"><span class="pre">send(to,</span> <span class="pre">0)</span></code> 不會轉送任何 gas，只有當接收者不需要執行 gas 時才會成功（例如，沒有程式碼的帳戶）。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_receiver:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">_amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">gas:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">send</span><span class="p">(</span><span class="n">_receiver</span><span class="p">,</span><span class="w"> </span><span class="n">_amount</span><span class="p">,</span><span class="w"> </span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="cryptography">
+<h2>密碼學<a class="headerlink" href="#cryptography" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ecadd">
+<span class="sig-name descname"><span class="pre">ecadd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ecadd" title="Link to this definition">¶</a></dt>
+<dd><p>取 Alt-BN128 曲線上的兩個點並將它們相加。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecadd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">])</span>
+</span><span id="1-2"><span class="p">[</span>
+</span><span id="1-3"><span class="w">    </span><span class="mi">1368015179489954701390400359078579693043519447331113978918064868415326638035</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">    </span><span class="mi">9918110051302171585080402603319702774565515993150576347155970296011118125764</span><span class="p">,</span>
+</span><span id="1-5"><span class="p">]</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ecmul">
+<span class="sig-name descname"><span class="pre">ecmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ecmul" title="Link to this definition">¶</a></dt>
+<dd><p>取 Alt-BN128 曲線上的一個點（<code class="docutils literal notranslate"><span class="pre">p</span></code>）和一個純量值（<code class="docutils literal notranslate"><span class="pre">s</span></code>），並回傳將該點加上自身 <code class="docutils literal notranslate"><span class="pre">s</span></code> 次的結果，即 <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">*</span> <span class="pre">s</span></code>。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">point</span></code>：要相乘的點</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span></code>：純量值</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">point:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">scalar:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecmul</span><span class="p">(</span><span class="n">point</span><span class="p">,</span><span class="w"> </span><span class="n">scalar</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="p">[</span>
+</span><span id="1-3"><span class="w">    </span><span class="mi">3353031288059533942658390886683067124040920775575537747144343083137631628272</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">    </span><span class="mi">19321533766552368860946552437480515441416830039777911637913418824951667761761</span><span class="p">,</span>
+</span><span id="1-5"><span class="p">]</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ecrecover">
+<span class="sig-name descname"><span class="pre">ecrecover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">uint8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">address</span></span></span><a class="headerlink" href="#ecrecover" title="Link to this definition">¶</a></dt>
+<dd><p>從給定的橢圓曲線簽章中恢復與公鑰關聯的位址。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code>：簽章的前 32 個位元組</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>：簽章的次 32 個位元組</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code>：簽章的最後 1 個位元組</p></li>
+</ul>
+<p>回傳關聯的位址，或在錯誤時回傳 <code class="docutils literal notranslate"><span class="pre">empty(address)</span></code>。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>在 Vyper <code class="docutils literal notranslate"><span class="pre">0.3.10</span></code> 之前，<code class="docutils literal notranslate"><span class="pre">ecrecover</span></code> 函數可能會對無效輸入回傳未定義（可能為非零）的值。更多資訊請參閱 <a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories/GHSA-f5x6-7qgp-jhf3">GHSA-f5x6-7qgp-jhf3</a>。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">hash:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">v:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">r:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">s:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecrecover</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>或者，<code class="docutils literal notranslate"><span class="pre">v</span></code>、<code class="docutils literal notranslate"><span class="pre">r</span></code> 和 <code class="docutils literal notranslate"><span class="pre">s</span></code> 可以作為 <code class="docutils literal notranslate"><span class="pre">uint256</span></code> 傳遞：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">hash:</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">,</span><span class="w"> </span><span class="nv">v:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">r:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">s:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ecrecover</span><span class="p">(</span><span class="n">hash</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="s1">&#39;0x6c9c5e133b8aafb2ea74f524a5263495e7ae5701c7248805f7b511d973dc7055&#39;</span><span class="p">,</span>
+</span><span id="1-2"><span class="w">     </span><span class="mi">28</span><span class="p">,</span>
+</span><span id="1-3"><span class="w">     </span><span class="mi">78616903610408968922803823221221116251138855211764625814919875002740131251724</span><span class="p">,</span>
+</span><span id="1-4"><span class="w">     </span><span class="mi">37668412420813231458864536126575229553064045345107737433087067088194345044408</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">)</span>
+</span><span id="1-6"><span class="s1">&#39;0x9eE53ad38Bb67d745223a4257D7d48cE973FeB7A&#39;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="keccak256">
+<span class="sig-name descname"><span class="pre">keccak256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#keccak256" title="Link to this definition">¶</a></dt>
+<dd><p>回傳給定值的 <code class="docutils literal notranslate"><span class="pre">keccak256</span></code> 雜湊。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>：要雜湊的值。可以是 <code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>。</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_value:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="n">b</span><span class="s2">&quot;potato&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0x9e159dfcfe557cc1ca6c716e87af98fdcb94cd8c832386d0429b2b7bec02754f</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sha256">
+<span class="sig-name descname"><span class="pre">sha256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#sha256" title="Link to this definition">¶</a></dt>
+<dd><p>回傳給定值的 <a href="#id1"><span class="problematic" id="id2">``</span></a>sha256``（SHA2 256 位元輸出）雜湊。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>：要雜湊的值。可以是 <code class="docutils literal notranslate"><span class="pre">String</span></code>、<code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>。</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">_value:</span><span class="w"> </span><span class="kt">Bytes[100]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">sha256</span><span class="p">(</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="n">b</span><span class="s2">&quot;potato&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0xe91c254ad58860a02c788dfb5c1a65d6a8846ab1dc649631c7db16fef4af2dec</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="data-manipulation">
+<h2>資料操縱<a class="headerlink" href="#data-manipulation" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="concat">
+<span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></span><a class="headerlink" href="#concat" title="Link to this definition">¶</a></dt>
+<dd><p>取 2 個或多個型別為 <code class="docutils literal notranslate"><span class="pre">bytesM</span></code>、<code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 或 <code class="docutils literal notranslate"><span class="pre">String</span></code> 的位元組陣列，並將它們合併為單一值。</p>
+<p>如果輸入引數是 <code class="docutils literal notranslate"><span class="pre">String</span></code>，則回傳型別為 <code class="docutils literal notranslate"><span class="pre">String</span></code>。否則回傳型別為 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">100</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">concat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;why&quot;</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="s2">&quot;there&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;why hello there!&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#convert" title="Link to this definition">¶</a></dt>
+<dd><p>將變數或字面值從一種型別轉換為另一種型別。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要轉換的值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_</span></code>：要轉換成的目標型別（例如 <code class="docutils literal notranslate"><span class="pre">bool</span></code>、<code class="docutils literal notranslate"><span class="pre">decimal</span></code>、<code class="docutils literal notranslate"><span class="pre">int128</span></code>、<code class="docutils literal notranslate"><span class="pre">uint256</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>）</p></li>
+</ul>
+<p>回傳由 <code class="docutils literal notranslate"><span class="pre">type_</span></code> 指定型別的值。</p>
+<p>有關可用型別轉換的更多詳細資訊，請參閱 <a class="reference internal" href="types.html#type-conversions"><span class="std std-ref">型別轉換</span></a>。</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint2str">
+<span class="sig-name descname"><span class="pre">uint2str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value:</span> <span class="pre">unsigned</span> <span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">String</span></span></span><a class="headerlink" href="#uint2str" title="Link to this definition">¶</a></dt>
+<dd><p>回傳無符號整數的字串表示。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要轉換的無符號整數。</p></li>
+</ul>
+<p>回傳 <code class="docutils literal notranslate"><span class="pre">value</span></code> 的字串表示。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">78</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint2str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">420</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;420&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="extract32">
+<span class="sig-name descname"><span class="pre">extract32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">bytes32</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#extract32" title="Link to this definition">¶</a></dt>
+<dd><p>從 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 列表中提取值。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>：要從中提取的 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 列表</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>：提取的起始點</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>：輸出型別（<code class="docutils literal notranslate"><span class="pre">bytesM</span></code>、<code class="docutils literal notranslate"><span class="pre">integer</span></code> 或 <code class="docutils literal notranslate"><span class="pre">address</span></code>）。默認為 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>。</p></li>
+</ul>
+<p>回傳由 <code class="docutils literal notranslate"><span class="pre">output_type</span></code> 指定型別的值。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">b:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">address</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">extract32</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">output_type</span><span class="o">=</span><span class="kt">address</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;0x0000000000000000000000009f8F72aA9304c8B593d555F12eF6589cC3A579A2&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="slice">
+<span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes32</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span></span></span><a class="headerlink" href="#slice" title="Link to this definition">¶</a></dt>
+<dd><p>複製位元組列表並回傳指定的切片。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>：被切片的值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>：切片的起始位置</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>：切片的長度</p></li>
+</ul>
+<p>如果被切片的值是 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes32</span></code>，回傳型別為 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>。如果是 <code class="docutils literal notranslate"><span class="pre">String</span></code>，回傳型別為 <code class="docutils literal notranslate"><span class="pre">String</span></code>。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">slice</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;why hello! how are you?&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="s2">&quot;hello&quot;</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="math">
+<h2>數學<a class="headerlink" href="#math" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="abs">
+<span class="sig-name descname"><span class="pre">abs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#abs" title="Link to this definition">¶</a></dt>
+<dd><p>回傳有符號整數的絕對值。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要回傳絕對值的整數</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">value:</span><span class="w"> </span><span class="kt">int256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="o">-</span><span class="mi">31337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">31337</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ceil">
+<span class="sig-name descname"><span class="pre">ceil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#ceil" title="Link to this definition">¶</a></dt>
+<dd><p>將十進位數向上取整到最接近的整數。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要向上取整的十進位值</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">4</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#epsilon" title="Link to this definition">¶</a></dt>
+<dd><p>回傳十進位型別的最小非零值。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typename</span></code>：十進位型別的名稱（目前只有 <code class="docutils literal notranslate"><span class="pre">decimal</span></code>）</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">decimal</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">epsilon</span><span class="p">(</span><span class="kt">decimal</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1E-10&#39;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="floor">
+<span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int256</span></span></span><a class="headerlink" href="#floor" title="Link to this definition">¶</a></dt>
+<dd><p>將十進位數向下取整到最接近的整數。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>：要向下取整的十進位值``value``: Decimal value to round down</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">.</span><span class="mi">1337</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">3</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#max" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b</span></code> 中的較大值。輸入值可以是任何數值型別，只要兩者型別相同即可。輸出值與輸入值具有相同的型別。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">42</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="max_value">
+<span class="sig-name descname"><span class="pre">max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#max_value" title="Link to this definition">¶</a></dt>
+<dd><p>回傳由 <code class="docutils literal notranslate"><span class="pre">type_</span></code> 指定的數值型別的最大值（例如 <code class="docutils literal notranslate"><span class="pre">int128</span></code>、<code class="docutils literal notranslate"><span class="pre">uint256</span></code>、<code class="docutils literal notranslate"><span class="pre">decimal</span></code>）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">max_value</span><span class="p">(</span><span class="kt">int256</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mi">57896044618658097711785492504343953926634992332820282019728792003956564819967</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numeric</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#min" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b</span></code> 中的較小值。輸入值可以是任何數值型別，只要兩者型別相同即可。輸出值與輸入值具有相同的型別。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">23</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="min_value">
+<span class="sig-name descname"><span class="pre">min_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numeric</span></span></span><a class="headerlink" href="#min_value" title="Link to this definition">¶</a></dt>
+<dd><p>回傳由 <code class="docutils literal notranslate"><span class="pre">type_</span></code> 指定的數值型別的最小值（例如 <code class="docutils literal notranslate"><span class="pre">int128</span></code>、<code class="docutils literal notranslate"><span class="pre">uint256</span></code>、<code class="docutils literal notranslate"><span class="pre">decimal</span></code>）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">min_value</span><span class="p">(</span><span class="kt">int256</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="o">-</span><span class="mi">57896044618658097711785492504343953926634992332820282019728792003956564819968</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pow_mod256">
+<span class="sig-name descname"><span class="pre">pow_mod256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#pow_mod256" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">b</span> <span class="pre">%</span> <span class="pre">(2</span> <span class="pre">**</span> <span class="pre">256)</span></code> 的結果。</p>
+<p>此方法用於執行不進行溢位檢查的指數運算。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">pow_mod256</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">8</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">59041770658110225754900818312084884949620587934026984283048776718299468660736</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sqrt">
+<span class="sig-name descname"><span class="pre">sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">decimal</span></span></span><a class="headerlink" href="#sqrt" title="Link to this definition">¶</a></dt>
+<dd><p>使用巴比倫平方根演算法回傳所提供的十進位數的平方根。捨入模式為向下捨入到最接近的 epsilon。例如，<code class="docutils literal notranslate"><span class="pre">sqrt(0.9999999998)</span> <span class="pre">==</span> <span class="pre">0.9999999998</span></code>。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p><code class="docutils literal notranslate"><span class="pre">sqrt</span></code> 已作為 <code class="docutils literal notranslate"><span class="pre">0.4.2</span></code> 版本的一部分移至 <code class="docutils literal notranslate"><span class="pre">math</span></code> 標準庫模組（參見 <a class="reference external" href="https://github.com/vyperlang/vyper/pull/4520">PR #4520</a>）。請參閱 <a class="reference internal" href="stdlib-math.html#stdlib-math"><span class="std std-ref">數學模組</span></a>。使用 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> 匯入並呼叫 <code class="docutils literal notranslate"><span class="pre">math.sqrt(d)</span></code>。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">math</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="nd">@view</span>
+</span><span id="1-5"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">d:</span><span class="w"> </span><span class="kt">decimal</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">decimal</span><span class="p">:</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="isqrt">
+<span class="sig-name descname"><span class="pre">isqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#isqrt" title="Link to this definition">¶</a></dt>
+<dd><p>使用巴比倫平方根演算法回傳所提供的整數的（整數）平方根。捨入模式為向下捨入到最接近的整數。例如，<code class="docutils literal notranslate"><span class="pre">isqrt(101)</span> <span class="pre">==</span> <span class="pre">10</span></code>。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p><code class="docutils literal notranslate"><span class="pre">isqrt</span></code> 已作為 <code class="docutils literal notranslate"><span class="pre">0.5.0</span></code> 版本的一部分移至 <code class="docutils literal notranslate"><span class="pre">math</span></code> 標準庫模組（參見 <a class="reference external" href="https://github.com/vyperlang/vyper/pull/4923">PR #4923</a>）。請參閱 <a class="reference internal" href="stdlib-math.html#stdlib-math"><span class="std std-ref">數學模組</span></a>。使用 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> 匯入並呼叫 <code class="docutils literal notranslate"><span class="pre">math.isqrt(x)</span></code>。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">math</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="nd">@view</span>
+</span><span id="1-5"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">math</span><span class="p">.</span><span class="nb">isqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">10</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint256_addmod">
+<span class="sig-name descname"><span class="pre">uint256_addmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#uint256_addmod" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">+</span> <span class="pre">b)</span> <span class="pre">%</span> <span class="pre">c</span></code> 的模數。如果 <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">==</span> <span class="pre">0</span></code> 則還原。由於此內建函數旨在提供對底層 <code class="docutils literal notranslate"><span class="pre">ADDMOD</span></code> 操作碼的存取，根據 EVM 規範，此操作的所有中間計算不受 <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">256</span></code> 模數的約束。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint256_addmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span>
+</span><span id="1-2"><span class="mi">3</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">3</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="uint256_mulmod">
+<span class="sig-name descname"><span class="pre">uint256_mulmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#uint256_mulmod" title="Link to this definition">¶</a></dt>
+<dd><p>回傳 <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">*</span> <span class="pre">b)</span> <span class="pre">%</span> <span class="pre">c</span></code> 的模數。如果 <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">==</span> <span class="pre">0</span></code> 則還原。由於此內建函數旨在提供對底層 <code class="docutils literal notranslate"><span class="pre">MULMOD</span></code> 操作碼的存取，根據 EVM 規範，此操作的所有中間計算不受 <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">256</span></code> 模數的約束。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">b:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="nv">c:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">uint256_mulmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="1-2"><span class="mi">2</span>
+</span><span id="1-3"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</span><span id="1-4"><span class="mi">2</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_add">
+<span class="sig-name descname"><span class="pre">unsafe_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_add" title="Link to this definition">¶</a></dt>
+<dd><p>將 <code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 相加，不檢查溢位。<code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 必須是相同型別的整數。如果結果超過輸入型別的邊界，將會被包裝（wrap）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">2</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">254</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">)</span>
+</span><span id="1-8"><span class="o">-</span><span class="mi">2</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>效能提示：對於 EVM 的原生字型別 <code class="docutils literal notranslate"><span class="pre">uint256</span></code> 和 <code class="docutils literal notranslate"><span class="pre">int256</span></code>，這將編譯為單個 <code class="docutils literal notranslate"><span class="pre">MUL</span></code> 指令，因為 EVM 原生地對 256 位元字進行包裝乘法。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_sub">
+<span class="sig-name descname"><span class="pre">unsafe_sub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_sub" title="Link to this definition">¶</a></dt>
+<dd><p>將 <code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 相減，不檢查溢位。<code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 必須是相同型別的整數。如果結果低於輸入型別的邊界，將會被包裝（wrap）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">255</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-8"><span class="mi">127</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>效能提示：對於 EVM 的原生字型別 <code class="docutils literal notranslate"><span class="pre">uint256</span></code> 和 <code class="docutils literal notranslate"><span class="pre">int256</span></code>，這將編譯為單個 <code class="docutils literal notranslate"><span class="pre">MUL</span></code> 指令，因為 EVM 原生地對 256 位元字進行包裝乘法。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_mul">
+<span class="sig-name descname"><span class="pre">unsafe_mul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_mul" title="Link to this definition">¶</a></dt>
+<dd><p>將 <code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 相乘，不檢查溢位。<code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 必須是相同型別的整數。如果結果超過輸入型別的邊界，將會被包裝（wrap）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_mul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">1</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">128</span><span class="p">)</span>
+</span><span id="1-8"><span class="mi">0</span>
+</span><span id="1-9">
+</span><span id="1-10"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">128</span><span class="p">)</span>
+</span><span id="1-11"><span class="o">-</span><span class="mi">128</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>效能提示：對於 EVM 的原生字型別 <code class="docutils literal notranslate"><span class="pre">uint256</span></code> 和 <code class="docutils literal notranslate"><span class="pre">int256</span></code>，這將編譯為單個 <code class="docutils literal notranslate"><span class="pre">MUL</span></code> 指令，因為 EVM 原生地對 256 位元字進行包裝乘法。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="unsafe_div">
+<span class="sig-name descname"><span class="pre">unsafe_div</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">integer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#unsafe_div" title="Link to this definition">¶</a></dt>
+<dd><p>將 <code class="docutils literal notranslate"><span class="pre">x</span></code> 除以 <code class="docutils literal notranslate"><span class="pre">y</span></code>，不檢查除以零。<code class="docutils literal notranslate"><span class="pre">x</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code> 必須是相同型別的整數。如果分母為零，結果（遵循 EVM 語義）將為零。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">uint8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint8</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@external</span>
+</span><span id="1-7"><span class="nd">@view</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">int8</span><span class="p">,</span><span class="w"> </span><span class="nv">y:</span><span class="w"> </span><span class="kt">int8</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int8</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">unsafe_div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-5"><span class="mi">0</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="o">-</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-8"><span class="o">-</span><span class="mi">128</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>效能提示：這將編譯為單個 <code class="docutils literal notranslate"><span class="pre">SDIV</span></code> 或 <code class="docutils literal notranslate"><span class="pre">DIV</span></code> 指令，取決於輸入是有號還是無符號。</p>
+</div>
+</section>
+<section id="utilities">
+<h2>工具<a class="headerlink" href="#utilities" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="as_wei_value">
+<span class="sig-name descname"><span class="pre">as_wei_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(於 Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#as_wei_value" title="Link to this definition">¶</a></dt>
+<dd><p>接受以數字和單位指定的以太幣數量，並回傳等於該數量的 wei 整數值。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_value</span></code>：以太幣單位的值。可以使用任何數值型別，但值不能為負數。<code class="docutils literal notranslate"><span class="pre">_value</span></code>: Value for the ether unit. Any numeric type may be used, however, the value cannot be negative.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unit</span></code>: Ether unit name (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;wei&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ether&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gwei&quot;</span></code>, etc.) indicating the denomination of <code class="docutils literal notranslate"><span class="pre">_value</span></code>. Must be given as a literal string.</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">as_wei_value</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">337</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ether&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">1337000000000000000</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>當 <code class="docutils literal notranslate"><span class="pre">as_wei_value</span></code> 傳入 <code class="docutils literal notranslate"><span class="pre">decimal</span></code> 時，結果可能會向下捨入到最接近的整數，例如，以下為真：<code class="docutils literal notranslate"><span class="pre">as_wei_value(12.2,</span> <span class="pre">&quot;wei&quot;)</span> <span class="pre">==</span> <span class="pre">12</span></code>。</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockhash">
+<span class="sig-name descname"><span class="pre">blockhash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#blockhash" title="Link to this definition">¶</a></dt>
+<dd><p>回傳指定高度的區塊雜湊。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>EVM 只提供對最近 256 個區塊的存取。如果區塊號大於或等於當前區塊號，或比當前區塊落後超過 256 個區塊，此函數將會還原。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">blockhash</span><span class="p">(</span><span class="bp">block.number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mh">0xf3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blobhash">
+<span class="sig-name descname"><span class="pre">blobhash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">uint256</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes32</span></span></span><a class="headerlink" href="#blobhash" title="Link to this definition">¶</a></dt>
+<dd><p>回傳與當前交易關聯的第 <code class="docutils literal notranslate"><span class="pre">index</span></code> 個 BLOB 的版本化雜湊。</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>版本化雜湊由一個表示版本的位元組（目前為 <code class="docutils literal notranslate"><span class="pre">0x01</span></code>）和 KZG 承諾的 <code class="docutils literal notranslate"><span class="pre">SHA256</span></code> 雜湊的最後 31 個位元組組成（<a class="reference external" href="https://eips.ethereum.org/EIPS/eip-4844">EIP-4844</a>）。對於 <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">&gt;=</span> <span class="pre">len(tx.blob_versioned_hashes)</span></code> 的情況，<code class="docutils literal notranslate"><span class="pre">blobhash(index:</span> <span class="pre">uint256)</span></code> 回傳 <code class="docutils literal notranslate"><span class="pre">empty(bytes32)</span></code>。</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">index:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bytes32</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">blobhash</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="1-2"><span class="mh">0xfd28610fb309939bfec12b6db7c4525446f596a5a5a66b8e2cb510b45b2bbeb5</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</span><span id="1-5"><span class="mh">0x0000000000000000000000000000000000000000000000000000000000000000</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#empty" title="Link to this definition">¶</a></dt>
+<dd><p>回傳其型別的默認（零值）值。用於初始化新的記憶體變數。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">typename</span></code>：型別名稱，<code class="docutils literal notranslate"><span class="pre">HashMap[_KeyType,</span> <span class="pre">_ValueType]</span></code> 除外</p></li>
+</ul>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">():</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">uint256</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">5</span><span class="p">])</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="len">
+<span class="sig-name descname"><span class="pre">len</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">String</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DynArray</span><span class="p"><span class="pre">[</span></span><span class="pre">_Type</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_Integer</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">uint256</span></span></span><a class="headerlink" href="#len" title="Link to this definition">¶</a></dt>
+<dd><p>回傳給定的 <code class="docutils literal notranslate"><span class="pre">Bytes</span></code>、<code class="docutils literal notranslate"><span class="pre">String</span></code> 或 <code class="docutils literal notranslate"><span class="pre">DynArray[_Type,</span> <span class="pre">_Integer]</span></code> 的長度。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">s:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</span><span id="1-2"><span class="mi">5</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="method_id">
+<span class="sig-name descname"><span class="pre">method_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(於 Python v3.11)"><span class="pre">type</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Bytes[4]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes4</span></span></span><a class="headerlink" href="#method_id" title="Link to this definition">¶</a></dt>
+<dd><p>接受一個函數宣告並回傳其 method_id（用於資料欄位中以呼叫它）。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>：以字面值字串形式給出的方法宣告</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>：輸出型別（<code class="docutils literal notranslate"><span class="pre">Bytes[4]</span></code> 或 <code class="docutils literal notranslate"><span class="pre">bytes4</span></code>）。默認為 <code class="docutils literal notranslate"><span class="pre">Bytes[4]</span></code>。</p></li>
+</ul>
+<p>回傳由 <code class="docutils literal notranslate"><span class="pre">output_type</span></code> 指定型別的值。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[4]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">method_id</span><span class="p">(</span><span class="s1">&#39;transfer(address,uint256)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">output_type</span><span class="o">=</span><span class="kt">Bytes[4]</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-2"><span class="mh">0xa9059cbb</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abi_encode">
+<span class="sig-name descname"><span class="pre">abi_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_tuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(於 Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">4</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Bytes[&lt;depends</span> <span class="pre">on</span> <span class="pre">input&gt;]</span></span></span><a class="headerlink" href="#abi_encode" title="Link to this definition">¶</a></dt>
+<dd><p>接受可變數量的引數作為輸入，並回傳 ABIv2 編碼的位元組字串。用於將引數打包到 raw_call、EIP712 以及其他需要一致且高效序列化方法的情況。一旦此函數得到更廣泛的使用，我們暫時計劃將其放入 <code class="docutils literal notranslate"><span class="pre">ethereum.abi</span></code> 命名空間。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*args</span></code>：任意引數``*args``: Arbitrary arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ensure_tuple</span></code>：如果設為 True，確保即使只有單一引數也會被編碼為元組。換句話說，<code class="docutils literal notranslate"><span class="pre">bytes</span></code> 會被編碼為 <code class="docutils literal notranslate"><span class="pre">(bytes,)</span></code>，而 <code class="docutils literal notranslate"><span class="pre">(bytes,)</span></code> 會被編碼為 <code class="docutils literal notranslate"><span class="pre">((bytes,),)</span></code>。這是 Vyper 和 Solidity 函數的呼叫慣例。除非常特殊的使用情況，否則應將其設為 True。必須是字面值。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_id</span></code>：要附加到 ABI 編碼位元組字串開頭的字面值十六進位或 Bytes[4] 值。</p></li>
+</ul>
+<p>回傳一個位元組字串，其最大長度由引數決定。例如，編碼一個 <code class="docutils literal notranslate"><span class="pre">Bytes[32]</span></code> 會得到一個 <a href="#id1"><span class="problematic" id="id2">``</span></a>Bytes[64]``（第一個字是位元組字串變數的長度）。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Bytes[132]</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">y:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="s2">&quot;234&quot;</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">abi_encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="nb">method_id</span><span class="o">=</span><span class="nb">method_id</span><span class="p">(</span><span class="s2">&quot;foo()&quot;</span><span class="p">))</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">ExampleContract</span><span class="p">.</span><span class="n">foo</span><span class="p">().</span><span class="n">hex</span><span class="p">()</span>
+</span><span id="1-2"><span class="s2">&quot;c2985578&quot;</span>
+</span><span id="1-3"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000001&quot;</span>
+</span><span id="1-4"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000040&quot;</span>
+</span><span id="1-5"><span class="s2">&quot;0000000000000000000000000000000000000000000000000000000000000003&quot;</span>
+</span><span id="1-6"><span class="s2">&quot;3233340000000000000000000000000000000000000000000000000000000000&quot;</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>在 v0.4.0 之前，此函數名為 <code class="docutils literal notranslate"><span class="pre">_abi_encode</span></code>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="abi_decode">
+<span class="sig-name descname"><span class="pre">abi_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unwrap_tuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(於 Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#abi_decode" title="Link to this definition">¶</a></dt>
+<dd><p>接受一個位元組陣列作為輸入，並根據指定的輸出型別回傳解碼後的值。用於解壓縮 ABIv2 編碼的值。一旦此函數得到更廣泛的使用，我們暫時計劃將其放入 <code class="docutils literal notranslate"><span class="pre">ethereum.abi</span></code> 命名空間。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code>：長度介於 <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">type</span></code> 的 ABIv2 最小和最大大小範圍之間的位元組陣列。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_type</span></code>：要解碼的輸出型別名稱，或輸出型別的元組。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unwrap_tuple</span></code>：如果設為 True，即使只指定了一個輸出型別，輸入也會被解碼為元組。換句話說，<code class="docutils literal notranslate"><span class="pre">abi_decode(b,</span> <span class="pre">Bytes[32])</span></code> 會被解碼為 <code class="docutils literal notranslate"><span class="pre">(Bytes[32],)</span></code>。這是 Vyper 和 Solidity 函數生成的 ABIv2 編碼值的慣例。除非常特殊的使用情況，否則應將其設為 True。必須是字面值。</p></li>
+</ul>
+<p>回傳解碼後的值，型別由 <cite>output_type</cite> 指定。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@view</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">someInput:</span><span class="w"> </span><span class="kt">Bytes[128]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">):</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">y:</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">empty</span><span class="p">(</span><span class="kt">Bytes[32]</span><span class="p">)</span>
+</span><span id="1-6"><span class="w">    </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">abi_decode</span><span class="p">(</span><span class="n">someInput</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="kt">Bytes[32]</span><span class="p">))</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>在 v0.4.0 之前，此函數名為 <code class="docutils literal notranslate"><span class="pre">_abi_decode</span></code>。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hardhat_compat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(於 Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#print" title="Link to this definition">¶</a></dt>
+<dd><p>透過對「console」位址 <code class="docutils literal notranslate"><span class="pre">0x000000000000000000636F6E736F6C652E6C6F67</span></code> 發出靜態呼叫來「列印」引數。這受到一些智慧合約開發框架的支援。</p>
+<p>默認模式原生地與 titanoboa 搭配使用。對於 hardhat 風格的框架，請使用 <code class="docutils literal notranslate"><span class="pre">hardhat_compat=True</span></code>。</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>靜態呼叫的發出*不是*模式相關的（也就是說，它不會從生產程式碼中移除），儘管編譯器在每次使用 <code class="docutils literal notranslate"><span class="pre">print</span></code> 時都會發出警告。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在 Vyper 中，自 v0.4.0 起，內建函數的引數求值順序是未定義的。這意味著編譯器可能會選擇重新排序引數的求值。例如，如果 <code class="docutils literal notranslate"><span class="pre">x()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y()</span></code> 都接觸相同的資料，<code class="docutils literal notranslate"><span class="pre">extract32(x(),</span> <span class="pre">y())</span></code> 可能會產生非預期的結果。因此，最好避免在內建函數內部呼叫具有副作用的函數。更多資訊請參閱 <a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories/GHSA-g2xh-c426-v8mf">GHSA-g2xh-c426-v8mf</a> 和 <a class="reference external" href="https://github.com/vyperlang/vyper/issues/4019">issue #4019</a>。</p>
+</div>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="scoping-and-declarations.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">Scoping and Declarations</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="stdlib-math.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">數學模組</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
