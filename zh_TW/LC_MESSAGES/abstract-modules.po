@@ -1,0 +1,820 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-01 13:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../abstract-modules.rst:4
+msgid "Abstract Modules"
+msgstr "抽象模組"
+
+#: ../../../abstract-modules.rst:6
+msgid ""
+"An abstract module is a special kind of :ref:`module <modules>` which offers "
+"points at which its logic can be customized. This takes the form of "
+"**abstract methods**, :ref:`internal <structure-functions-internal>` methods "
+"decorated with ``@abstract``. These methods can then be overridden to supply "
+"the custom logic. Here is an example:"
+msgstr ""
+"抽象模組是一種特殊的 :ref:`模組 <modules>`，它提供了可自訂其邏輯的插入點。這"
+"些插入點以 **抽象方法**（abstract methods）的形式存在，即使用 ``@abstract`` "
+"修飾的 :ref:`內部 <structure-functions-internal>` 方法。這些方法可以被覆寫"
+"（override）來提供自訂邏輯。以下是一個範例："
+
+#: ../../../abstract-modules.rst:11
+msgid ""
+"# base_token.vy\n"
+"# This is the abstract module\n"
+"\n"
+"balances: public(HashMap[address, uint256])\n"
+"\n"
+"# Abstract method is declared here\n"
+"@abstract\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    ...\n"
+"\n"
+"@external\n"
+"def transfer(recipient: address, amount: uint256):\n"
+"    # and used here\n"
+"    self._before_transfer(msg.sender, recipient, amount)\n"
+"    self.balances[msg.sender] -= amount\n"
+"    self.balances[recipient] += amount"
+msgstr ""
+
+#: ../../../abstract-modules.rst:30
+msgid ""
+"The ``base_token`` module defines a transfer hook, ``_before_transfer()``, "
+"as an abstract method. It is called during every transfer, but has no "
+"implementation — that is left to whoever initializes this module. This lets "
+"this module focus on *where* custom logic runs, while the overriding module "
+"decides *what* it does."
+msgstr ""
+"``base_token`` 模組定義了一個傳輸掛鉤 ``_before_transfer()`` 作為抽象方法。它"
+"在每次傳輸時被呼叫，但沒有實作——實作留給初始化此模組的人。這讓此模組專注於自"
+"訂邏輯執行於「何處」，而覆寫模組則決定它「做什麼」。"
+
+#: ../../../abstract-modules.rst:32
+msgid ""
+"To supply an implementation, a module imports and ``initializes`` the "
+"abstract module, then provides an ``@override`` for each abstract method:"
+msgstr ""
+"要提供實作，模組需要匯入並 ``initializes`` 抽象模組，然後為每個抽象方法提供 "
+"``@override``："
+
+#: ../../../abstract-modules.rst:34
+msgid ""
+"# pausable_token.vy\n"
+"\n"
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"exports: base_token.transfer\n"
+"\n"
+"paused: public(bool)\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    assert not self.paused, \"transfers are paused\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:51
+msgid ""
+"Now every call to ``base_token.transfer()`` will check the pause flag before "
+"moving tokens. The override is resolved at compile time — there is no "
+"runtime dispatch or inheritance involved."
+msgstr ""
+"現在每次呼叫 ``base_token.transfer()`` 都會在轉移代幣之前檢查暫停旗標。覆寫在"
+"編譯時期解析——不涉及執行時期分派或繼承。"
+
+#: ../../../abstract-modules.rst:53
+msgid ""
+"As you can see in the example above, what makes a module \"abstract\" is "
+"only the presence of abstract methods. Furthermore, that is the only "
+"difference, everything that can be done in a concrete (i.e. non-abstract) "
+"module can also be done in an abstract module."
+msgstr ""
+
+#: ../../../abstract-modules.rst:57
+msgid "Abstract methods"
+msgstr "抽象方法"
+
+#: ../../../abstract-modules.rst:59
+msgid ""
+"An abstract method is an :ref:`internal method <structure-functions-"
+"internal>` decorated with ``@abstract``. Its body must consist of an "
+"Ellipsis literal (``...``) potentially preceded by a docstring and comments."
+msgstr ""
+"抽象方法是使用 ``@abstract`` 修飾的 :ref:`內部方法 <structure-functions-"
+"internal>`。其主體必須由省略符號字面值（``...``）組成，前面可以有文件字串"
+"（docstring）和註解。"
+
+#: ../../../abstract-modules.rst:62
+msgid ""
+"@abstract\n"
+"def an_abstract_method(x: uint256) -> uint256:\n"
+"    \"\"\"This is a docstring\"\"\"\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:69
+msgid ""
+"There are no other restrictions on abstract methods, they can have any "
+"signature, can take any decorator (provided they are valid on internal "
+"methods), and be called like concrete methods:"
+msgstr ""
+"抽象方法沒有其他限制，它們可以有任何簽章（signature），可以使用任何修飾器（只"
+"要是內部方法有效的修飾器即可），並且可以像具體方法一樣被呼叫："
+
+#: ../../../abstract-modules.rst:71
+msgid ""
+"@pure\n"
+"@abstract\n"
+"def name() -> String[10]:\n"
+"    ...\n"
+"\n"
+"@payable\n"
+"@nonreentrant\n"
+"@abstract\n"
+"def foo(bar: DynArray[Bytes[20], 10]) -> DynArray[String[15], 38]:\n"
+"    ...\n"
+"\n"
+"def concrete_calls():\n"
+"    _name: String[10] = self.name()\n"
+"    complex_expression: String[15] = self.foo([]).pop()"
+msgstr ""
+
+#: ../../../abstract-modules.rst:89
+msgid "Overriding an abstract module"
+msgstr "覆寫抽象模組"
+
+#: ../../../abstract-modules.rst:91
+msgid ""
+"As abstract modules are by essence incomplete, it is necessary for another "
+"module to complete them, by providing implementations for its abstract "
+"methods:"
+msgstr ""
+"由於抽象模組本質上是不完整的，因此需要另一個模組來完成它們，為其抽象方法提供"
+"實作："
+
+#: ../../../abstract-modules.rst:93
+msgid ""
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    assert not self.paused, \"transfers are paused\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:103
+msgid "For module M1 to override module M2:"
+msgstr "若要讓模組 M1 覆寫模組 M2："
+
+#: ../../../abstract-modules.rst:105
+msgid "M1 must :ref:`initialize <initializing-module>` M2"
+msgstr "M1 必須 :ref:`初始化 <initializing-module>` M2"
+
+#: ../../../abstract-modules.rst:106
+msgid ""
+"M1 must override each abstract method of M2, see :ref:`Overriding abstract "
+"methods <overriding-abstract-methods>`"
+msgstr ""
+"M1 必須覆寫 M2 的每個抽象方法，請參閱 :ref:`覆寫抽象方法 <overriding-"
+"abstract-methods>`"
+
+#: ../../../abstract-modules.rst:109
+msgid ""
+"So there is no choice to be made about which override to choose, abstract "
+"modules can only be overridden once. This is guaranteed by the "
+"initialization system."
+msgstr ""
+"因此不需要選擇要使用哪個覆寫，抽象模組只能被覆寫一次。這是由初始化系統保證"
+"的。"
+
+#: ../../../abstract-modules.rst:114
+msgid "Overriding abstract methods"
+msgstr "覆寫抽象方法"
+
+#: ../../../abstract-modules.rst:116
+msgid ""
+"To override abstract method ``_before_transfer`` of module ``base_token``, "
+"the overriding module must define an internal method ``_before_transfer`` "
+"with an ``@override(my_abstract_module)`` decorator:"
+msgstr ""
+"要覆寫模組 ``base_token`` 的抽象方法 ``_before_transfer``，覆寫模組必須定義一"
+"個內部方法 ``_before_transfer``，並加上 ``@override(my_abstract_module)`` 修"
+"飾器："
+
+#: ../../../abstract-modules.rst:118
+msgid ""
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    assert not self.paused, \"transfers are paused\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:124
+msgid ""
+"Since any call to ``base_token._before_transfer`` will be replaced at "
+"compile-time to a call to the overriding ``_before_transfer``, it is "
+"necessary that any call to the former is a valid call to the latter:"
+msgstr ""
+"由於對 ``base_token._before_transfer`` 的任何呼叫都會在編譯時期被替換為對覆寫"
+"的 ``_before_transfer`` 的呼叫，因此對前者的任何呼叫都必須是對後者的有效呼"
+"叫："
+
+#: ../../../abstract-modules.rst:126
+msgid ""
+"# abstract_m.vy\n"
+"@pure\n"
+"@abstract\n"
+"def compute(x: uint256) -> uint256:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:134
+msgid ""
+"import abstract_m\n"
+"initializes: abstract_m\n"
+"\n"
+"# Valid: signature matches exactly\n"
+"@pure\n"
+"@override(abstract_m)\n"
+"def compute(x: uint256) -> uint256:\n"
+"    return x + 1"
+msgstr ""
+
+#: ../../../abstract-modules.rst:145
+msgid ""
+"import abstract_m\n"
+"initializes: abstract_m\n"
+"\n"
+"# Invalid: parameter and return type don't match the ones in abstract_m."
+"compute\n"
+"@pure\n"
+"@override(abstract_m)\n"
+"def compute(x: uint8) -> uint8:\n"
+"    return x + 1"
+msgstr ""
+
+#: ../../../abstract-modules.rst:156
+msgid ""
+"import abstract_m\n"
+"initializes: abstract_m\n"
+"\n"
+"# Invalid: parameter name doesn't match\n"
+"@pure\n"
+"@override(abstract_m)\n"
+"def compute(y: uint256) -> uint256:\n"
+"    return y + 1"
+msgstr ""
+
+#: ../../../abstract-modules.rst:167
+msgid ""
+"import abstract_m\n"
+"initializes: abstract_m\n"
+"\n"
+"# Invalid: Has looser mutability: nonpayable vs the original which is pure\n"
+"@nonpayable\n"
+"@override(abstract_m)\n"
+"def compute(y: uint256) -> uint256:\n"
+"    return y + 1"
+msgstr ""
+
+#: ../../../abstract-modules.rst:178
+msgid "A good heuristic is the following; the override must have:"
+msgstr "一個良好的經驗法則如下；覆寫必須具有："
+
+#: ../../../abstract-modules.rst:180
+msgid ""
+"The same parameters as the abstract method: same name, same type, and same "
+"default value."
+msgstr "與抽象方法相同的參數：相同名稱、相同型別和相同預設值。"
+
+#: ../../../abstract-modules.rst:181
+msgid "The same return type as the abstract method."
+msgstr "與抽象方法相同的回傳型別。"
+
+#: ../../../abstract-modules.rst:182
+msgid ""
+"The same decorators as the abstract method, except ``@override`` and "
+"``@abstract``."
+msgstr "與抽象方法相同的修飾器，除了 ``@override`` 和 ``@abstract``。"
+
+#: ../../../abstract-modules.rst:184
+msgid ""
+"Following the rules above will always result in a valid override. However "
+"these might prove too restrictive in your use-case, for this reason the "
+"actual rules are more flexible:"
+msgstr ""
+"遵循上述規則將始終產生有效的覆寫。然而，這些規則在某些使用情境中可能過於嚴"
+"格，因此實際規則更加靈活："
+
+#: ../../../abstract-modules.rst:187
+msgid ""
+"Each parameter of the abstract method must appear in the override at the "
+"same position, with the same name."
+msgstr "抽象方法的每個參數必須出現在覆寫中的相同位置，且使用相同的名稱。"
+
+#: ../../../abstract-modules.rst:188
+msgid ""
+"If the abstract method defines a default argument for a parameter, the value "
+"of the default argument must match in the override. Any value matches an "
+"ellipsis (``...``)."
+msgstr ""
+"如果抽象方法為參數定義了預設引數，則預設引數的值在覆寫中必須相符。任何值都與"
+"省略符號（``...``）相符。"
+
+#: ../../../abstract-modules.rst:189
+msgid ""
+"The override may add extra parameters to the right, as long as they have "
+"default values."
+msgstr "覆寫可以在右側新增額外的參數，只要它們具有預設值即可。"
+
+#: ../../../abstract-modules.rst:190
+msgid ""
+"The override may add a default value to a parameter that was mandatory in "
+"the abstract method."
+msgstr "覆寫可以為抽象方法中的強制參數新增預設值。"
+
+#: ../../../abstract-modules.rst:191
+msgid ""
+"Each parameter type in the override must be a super-type of the "
+"corresponding parameter type in the abstract method."
+msgstr ""
+"覆寫中的每個參數型別必須是抽象方法中對應參數型別的超型別（super-type）。"
+
+#: ../../../abstract-modules.rst:192
+msgid ""
+"The return type of the override must be a sub-type of the abstract method's "
+"return type."
+msgstr "覆寫的回傳型別必須是抽象方法回傳型別的子型別（sub-type）。"
+
+#: ../../../abstract-modules.rst:193
+msgid ""
+"The override's :ref:`mutability <function-mutability>` must be the same (or "
+"stricter) than the abstract's."
+msgstr ""
+"覆寫的 :ref:`可變性 <function-mutability>` 必須與抽象方法的相同（或更嚴格）。"
+
+#: ../../../abstract-modules.rst:194
+msgid ""
+"The override's :ref:`reentrancy <reentrancy>` must match exactly the one of "
+"the abstract method."
+msgstr "覆寫的 :ref:`可重入性 <reentrancy>` 必須與抽象方法的完全相符。"
+
+#: ../../../abstract-modules.rst:198
+msgid "Calling abstract methods"
+msgstr "呼叫抽象方法"
+
+#: ../../../abstract-modules.rst:200
+msgid ""
+"Abstract methods are called in the same way concrete methods are. "
+"Additionally, calling the abstract methods of another module requires :ref:"
+"`using <uses-statement>` it."
+msgstr ""
+"抽象方法的呼叫方式與具體方法相同。此外，呼叫另一個模組的抽象方法需要使用 :"
+"ref:`uses <uses-statement>` 陳述式。"
+
+#: ../../../abstract-modules.rst:203
+msgid ""
+"# base_token.vy\n"
+"\n"
+"@abstract\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    ...\n"
+"\n"
+"@external\n"
+"def transfer(recipient: address, amount: uint256):\n"
+"    # call to abstract method in same module\n"
+"    self._before_transfer(msg.sender, recipient, amount)\n"
+"    self.balances[msg.sender] -= amount\n"
+"    self.balances[recipient] += amount"
+msgstr ""
+
+#: ../../../abstract-modules.rst:218
+msgid ""
+"import base_token\n"
+"\n"
+"# required by the call below\n"
+"uses: base_token\n"
+"\n"
+"def simulate_transfer(sender: address, recipient: address, amount: "
+"uint256):\n"
+"    # call to abstract method in different module\n"
+"    base_token._before_transfer(sender, recipient, amount)"
+msgstr ""
+
+#: ../../../abstract-modules.rst:229
+msgid ""
+"All calls to abstract methods are resolved at compile time to the concrete "
+"override: there is no runtime dispatch."
+msgstr "所有對抽象方法的呼叫都會在編譯時期解析為具體的覆寫：沒有執行時期分派。"
+
+#: ../../../abstract-modules.rst:231
+msgid ""
+"When a module overrides an abstract method, the compiler requires callers to "
+"use the most concrete path available. In particular, if ``self."
+"_before_transfer`` overrides ``base_token._before_transfer``, any call "
+"within that module must go through ``self``, not through ``base_token``:"
+msgstr ""
+"當模組覆寫抽象方法時，編譯器要求呼叫者使用最具體的路徑。特別是，如果 ``self."
+"_before_transfer`` 覆寫了 ``base_token._before_transfer``，則該模組內的任何呼"
+"叫都必須透過 ``self``，而不是透過 ``base_token``："
+
+#: ../../../abstract-modules.rst:234
+msgid ""
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    assert not self.paused, \"transfers are paused\"\n"
+"\n"
+"def foo():\n"
+"    # Valid: uses the override directly\n"
+"    self._before_transfer(msg.sender, msg.sender, 0)\n"
+"\n"
+"    # Invalid: base_token._before_transfer is overridden by\n"
+"    # self._before_transfer, call that instead.\n"
+"    base_token._before_transfer(msg.sender, msg.sender, 0)"
+msgstr ""
+
+#: ../../../abstract-modules.rst:254
+msgid "Advanced Uses"
+msgstr "進階用法"
+
+#: ../../../abstract-modules.rst:256
+msgid ""
+"In this section we will explain consequences of the above specification "
+"which might not jump to mind, and are useful in advanced contexts."
+msgstr ""
+"在本節中，我們將解釋上述規範的一些可能不會立即想到的後果，這些在進階情境中很"
+"有用。"
+
+#: ../../../abstract-modules.rst:259
+msgid "Abstract overriding modules"
+msgstr "抽象的覆寫模組"
+
+#: ../../../abstract-modules.rst:261
+msgid ""
+"An overriding module can itself be abstract. In other words, ``@abstract`` "
+"and ``@override`` can co-exist in the same module (and even :ref:`on the "
+"same method <deferring_overriding>`):"
+msgstr ""
+"覆寫模組本身也可以是抽象的。換句話說，``@abstract`` 和 ``@override`` 可以共存"
+"於同一個模組中（甚至可以 :ref:`在同一個方法上 <deferring_overriding>`）："
+
+#: ../../../abstract-modules.rst:264
+msgid ""
+"# checked_token.vy\n"
+"\n"
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    assert self.check_address(sender), \"Invalid sender\"\n"
+"    assert self.check_address(recipient), \"Invalid recipient\"\n"
+"    assert self.check_cap(amount), \"Invalid amount\"\n"
+"\n"
+"@abstract\n"
+"def check_cap(amount: uint256) -> bool:\n"
+"    ...\n"
+"\n"
+"@abstract\n"
+"def check_address(addr: address) -> bool:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:286
+msgid ""
+"Here ``checked_token.vy`` provides a concrete ``_before_transfer`` for "
+"``base_token``, but it is itself an abstract module because it introduces "
+"``check_cap`` and ``check_address``. A final module completes the chain by "
+"overriding those:"
+msgstr ""
+"這裡 ``checked_token.vy`` 為 ``base_token`` 提供了一個具體的 "
+"``_before_transfer``，但它本身是一個抽象模組，因為它引入了 ``check_cap`` 和 "
+"``check_address``。最終模組透過覆寫這些方法來完成鏈："
+
+#: ../../../abstract-modules.rst:288
+msgid ""
+"# my_token.vy\n"
+"import checked_token\n"
+"\n"
+"initializes: checked_token\n"
+"\n"
+"MAX_AMOUNT: constant(uint256) = 10**24\n"
+"total_supply: uint256\n"
+"\n"
+"@override(checked_token)\n"
+"def check_cap(amount: uint256) -> bool:\n"
+"    return 0 < amount and amount <= MAX_AMOUNT\n"
+"\n"
+"@override(checked_token)\n"
+"def check_address(addr: address) -> bool:\n"
+"    return addr != empty(address)"
+msgstr ""
+
+#: ../../../abstract-modules.rst:307
+msgid "Overriding multiple modules"
+msgstr "覆寫多個模組"
+
+#: ../../../abstract-modules.rst:309
+msgid ""
+"A single module can initialize more than one abstract module, providing "
+"overrides for each independently. This is how you compose unrelated "
+"concerns, for instance combining transfer validation from one module with "
+"fee configuration from another."
+msgstr ""
+"單一模組可以初始化多個抽象模組，並為每個模組獨立提供覆寫。這就是組合不相關關"
+"注點的方式，例如將一個模組的傳輸驗證與另一個模組的手續費設定結合在一起。"
+
+#: ../../../abstract-modules.rst:312
+msgid ""
+"Using ``base_token`` from the :ref:`earlier example <abstract-modules>`, "
+"consider a second abstract module that manages access control:"
+msgstr ""
+"使用來自 :ref:`前面範例 <abstract-modules>` 的 ``base_token``，考慮一個管理存"
+"取控制的第二個抽象模組："
+
+#: ../../../abstract-modules.rst:314
+msgid ""
+"# access_control.vy\n"
+"\n"
+"@abstract\n"
+"def _is_allowed(user: address) -> bool:\n"
+"    ...\n"
+"\n"
+"def check_allowed(user: address):\n"
+"    assert self._is_allowed(user), \"access denied\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:325
+msgid ""
+"A contract can initialize both modules and override each abstract method:"
+msgstr "合約可以初始化兩個模組並覆寫每個抽象方法："
+
+#: ../../../abstract-modules.rst:327
+msgid ""
+"# my_token.vy\n"
+"\n"
+"import base_token\n"
+"import access_control\n"
+"\n"
+"initializes: base_token\n"
+"initializes: access_control\n"
+"\n"
+"exports: base_token.transfer\n"
+"\n"
+"allowed: HashMap[address, bool]\n"
+"\n"
+"@override(access_control)\n"
+"def _is_allowed(user: address) -> bool:\n"
+"    return self.allowed[user]\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    access_control.check_allowed(sender)"
+msgstr ""
+
+#: ../../../abstract-modules.rst:349
+msgid ""
+"The overriding module weaves both concerns together: ``_before_transfer`` "
+"delegates to the access control module to gate who can send tokens."
+msgstr ""
+"覆寫模組將兩個關注點交織在一起：``_before_transfer`` 委派給存取控制模組來把關"
+"誰可以發送代幣。"
+
+#: ../../../abstract-modules.rst:352
+msgid "Overriding multiple abstract methods"
+msgstr "覆寫多個抽象方法"
+
+#: ../../../abstract-modules.rst:354
+msgid ""
+"When a module overrides multiple others, it might happen that the abstract "
+"modules share a method name. To handle this case, it is possible for a "
+"single method to override multiple, by adding multiple ``@override`` "
+"decorators. Note however that the method must be a :ref:`valid override "
+"<overriding-abstract-methods>` for every abstract method:"
+msgstr ""
+"當一個模組覆寫多個其他模組時，可能會發生抽象模組共用方法名稱的情況。為了處理"
+"這種情況，單一方法可以透過新增多個 ``@override`` 修飾器來覆寫多個方法。但請注"
+"意，該方法必須是每個抽象方法的 :ref:`有效覆寫 <overriding-abstract-"
+"methods>`："
+
+#: ../../../abstract-modules.rst:358
+msgid ""
+"# minter.vy\n"
+"\n"
+"import my_roles\n"
+"\n"
+"@abstract\n"
+"def get_role(user: address) -> my_roles.ROLE:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:368
+msgid ""
+"# authentication_provider.vy\n"
+"\n"
+"import my_roles\n"
+"\n"
+"@abstract\n"
+"def get_role(user: address, default_role: my_roles.ROLE) -> my_roles.ROLE:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:378
+msgid ""
+"import minter\n"
+"import authentication_provider\n"
+"import my_roles\n"
+"initializes: minter\n"
+"initializes: authentication_provider\n"
+"\n"
+"roles: HashMap[address, my_roles.ROLE]\n"
+"\n"
+"# By having `default_role` as an optional parameter, it's a valid override "
+"of both\n"
+"# `minter.get_role` which does not have that parameter, and\n"
+"# `authentication_provider.get_role` which has it as a mandatory parameter\n"
+"\n"
+"@override(minter)\n"
+"@override(authentication_provider)\n"
+"def get_role(user: address, default_role: my_roles.ROLE = empty(my_roles."
+"ROLE)) -> my_roles.ROLE:\n"
+"    role: my_roles.ROLE = self.roles[user]\n"
+"    if role == empty(my_roles.ROLE):\n"
+"        return default_role\n"
+"    return role"
+msgstr ""
+
+#: ../../../abstract-modules.rst:404
+msgid "Deferring overriding"
+msgstr "延遲覆寫"
+
+#: ../../../abstract-modules.rst:406
+msgid ""
+"In some cases a module might not want to override every method of another, "
+"if such is the case, ``@abstract`` and ``@override`` can be combined to "
+"defer providing an implementation:"
+msgstr ""
+"在某些情況下，模組可能不想覆寫另一個模組的每個方法。如果是這種情況，可以組合 "
+"``@abstract`` 和 ``@override`` 來延遲提供實作："
+
+#: ../../../abstract-modules.rst:408
+msgid ""
+"# base.vy\n"
+"\n"
+"@abstract\n"
+"def method_a() -> uint256:\n"
+"    ...\n"
+"\n"
+"@abstract\n"
+"def method_b() -> uint256:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:420
+msgid ""
+"# middle.vy\n"
+"import base\n"
+"\n"
+"initializes: base\n"
+"\n"
+"# Concrete override\n"
+"@override(base)\n"
+"def method_a() -> uint256:\n"
+"    return 0\n"
+"\n"
+"# Delegates\n"
+"@abstract\n"
+"@override(base)\n"
+"def method_b() -> uint256:\n"
+"    ..."
+msgstr ""
+
+#: ../../../abstract-modules.rst:438
+msgid ""
+"# top.vy\n"
+"import middle\n"
+"\n"
+"initializes: middle\n"
+"\n"
+"@override(middle)\n"
+"def method_b() -> uint256:\n"
+"    return 42"
+msgstr ""
+
+#: ../../../abstract-modules.rst:449
+msgid ""
+"Any call to ``base.method_b`` resolves to a call to the concrete "
+"implementation: ``top.method_b``."
+msgstr ""
+"任何對 ``base.method_b`` 的呼叫都會解析為對具體實作的呼叫：``top.method_b``。"
+
+#: ../../../abstract-modules.rst:452
+msgid "Default Implementation"
+msgstr "預設實作"
+
+#: ../../../abstract-modules.rst:454
+msgid ""
+"It's sometimes desirable to provide a default implementation for an abstract "
+"method, this can be done by defining a separate method which holds this "
+"logic:"
+msgstr ""
+"有時需要為抽象方法提供預設實作，這可以透過定義一個包含此邏輯的單獨方法來完"
+"成："
+
+#: ../../../abstract-modules.rst:456
+msgid ""
+"# base_token.vy\n"
+"\n"
+"@abstract\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    ...\n"
+"\n"
+"def _before_transfer_default(sender: address, recipient: address, amount: "
+"uint256):\n"
+"    assert sender != empty(address), \"transfer from zero address\"\n"
+"    assert recipient != empty(address), \"transfer to zero address\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:468
+msgid "This allows accepting the default implementation downstream as:"
+msgstr "這允許在下游接受預設實作，如下所示："
+
+#: ../../../abstract-modules.rst:470
+msgid ""
+"# simple_token.vy\n"
+"\n"
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"    base_token._before_transfer_default(sender, recipient, amount)"
+msgstr ""
+
+#: ../../../abstract-modules.rst:482
+msgid ""
+"And even allows using the default implementation while adding extra logic:"
+msgstr "甚至允許在使用預設實作的同時新增額外的邏輯："
+
+#: ../../../abstract-modules.rst:484
+msgid ""
+"# pausable_token.vy\n"
+"\n"
+"import base_token\n"
+"\n"
+"initializes: base_token\n"
+"\n"
+"paused: public(bool)\n"
+"\n"
+"@override(base_token)\n"
+"def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
+"\n"
+"    # Use default check\n"
+"    base_token._before_transfer_default(sender, recipient, amount)\n"
+"\n"
+"    # Add custom logic\n"
+"    assert not self.paused, \"transfers are paused\""
+msgstr ""
+
+#: ../../../abstract-modules.rst:503
+msgid "Recommendations:"
+msgstr "建議："
+
+#: ../../../abstract-modules.rst:505
+msgid ""
+"The default implementation should have the same name as the abstract method "
+"followed by ``_default``."
+msgstr "預設實作的名稱應與抽象方法相同，並在後面加上 ``_default``。"
+
+#: ../../../abstract-modules.rst:506
+msgid ""
+"The default implementation should not be called anywhere (except in the "
+"override), as this defeats the purpose of making the method abstract in the "
+"first place."
+msgstr ""
+"預設實作不應該在任何地方被呼叫（除了在覆寫中），因為這會使將方法設為抽象的初"
+"衷失去意義。"
