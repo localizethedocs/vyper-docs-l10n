@@ -72,8 +72,8 @@ msgid ""
 "high-level security property through source semantics and compiler "
 "correctness down to the EVM execution model."
 msgstr ""
-"**驗證深度**——證明在堆疊中延伸的距離，從高層安全屬性經過原始碼語意、編譯器正"
-"確性，一直到 EVM 執行模型。"
+"**驗證深度**\\ — 證明在堆疊中延伸的距離，從高層安全屬性經過來源碼語意、編譯器"
+"正確性，一直到 EVM 執行模型。"
 
 #: ../../../deep-verification.rst:21
 msgid ""
@@ -110,9 +110,9 @@ msgid ""
 "against a formal EVM model. A verified compiler connects the two. The fewer "
 "layers a guarantee skips by assumption, the smaller the verification gap."
 msgstr ""
-"\"\"原始碼層級的證明在語言的形式語意下建立屬性。位元組碼層級的證明針對形式 "
-"EVM 模型建立類似的陳述。經過驗證的編譯器將兩者連接起來。保證以假設跳過的層級"
-"越少，驗證差距就越小。"
+"來源碼層級的證明在語言的形式語意下建立屬性。位元組碼層級的證明針對形式 EVM 模"
+"型建立類似的陳述。經過驗證的編譯器將兩者連接起來。保證以假設跳過的層級越少，"
+"驗證差距就越小。"
 
 #: ../../../deep-verification.rst:37
 msgid "The Technical Foundation"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../../../deep-verification.rst:41
 msgid "A formal semantics for the Vyper source language."
-msgstr "Vyper 原始碼語言的形式語意。"
+msgstr "Vyper 來源碼語言的形式語意。"
 
 #: ../../../deep-verification.rst:42
 msgid "A formal semantics for the EVM."
@@ -156,7 +156,7 @@ msgid ""
 "semantics to deployed bytecode) is in active development, with substantial "
 "proof engineering already underway."
 msgstr ""
-"如今已可對 Vyper 合約和函式庫進行原始碼層級驗證。編譯器驗證（連接原始碼語意與"
+"如今已可對 Vyper 合約和程式庫進行來源碼層級驗證。編譯器驗證（連接來源碼語意與"
 "已部署位元組碼的關鍵環節）正在積極開發中，大量的證明工程已經在進行中。"
 
 #: ../../../deep-verification.rst:51
@@ -167,7 +167,7 @@ msgid ""
 "source-level work."
 msgstr ""
 "目前還沒有任何廣泛部署的智慧合約語言存在完整的深度驗證管線。Vyper 是正在積極"
-"組裝各個部分的領域之一，並且堆疊已經就位，可以進行有意義的原始碼層級工作。"
+"組裝各個部分的領域之一，並且堆疊已經就位，可以進行有意義的來源碼層級工作。"
 
 #: ../../../deep-verification.rst:56
 msgid "`vyper-hol on GitHub <https://github.com/verifereum/vyper-hol>`_"
