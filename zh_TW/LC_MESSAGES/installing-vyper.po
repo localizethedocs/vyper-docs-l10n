@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../installing-vyper.rst:2 ../../../installing-vyper.rst:75
+#: ../../../installing-vyper.rst:138
+msgid "Installing Vyper"
+msgstr "安裝 Vyper"
+
+#: ../../../installing-vyper.rst:4
+msgid ""
+"Take a deep breath, follow the instructions, and please `create an issue "
+"<https://github.com/vyperlang/vyper/issues>`_ if you encounter any errors."
+msgstr ""
+"深吸一口氣，按照說明操作，如果遇到任何錯誤，請`建立一個 Issue <https://"
+"github.com/vyperlang/vyper/issues>`_。"
+
+#: ../../../installing-vyper.rst:10
+msgid ""
+"New to Vyper? Start with the :ref:`quickstart` guide to get a project "
+"running quickly."
+msgstr "剛接觸 Vyper？請從 :ref:`quickstart` 指南開始，快速讓專案執行起來。"
+
+#: ../../../installing-vyper.rst:14
+msgid ""
+"The easiest way to experiment with the language is to use an online compiler:"
+msgstr "試驗此語言最簡單的方式是使用線上編譯器："
+
+#: ../../../installing-vyper.rst:16
+msgid ""
+"`Try Vyper! <https://try.vyperlang.org>`_: maintained by the Vyper team, "
+"requires GitHub login"
+msgstr ""
+"`Try Vyper! <https://try.vyperlang.org>`_：由 Vyper 團隊維護，需要 GitHub 登"
+"入"
+
+#: ../../../installing-vyper.rst:17
+msgid ""
+"`Remix <https://remix.ethereum.org>`_: maintained by the Ethereum "
+"Foundation, activate the vyper-remix plugin in the Plugin manager"
+msgstr ""
+"`Remix <https://remix.ethereum.org>`_：由以太坊基金會維護，在 Plugin 管理器中"
+"啟用 vyper-remix 外掛"
+
+#: ../../../installing-vyper.rst:21
+msgid "Standalone"
+msgstr "獨立安裝"
+
+#: ../../../installing-vyper.rst:23
+msgid ""
+"The Vyper CLI can be installed with ``uv tool`` or ``pipx``. If you do not "
+"have these installed, first visit their installation pages:"
+msgstr ""
+"Vyper CLI 可以使用 ``uv tool`` 或 ``pipx`` 安裝。如果您尚未安裝這些工具，請先"
+"造訪它們的安裝頁面："
+
+#: ../../../installing-vyper.rst:25
+msgid "https://github.com/astral-sh/uv"
+msgstr "https://github.com/astral-sh/uv"
+
+#: ../../../installing-vyper.rst:26
+msgid "https://github.com/pypa/pipx"
+msgstr "https://github.com/pypa/pipx"
+
+#: ../../../installing-vyper.rst:28
+msgid "Then install Vyper:"
+msgstr "然後安裝 Vyper："
+
+#: ../../../installing-vyper.rst:32
+msgid "uv tool install vyper"
+msgstr "uv tool install vyper"
+
+#: ../../../installing-vyper.rst:34
+msgid "or:"
+msgstr "或者："
+
+#: ../../../installing-vyper.rst:38
+msgid "pipx install vyper"
+msgstr ""
+
+#: ../../../installing-vyper.rst:42
+msgid "Binaries"
+msgstr "二進位檔"
+
+#: ../../../installing-vyper.rst:44
+msgid ""
+"Alternatively, prebuilt Vyper binaries for Windows, Mac and Linux are "
+"available for download from the GitHub releases page: https://github.com/"
+"vyperlang/vyper/releases."
+msgstr ""
+"或者，可以在 GitHub releases 頁面下載適用於 Windows、Mac 和 Linux 的預編譯 "
+"Vyper 二進位檔：https://github.com/vyperlang/vyper/releases。"
+
+#: ../../../installing-vyper.rst:48
+msgid "PIP"
+msgstr ""
+
+#: ../../../installing-vyper.rst:51
+msgid "Installing Python"
+msgstr "安裝 Python"
+
+#: ../../../installing-vyper.rst:53
+msgid ""
+"Vyper can only be built using Python 3.11 and higher. If you need to know "
+"how to install the correct version of python, follow the instructions from "
+"the official `Python website <https://wiki.python.org/moin/BeginnersGuide/"
+"Download>`_."
+msgstr ""
+"Vyper 只能使用 Python 3.11 及更高版本建置。如果您需要了解如何安裝正確版本的 "
+"Python，請遵循官方 `Python 網站 <https://wiki.python.org/moin/BeginnersGuide/"
+"Download>`_ 的指示。"
+
+#: ../../../installing-vyper.rst:57
+msgid "Creating a virtual environment"
+msgstr "建立虛擬環境"
+
+#: ../../../installing-vyper.rst:59
+msgid ""
+"Because pip installations are not isolated by default, this method of "
+"installation is meant for more experienced Python developers who are using "
+"Vyper as a library, or want to use it within a Python project with other pip "
+"dependencies."
+msgstr ""
+"由於 pip 安裝預設不是隔離的，此安裝方法適用於更有經驗的 Python 開發者，他們"
+"將 Vyper 作為函式庫使用，或希望在其他具有 pip 相依性的 Python 專案中使用它。"
+
+#: ../../../installing-vyper.rst:64
+msgid ""
+"It is **strongly recommended** to install Vyper in **a virtual Python "
+"environment**, so that new packages installed and dependencies built are "
+"strictly contained in your Vyper project and will not alter or affect your "
+"other development environment set-up."
+msgstr ""
+"**強烈建議**將 Vyper 安裝在**虛擬 Python 環境**中，這樣新安裝的套件和建置的相"
+"依性將嚴格包含在您的 Vyper 專案中，不會改變或影響您其他的開發環境設定。"
+
+#: ../../../installing-vyper.rst:71
+msgid ""
+"To find out more about virtual environments, check out: `virtualenv guide "
+"<https://docs.python.org/3/library/venv.html>`_."
+msgstr ""
+"要了解更多關於虛擬環境的資訊，請參閱：`virtualenv 指南 <https://docs.python."
+"org/3/library/venv.html>`_。"
+
+#: ../../../installing-vyper.rst:77
+msgid ""
+"Each tagged version of vyper is uploaded to `pypi <https://pypi.org/project/"
+"vyper/>`_, and can be installed inside a virtual environment: ::"
+msgstr ""
+"每個標記版本的 vyper 都會上傳到 `pypi <https://pypi.org/project/vyper/>`_，並"
+"可以在虛擬環境中安裝：\\ ::"
+
+#: ../../../installing-vyper.rst:80
+msgid "pip install vyper"
+msgstr "pip install vyper"
+
+#: ../../../installing-vyper.rst:82
+msgid "or: ::"
+msgstr "或者： ::"
+
+#: ../../../installing-vyper.rst:85
+msgid "uv pip install vyper"
+msgstr "uv pip install vyper"
+
+#: ../../../installing-vyper.rst:87
+msgid "To install a specific version use: ::"
+msgstr "要安裝特定版本，請使用：\\ ::"
+
+#: ../../../installing-vyper.rst:90
+msgid "pip install vyper==0.4.0"
+msgstr "pip install vyper==0.4.0"
+
+#: ../../../installing-vyper.rst:92
+msgid ""
+"You can check if Vyper is installed completely or not by typing the "
+"following in your terminal/cmd: ::"
+msgstr ""
+"您可以透過在終端機/命令提示字元中輸入以下內容來檢查 Vyper 是否已完全安裝： ::"
+
+#: ../../../installing-vyper.rst:95
+msgid "vyper --version"
+msgstr "vyper --version"
+
+#: ../../../installing-vyper.rst:99
+msgid "Docker"
+msgstr "Docker"
+
+#: ../../../installing-vyper.rst:101
+msgid ""
+"Vyper can be downloaded as docker image from `dockerhub <https://hub.docker."
+"com/r/vyperlang/vyper/tags?page=1&ordering=last_updated>`_: ::"
+msgstr ""
+"Vyper 可以從 `dockerhub <https://hub.docker.com/r/vyperlang/vyper/tags?"
+"page=1&ordering=last_updated>`_ 下載為 docker 映像檔： ::"
+
+#: ../../../installing-vyper.rst:104
+msgid "docker pull vyperlang/vyper"
+msgstr "docker pull vyperlang/vyper"
+
+#: ../../../installing-vyper.rst:106
+msgid "To run the compiler use the ``docker run`` command: ::"
+msgstr "要執行編譯器，請使用 ``docker run`` 命令： ::"
+
+#: ../../../installing-vyper.rst:109
+msgid "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
+msgstr "docker run -v $(pwd):/code vyperlang/vyper /code/<contract_file.vy>"
+
+#: ../../../installing-vyper.rst:111
+msgid ""
+"Alternatively you can log into the docker image and execute vyper on the "
+"prompt. ::"
+msgstr "或者，您可以登入 docker 映像檔並在提示符中執行 vyper。 ::"
+
+#: ../../../installing-vyper.rst:114
+msgid ""
+"docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
+"root@d35252d1fb1b:/code# vyper <contract_file.vy>"
+msgstr ""
+"docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper\n"
+"root@d35252d1fb1b:/code# vyper <contract_file.vy>"
+
+#: ../../../installing-vyper.rst:117
+msgid "The normal parameters are also supported, for example: ::"
+msgstr "也支援一般參數，例如： ::"
+
+#: ../../../installing-vyper.rst:120
+msgid ""
+"docker run -v $(pwd):/code vyperlang/vyper -f abi /code/<contract_file.vy>\n"
+"[{\"stateMutability\": \"nonpayable\", \"type\": \"function\", \"name\": "
+"\"test1\", \"inputs\": [{\"name\": \"a\", \"type\": \"uint256\"}, {\"name\": "
+"\"b\", \"type\": \"bytes\"}], \"outputs\": []}, {\"stateMutability\": "
+"\"nonpayable\", \"type\": \"function\", \"name\": \"test2\", \"inputs\": "
+"[{\"name\": \"a\", \"type\": \"uint256\"}], \"outputs\": []}]"
+msgstr ""
+"docker run -v $(pwd):/code vyperlang/vyper -f abi /code/<contract_file.vy>\n"
+"[{\"stateMutability\": \"nonpayable\", \"type\": \"function\", \"name\": "
+"\"test1\", \"inputs\": [{\"name\": \"a\", \"type\": \"uint256\"}, {\"name\": "
+"\"b\", \"type\": \"bytes\"}], \"outputs\": []}, {\"stateMutability\": "
+"\"nonpayable\", \"type\": \"function\", \"name\": \"test2\", \"inputs\": "
+"[{\"name\": \"a\", \"type\": \"uint256\"}], \"outputs\": []}]"
+
+#: ../../../installing-vyper.rst:125
+msgid ""
+"If you would like to know how to install Docker, please follow their "
+"`documentation <https://docs.docker.com/get-docker/>`_."
+msgstr ""
+"如果您想了解如何安裝 Docker，請遵循其 `文件 <https://docs.docker.com/get-"
+"docker/>`_。"
+
+#: ../../../installing-vyper.rst:128
+msgid "nix"
+msgstr ""
+
+#: ../../../installing-vyper.rst:130
+msgid ""
+"View the versions supported through nix at `nix package search <https://"
+"search.nixos.org/packages?show=vyper&query=vyper>`_"
+msgstr ""
+"在 `nix package search <https://search.nixos.org/packages?"
+"show=vyper&query=vyper>`_ 查看透過 nix 支援的版本"
+
+#: ../../../installing-vyper.rst:134
+msgid ""
+"The derivation for Vyper is located at  `nixpkgs <https://github.com/NixOS/"
+"nixpkgs/blob/master/pkgs/development/compilers/vyper/default.nix>`_"
+msgstr ""
+"Vyper 的 derivation 位於 `nixpkgs <https://github.com/NixOS/nixpkgs/blob/"
+"master/pkgs/development/compilers/vyper/default.nix>`_"
+
+#: ../../../installing-vyper.rst:142
+msgid "nix-env -iA nixpkgs.vyper"
+msgstr "nix-env -iA nixpkgs.vyper"

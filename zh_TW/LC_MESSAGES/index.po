@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-15 14:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.rst:-1
+msgid "Vyper logo"
+msgstr "Vyper 標誌"
+
+#: ../../../index.rst:12
+msgid "Overview"
+msgstr "概覽"
+
+#: ../../../index.rst:14
+msgid ""
+"Vyper is a Pythonic smart contract language that compiles to `Ethereum "
+"Virtual Machine (EVM) <https://ethereum.org/learn/#ethereum-basics>`_ "
+"bytecode. It prioritises **security**, **auditability**, and **simplicity**."
+msgstr ""
+"Vyper 是一種 Python 式的智慧合約語言，它可以編譯成\\ `以太坊虛擬機（EVM） "
+"<https://ethereum.org/learn/#ethereum-basics>`_\\ 位元組碼。它優先考慮安全"
+"性、可稽核性和簡潔性 。"
+
+#: ../../../index.rst:20
+msgid "Principles"
+msgstr "原則"
+
+#: ../../../index.rst:22
+msgid ""
+"**Security**: Building secure smart contracts should be natural, not an "
+"uphill battle."
+msgstr ""
+"**安全性**：建置安全的智慧合約應該是自然而然的事情，而不是一場艱苦的戰鬥。"
+
+#: ../../../index.rst:23
+msgid ""
+"**Simplicity**: Both the language and compiler should be easy to understand."
+msgstr "**簡潔性**：語言和編譯器都應該易於理解。"
+
+#: ../../../index.rst:24
+msgid ""
+"**Auditability**: Code should be maximally human-readable. Simplicity for "
+"the reader matters more than convenience for the writer."
+msgstr ""
+"**可稽核性**：程式碼應盡可能易於閱讀。對讀者而言，簡潔性比對編寫者而言的便利"
+"性更為重要。"
+
+#: ../../../index.rst:27
+msgid "Key Features"
+msgstr "主要功能"
+
+#: ../../../index.rst:29
+msgid "**Safety by default**"
+msgstr "**預設安全性**"
+
+#: ../../../index.rst:31
+msgid "Bounds and overflow checking on array accesses and arithmetic"
+msgstr "陣列存取和算術運算的邊界與溢位檢查"
+
+#: ../../../index.rst:32
+msgid ""
+"Reentrancy protection via the ``@nonreentrant`` decorator (see :ref:`control-"
+"structures`)"
+msgstr ""
+"透過 ``@nonreentrant`` 裝飾器提供重入保護（請參閱 :ref:`control-structures`）"
+
+#: ../../../index.rst:33
+msgid "Strong typing with explicit :ref:`type conversions <type_conversions>`"
+msgstr "強型別與明確的 :ref:`型別轉換 <type_conversions>`"
+
+#: ../../../index.rst:35
+msgid "**Predictable execution**"
+msgstr "**可預測的執行**"
+
+#: ../../../index.rst:37
+msgid ""
+"Decidable gas consumption: every function call has a calculable upper bound"
+msgstr "可決定的 gas 消耗：每個函數呼叫都有可計算的上限"
+
+#: ../../../index.rst:38
+msgid "Bounded loops only (compile-time maximum iterations)"
+msgstr "僅允許有界迴圈（編譯時期最大迭代次數）"
+
+#: ../../../index.rst:39
+msgid "No recursion: execution flow is structurally decreasing"
+msgstr "無遞迴：執行流程在結構上是遞減的"
+
+#: ../../../index.rst:41
+msgid "**Clean code reuse**"
+msgstr "**清晰的程式碼重用**"
+
+#: ../../../index.rst:43
+msgid ":ref:`Module imports <modules>` instead of class inheritance"
+msgstr ":ref:`模組匯入 <modules>` 而非類別繼承"
+
+#: ../../../index.rst:44
+msgid ""
+"Explicit ``extcall`` and ``staticcall`` keywords for external contract "
+"interactions"
+msgstr "明確的 ``extcall`` 和 ``staticcall`` 關鍵字用於外部合約互動"
+
+#: ../../../index.rst:45
+msgid ""
+"Support for :ref:`pure functions <function-mutability>` that cannot modify "
+"state"
+msgstr "支援無法修改狀態的 :ref:`純函數 <function-mutability>`"
+
+#: ../../../index.rst:48
+msgid "Compiler-Enforced Security"
+msgstr "編譯器強制執行的安全機制"
+
+#: ../../../index.rst:50
+msgid ""
+"Vyper eliminates entire vulnerability classes by excluding features that "
+"enable dangerous patterns:"
+msgstr "Vyper 透過排除導致危險模式的功能來消除整個漏洞類別："
+
+#: ../../../index.rst:56
+msgid "Excluded Feature"
+msgstr "排除的功能"
+
+#: ../../../index.rst:57
+msgid "Why It Matters"
+msgstr "為何重要"
+
+#: ../../../index.rst:58
+msgid "Inline assembly"
+msgstr "內聯組合語言"
+
+#: ../../../index.rst:59
+msgid ""
+"Preserves type safety, overflow protection, and searchability of variable "
+"usage"
+msgstr "保留型別安全、溢位保護和變數使用的可搜尋性"
+
+#: ../../../index.rst:60
+msgid "Class inheritance"
+msgstr "類別繼承"
+
+#: ../../../index.rst:61
+msgid "Removes ambiguity about which code executes and simplifies auditing"
+msgstr "消除哪些程式碼會被執行的歧義，並簡化稽核"
+
+#: ../../../index.rst:62
+msgid "Modifiers"
+msgstr "修改器"
+
+#: ../../../index.rst:63
+msgid "All checks are inline and visible, no hidden pre/post conditions"
+msgstr "所有檢查都是內聯且可見的，沒有隱藏的前置/後置條件"
+
+#: ../../../index.rst:64
+msgid "Function overloading"
+msgstr "函式覆載"
+
+#: ../../../index.rst:65
+msgid "Function calls are unambiguous; ``foo(x)`` always means the same thing"
+msgstr "函數呼叫是明確的；``foo(x)`` 始終表示相同的意思"
+
+#: ../../../index.rst:66
+msgid "Operator overloading"
+msgstr "運算子覆載"
+
+#: ../../../index.rst:67
+msgid "Arithmetic operators do exactly what they appear to do"
+msgstr "算術運算子完全按照其表面意義執行"
+
+#: ../../../index.rst:68
+msgid "Infinite loops"
+msgstr "無限迴圈"
+
+#: ../../../index.rst:69
+msgid "Gas costs are always bounded and predictable"
+msgstr "燃料成本始終是有上限且可預測的"
+
+#: ../../../index.rst:70
+msgid "Recursive calls"
+msgstr "遞迴呼叫"
+
+#: ../../../index.rst:71
+msgid "Call graphs are simple and gas limits are enforceable"
+msgstr "呼叫圖簡單，且 gas 限制可強制執行"
+
+#: ../../../index.rst:73
+msgid ""
+"These constraints mean developers cannot accidentally introduce dangerous "
+"patterns, even under time pressure or with limited blockchain experience."
+msgstr ""
+"這些限制意味著開發者無法意外引入危險模式，即使在時間壓力或區塊鏈經驗有限的情"
+"況下也是如此。"
+
+#: ../../../index.rst:76
+msgid "Deep Verification"
+msgstr "深度驗證"
+
+#: ../../../index.rst:78
+msgid ""
+"Vyper’s design makes **deep verification** practical on a production smart-"
+"contract language."
+msgstr "Vyper 的設計使\\ **深度驗證**\\ 在生產級智慧合約語言上變得可行。"
+
+#: ../../../index.rst:80
+msgid ""
+"See :doc:`deep-verification` for the full discussion of verification depth, "
+"verification gap, and the current state of Vyper’s formal semantics and "
+"compiler verification work."
+msgstr ""
+"請參閱 :doc:`deep-verification` 以了解驗證深度、驗證差距以及 Vyper 的形式化語"
+"意和編譯器驗證工作的目前狀態的完整討論。"
+
+#: ../../../index.rst:83
+msgid "Decimal Fixed Point"
+msgstr "十進位定點數"
+
+#: ../../../index.rst:85
+msgid ""
+"Vyper uses decimal (not binary) fixed point numbers. This ensures that "
+"literals like ``0.1`` have exact representations, avoiding the subtle "
+"precision errors common in binary floating-point arithmetic."
+msgstr ""
+"Vyper 使用十進位（非二進位）定點數。這確保像 ``0.1`` 這樣的字面值具有精確的表"
+"示，避免了二進位浮點算術中常見的細微波動精度誤差。"
