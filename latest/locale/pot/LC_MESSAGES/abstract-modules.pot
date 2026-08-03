@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-01 13:45+0000\n"
+"POT-Creation-Date: 2026-08-03 11:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,14 @@ msgstr ""
 msgid "Abstract Modules"
 msgstr ""
 
-#: ../../../abstract-modules.rst:6
+#: ../../../abstract-modules.rst:7
+msgid ""
+"Abstract modules are available in Vyper ``0.5.0`` and up. If ``@abstract`` "
+"raises ``Unknown decorator: abstract``, your compiler predates the feature — "
+"upgrade to ``0.5.0`` or later."
+msgstr ""
+
+#: ../../../abstract-modules.rst:11
 msgid ""
 "An abstract module is a special kind of :ref:`module <modules>` which offers "
 "points at which its logic can be customized. This takes the form of "
@@ -30,7 +37,7 @@ msgid ""
 "the custom logic. Here is an example:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:11
+#: ../../../abstract-modules.rst:16
 msgid ""
 "# base_token.vy\n"
 "# This is the abstract module\n"
@@ -50,7 +57,7 @@ msgid ""
 "    self.balances[recipient] += amount"
 msgstr ""
 
-#: ../../../abstract-modules.rst:30
+#: ../../../abstract-modules.rst:35
 msgid ""
 "The ``base_token`` module defines a transfer hook, ``_before_transfer()``, "
 "as an abstract method. It is called during every transfer, but has no "
@@ -59,13 +66,13 @@ msgid ""
 "decides *what* it does."
 msgstr ""
 
-#: ../../../abstract-modules.rst:32
+#: ../../../abstract-modules.rst:37
 msgid ""
 "To supply an implementation, a module imports and ``initializes`` the "
 "abstract module, then provides an ``@override`` for each abstract method:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:34
+#: ../../../abstract-modules.rst:39
 msgid ""
 "# pausable_token.vy\n"
 "\n"
@@ -82,14 +89,14 @@ msgid ""
 "    assert not self.paused, \"transfers are paused\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:51
+#: ../../../abstract-modules.rst:56
 msgid ""
 "Now every call to ``base_token.transfer()`` will check the pause flag before "
 "moving tokens. The override is resolved at compile time — there is no "
 "runtime dispatch or inheritance involved."
 msgstr ""
 
-#: ../../../abstract-modules.rst:53
+#: ../../../abstract-modules.rst:58
 msgid ""
 "As you can see in the example above, what makes a module \"abstract\" is "
 "only the presence of abstract methods. Furthermore, that is the only "
@@ -97,18 +104,18 @@ msgid ""
 "module can also be done in an abstract module."
 msgstr ""
 
-#: ../../../abstract-modules.rst:57
+#: ../../../abstract-modules.rst:62
 msgid "Abstract methods"
 msgstr ""
 
-#: ../../../abstract-modules.rst:59
+#: ../../../abstract-modules.rst:64
 msgid ""
 "An abstract method is an :ref:`internal method <structure-functions-"
 "internal>` decorated with ``@abstract``. Its body must consist of an "
 "Ellipsis literal (``...``) potentially preceded by a docstring and comments."
 msgstr ""
 
-#: ../../../abstract-modules.rst:62
+#: ../../../abstract-modules.rst:67
 msgid ""
 "@abstract\n"
 "def an_abstract_method(x: uint256) -> uint256:\n"
@@ -116,14 +123,14 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:69
+#: ../../../abstract-modules.rst:74
 msgid ""
 "There are no other restrictions on abstract methods, they can have any "
 "signature, can take any decorator (provided they are valid on internal "
 "methods), and be called like concrete methods:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:71
+#: ../../../abstract-modules.rst:76
 msgid ""
 "@pure\n"
 "@abstract\n"
@@ -141,18 +148,18 @@ msgid ""
 "    complex_expression: String[15] = self.foo([]).pop()"
 msgstr ""
 
-#: ../../../abstract-modules.rst:89
+#: ../../../abstract-modules.rst:94
 msgid "Overriding an abstract module"
 msgstr ""
 
-#: ../../../abstract-modules.rst:91
+#: ../../../abstract-modules.rst:96
 msgid ""
 "As abstract modules are by essence incomplete, it is necessary for another "
 "module to complete them, by providing implementations for its abstract "
 "methods:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:93
+#: ../../../abstract-modules.rst:98
 msgid ""
 "import base_token\n"
 "\n"
@@ -163,53 +170,53 @@ msgid ""
 "    assert not self.paused, \"transfers are paused\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:103
+#: ../../../abstract-modules.rst:108
 msgid "For module M1 to override module M2:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:105
+#: ../../../abstract-modules.rst:110
 msgid "M1 must :ref:`initialize <initializing-module>` M2"
 msgstr ""
 
-#: ../../../abstract-modules.rst:106
+#: ../../../abstract-modules.rst:111
 msgid ""
 "M1 must override each abstract method of M2, see :ref:`Overriding abstract "
 "methods <overriding-abstract-methods>`"
 msgstr ""
 
-#: ../../../abstract-modules.rst:109
+#: ../../../abstract-modules.rst:114
 msgid ""
 "So there is no choice to be made about which override to choose, abstract "
 "modules can only be overridden once. This is guaranteed by the "
 "initialization system."
 msgstr ""
 
-#: ../../../abstract-modules.rst:114
+#: ../../../abstract-modules.rst:119
 msgid "Overriding abstract methods"
 msgstr ""
 
-#: ../../../abstract-modules.rst:116
+#: ../../../abstract-modules.rst:121
 msgid ""
 "To override abstract method ``_before_transfer`` of module ``base_token``, "
 "the overriding module must define an internal method ``_before_transfer`` "
 "with an ``@override(my_abstract_module)`` decorator:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:118
+#: ../../../abstract-modules.rst:123
 msgid ""
 "@override(base_token)\n"
 "def _before_transfer(sender: address, recipient: address, amount: uint256):\n"
 "    assert not self.paused, \"transfers are paused\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:124
+#: ../../../abstract-modules.rst:129
 msgid ""
 "Since any call to ``base_token._before_transfer`` will be replaced at "
 "compile-time to a call to the overriding ``_before_transfer``, it is "
 "necessary that any call to the former is a valid call to the latter:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:126
+#: ../../../abstract-modules.rst:131
 msgid ""
 "# abstract_m.vy\n"
 "@pure\n"
@@ -218,7 +225,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:134
+#: ../../../abstract-modules.rst:139
 msgid ""
 "import abstract_m\n"
 "initializes: abstract_m\n"
@@ -230,7 +237,7 @@ msgid ""
 "    return x + 1"
 msgstr ""
 
-#: ../../../abstract-modules.rst:145
+#: ../../../abstract-modules.rst:150
 msgid ""
 "import abstract_m\n"
 "initializes: abstract_m\n"
@@ -243,7 +250,7 @@ msgid ""
 "    return x + 1"
 msgstr ""
 
-#: ../../../abstract-modules.rst:156
+#: ../../../abstract-modules.rst:161
 msgid ""
 "import abstract_m\n"
 "initializes: abstract_m\n"
@@ -255,7 +262,7 @@ msgid ""
 "    return y + 1"
 msgstr ""
 
-#: ../../../abstract-modules.rst:167
+#: ../../../abstract-modules.rst:172
 msgid ""
 "import abstract_m\n"
 "initializes: abstract_m\n"
@@ -267,94 +274,94 @@ msgid ""
 "    return y + 1"
 msgstr ""
 
-#: ../../../abstract-modules.rst:178
+#: ../../../abstract-modules.rst:183
 msgid "A good heuristic is the following; the override must have:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:180
+#: ../../../abstract-modules.rst:185
 msgid ""
 "The same parameters as the abstract method: same name, same type, and same "
 "default value."
 msgstr ""
 
-#: ../../../abstract-modules.rst:181
+#: ../../../abstract-modules.rst:186
 msgid "The same return type as the abstract method."
 msgstr ""
 
-#: ../../../abstract-modules.rst:182
+#: ../../../abstract-modules.rst:187
 msgid ""
 "The same decorators as the abstract method, except ``@override`` and "
 "``@abstract``."
 msgstr ""
 
-#: ../../../abstract-modules.rst:184
+#: ../../../abstract-modules.rst:189
 msgid ""
 "Following the rules above will always result in a valid override. However "
 "these might prove too restrictive in your use-case, for this reason the "
 "actual rules are more flexible:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:187
+#: ../../../abstract-modules.rst:192
 msgid ""
 "Each parameter of the abstract method must appear in the override at the "
 "same position, with the same name."
 msgstr ""
 
-#: ../../../abstract-modules.rst:188
+#: ../../../abstract-modules.rst:193
 msgid ""
 "If the abstract method defines a default argument for a parameter, the value "
 "of the default argument must match in the override. Any value matches an "
 "ellipsis (``...``)."
 msgstr ""
 
-#: ../../../abstract-modules.rst:189
+#: ../../../abstract-modules.rst:194
 msgid ""
 "The override may add extra parameters to the right, as long as they have "
 "default values."
 msgstr ""
 
-#: ../../../abstract-modules.rst:190
+#: ../../../abstract-modules.rst:195
 msgid ""
 "The override may add a default value to a parameter that was mandatory in "
 "the abstract method."
 msgstr ""
 
-#: ../../../abstract-modules.rst:191
+#: ../../../abstract-modules.rst:196
 msgid ""
 "Each parameter type in the override must be a super-type of the "
 "corresponding parameter type in the abstract method."
 msgstr ""
 
-#: ../../../abstract-modules.rst:192
+#: ../../../abstract-modules.rst:197
 msgid ""
 "The return type of the override must be a sub-type of the abstract method's "
 "return type."
 msgstr ""
 
-#: ../../../abstract-modules.rst:193
+#: ../../../abstract-modules.rst:198
 msgid ""
 "The override's :ref:`mutability <function-mutability>` must be the same (or "
 "stricter) than the abstract's."
 msgstr ""
 
-#: ../../../abstract-modules.rst:194
+#: ../../../abstract-modules.rst:199
 msgid ""
 "The override's :ref:`reentrancy <reentrancy>` must match exactly the one of "
 "the abstract method."
 msgstr ""
 
-#: ../../../abstract-modules.rst:198
+#: ../../../abstract-modules.rst:203
 msgid "Calling abstract methods"
 msgstr ""
 
-#: ../../../abstract-modules.rst:200
+#: ../../../abstract-modules.rst:205
 msgid ""
 "Abstract methods are called in the same way concrete methods are. "
 "Additionally, calling the abstract methods of another module requires :ref:"
 "`using <uses-statement>` it."
 msgstr ""
 
-#: ../../../abstract-modules.rst:203
+#: ../../../abstract-modules.rst:208
 msgid ""
 "# base_token.vy\n"
 "\n"
@@ -370,7 +377,7 @@ msgid ""
 "    self.balances[recipient] += amount"
 msgstr ""
 
-#: ../../../abstract-modules.rst:218
+#: ../../../abstract-modules.rst:223
 msgid ""
 "import base_token\n"
 "\n"
@@ -383,13 +390,13 @@ msgid ""
 "    base_token._before_transfer(sender, recipient, amount)"
 msgstr ""
 
-#: ../../../abstract-modules.rst:229
+#: ../../../abstract-modules.rst:234
 msgid ""
 "All calls to abstract methods are resolved at compile time to the concrete "
 "override: there is no runtime dispatch."
 msgstr ""
 
-#: ../../../abstract-modules.rst:231
+#: ../../../abstract-modules.rst:236
 msgid ""
 "When a module overrides an abstract method, the compiler requires callers to "
 "use the most concrete path available. In particular, if ``self."
@@ -397,7 +404,7 @@ msgid ""
 "within that module must go through ``self``, not through ``base_token``:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:234
+#: ../../../abstract-modules.rst:239
 msgid ""
 "import base_token\n"
 "\n"
@@ -416,28 +423,28 @@ msgid ""
 "    base_token._before_transfer(msg.sender, msg.sender, 0)"
 msgstr ""
 
-#: ../../../abstract-modules.rst:254
+#: ../../../abstract-modules.rst:259
 msgid "Advanced Uses"
 msgstr ""
 
-#: ../../../abstract-modules.rst:256
+#: ../../../abstract-modules.rst:261
 msgid ""
 "In this section we will explain consequences of the above specification "
 "which might not jump to mind, and are useful in advanced contexts."
 msgstr ""
 
-#: ../../../abstract-modules.rst:259
+#: ../../../abstract-modules.rst:264
 msgid "Abstract overriding modules"
 msgstr ""
 
-#: ../../../abstract-modules.rst:261
+#: ../../../abstract-modules.rst:266
 msgid ""
 "An overriding module can itself be abstract. In other words, ``@abstract`` "
 "and ``@override`` can co-exist in the same module (and even :ref:`on the "
 "same method <deferring_overriding>`):"
 msgstr ""
 
-#: ../../../abstract-modules.rst:264
+#: ../../../abstract-modules.rst:269
 msgid ""
 "# checked_token.vy\n"
 "\n"
@@ -460,7 +467,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:286
+#: ../../../abstract-modules.rst:291
 msgid ""
 "Here ``checked_token.vy`` provides a concrete ``_before_transfer`` for "
 "``base_token``, but it is itself an abstract module because it introduces "
@@ -468,7 +475,7 @@ msgid ""
 "overriding those:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:288
+#: ../../../abstract-modules.rst:293
 msgid ""
 "# my_token.vy\n"
 "import checked_token\n"
@@ -487,11 +494,11 @@ msgid ""
 "    return addr != empty(address)"
 msgstr ""
 
-#: ../../../abstract-modules.rst:307
+#: ../../../abstract-modules.rst:312
 msgid "Overriding multiple modules"
 msgstr ""
 
-#: ../../../abstract-modules.rst:309
+#: ../../../abstract-modules.rst:314
 msgid ""
 "A single module can initialize more than one abstract module, providing "
 "overrides for each independently. This is how you compose unrelated "
@@ -499,13 +506,13 @@ msgid ""
 "fee configuration from another."
 msgstr ""
 
-#: ../../../abstract-modules.rst:312
+#: ../../../abstract-modules.rst:317
 msgid ""
 "Using ``base_token`` from the :ref:`earlier example <abstract-modules>`, "
 "consider a second abstract module that manages access control:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:314
+#: ../../../abstract-modules.rst:319
 msgid ""
 "# access_control.vy\n"
 "\n"
@@ -517,12 +524,12 @@ msgid ""
 "    assert self._is_allowed(user), \"access denied\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:325
+#: ../../../abstract-modules.rst:330
 msgid ""
 "A contract can initialize both modules and override each abstract method:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:327
+#: ../../../abstract-modules.rst:332
 msgid ""
 "# my_token.vy\n"
 "\n"
@@ -545,17 +552,17 @@ msgid ""
 "    access_control.check_allowed(sender)"
 msgstr ""
 
-#: ../../../abstract-modules.rst:349
+#: ../../../abstract-modules.rst:354
 msgid ""
 "The overriding module weaves both concerns together: ``_before_transfer`` "
 "delegates to the access control module to gate who can send tokens."
 msgstr ""
 
-#: ../../../abstract-modules.rst:352
+#: ../../../abstract-modules.rst:357
 msgid "Overriding multiple abstract methods"
 msgstr ""
 
-#: ../../../abstract-modules.rst:354
+#: ../../../abstract-modules.rst:359
 msgid ""
 "When a module overrides multiple others, it might happen that the abstract "
 "modules share a method name. To handle this case, it is possible for a "
@@ -564,7 +571,7 @@ msgid ""
 "<overriding-abstract-methods>` for every abstract method:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:358
+#: ../../../abstract-modules.rst:363
 msgid ""
 "# minter.vy\n"
 "\n"
@@ -575,7 +582,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:368
+#: ../../../abstract-modules.rst:373
 msgid ""
 "# authentication_provider.vy\n"
 "\n"
@@ -586,7 +593,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:378
+#: ../../../abstract-modules.rst:383
 msgid ""
 "import minter\n"
 "import authentication_provider\n"
@@ -611,18 +618,18 @@ msgid ""
 "    return role"
 msgstr ""
 
-#: ../../../abstract-modules.rst:404
+#: ../../../abstract-modules.rst:409
 msgid "Deferring overriding"
 msgstr ""
 
-#: ../../../abstract-modules.rst:406
+#: ../../../abstract-modules.rst:411
 msgid ""
 "In some cases a module might not want to override every method of another, "
 "if such is the case, ``@abstract`` and ``@override`` can be combined to "
 "defer providing an implementation:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:408
+#: ../../../abstract-modules.rst:413
 msgid ""
 "# base.vy\n"
 "\n"
@@ -635,7 +642,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:420
+#: ../../../abstract-modules.rst:425
 msgid ""
 "# middle.vy\n"
 "import base\n"
@@ -654,7 +661,7 @@ msgid ""
 "    ..."
 msgstr ""
 
-#: ../../../abstract-modules.rst:438
+#: ../../../abstract-modules.rst:443
 msgid ""
 "# top.vy\n"
 "import middle\n"
@@ -666,24 +673,24 @@ msgid ""
 "    return 42"
 msgstr ""
 
-#: ../../../abstract-modules.rst:449
+#: ../../../abstract-modules.rst:454
 msgid ""
 "Any call to ``base.method_b`` resolves to a call to the concrete "
 "implementation: ``top.method_b``."
 msgstr ""
 
-#: ../../../abstract-modules.rst:452
+#: ../../../abstract-modules.rst:457
 msgid "Default Implementation"
 msgstr ""
 
-#: ../../../abstract-modules.rst:454
+#: ../../../abstract-modules.rst:459
 msgid ""
 "It's sometimes desirable to provide a default implementation for an abstract "
 "method, this can be done by defining a separate method which holds this "
 "logic:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:456
+#: ../../../abstract-modules.rst:461
 msgid ""
 "# base_token.vy\n"
 "\n"
@@ -697,11 +704,11 @@ msgid ""
 "    assert recipient != empty(address), \"transfer to zero address\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:468
+#: ../../../abstract-modules.rst:473
 msgid "This allows accepting the default implementation downstream as:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:470
+#: ../../../abstract-modules.rst:475
 msgid ""
 "# simple_token.vy\n"
 "\n"
@@ -714,12 +721,12 @@ msgid ""
 "    base_token._before_transfer_default(sender, recipient, amount)"
 msgstr ""
 
-#: ../../../abstract-modules.rst:482
+#: ../../../abstract-modules.rst:487
 msgid ""
 "And even allows using the default implementation while adding extra logic:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:484
+#: ../../../abstract-modules.rst:489
 msgid ""
 "# pausable_token.vy\n"
 "\n"
@@ -739,17 +746,17 @@ msgid ""
 "    assert not self.paused, \"transfers are paused\""
 msgstr ""
 
-#: ../../../abstract-modules.rst:503
+#: ../../../abstract-modules.rst:508
 msgid "Recommendations:"
 msgstr ""
 
-#: ../../../abstract-modules.rst:505
+#: ../../../abstract-modules.rst:510
 msgid ""
 "The default implementation should have the same name as the abstract method "
 "followed by ``_default``."
 msgstr ""
 
-#: ../../../abstract-modules.rst:506
+#: ../../../abstract-modules.rst:511
 msgid ""
 "The default implementation should not be called anywhere (except in the "
 "override), as this defeats the purpose of making the method abstract in the "
