@@ -101,7 +101,7 @@ msgstr "當參考到不存在的屬性時引發。"
 
 #: ../../../compiler-exceptions.rst:59
 msgid "Raises when no valid type can be found for a literal value."
-msgstr "當無法為字面值找到有效的型別時引發。"
+msgstr "當無法為定數找到有效的型別時引發。"
 
 #: ../../../compiler-exceptions.rst:61
 msgid ""
@@ -122,8 +122,8 @@ msgid ""
 "This example raises ``InvalidLiteral`` because the given literal value has "
 "too many decimal places and so cannot be assigned any valid Vyper type."
 msgstr ""
-"此範例引發 ``InvalidLiteral``，因為給定的字面值有太多小數位數，因此無法指派任"
-"何有效的 Vyper 型別。"
+"此範例引發 ``InvalidLiteral``，因為給定的定數有太多小數位數，因此無法指派任何"
+"有效的 Vyper 型別。"
 
 #: ../../../compiler-exceptions.rst:73
 msgid "Raises when using an invalid operator for a given type."
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../../../compiler-exceptions.rst:99
 msgid "Raises when using an invalid literal value for the given type."
-msgstr "當對給定型別使用無效的字面值時引發。"
+msgstr "當對給定型別使用無效的定數時引發。"
 
 #: ../../../compiler-exceptions.rst:101
 msgid ""
@@ -185,7 +185,7 @@ msgid ""
 "This example raises ``InvalidType`` because ``3.5`` is a valid literal "
 "value, but cannot be cast as ``int128``."
 msgstr ""
-"此範例引發 ``InvalidType``，因為 ``3.5`` 是有效的字面值，但無法轉型為 "
+"此範例引發 ``InvalidType``，因為 ``3.5`` 是有效的定數，但無法轉型為 "
 "``int128``。"
 
 #: ../../../compiler-exceptions.rst:111

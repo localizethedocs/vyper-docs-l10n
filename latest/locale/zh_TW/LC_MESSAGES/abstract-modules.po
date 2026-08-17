@@ -119,8 +119,8 @@ msgid ""
 "Ellipsis literal (``...``) potentially preceded by a docstring and comments."
 msgstr ""
 "抽象方法是使用 ``@abstract`` 修飾的 :ref:`內部方法 <structure-functions-"
-"internal>`。其主體必須由省略符號字面值（``...``）組成，前面可以有文件字串"
-"（docstring）和註解。"
+"internal>`。其正文必須由省略符號定數（``...``）組成，前面可以有文件字串和註"
+"釋。"
 
 #: ../../../abstract-modules.rst:62
 msgid ""
