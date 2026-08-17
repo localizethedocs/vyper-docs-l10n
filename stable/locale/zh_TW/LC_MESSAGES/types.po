@@ -655,7 +655,7 @@ msgstr ""
 
 #: ../../../types.rst:362
 msgid "Bytes literals may be given as bytes strings or as hex strings."
-msgstr "位元組字面值可以作為位元組字串或十六進位字串給出。"
+msgstr "位元組定數可以作為位元組字串或十六進位字串給出。"
 
 #: ../../../types.rst:364
 msgid ""
