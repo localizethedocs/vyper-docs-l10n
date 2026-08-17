@@ -841,7 +841,7 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:428
 msgid "Converts a variable or literal from one type to another."
-msgstr "將變數或字面值從一種型別轉換為另一種型別。"
+msgstr "將變數或定數從一種型別轉換為另一種型別。"
 
 #: ../../../built-in-functions.rst:430
 msgid "``value``: Value to convert"
@@ -1608,7 +1608,7 @@ msgstr "接受一個函數宣告並回傳其 method_id（用於資料欄位中�
 
 #: ../../../built-in-functions.rst:961
 msgid "``method``: Method declaration as given as a literal string"
-msgstr "``method``：以字面值字串形式給出的方法宣告"
+msgstr "``method``：以定數字串形式給出的方法宣告"
 
 #: ../../../built-in-functions.rst:962
 msgid ""
@@ -1659,15 +1659,14 @@ msgstr ""
 "``ensure_tuple``：如果設為 True，確保即使只有單一引數也會被編碼為元組。換句話"
 "說，``bytes`` 會被編碼為 ``(bytes,)``，而 ``(bytes,)`` 會被編碼為 "
 "``((bytes,),)``。這是 Vyper 和 Solidity 函數的呼叫慣例。除非常特殊的使用情"
-"況，否則應將其設為 True。必須是字面值。"
+"況，否則應將其設為 True。必須是定數。"
 
 #: ../../../built-in-functions.rst:985
 msgid ""
 "``method_id``: A literal hex or Bytes[4] value to append to the beginning of "
 "the abi-encoded bytestring."
 msgstr ""
-"``method_id``：要附加到 ABI 編碼位元組字串開頭的字面值十六進位或 Bytes[4] "
-"值。"
+"``method_id``：要附加到 ABI 編碼位元組字串開頭的定數十六進位或 Bytes[4] 值。"
 
 #: ../../../built-in-functions.rst:987
 msgid ""
@@ -1737,7 +1736,7 @@ msgstr ""
 "``unwrap_tuple``：如果設為 True，即使只指定了一個輸出型別，輸入也會被解碼為元"
 "組。換句話說，``abi_decode(b, Bytes[32])`` 會被解碼為 ``(Bytes[32],)``。這是 "
 "Vyper 和 Solidity 函數生成的 ABIv2 編碼值的慣例。除非常特殊的使用情況，否則應"
-"將其設為 True。必須是字面值。"
+"將其設為 True。必須是定數。"
 
 #: ../../../built-in-functions.rst:1020
 msgid "Returns the decoded value(s), with type as specified by `output_type`."
