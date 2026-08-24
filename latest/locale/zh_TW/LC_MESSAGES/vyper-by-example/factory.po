@@ -143,7 +143,7 @@ msgstr ""
 
 #: ../../../vyper-by-example/factory.rst:29
 msgid "How the pattern works:"
-msgstr ""
+msgstr "模式的運作方式："
 
 #: ../../../vyper-by-example/factory.rst:31
 msgid "Deploy the Exchange code and record its ``codehash``"

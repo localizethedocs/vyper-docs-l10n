@@ -30,7 +30,7 @@ msgstr ""
 
 #: ../../../testing-contracts.rst:9
 msgid "Titanoboa"
-msgstr ""
+msgstr "Titanoboa"
 
 #: ../../../testing-contracts.rst:11
 msgid ""
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../../../testing-contracts.rst:31
 msgid "ZKsync built-in support"
-msgstr ""
+msgstr "ZKsync 內建支援"
 
 #: ../../../testing-contracts.rst:32
 msgid "Named contracts for cleaner address management"
@@ -103,4 +103,4 @@ msgstr ""
 
 #: ../../../testing-contracts.rst:39
 msgid "`Official Moccasin Documentation <https://cyfrin.github.io/moccasin/>`_"
-msgstr ""
+msgstr "`官方 Moccasin 文件 <https://cyfrin.github.io/moccasin/>`_"

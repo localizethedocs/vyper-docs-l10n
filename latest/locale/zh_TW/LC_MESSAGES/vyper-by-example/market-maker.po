@@ -106,7 +106,7 @@ msgstr ""
 
 #: ../../../vyper-by-example/market-maker.rst:18
 msgid "How it works:"
-msgstr ""
+msgstr "運作方式："
 
 #: ../../../vyper-by-example/market-maker.rst:20
 msgid ""
