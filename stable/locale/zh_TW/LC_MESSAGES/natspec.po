@@ -37,7 +37,7 @@ msgstr ""
 
 #: ../../../natspec.rst:11
 msgid "Example"
-msgstr ""
+msgstr "範例"
 
 #: ../../../natspec.rst:13
 msgid ""
@@ -100,7 +100,7 @@ msgstr ""
 
 #: ../../../natspec.rst:51
 msgid "``@title``"
-msgstr ""
+msgstr "``@title``"
 
 #: ../../../natspec.rst:51
 msgid "Title that describes the contract"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: ../../../natspec.rst:52
 msgid "``@license``"
-msgstr ""
+msgstr "``@license``"
 
 #: ../../../natspec.rst:52
 msgid "License of the contract"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: ../../../natspec.rst:53
 msgid "``@author``"
-msgstr ""
+msgstr "``@author``"
 
 #: ../../../natspec.rst:53
 msgid "Name of the author"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: ../../../natspec.rst:54
 msgid "``@notice``"
-msgstr ""
+msgstr "``@notice``"
 
 #: ../../../natspec.rst:54
 msgid "Explain to an end user what this does"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: ../../../natspec.rst:55
 msgid "``@dev``"
-msgstr ""
+msgstr "``@dev``"
 
 #: ../../../natspec.rst:55
 msgid "Explain to a developer any extra details"
@@ -149,7 +149,7 @@ msgstr ""
 
 #: ../../../natspec.rst:56
 msgid "``@param``"
-msgstr ""
+msgstr "``@param``"
 
 #: ../../../natspec.rst:56
 msgid "Documents a single parameter"
@@ -161,7 +161,7 @@ msgstr ""
 
 #: ../../../natspec.rst:57
 msgid "``@return``"
-msgstr ""
+msgstr "``@return``"
 
 #: ../../../natspec.rst:57
 msgid "Documents one or all return variable(s)"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: ../../../natspec.rst:58
 msgid "``@custom:...``"
-msgstr ""
+msgstr "``@custom:...``"
 
 #: ../../../natspec.rst:58
 msgid "Custom tag, semantics is application-defined"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../../../natspec.rst:69
 msgid "Documentation Output"
-msgstr ""
+msgstr "文件輸出"
 
 #: ../../../natspec.rst:71
 msgid ""
@@ -230,7 +230,7 @@ msgstr "$ vyper -f userdoc,devdoc carrots.vy"
 
 #: ../../../natspec.rst:80
 msgid "User Documentation"
-msgstr ""
+msgstr "使用者文件"
 
 #: ../../../natspec.rst:82
 msgid ""
@@ -250,6 +250,15 @@ msgid ""
 "simulation\"\n"
 "}"
 msgstr ""
+"{\n"
+"  \"methods\": {\n"
+"    \"doesEat(string,uint256)\": {\n"
+"      \"notice\": \"Determine if Bugs will accept `qty` of `food` to eat\"\n"
+"    }\n"
+"  },\n"
+"  \"notice\": \"You can use this contract for only the most basic "
+"simulation\"\n"
+"}"
 
 #: ../../../natspec.rst:95
 msgid ""
@@ -259,7 +268,7 @@ msgstr ""
 
 #: ../../../natspec.rst:100
 msgid "Developer Documentation"
-msgstr ""
+msgstr "開發者文件"
 
 #: ../../../natspec.rst:102
 msgid ""
@@ -290,3 +299,23 @@ msgid ""
 "  \"title\" : \"A simulator for Bug Bunny, the most famous Rabbit\"\n"
 "}"
 msgstr ""
+"{\n"
+"  \"author\": \"Warned Bros\",\n"
+"  \"license\": \"MIT\",\n"
+"  \"details\": \"Simply chewing a carrot does not count, carrots must pass "
+"the throat to be considered eaten\",\n"
+"  \"methods\": {\n"
+"    \"doesEat(string,uint256)\": {\n"
+"      \"details\" : \"Compares the entire string and does not rely on a "
+"hash\",\n"
+"      \"params\": {\n"
+"        \"food\": \"The name of a food to evaluate (in English)\",\n"
+"        \"qty\": \"The number of food items to evaluate\"\n"
+"      },\n"
+"      \"returns\": {\n"
+"        \"_0\": \"True if Bugs will eat it, False otherwise\"\n"
+"      }\n"
+"    }\n"
+"  },\n"
+"  \"title\" : \"A simulator for Bug Bunny, the most famous Rabbit\"\n"
+"}"

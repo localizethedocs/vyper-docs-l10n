@@ -3126,7 +3126,7 @@ msgstr "關鍵字引數"
 
 #: sphinx/ext/napoleon/docstring.py:680
 msgid "Example"
-msgstr ""
+msgstr "範例"
 
 #: sphinx/ext/napoleon/docstring.py:681
 msgid "Examples"

@@ -144,7 +144,7 @@ msgstr ""
 
 #: ../../../vyper-by-example.rst:29
 msgid "Let's get started!"
-msgstr ""
+msgstr "讓我們開始吧！"
 
 #: ../../../vyper-by-example.rst:31
 msgid ""
