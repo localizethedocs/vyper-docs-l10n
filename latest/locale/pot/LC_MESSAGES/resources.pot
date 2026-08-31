@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-08-31 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,113 +62,157 @@ msgid ""
 msgstr ""
 
 #: ../../../resources.rst:18
-msgid "Frameworks and tooling"
+msgid "Editors"
 msgstr ""
 
 #: ../../../resources.rst:20
+msgid ""
+"`vyper-lsp <https://github.com/vyperlang/vyper-lsp>`__ syntax highlighting "
+"and autocompletion for Visual Studio Code, Emacs, Vim and others"
+msgstr ""
+
+#: ../../../resources.rst:21
+msgid ""
+"`Remix <https://remix.ethereum.org/>`__ - online environment for developing "
+"Ethereum smart contracts"
+msgstr ""
+
+#: ../../../resources.rst:24
+msgid "Frameworks and tooling"
+msgstr ""
+
+#: ../../../resources.rst:26
 msgid ""
 "`Titanoboa – A Vyper interpreter with pretty tracebacks, forking, debugging "
 "features and more <https://github.com/vyperlang/titanoboa/>`_"
 msgstr ""
 
-#: ../../../resources.rst:21
+#: ../../../resources.rst:27
 msgid ""
 "`Moccasin - A smart contract development and testing framework for Vyper and "
 "Python, built on Titanoboa <https://cyfrin.github.io/moccasin/>`_"
 msgstr ""
 
-#: ../../../resources.rst:22
+#: ../../../resources.rst:28
 msgid ""
 "`ApeWorX – The Ethereum development framework for Python Developers, Data "
 "Scientists, and Security Professionals <https://www.apeworx.io/>`_"
 msgstr ""
 
-#: ../../../resources.rst:23
+#: ../../../resources.rst:29
 msgid ""
 "`VyperDeployer – A helper smart contract to compile and test Vyper contracts "
 "in Foundry <https://github.com/pcaversaccio/snekmate/blob/main/lib/utils/"
 "VyperDeployer.sol>`_"
 msgstr ""
 
-#: ../../../resources.rst:24
+#: ../../../resources.rst:30
 msgid ""
 "`🐍 snekmate – Vyper smart contract building blocks <https://github.com/"
 "pcaversaccio/snekmate>`_"
 msgstr ""
 
-#: ../../../resources.rst:25
+#: ../../../resources.rst:31
 msgid ""
 "`Smart contract development frameworks and tools for Vyper on Ethereum.org "
 "<https://ethereum.org/en/developers/docs/programming-languages/python/>`_"
 msgstr ""
 
-#: ../../../resources.rst:28
+#: ../../../resources.rst:34
 msgid "Security"
 msgstr ""
 
-#: ../../../resources.rst:30
+#: ../../../resources.rst:36
 msgid ""
 "`VyperPunk – learn to secure and hack Vyper smart contracts <https://github."
 "com/defcongroup0532/VyperPunk>`_"
 msgstr ""
 
-#: ../../../resources.rst:33
+#: ../../../resources.rst:39
+msgid "Projects using Vyper"
+msgstr ""
+
+#: ../../../resources.rst:41
+msgid "`Curve <https://github.com/curvefi/curve-stablecoin>`__"
+msgstr ""
+
+#: ../../../resources.rst:42
+msgid "`Yearn <https://github.com/yearn/yearn-vaults>`__"
+msgstr ""
+
+#: ../../../resources.rst:43
+msgid "`Lido <https://github.com/lidofinance/gate-seals>`__"
+msgstr ""
+
+#: ../../../resources.rst:44
+msgid "`Ethereum <https://github.com/ethereum/sharding>`__"
+msgstr ""
+
+#: ../../../resources.rst:45
+msgid "`Uniswap <https://github.com/Uniswap/v1-contracts> (v1)`__"
+msgstr ""
+
+#: ../../../resources.rst:46
+msgid "`Cog Finance <https://github.com/CogFinance/Cog-Isolated-Lending>`"
+msgstr ""
+
+#: ../../../resources.rst:49
 msgid "Conference presentations"
 msgstr ""
 
-#: ../../../resources.rst:35
+#: ../../../resources.rst:51
 msgid ""
 "`Vyper Smart Contract Programming Language by Patrick Collins (2022, 30 "
 "mins) <https://www.youtube.com/watch?v=b-sOMNF9quo&t=1444s>`_"
 msgstr ""
 
-#: ../../../resources.rst:36
+#: ../../../resources.rst:52
 msgid ""
 "`Python and DeFi by Curve Finance (2022, 15 mins) <https://www.youtube.com/"
 "watch?v=4HOU3z0LoDg>`_"
 msgstr ""
 
-#: ../../../resources.rst:37
+#: ../../../resources.rst:53
 msgid ""
 "`My experience with Vyper over the years by Benjamin Scherrey (2022, 15 "
 "mins) <https://www.youtube.com/watch?v=_j7qF_GlyWE>`_"
 msgstr ""
 
-#: ../../../resources.rst:38
+#: ../../../resources.rst:54
 msgid ""
 "`Short introduction to Vyper by Edison Que (3 mins) <https://www.youtube.com/"
 "watch?v=dXqln-keyHw&t=4s>`_"
 msgstr ""
 
-#: ../../../resources.rst:41
+#: ../../../resources.rst:57
 msgid "Unmaintained"
 msgstr ""
 
-#: ../../../resources.rst:43
+#: ../../../resources.rst:59
 msgid ""
 "These resources have not been updated for a while, but may still offer "
 "interesting content."
 msgstr ""
 
-#: ../../../resources.rst:45
+#: ../../../resources.rst:61
 msgid ""
 "`Awesome Vyper curated resources <https://github.com/spadebuilders/awesome-"
 "vyper>`_"
 msgstr ""
 
-#: ../../../resources.rst:46
+#: ../../../resources.rst:62
 msgid ""
 "`Brownie – Python framework for developing smart contracts (deprecated) "
 "<https://eth-brownie.readthedocs.io/en/stable/>`_"
 msgstr ""
 
-#: ../../../resources.rst:47
+#: ../../../resources.rst:63
 msgid ""
 "`Foundry x Vyper – Foundry template to compile Vyper contracts <https://"
 "github.com/0xKitsune/Foundry-Vyper>`_"
 msgstr ""
 
-#: ../../../resources.rst:48
+#: ../../../resources.rst:64
 msgid ""
 "`Vyper Hub for development <https://github.com/zcor/vyper-dev>`_ (not "
 "maintained since 2021)"
