@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"POT-Creation-Date: 2026-08-31 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,7 +498,7 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: ../../../types.rst:301 ../../../types.rst:635
+#: ../../../types.rst:301 ../../../types.rst:680
 msgid "Type"
 msgstr ""
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "``balance``"
 msgstr ""
 
-#: ../../../types.rst:303 ../../../types.rst:305 ../../../types.rst:644
+#: ../../../types.rst:303 ../../../types.rst:305 ../../../types.rst:689
 msgid "``uint256``"
 msgstr ""
 
@@ -518,7 +518,7 @@ msgstr ""
 msgid "``codehash``"
 msgstr ""
 
-#: ../../../types.rst:304 ../../../types.rst:639
+#: ../../../types.rst:304 ../../../types.rst:684
 msgid "``bytes32``"
 msgstr ""
 
@@ -542,7 +542,7 @@ msgstr ""
 msgid "``is_contract``"
 msgstr ""
 
-#: ../../../types.rst:306 ../../../types.rst:638
+#: ../../../types.rst:306 ../../../types.rst:683
 msgid "``bool``"
 msgstr ""
 
@@ -933,24 +933,82 @@ msgid ""
 msgstr ""
 
 #: ../../../types.rst:567
-msgid "Structs"
+msgid "Unbounded Sequence Types"
 msgstr ""
 
 #: ../../../types.rst:569
+msgid ""
+"When using the experimental code generator, ``Bytes``, ``String`` and "
+"``DynArray`` may use ``INF`` as the length bound:"
+msgstr ""
+
+#: ../../../types.rst:572
+msgid ""
+"#pragma experimental-codegen\n"
+"\n"
+"@external\n"
+"def echo(x: Bytes[INF]) -> Bytes[INF]:\n"
+"    return x\n"
+"\n"
+"@external\n"
+"def values(xs: DynArray[uint256, INF]) -> DynArray[uint256, INF]:\n"
+"    ys: DynArray[uint256, INF] = xs\n"
+"    ys.append(42)\n"
+"    return ys"
+msgstr ""
+
+#: ../../../types.rst:586
+msgid ""
+"``Bytes[INF]`` and ``String[INF]`` can hold any runtime length. "
+"``DynArray[T, INF]`` can hold any runtime item count, but ``T`` must have an "
+"ABI-static layout, such as ``uint256``, ``bytes32``, static arrays, or "
+"structs made only from ABI-static members."
+msgstr ""
+
+#: ../../../types.rst:591
+msgid ""
+"Unbounded sequence values are supported for memory locals, function "
+"arguments, function returns, event and custom error members, ABI encoding "
+"and decoding, and bytes-oriented builtins such as ``concat``, ``slice``, "
+"``convert``, ``empty`` and ``print``. Top-level return tuples may contain "
+"direct unbounded sequence members, for example ``(uint256, Bytes[INF])``."
+msgstr ""
+
+#: ../../../types.rst:597
+msgid ""
+"Unbounded sequences are not supported in storage, transient storage, "
+"immutable module variables, struct members, static arrays, mappings, or "
+"nested inside another dynamic layout. For example, ``DynArray[Bytes[INF], "
+"INF]`` and ``DynArray[Bytes[10], INF]`` are rejected. Tuple arguments and "
+"local tuple variables containing unbounded sequence members are also "
+"rejected."
+msgstr ""
+
+#: ../../../types.rst:605
+msgid ""
+"``INF`` sequence types require ``#pragma experimental-codegen`` or compiling "
+"with ``--experimental-codegen``. The legacy code generator rejects them."
+msgstr ""
+
+#: ../../../types.rst:612
+msgid "Structs"
+msgstr ""
+
+#: ../../../types.rst:614
 msgid "Structs are custom defined types that can group several variables."
 msgstr ""
 
-#: ../../../types.rst:571
+#: ../../../types.rst:616
 msgid ""
 "Struct types can be used inside mappings and arrays. Structs can contain "
 "arrays and other structs, but not mappings."
 msgstr ""
 
-#: ../../../types.rst:573
+#: ../../../types.rst:618
 msgid "Struct members can be accessed via ``struct.argname``."
 msgstr ""
 
-#: ../../../types.rst:575
+#: ../../../types.rst:620
 msgid ""
 "# Defining a struct\n"
 "struct MyStruct:\n"
@@ -964,11 +1022,11 @@ msgid ""
 "exampleStruct.value1 = 1"
 msgstr ""
 
-#: ../../../types.rst:591
+#: ../../../types.rst:636
 msgid "Mappings"
 msgstr ""
 
-#: ../../../types.rst:593
+#: ../../../types.rst:638
 msgid ""
 "Mappings are `hash tables <https://en.wikipedia.org/wiki/Hash_table>`_ that "
 "are virtually initialized such that every possible key exists and is mapped "
@@ -976,32 +1034,32 @@ msgid ""
 "value <types-initial>`."
 msgstr ""
 
-#: ../../../types.rst:595
+#: ../../../types.rst:640
 msgid ""
 "The key data is not stored in a mapping. Instead, its ``keccak256`` hash is "
 "used to look up a value. For this reason, mappings do not have a length or a "
 "concept of a key or value being \"set\"."
 msgstr ""
 
-#: ../../../types.rst:597
+#: ../../../types.rst:642
 msgid "Mapping types are declared as ``HashMap[_KeyType, _ValueType]``."
 msgstr ""
 
-#: ../../../types.rst:599
+#: ../../../types.rst:644
 msgid ""
 "``_KeyType`` can be any base or bytes type. Mappings, arrays or structs are "
 "not supported as key types."
 msgstr ""
 
-#: ../../../types.rst:600
+#: ../../../types.rst:645
 msgid "``_ValueType`` can actually be any type, including mappings."
 msgstr ""
 
-#: ../../../types.rst:603
+#: ../../../types.rst:648
 msgid "Mappings are only allowed as state variables."
 msgstr ""
 
-#: ../../../types.rst:605
+#: ../../../types.rst:650
 msgid ""
 "# Defining a mapping\n"
 "exampleMapping: HashMap[int128, decimal]\n"
@@ -1010,15 +1068,15 @@ msgid ""
 "exampleMapping[0] = 10.1"
 msgstr ""
 
-#: ../../../types.rst:615
+#: ../../../types.rst:660
 msgid "Mappings have no concept of length and so cannot be iterated over."
 msgstr ""
 
-#: ../../../types.rst:622
+#: ../../../types.rst:667
 msgid "Initial Values"
 msgstr ""
 
-#: ../../../types.rst:624
+#: ../../../types.rst:669
 msgid ""
 "Unlike most programming languages, Vyper does not have a concept of "
 "``null``. Instead, every variable type has a default value. To check if a "
@@ -1026,80 +1084,80 @@ msgid ""
 "type."
 msgstr ""
 
-#: ../../../types.rst:626
+#: ../../../types.rst:671
 msgid ""
 "To reset a variable to its default value, assign to it the built-in "
 "``empty()`` function which constructs a zero value for that type."
 msgstr ""
 
-#: ../../../types.rst:630
+#: ../../../types.rst:675
 msgid ""
 "Memory variables must be assigned a value at the time they are declared."
 msgstr ""
 
-#: ../../../types.rst:632
+#: ../../../types.rst:677
 msgid "Here you can find a list of all types and default values:"
 msgstr ""
 
-#: ../../../types.rst:635
+#: ../../../types.rst:680
 msgid "Default Value"
 msgstr ""
 
-#: ../../../types.rst:637
+#: ../../../types.rst:682
 msgid "``address``"
 msgstr ""
 
-#: ../../../types.rst:637
+#: ../../../types.rst:682
 msgid "``0x0000000000000000000000000000000000000000``"
 msgstr ""
 
-#: ../../../types.rst:638
+#: ../../../types.rst:683
 msgid "``False``"
 msgstr ""
 
-#: ../../../types.rst:639
+#: ../../../types.rst:684
 msgid "``0x0000000000000000000000000000000000000000000000000000000000000000``"
 msgstr ""
 
-#: ../../../types.rst:640
+#: ../../../types.rst:685
 msgid "``decimal``"
 msgstr ""
 
-#: ../../../types.rst:640
+#: ../../../types.rst:685
 msgid "``0.0``"
 msgstr ""
 
-#: ../../../types.rst:641
+#: ../../../types.rst:686
 msgid "``uint8``"
 msgstr ""
 
-#: ../../../types.rst:641 ../../../types.rst:642 ../../../types.rst:643
-#: ../../../types.rst:644
+#: ../../../types.rst:686 ../../../types.rst:687 ../../../types.rst:688
+#: ../../../types.rst:689
 msgid "``0``"
 msgstr ""
 
-#: ../../../types.rst:642
+#: ../../../types.rst:687
 msgid "``int128``"
 msgstr ""
 
-#: ../../../types.rst:643
+#: ../../../types.rst:688
 msgid "``int256``"
 msgstr ""
 
-#: ../../../types.rst:648
+#: ../../../types.rst:693
 msgid "In ``Bytes``, the array starts with the bytes all set to ``'\\x00'``."
 msgstr ""
 
-#: ../../../types.rst:651
+#: ../../../types.rst:696
 msgid ""
 "In reference types, all the type's members are set to their initial values."
 msgstr ""
 
-#: ../../../types.rst:657
+#: ../../../types.rst:702
 msgid "Type Conversions"
 msgstr ""
 
-#: ../../../types.rst:659
+#: ../../../types.rst:704
 msgid ""
 "All type conversions in Vyper must be made explicitly using the built-in "
 "``convert(a: atype, btype)`` function. Type conversions in Vyper are "
@@ -1107,29 +1165,29 @@ msgid ""
 "input is in bounds for the output type. The general principles are:"
 msgstr ""
 
-#: ../../../types.rst:661
+#: ../../../types.rst:706
 msgid ""
 "Except for conversions involving decimals and bools, the input is bit-for-"
 "bit preserved."
 msgstr ""
 
-#: ../../../types.rst:662
+#: ../../../types.rst:707
 msgid "Conversions to bool map all nonzero inputs to 1."
 msgstr ""
 
-#: ../../../types.rst:663
+#: ../../../types.rst:708
 msgid ""
 "When converting from decimals to integers, the input is truncated towards "
 "zero."
 msgstr ""
 
-#: ../../../types.rst:664
+#: ../../../types.rst:709
 msgid ""
 "``address`` types are treated as ``uint160``, except conversions with signed "
 "integers and decimals are not allowed."
 msgstr ""
 
-#: ../../../types.rst:665
+#: ../../../types.rst:710
 msgid ""
 "Converting between right-padded (``bytes``, ``Bytes``, ``String``) and left-"
 "padded types, results in a rotation to convert the padding. For instance, "
@@ -1137,26 +1195,26 @@ msgid ""
 "input by 12 bytes to the right."
 msgstr ""
 
-#: ../../../types.rst:666
+#: ../../../types.rst:711
 msgid ""
 "Converting between signed and unsigned integers reverts if the input is "
 "negative."
 msgstr ""
 
-#: ../../../types.rst:667
+#: ../../../types.rst:712
 msgid ""
 "Narrowing conversions (e.g., ``int256 -> int128``) check that the input is "
 "in bounds for the output type."
 msgstr ""
 
-#: ../../../types.rst:668
+#: ../../../types.rst:713
 msgid ""
 "Converting between bytes and int types results in sign-extension if the "
 "output type is signed. For instance, converting ``0xff`` (``bytes1``) to "
 "``int8`` returns ``-1``."
 msgstr ""
 
-#: ../../../types.rst:669
+#: ../../../types.rst:714
 msgid ""
 "Converting between bytes and int types which have different sizes follows "
 "the rule of going through the closest integer type, first. For instance, "
@@ -1165,11 +1223,11 @@ msgid ""
 "left 12 bytes)."
 msgstr ""
 
-#: ../../../types.rst:670
+#: ../../../types.rst:715
 msgid "Flags can be converted to and from ``uint256`` only."
 msgstr ""
 
-#: ../../../types.rst:672
+#: ../../../types.rst:717
 msgid ""
 "A small Python reference implementation is maintained as part of Vyper's "
 "test suite, it can be found `here <https://github.com/vyperlang/vyper/blob/"
@@ -1234,10 +1292,18 @@ msgstr ""
 msgid "dynarrays"
 msgstr ""
 
-#: ../../../types.rst:588
+#: ../../../types.rst:564
+msgid "unbounded sequences"
+msgstr ""
+
+#: ../../../types.rst:564
+msgid "INF"
+msgstr ""
+
+#: ../../../types.rst:633
 msgid "mapping"
 msgstr ""
 
-#: ../../../types.rst:617
+#: ../../../types.rst:662
 msgid "initial"
 msgstr ""
