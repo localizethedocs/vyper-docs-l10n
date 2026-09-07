@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-06-16 15:47:22 +0000",
-      "hash" : "66caaca9ba3c584ef65593ab9a278a68af1ad25c",
-      "title" : "chore[build]: bump github-actions group (#5128)"
+      "date" : "2026-09-07 16:51:48 +0300",
+      "hash" : "0af7c3aeadb5d5336d8f386f5b807a7cd2066eb8",
+      "title" : "fix[venom]: fail closed on mixed-root pointers in base ptr analysis (#5250)"
     }
   },
   "type" : "branch",
