@@ -1,0 +1,386 @@
+
+  <!DOCTYPE html>
+<html lang="zh-CN" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Installing Vyper - Vyper 文档</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="Vyper by Example" href="vyper-by-example.html" /><link rel="prev" title="Vyper" href="index.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/installing-vyper.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/installing-vyper.html"/>
+<meta property="og:title" content="Installing Vyper"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜索" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切换到亮色模式"
+        data-aria-light="切换到暗色模式"
+        data-aria-dark="切换到自动模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example.html">Vyper by Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-titanoboa.html">Testing with Titanoboa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing-contracts-brownie.html">Testing with Brownie</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>该页内容</h3>
+    <ul>
+<li><a class="reference internal" href="#standalone">Standalone</a></li>
+<li><a class="reference internal" href="#binaries">Binaries</a></li>
+<li><a class="reference internal" href="#pip">PIP</a><ul>
+<li><a class="reference internal" href="#installing-python">Installing Python</a></li>
+<li><a class="reference internal" href="#creating-a-virtual-environment">Creating a virtual environment</a></li>
+<li><a class="reference internal" href="#id1">Installing Vyper</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+<li><a class="reference internal" href="#nix">nix</a><ul>
+<li><a class="reference internal" href="#id2">Installing Vyper</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/installing-vyper.rst">编辑此页面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Installing Vyper</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="installing-vyper">
+<h1>Installing Vyper<a class="headerlink" href="#installing-vyper" title="Link to this heading">¶</a></h1>
+<p>Take a deep breath, follow the instructions, and please
+<a class="reference external" href="https://github.com/vyperlang/vyper/issues">create an issue</a> if you encounter
+any errors.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The easiest way to experiment with the language is to use either <a class="reference external" href="https://try.vyperlang.org">Try Vyper!</a> (maintained by the Vyper team) or the <a class="reference external" href="https://remix.ethereum.org">Remix online compiler</a> (maintained by the Ethereum Foundation).
+- To use Try Vyper, go to <a class="reference external" href="https://try.vyperlang.org">https://try.vyperlang.org</a> and log in (requires Github login).
+- To use remix, go to <a class="reference external" href="https://remix.ethereum.org">https://remix.ethereum.org</a> and activate the vyper-remix plugin in the Plugin manager.</p>
+</div>
+<section id="standalone">
+<h2>Standalone<a class="headerlink" href="#standalone" title="Link to this heading">¶</a></h2>
+<p>The Vyper CLI can be installed with any <code class="docutils literal notranslate"><span class="pre">pip</span></code> compatible tool, for example, <code class="docutils literal notranslate"><span class="pre">pipx</span></code> or <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">tool</span></code>. If you do not have <code class="docutils literal notranslate"><span class="pre">pipx</span></code> or <code class="docutils literal notranslate"><span class="pre">uv</span></code> installed, first, go to the respective tool’s installation page:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/pypa/pipx?tab=readme-ov-file">https://github.com/pypa/pipx?tab=readme-ov-file</a></p></li>
+<li><p><a class="reference external" href="https://github.com/astral-sh/uv?tab=readme-ov-file#uv">https://github.com/astral-sh/uv?tab=readme-ov-file#uv</a></p></li>
+</ul>
+<p>Then, the command to install Vyper would be</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">pipx</span> <span class="n">install</span> <span class="n">vyper</span>
+</span></pre></div>
+</div>
+<p>Or,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">uv</span> <span class="n">tool</span> <span class="n">install</span> <span class="n">vyper</span>
+</span></pre></div>
+</div>
+</section>
+<section id="binaries">
+<h2>Binaries<a class="headerlink" href="#binaries" title="Link to this heading">¶</a></h2>
+<p>Alternatively, prebuilt Vyper binaries for Windows, Mac and Linux are available for download from the GitHub releases page: <a class="reference external" href="https://github.com/vyperlang/vyper/releases">https://github.com/vyperlang/vyper/releases</a>.</p>
+</section>
+<section id="pip">
+<h2>PIP<a class="headerlink" href="#pip" title="Link to this heading">¶</a></h2>
+<section id="installing-python">
+<h3>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">¶</a></h3>
+<p>Vyper can only be built using Python 3.10 and higher. If you need to know how to install the correct version of python,
+follow the instructions from the official <a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide/Download">Python website</a>.</p>
+</section>
+<section id="creating-a-virtual-environment">
+<h3>Creating a virtual environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading">¶</a></h3>
+<p>Because pip installations are not isolated by default, this method of
+installation is meant for more experienced Python developers who are using
+Vyper as a library, or want to use it within a Python project with other
+pip dependencies.</p>
+<p>It is <strong>strongly recommended</strong> to install Vyper in <strong>a virtual Python
+environment</strong>, so that new packages installed and dependencies built are
+strictly contained in your Vyper project and will not alter or affect your
+other development environment set-up.
+For easy virtualenv management, we recommend either <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>
+or <a class="reference external" href="https://github.com/python-poetry/poetry">Poetry</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>To find out more about virtual environments, check out:
+<a class="reference external" href="https://docs.python.org/3/library/venv.html">virtualenv guide</a>.</p>
+</div>
+</section>
+<section id="id1">
+<h3>Installing Vyper<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Each tagged version of vyper is uploaded to <a class="reference external" href="https://pypi.org/project/vyper/">pypi</a>, and can be installed using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">pip</span> <span class="n">install</span> <span class="n">vyper</span>
+</span></pre></div>
+</div>
+<p>To install a specific version use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">pip</span> <span class="n">install</span> <span class="n">vyper</span><span class="o">==</span><span class="mf">0.4.0</span>
+</span></pre></div>
+</div>
+<p>You can check if Vyper is installed completely or not by typing the following in your terminal/cmd:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">vyper</span> <span class="o">--</span><span class="n">version</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">¶</a></h2>
+<p>Vyper can be downloaded as docker image from <a class="reference external" href="https://hub.docker.com/r/vyperlang/vyper/tags?page=1&amp;ordering=last_updated">dockerhub</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">docker</span> <span class="n">pull</span> <span class="n">vyperlang</span><span class="o">/</span><span class="n">vyper</span>
+</span></pre></div>
+</div>
+<p>To run the compiler use the <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">docker run -v $(pwd):/code vyperlang/vyper /code/&lt;contract_file.vy&gt;
+</span></pre></div>
+</div>
+<p>Alternatively you can log into the docker image and execute vyper on the prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">docker run -v $(pwd):/code/ -it --entrypoint /bin/bash vyperlang/vyper
+</span><span id="1-2">root@d35252d1fb1b:/code# vyper &lt;contract_file.vy&gt;
+</span></pre></div>
+</div>
+<p>The normal parameters are also supported, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">docker run -v $(pwd):/code vyperlang/vyper -f abi /code/&lt;contract_file.vy&gt;
+</span><span id="1-2">[{&#39;name&#39;: &#39;test1&#39;, &#39;outputs&#39;: [], &#39;inputs&#39;: [{&#39;type&#39;: &#39;uint256&#39;, &#39;name&#39;: &#39;a&#39;}, {&#39;type&#39;: &#39;bytes&#39;, &#39;name&#39;: &#39;b&#39;}], &#39;constant&#39;: False, &#39;payable&#39;: False, &#39;type&#39;: &#39;function&#39;, &#39;gas&#39;: 441}, {&#39;name&#39;: &#39;test2&#39;, &#39;outputs&#39;: [], &#39;inputs&#39;: [{&#39;type&#39;: &#39;uint256&#39;, &#39;name&#39;: &#39;a&#39;}], &#39;constant&#39;: False, &#39;payable&#39;: False, &#39;type&#39;: &#39;function&#39;, &#39;gas&#39;: 316}]
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>If you would like to know how to install Docker, please follow their <a class="reference external" href="https://docs.docker.com/get-docker/">documentation</a>.</p>
+</div>
+</section>
+<section id="nix">
+<h2>nix<a class="headerlink" href="#nix" title="Link to this heading">¶</a></h2>
+<p>View the versions supported through nix at <a class="reference external" href="https://search.nixos.org/packages?channel=21.05&amp;show=vyper&amp;from=0&amp;size=50&amp;sort=relevance&amp;query=vyper">nix package search</a></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The derivation for Vyper is located at  <a class="reference external" href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/compilers/vyper/default.nix">nixpkgs</a></p>
+</div>
+<section id="id2">
+<h3>Installing Vyper<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">nix</span><span class="o">-</span><span class="n">env</span> <span class="o">-</span><span class="n">iA</span> <span class="n">nixpkgs</span><span class="o">.</span><span class="n">vyper</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="index.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一章</span>
+        
+        <div class="title">Vyper</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="vyper-by-example.html">
+      <div class="page-info">
+        <span>下一章</span>
+        <div class="title">Vyper by Example</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=7d86a446"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

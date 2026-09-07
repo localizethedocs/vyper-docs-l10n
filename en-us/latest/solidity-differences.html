@@ -1,0 +1,718 @@
+
+  <!DOCTYPE html>
+<html lang="en-US" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Differences from Solidity - Vyper documentation</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Vyper by Example" href="vyper-by-example/index.html" /><link rel="prev" title="Quickstart" href="quickstart.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/solidity-differences.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/solidity-differences.html"/>
+<meta property="og:title" content="Differences from Solidity"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="Switch to light color mode"
+        data-aria-light="Switch to dark color mode"
+        data-aria-dark="Switch to auto color mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">Math Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">Abstract Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">Deep Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>On this page</h3>
+    <ul>
+<li><a class="reference internal" href="#quick-reference">Quick Reference</a></li>
+<li><a class="reference internal" href="#philosophy">Philosophy</a></li>
+<li><a class="reference internal" href="#no-modifiers">No Modifiers</a></li>
+<li><a class="reference internal" href="#modules-instead-of-inheritance">Modules Instead of Inheritance</a></li>
+<li><a class="reference internal" href="#no-inline-assembly">No Inline Assembly</a></li>
+<li><a class="reference internal" href="#no-function-overloading">No Function Overloading</a></li>
+<li><a class="reference internal" href="#no-operator-overloading">No Operator Overloading</a></li>
+<li><a class="reference internal" href="#no-infinite-loops">No Infinite Loops</a></li>
+<li><a class="reference internal" href="#no-recursion">No Recursion</a></li>
+<li><a class="reference internal" href="#bounded-dynamic-arrays">Bounded Dynamic Arrays</a></li>
+<li><a class="reference internal" href="#explicit-type-conversions">Explicit Type Conversions</a></li>
+<li><a class="reference internal" href="#decimal-type">Decimal Type</a></li>
+<li><a class="reference internal" href="#bounds-checking">Bounds Checking</a></li>
+<li><a class="reference internal" href="#reentrancy-protection">Reentrancy Protection</a></li>
+<li><a class="reference internal" href="#syntax-differences">Syntax Differences</a><ul>
+<li><a class="reference internal" href="#state-variables">State Variables</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#constructor">Constructor</a></li>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#mappings">Mappings</a></li>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li><a class="reference internal" href="#self-reference">Self Reference</a></li>
+<li><a class="reference internal" href="#external-calls">External Calls</a></li>
+<li><a class="reference internal" href="#structs">Structs</a></li>
+<li><a class="reference internal" href="#constants-and-immutables">Constants and Immutables</a></li>
+<li><a class="reference internal" href="#default-function">Default Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#why-vyper">Why Vyper?</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/solidity-differences.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Differences from Solidity</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="differences-from-solidity">
+<span id="solidity-differences"></span><h1>Differences from Solidity<a class="headerlink" href="#differences-from-solidity" title="Link to this heading">¶</a></h1>
+<p>This page covers the key differences between Solidity and Vyper, the reasoning behind them, and their consequences.</p>
+<section id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Solidity</p></th>
+<th class="head"><p>Vyper</p></th>
+<th class="head"><p>Rationale</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">modifier</span></code></p></td>
+<td><p>Inline checks</p></td>
+<td><p>Control flow is explicit in the function body</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">import</span></code> + <code class="docutils literal notranslate"><span class="pre">exports</span></code> + <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> / <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code></p></td>
+<td><p>Explicit dependencies, compile-time resolution</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assembly</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+<td><p>Not supported</p></td>
+<td><p>No direct EVM opcode access; use specific builtins (<code class="docutils literal notranslate"><span class="pre">raw_call</span></code>, <code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to</span></code>, etc.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(true)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(n)</span></code></p></td>
+<td><p>Bounded gas costs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mapping</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HashMap</span></code></p></td>
+<td><p>Same semantics</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">emit</span> <span class="pre">Event()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">Event()</span></code></p></td>
+<td><p>Same semantics</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">require()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> / <code class="docutils literal notranslate"><span class="pre">raise</span></code></p></td>
+<td><p>Different semantics; explicit error paths</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">contract.call()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">extcall</span></code> / <code class="docutils literal notranslate"><span class="pre">staticcall</span></code></p></td>
+<td><p>Explicit external calls</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="philosophy">
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Link to this heading">¶</a></h2>
+<p>Vyper prioritizes three properties: security, simplicity, and auditability.</p>
+<p>To achieve these properties, Vyper excludes features that obscure control flow or make code difficult to reason about. Each omission is a deliberate tradeoff: less flexibility in exchange for explicit behavior. See <a class="reference internal" href="index.html#design-principles"><span class="std std-ref">Principles</span></a> for the full rationale.</p>
+</section>
+<section id="no-modifiers">
+<h2>No Modifiers<a class="headerlink" href="#no-modifiers" title="Link to this heading">¶</a></h2>
+<p>Solidity modifiers wrap function execution:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">modifier</span><span class="w"> </span>onlyOwner<span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span><span class="kt">require</span><span class="p">(</span><span class="k">msg.sender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>owner<span class="p">,</span><span class="w"> </span><span class="s2">&quot;Not owner&quot;</span><span class="p">);</span>
+</span><span id="1-3"><span class="w">    </span>_<span class="p">;</span>
+</span><span id="1-4"><span class="p">}</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="kt">function</span><span class="w"> </span><span class="nv">withdraw</span><span class="p">()</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>onlyOwner<span class="w"> </span><span class="p">{</span>
+</span><span id="1-7"><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="1-8"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>While <code class="docutils literal notranslate"><span class="pre">onlyOwner</span></code> appears simple, modifiers can execute code before and after the function body, modify state, and obscure the actual logic. Understanding a function requires reading the modifier definitions elsewhere in the codebase. For this reason, Vyper does not have modifiers.</p>
+<p>In Vyper, checks are written inline:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">():</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="bp">msg.sender</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">owner</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Not owner&quot;</span>
+</span><span id="1-4"><span class="w">    </span><span class="c1"># ...</span>
+</span></pre></div>
+</div>
+<p>Inline checks keep the control flow visible from top to bottom.</p>
+</section>
+<section id="modules-instead-of-inheritance">
+<span id="no-class-inheritance"></span><h2>Modules Instead of Inheritance<a class="headerlink" href="#modules-instead-of-inheritance" title="Link to this heading">¶</a></h2>
+<p>Solidity supports multiple inheritance, which introduces the diamond problem and C3 linearization complexity. Vyper replaces inheritance with a module system that achieves the same goals of code reuse and behavioral customization through different, more explicit mechanisms.</p>
+<p>In Vyper 0.4.0, a module system was introduced for powerful code reuse:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">ownable</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nv">initializes:</span><span class="w"> </span><span class="n">ownable</span>
+</span><span id="1-4"><span class="nv">exports:</span><span class="w"> </span><span class="n">ownable</span><span class="p">.</span><span class="n">transfer_ownership</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@deploy</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">():</span>
+</span><span id="1-8"><span class="w">    </span><span class="n">ownable</span><span class="p">.</span><span class="n n-Magic">__init__</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Three declarations manage module relationships: <code class="docutils literal notranslate"><span class="pre">initializes</span></code> (this contract manages the module’s storage), <code class="docutils literal notranslate"><span class="pre">uses</span></code> (this contract reads module state without initializing), and <code class="docutils literal notranslate"><span class="pre">exports</span></code> (expose module functions in the ABI). See <a class="reference internal" href="using-modules.html"><span class="doc">Modules</span></a> for details.</p>
+<p>Where Solidity uses <code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">contract</span></code> with <code class="docutils literal notranslate"><span class="pre">virtual</span></code> / <code class="docutils literal notranslate"><span class="pre">override</span></code> for polymorphism, Vyper uses <code class="docutils literal notranslate"><span class="pre">&#64;abstract</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code> decorators on internal module functions. An abstract module declares methods with no implementation; the module that <code class="docutils literal notranslate"><span class="pre">initializes</span></code> it supplies the concrete <code class="docutils literal notranslate"><span class="pre">&#64;override</span></code>. Each abstract module has exactly one initializer, so there is no ambiguity about which override is chosen. All overrides are resolved at compile time — there is no virtual dispatch and no method-resolution order. See <a class="reference internal" href="abstract-modules.html#abstract-modules"><span class="std std-ref">Abstract Modules</span></a> for details.</p>
+<p>A contract can be understood by reading one file and its direct imports; dependencies and what is exposed in the external function table are explicit.</p>
+</section>
+<section id="no-inline-assembly">
+<h2>No Inline Assembly<a class="headerlink" href="#no-inline-assembly" title="Link to this heading">¶</a></h2>
+<p>Vyper excludes inline assembly. For low-level operations, use the <a class="reference internal" href="built-in-functions.html#built-in-functions"><span class="std std-ref">built-in functions</span></a>: <code class="docutils literal notranslate"><span class="pre">raw_call</span></code>, <code class="docutils literal notranslate"><span class="pre">raw_create</span></code>, <code class="docutils literal notranslate"><span class="pre">create_minimal_proxy_to</span></code>, <code class="docutils literal notranslate"><span class="pre">create_from_blueprint</span></code>.</p>
+<p>Assembly bypasses compiler safety checks: type verification, overflow protection, memory safety, and requires reviewers to reason about raw opcodes. Vyper’s built-in functions provide low-level access through explicit, auditable function calls.</p>
+</section>
+<section id="no-function-overloading">
+<h2>No Function Overloading<a class="headerlink" href="#no-function-overloading" title="Link to this heading">¶</a></h2>
+<p>Solidity permits multiple functions with the same name and different parameters:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">function</span><span class="w"> </span><span class="nv">transfer</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">amount</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="1-2"><span class="kt">function</span><span class="w"> </span><span class="nv">transfer</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">amount</span><span class="p">,</span><span class="w"> </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper requires unique function names, keeping the ABI and call sites explicit during review.</p>
+</section>
+<section id="no-operator-overloading">
+<h2>No Operator Overloading<a class="headerlink" href="#no-operator-overloading" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> always performs arithmetic addition. Operators cannot be redefined for custom types, so operator behavior is consistent across the codebase.</p>
+</section>
+<section id="no-infinite-loops">
+<h2>No Infinite Loops<a class="headerlink" href="#no-infinite-loops" title="Link to this heading">¶</a></h2>
+<p>Vyper requires all loops to have a compile-time upper bound:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="1-2"><span class="w">    </span><span class="c1"># Loop body</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Variable count, but capped at compile time</span>
+</span><span id="1-5"><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">bound</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="1-6"><span class="w">    </span><span class="c1"># Loop body</span>
+</span></pre></div>
+</div>
+<p>Unbounded storage iteration can exceed the block gas limit, making contracts unusable. Bounded loops prevent this class of issue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vyper’s bounded loops and lack of recursion make gas costs statically analyzable—every function call has a calculable upper bound (see <a class="reference internal" href="index.html#design-principles"><span class="std std-ref">Principles</span></a>).</p>
+</div>
+</section>
+<section id="no-recursion">
+<h2>No Recursion<a class="headerlink" href="#no-recursion" title="Link to this heading">¶</a></h2>
+<p>Functions cannot call themselves, directly or through intermediate functions. Recursive logic must be converted to bounded iteration.</p>
+<p>This constraint keeps the call graph acyclic and analyzable at compile time.</p>
+</section>
+<section id="bounded-dynamic-arrays">
+<h2>Bounded Dynamic Arrays<a class="headerlink" href="#bounded-dynamic-arrays" title="Link to this heading">¶</a></h2>
+<p>Storage arrays require a maximum size at compile time:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">balances:</span><span class="w"> </span><span class="n">DynArray</span><span class="p">[</span><span class="kt">uint256</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">]</span>
+</span></pre></div>
+</div>
+<p>This keeps gas costs predictable and can prevent denial-of-service attacks. For unbounded collections, use <a class="reference internal" href="types.html#types"><span class="std std-ref">HashMap</span></a>.</p>
+</section>
+<section id="explicit-type-conversions">
+<h2>Explicit Type Conversions<a class="headerlink" href="#explicit-type-conversions" title="Link to this heading">¶</a></h2>
+<p>Vyper requires explicit type conversions:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">x:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+</span><span id="1-2"><span class="nv">y:</span><span class="w"> </span><span class="kt">int256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">convert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int256</span><span class="p">)</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nv">addr:</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1234</span><span class="p">...</span>
+</span><span id="1-5"><span class="nv">num:</span><span class="w"> </span><span class="n">uint160</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">convert</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="n">uint160</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Vyper allows safe automatic widening (e.g., <code class="docutils literal notranslate"><span class="pre">uint8</span></code> to <code class="docutils literal notranslate"><span class="pre">uint256</span></code>) but requires explicit <code class="docutils literal notranslate"><span class="pre">convert()</span></code> for potentially lossy or semantically significant conversions, such as signed/unsigned, addresses to integers, or narrowing types. See <a class="reference internal" href="types.html#types"><span class="std std-ref">Types</span></a> for the complete type reference.</p>
+</section>
+<section id="decimal-type">
+<h2>Decimal Type<a class="headerlink" href="#decimal-type" title="Link to this heading">¶</a></h2>
+<p>Native base-10 fixed-point arithmetic with 10 fractional digits:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">a:</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</span><span id="1-2"><span class="nv">b:</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
+</span><span id="1-3"><span class="nv">total:</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w">  </span><span class="c1"># exactly 0.3</span>
+</span></pre></div>
+</div>
+<p>Values like <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">0.2</span></code> cannot be represented exactly in binary floating point, but Vyper’s base-10 decimal type handles them precisely.</p>
+<p>Solidity lacks a native fixed-point type, requiring manual integer scaling.</p>
+</section>
+<section id="bounds-checking">
+<h2>Bounds Checking<a class="headerlink" href="#bounds-checking" title="Link to this heading">¶</a></h2>
+<p>Array accesses and arithmetic are bounds-checked at runtime. Out-of-bounds access reverts. Integer overflow reverts.</p>
+<p>Solidity 0.8+ provides similar overflow protection, which is disabled in <code class="docutils literal notranslate"><span class="pre">unchecked</span></code> blocks. In Vyper, there is no way to disable the checks. For cases where wrapping behavior is needed, there are explicit <a class="reference internal" href="built-in-functions.html#built-in-functions"><span class="std std-ref">unsafe_* builtins</span></a>.</p>
+</section>
+<section id="reentrancy-protection">
+<h2>Reentrancy Protection<a class="headerlink" href="#reentrancy-protection" title="Link to this heading">¶</a></h2>
+<p>Built-in <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> decorator:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@nonreentrant</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">():</span>
+</span><span id="1-4"><span class="w">    </span><span class="c1"># Cannot be re-entered</span>
+</span></pre></div>
+</div>
+<p>The compiler generates the mutex. No manual reentrancy guard implementation required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The 2016 DAO hack exploited reentrancy to drain ~$60M in ETH. This led to the Ethereum hard fork that created Ethereum Classic.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">extcall</span></code> keyword makes external call sites explicit and easy to spot during code review. Note that <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> is opt-in and uses a global lock that protects against same-contract reentrancy: if any <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> function is executing, no other <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> function in the same contract can be entered.</p>
+<p>Alternatively, <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">nonreentrancy</span></code> enables reentrancy protection by default for all functions in the contract, so <code class="docutils literal notranslate"><span class="pre">&#64;nonreentrant</span></code> is only needed when not using the pragma. It does not prevent cross-contract reentrancy (i.e., contract A calling contract B which calls back into contract A). See <a class="reference internal" href="control-structures.html#control-structures"><span class="std std-ref">Control Structures</span></a> for details on the lock behavior.</p>
+</section>
+<section id="syntax-differences">
+<h2>Syntax Differences<a class="headerlink" href="#syntax-differences" title="Link to this heading">¶</a></h2>
+<p>Practical syntax translations for common patterns.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Every Vyper file must start with a version pragma: <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">version</span> <span class="pre">^0.4.0</span></code>. This is similar to Solidity’s <code class="docutils literal notranslate"><span class="pre">pragma</span> <span class="pre">solidity</span> <span class="pre">^0.8.0;</span></code> but uses a comment syntax. Vyper files use the <code class="docutils literal notranslate"><span class="pre">.vy</span></code> extension.</p>
+</div>
+<section id="state-variables">
+<h3>State Variables<a class="headerlink" href="#state-variables" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">uint256</span><span class="w"> </span><span class="k">public </span><span class="nv">counter</span><span class="p">;</span>
+</span><span id="1-2"><span class="kt">address</span><span class="w"> </span><span class="k">private </span><span class="nv">owner</span><span class="p">;</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">counter:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-2"><span class="nv">owner:</span><span class="w"> </span><span class="kt">address</span>
+</span></pre></div>
+</div>
+<p>Variables are private by default. Use <code class="docutils literal notranslate"><span class="pre">public()</span></code> to generate a getter.</p>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">function</span><span class="w"> </span><span class="nv">deposit</span><span class="p">()</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">payable</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span><span class="kt">return</span><span class="w"> </span><span class="k">msg.value</span><span class="p">;</span>
+</span><span id="1-3"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="bp">msg.value</span>
+</span></pre></div>
+</div>
+<p>Decorators specify visibility (<code class="docutils literal notranslate"><span class="pre">&#64;external</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;internal</span></code>) and mutability (<code class="docutils literal notranslate"><span class="pre">&#64;payable</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;view</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;pure</span></code>).</p>
+</section>
+<section id="constructor">
+<h3>Constructor<a class="headerlink" href="#constructor" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">constructor</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">_owner</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span>_owner<span class="p">;</span>
+</span><span id="1-3"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@deploy</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">(</span><span class="nv">owner:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">owner</span>
+</span></pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;deploy</span></code> decorator marks the constructor.</p>
+</section>
+<section id="events">
+<h3>Events<a class="headerlink" href="#events" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">event</span><span class="w"> </span><span class="nv">Transfer</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>from<span class="p">,</span><span class="w"> </span><span class="kt">address</span><span class="w"> </span><span class="nv">indexed</span><span class="w"> </span>to<span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">value</span><span class="p">);</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="kt">function</span><span class="w"> </span><span class="nv">_transfer</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">amount</span><span class="p">)</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-4"><span class="w">    </span>emit<span class="w"> </span>Transfer<span class="p">(</span><span class="k">msg.sender</span><span class="p">,</span><span class="w"> </span>to<span class="p">,</span><span class="w"> </span>amount<span class="p">);</span>
+</span><span id="1-5"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">event</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">sender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">receiver:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="nd">@internal</span>
+</span><span id="1-7"><span class="k">def</span><span class="w"> </span><span class="nf">_transfer</span><span class="p">(</span><span class="nv">to:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-8"><span class="w">    </span><span class="k">log</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">log</span></code> instead of <code class="docutils literal notranslate"><span class="pre">emit</span></code>.</p>
+</section>
+<section id="mappings">
+<h3>Mappings<a class="headerlink" href="#mappings" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>balances<span class="p">;</span>
+</span><span id="1-2"><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">mapping</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">))</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span>allowances<span class="p">;</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">balances:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">])</span>
+</span><span id="1-2"><span class="nv">allowances:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">]])</span>
+</span></pre></div>
+</div>
+</section>
+<section id="interfaces">
+<h3>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1">interface<span class="w"> </span>IERC20<span class="w"> </span><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">transfer</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">amount</span><span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+</span><span id="1-3"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper (inline declaration):</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">interface</span><span class="w"> </span><span class="nc">IERC20</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="nv">to:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="nv">amount:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span><span class="w"> </span><span class="kd">nonpayable</span>
+</span></pre></div>
+</div>
+<p>Interfaces can also be defined in separate <code class="docutils literal notranslate"><span class="pre">.vyi</span></code> files (see <a class="reference internal" href="interfaces.html#interfaces"><span class="std std-ref">Interfaces</span></a>). Vyper ships with built-in interfaces for ERC20, ERC721, etc. via <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">ethereum.ercs</span> <span class="pre">import</span> <span class="pre">IERC20</span></code>.</p>
+</section>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">require</span><span class="p">(</span>amount<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m m-Decimal">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Amount must be positive&quot;</span><span class="p">);</span>
+</span><span id="1-2">revert<span class="p">(</span><span class="s2">&quot;Operation failed&quot;</span><span class="p">);</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">assert</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Amount must be positive&quot;</span>
+</span><span id="1-2"><span class="k">raise</span><span class="w"> </span><span class="s2">&quot;Operation failed&quot;</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> for conditions, <code class="docutils literal notranslate"><span class="pre">raise</span></code> to revert.</p>
+</section>
+<section id="self-reference">
+<h3>Self Reference<a class="headerlink" href="#self-reference" title="Link to this heading">¶</a></h3>
+<p>State variables require <code class="docutils literal notranslate"><span class="pre">self.</span></code> prefix:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="na">self</span><span class="p">.</span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</span></pre></div>
+</div>
+<p>Storage access is always explicit. Since storage operations cost more gas than memory operations, this distinction surfaces gas-intensive operations during review.</p>
+</section>
+<section id="external-calls">
+<h3>External Calls<a class="headerlink" href="#external-calls" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1">IERC20<span class="p">(</span>token<span class="p">).</span>transfer<span class="p">(</span>to<span class="p">,</span><span class="w"> </span>amount<span class="p">);</span>
+</span><span id="1-2"><span class="kt">uint256</span><span class="w"> </span><span class="nv">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>IERC20<span class="p">(</span>token<span class="p">).</span>balanceOf<span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="kt">this</span><span class="p">));</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">extcall</span><span class="w"> </span><span class="n">IERC20</span><span class="p">(</span><span class="n">token</span><span class="p">).</span><span class="n">transfer</span><span class="p">(</span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span>
+</span><span id="1-2"><span class="nv">balance:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">staticcall</span><span class="w"> </span><span class="n">IERC20</span><span class="p">(</span><span class="n">token</span><span class="p">).</span><span class="n">balanceOf</span><span class="p">(</span><span class="na">self</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">extcall</span></code> for state-changing calls, <code class="docutils literal notranslate"><span class="pre">staticcall</span></code> for view/pure functions. The keywords make external calls and potential reentrancy points visible in code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extcall</span></code> keyword is required for all state-changing external calls. There is no implicit external call syntax in Vyper: every external call is syntactically marked.</p>
+</div>
+</section>
+<section id="structs">
+<h3>Structs<a class="headerlink" href="#structs" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">struct</span><span class="w"> </span><span class="nv">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nv">name</span><span class="p">;</span>
+</span><span id="1-3"><span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">age</span><span class="p">;</span>
+</span><span id="1-4"><span class="p">}</span>
+</span><span id="1-5">
+</span><span id="1-6">Person<span class="w"> </span><span class="kt">public</span><span class="w"> </span>owner<span class="p">;</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">struct</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">name:</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">age:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nv">owner:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>Note that Vyper strings require explicit maximum length (<code class="docutils literal notranslate"><span class="pre">String[64]</span></code>).</p>
+</section>
+<section id="constants-and-immutables">
+<h3>Constants and Immutables<a class="headerlink" href="#constants-and-immutables" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kt">uint256</span><span class="w"> </span><span class="nv">constant</span><span class="w"> </span>FEE<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m m-Decimal">100</span><span class="p">;</span>
+</span><span id="1-2"><span class="kt">address</span><span class="w"> </span><span class="nv">immutable</span><span class="w"> </span>owner<span class="p">;</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="kt">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-5"><span class="w">    </span>owner<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">msg.sender</span><span class="p">;</span>
+</span><span id="1-6"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">FEE:</span><span class="w"> </span><span class="kd">constant</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+</span><span id="1-2"><span class="nv">owner:</span><span class="w"> </span><span class="kd">immutable</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="nd">@deploy</span>
+</span><span id="1-5"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">():</span>
+</span><span id="1-6"><span class="w">    </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">msg.sender</span>
+</span></pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">constant</span></code> values are inlined at compile time. <code class="docutils literal notranslate"><span class="pre">immutable</span></code> values are set once during deployment and cannot be changed.</p>
+</section>
+<section id="default-function">
+<h3>Default Function<a class="headerlink" href="#default-function" title="Link to this heading">¶</a></h3>
+<p>Solidity:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span id="1-1">fallback<span class="p">()</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">payable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="1-2">receive<span class="p">()</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">payable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>Vyper:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="nd">@payable</span>
+</span><span id="1-3"><span class="k">def</span><span class="w"> </span><span class="nf">__default__</span><span class="p">():</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">pass</span>
+</span></pre></div>
+</div>
+<p>Vyper uses a single <code class="docutils literal notranslate"><span class="pre">__default__</span></code> function for both fallback and receive. It executes when no other function matches or when receiving plain ETH.</p>
+</section>
+</section>
+<section id="why-vyper">
+<h2>Why Vyper?<a class="headerlink" href="#why-vyper" title="Link to this heading">¶</a></h2>
+<p>Use Vyper if:</p>
+<ul class="simple">
+<li><p><strong>You have Python experience.</strong> The syntax is familiar.</p></li>
+<li><p><strong>You want compiler-enforced constraints.</strong> The compiler rejects unbounded loops, implicit conversions, and recursive calls.</p></li>
+<li><p><strong>You prefer explicit code.</strong> One way to do most things. No modifiers, no inheritance, no operator overloading.</p></li>
+<li><p><strong>You want no global opt-out for safety checks.</strong> Overflow and bounds checks can only be bypassed per-operation via <code class="docutils literal notranslate"><span class="pre">unsafe_*</span></code> builtins.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="quickstart.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>Previous</span>
+        
+        <div class="title">Quickstart</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="vyper-by-example/index.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Vyper by Example</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=ccd1e645"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
