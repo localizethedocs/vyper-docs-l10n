@@ -1,0 +1,817 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper 0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../style-guide.rst:4
+msgid "Style Guide"
+msgstr "風格指南"
+
+#: ../../../style-guide.rst:6
+msgid ""
+"This document outlines the code style, project structure and practices "
+"followed by the Vyper development team."
+msgstr ""
+
+#: ../../../style-guide.rst:10
+msgid ""
+"Portions of the current codebase do not adhere to this style guide. We are "
+"in the process of a large-scale refactor and this guide is intended to "
+"outline the structure and best practices *during and beyond* this refactor. "
+"Refactored code and added functionality **must** adhere to this guide. "
+"Bugfixes and modifications to existing functionality **may** adopt the same "
+"style as the related code."
+msgstr ""
+
+#: ../../../style-guide.rst:13
+msgid "Project Organization"
+msgstr ""
+
+#: ../../../style-guide.rst:15
+msgid ""
+"Each subdirectory within Vyper **should** be a self-contained package "
+"representing a single pass of the compiler or other logical component."
+msgstr ""
+
+#: ../../../style-guide.rst:16
+msgid ""
+"Functionality intended to be called from modules outside of a package "
+"**must** be exposed within the base ``__init__.py``. All other functionality "
+"is for internal use only."
+msgstr ""
+
+#: ../../../style-guide.rst:17
+msgid ""
+"It **should** be possible to remove any package and replace it with another "
+"that exposes the same API, without breaking functionality in other packages."
+msgstr ""
+
+#: ../../../style-guide.rst:20
+msgid "Code Style"
+msgstr ""
+
+#: ../../../style-guide.rst:22
+msgid ""
+"All code **must** conform to the `PEP 8 style guide <https://www.python.org/"
+"dev/peps/pep-0008>`_ with the following exceptions:"
+msgstr ""
+
+#: ../../../style-guide.rst:24
+msgid "Maximum line length of 100"
+msgstr ""
+
+#: ../../../style-guide.rst:26
+msgid ""
+"We handle code formatting with `black <https://github.com/psf/black>`_ with "
+"the line-length option set to 80. This ensures a consistent style across the "
+"project and saves time by not having to be opinionated."
+msgstr ""
+
+#: ../../../style-guide.rst:29
+msgid "Naming Conventions"
+msgstr "命名慣例"
+
+#: ../../../style-guide.rst:31
+msgid ""
+"Names **must** adhere to `PEP 8 naming conventions <https://www.python.org/"
+"dev/peps/pep-0008/#prescriptive-naming-conventions>`_:"
+msgstr ""
+"名稱\\ **必須**\\ 符合 `PEP 8 命名規範 <https://www.python.org/dev/peps/"
+"pep-0008/#prescriptive-naming-conventions>`_\\ ："
+
+#: ../../../style-guide.rst:33
+msgid ""
+"**Modules** have short, all-lowercase names. Underscores can be used in the "
+"module name if it improves readability."
+msgstr ""
+
+#: ../../../style-guide.rst:34
+msgid "**Class names** use the CapWords convention."
+msgstr ""
+
+#: ../../../style-guide.rst:35
+msgid "**Exceptions** follow the same conventions as other classes."
+msgstr ""
+
+#: ../../../style-guide.rst:36
+msgid ""
+"**Function** names are lowercase, with words separated by underscores when "
+"it improves readability."
+msgstr ""
+
+#: ../../../style-guide.rst:37
+msgid ""
+"**Method** names and **instance** variables follow the same conventions as "
+"functions."
+msgstr ""
+
+#: ../../../style-guide.rst:38
+msgid ""
+"**Constants** use all capital letters with underscores separating words."
+msgstr ""
+
+#: ../../../style-guide.rst:41
+msgid "Leading Underscores"
+msgstr ""
+
+#: ../../../style-guide.rst:43
+msgid "A single leading underscore marks an object as private."
+msgstr ""
+
+#: ../../../style-guide.rst:45
+msgid ""
+"Classes and functions with one leading underscore are only used in the "
+"module where they are declared. They **must not** be imported."
+msgstr ""
+
+#: ../../../style-guide.rst:46
+msgid ""
+"Class attributes and methods with one leading underscore **must** only be "
+"accessed by methods within the same class."
+msgstr ""
+
+#: ../../../style-guide.rst:49
+msgid "Booleans"
+msgstr ""
+
+#: ../../../style-guide.rst:51
+msgid "Boolean values **should** be prefixed with ``is_``."
+msgstr ""
+
+#: ../../../style-guide.rst:52
+msgid ""
+"Booleans **must not** represent *negative* properties, (e.g. "
+"``is_not_set``). This can result in double-negative evaluations which are "
+"not intuitive for readers."
+msgstr ""
+
+#: ../../../style-guide.rst:53
+msgid ""
+"Methods that return a single boolean **should** use the :py:class:"
+"`@property<property>` decorator."
+msgstr ""
+
+#: ../../../style-guide.rst:56
+msgid "Methods"
+msgstr "方法"
+
+#: ../../../style-guide.rst:58
+msgid ""
+"The following conventions **should** be used when naming functions or "
+"methods. Consistent naming provides logical consistency throughout the "
+"codebase and makes it easier for future readers to understand what a method "
+"does (and does not) do."
+msgstr ""
+
+#: ../../../style-guide.rst:60
+msgid "``get_``: For simple data retrieval without any side effects."
+msgstr "``get_``：用於簡單的資料檢索，沒有任何副作用。"
+
+#: ../../../style-guide.rst:61
+msgid "``fetch_``: For retreivals that may have some sort of side effect."
+msgstr ""
+
+#: ../../../style-guide.rst:62
+msgid ""
+"``build_``: For creation of a new object that is derived from some other "
+"data."
+msgstr "``build_``：用於建立從其他資料衍生的新物件。"
+
+#: ../../../style-guide.rst:63
+msgid ""
+"``set_``: For adding a new value or modifying an existing one within an "
+"object."
+msgstr ""
+
+#: ../../../style-guide.rst:64
+msgid ""
+"``add_``: For adding a new attribute or other value to an object. Raises an "
+"exception if the value already exists."
+msgstr ""
+
+#: ../../../style-guide.rst:65
+msgid ""
+"``replace_``: For mutating an object. Should return ``None`` on success or "
+"raise an exception if something is wrong."
+msgstr ""
+
+#: ../../../style-guide.rst:66
+msgid ""
+"``compare_``: For comparing values. Returns ``True`` or ``False``, does not "
+"raise an exception."
+msgstr ""
+
+#: ../../../style-guide.rst:67
+msgid ""
+"``validate_``: Returns ``None`` or raises an exception if something is wrong."
+msgstr ""
+
+#: ../../../style-guide.rst:68
+msgid ""
+"``from_``: For class methods that instantiate an object based on the given "
+"input data."
+msgstr ""
+
+#: ../../../style-guide.rst:70
+msgid ""
+"For other functionality, choose names that clearly communicate intent "
+"without being overly verbose. Focus on *what* the method does, not on *how* "
+"the method does it."
+msgstr ""
+
+#: ../../../style-guide.rst:73
+msgid "Imports"
+msgstr ""
+
+#: ../../../style-guide.rst:75
+msgid ""
+"Import sequencing is handled with `isort <https://github.com/timothycrosley/"
+"isort>`_. We follow these additional rules:"
+msgstr ""
+
+#: ../../../style-guide.rst:78
+msgid "Standard Library Imports"
+msgstr "標準程式庫匯入"
+
+#: ../../../style-guide.rst:80
+msgid ""
+"Standard libraries **should** be imported absolutely and without aliasing. "
+"Importing the library aids readability, as other users may be familiar with "
+"that library."
+msgstr ""
+
+#: ../../../style-guide.rst:82
+msgid ""
+"# Good\n"
+"import os\n"
+"os.stat('.')\n"
+"\n"
+"# Bad\n"
+"from os import stat\n"
+"stat('.')"
+msgstr ""
+
+#: ../../../style-guide.rst:93
+msgid "Internal Imports"
+msgstr ""
+
+#: ../../../style-guide.rst:95
+msgid ""
+"Internal imports are those between two modules inside the same Vyper package."
+msgstr ""
+
+#: ../../../style-guide.rst:97
+msgid ""
+"Internal imports **may** use either ``import`` or ``from ..`` syntax. The "
+"imported value **should** be a module, not an object. Importing modules "
+"instead of objects avoids circular dependency issues."
+msgstr ""
+
+#: ../../../style-guide.rst:98
+msgid "Internal imports **may** be aliased where it aids readability."
+msgstr ""
+
+#: ../../../style-guide.rst:99
+msgid ""
+"Internal imports **must** use absolute paths. Relative imports cause issues "
+"when the module is moved."
+msgstr ""
+
+#: ../../../style-guide.rst:101
+msgid ""
+"# Good\n"
+"import vyper.ast.nodes as nodes\n"
+"from vyper.ast import nodes\n"
+"\n"
+"# Bad, `get_node` is a function\n"
+"from vyper.ast.nodes import get_node\n"
+"\n"
+"# Bad, do not use relative import paths\n"
+"from . import nodes"
+msgstr ""
+
+#: ../../../style-guide.rst:114
+msgid "Cross-Package Imports"
+msgstr ""
+
+#: ../../../style-guide.rst:116
+msgid ""
+"Cross-package imports are imports between one Vyper package and another."
+msgstr ""
+
+#: ../../../style-guide.rst:118
+msgid ""
+"Cross-package imports **must not** request anything beyond the root "
+"namespace of the target package."
+msgstr ""
+
+#: ../../../style-guide.rst:119
+msgid "Cross-package imports **may** be aliased where it aids readability."
+msgstr ""
+
+#: ../../../style-guide.rst:120
+msgid ""
+"Cross-package imports **may** use ``from [module] import [package]`` syntax."
+msgstr ""
+
+#: ../../../style-guide.rst:122
+msgid ""
+"# Good\n"
+"from vyper.ast import fold\n"
+"from vyper import ast as vy_ast\n"
+"\n"
+"# Bad, do not import beyond the root namespace\n"
+"from vyper.ast.annotation import annotate_python_ast"
+msgstr ""
+
+#: ../../../style-guide.rst:132
+msgid "Exceptions"
+msgstr ""
+
+#: ../../../style-guide.rst:134
+msgid ""
+"We use :ref:`custom exception classes <compiler-exceptions>` to indicate "
+"what has gone wrong during compilation."
+msgstr ""
+
+#: ../../../style-guide.rst:136
+msgid ""
+"All raised exceptions **must** use an exception class that appropriately "
+"describes what has gone wrong. When none fits, or when using a single "
+"exception class for an overly broad range of errors, consider creating a new "
+"class."
+msgstr ""
+
+#: ../../../style-guide.rst:137
+msgid ""
+"Builtin Python exceptions **must not** be raised intentionally. An unhandled "
+"builtin exception indicates a bug in the codebase."
+msgstr ""
+
+#: ../../../style-guide.rst:138
+msgid ""
+"Use :func:`CompilerPanic<CompilerPanic>` for errors that are not caused by "
+"the user."
+msgstr ""
+
+#: ../../../style-guide.rst:141
+msgid "Strings"
+msgstr "字串"
+
+#: ../../../style-guide.rst:143
+msgid ""
+"Strings substitutions **should** be performed via `formatted string literals "
+"<https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-"
+"literals>`_ rather than the ``str.format`` method or other techniques."
+msgstr ""
+
+#: ../../../style-guide.rst:146
+msgid "Type Annotations"
+msgstr "型別註解"
+
+#: ../../../style-guide.rst:148
+msgid ""
+"All publicly exposed classes and methods **should** include `PEP 484 "
+"<https://www.python.org/dev/peps/pep-0484/>`_ annotations for all arguments "
+"and return values."
+msgstr ""
+
+#: ../../../style-guide.rst:149
+msgid ""
+"Type annotations **should** be included directly in the source. `Stub files "
+"<https://www.python.org/dev/peps/pep-0484/#stub-files>`_ **may** be used "
+"where there is a valid reason. Source files using stubs **must** still be "
+"annotated to aid readability."
+msgstr ""
+
+#: ../../../style-guide.rst:150
+msgid "Internal methods **should** include type annotations."
+msgstr ""
+
+#: ../../../style-guide.rst:153
+msgid "Tests"
+msgstr "測試"
+
+#: ../../../style-guide.rst:155
+msgid ""
+"We use the `pytest <https://docs.pytest.org/en/latest/>`_ framework for "
+"testing."
+msgstr "我們使用 `pytest <https://docs.pytest.org/en/latest/>`_ 框架進行測試。"
+
+#: ../../../style-guide.rst:158 ../../../style-guide.rst:272
+msgid "Best Practices"
+msgstr ""
+
+#: ../../../style-guide.rst:160
+msgid ""
+"``pytest`` functionality **should not** be imported with ``from ...`` style "
+"syntax, particularly :func:`pytest.raises<pytest.raises>`. Importing the "
+"library itself aids readability."
+msgstr ""
+
+#: ../../../style-guide.rst:161
+msgid ""
+"Tests **must not** be interdependent. We use ``xdist`` to execute tests in "
+"parallel. You **cannot** rely on which order tests will execute in, or that "
+"two tests will execute in the same process."
+msgstr ""
+
+#: ../../../style-guide.rst:162
+msgid ""
+"Test cases **should** be designed with a minimalistic approach. Each test "
+"should verify a single behavior. A good test is one with few assertions, and "
+"where it is immediately obvious exactly what is being tested."
+msgstr ""
+
+#: ../../../style-guide.rst:163
+msgid ""
+"Where logical, tests **should** be `parametrized <https://docs.pytest.org/en/"
+"latest/parametrize.html>`_ or use `property-based <https://hypothesis.works/"
+">`_ testing."
+msgstr ""
+
+#: ../../../style-guide.rst:164
+msgid "Tests **must not** involve mocking."
+msgstr ""
+
+#: ../../../style-guide.rst:167
+msgid "Directory Structure"
+msgstr ""
+
+#: ../../../style-guide.rst:169
+msgid ""
+"Where possible, the test suite **should** copy the structure of main Vyper "
+"package. For example, test cases for ``vyper/context/types/`` should exist "
+"at ``tests/context/types/``."
+msgstr ""
+
+#: ../../../style-guide.rst:172
+msgid "Filenames"
+msgstr ""
+
+#: ../../../style-guide.rst:174
+msgid "Test files **must** use the following naming conventions:"
+msgstr ""
+
+#: ../../../style-guide.rst:176
+msgid ""
+"``test_[module].py``: When all tests for a module are contained in a single "
+"file."
+msgstr ""
+
+#: ../../../style-guide.rst:177
+msgid ""
+"``test_[module]_[functionality].py``: When tests for a module are split "
+"across multiple files."
+msgstr ""
+
+#: ../../../style-guide.rst:180
+msgid "Fixtures"
+msgstr ""
+
+#: ../../../style-guide.rst:182
+msgid ""
+"Fixtures **should** be stored in ``conftest.py`` rather than the test file "
+"itself."
+msgstr ""
+
+#: ../../../style-guide.rst:183
+msgid ""
+"``conftest.py`` files **must not** exist more than one subdirectory beyond "
+"the initial ``tests/`` directory."
+msgstr ""
+
+#: ../../../style-guide.rst:184
+msgid ""
+"The functionality of a fixture **must** be fully documented, either via "
+"docstrings or comments."
+msgstr ""
+
+#: ../../../style-guide.rst:187
+msgid "Documentation"
+msgstr ""
+
+#: ../../../style-guide.rst:189
+msgid ""
+"It is important to maintain comprehensive and up-to-date documentation for "
+"the Vyper language."
+msgstr ""
+
+#: ../../../style-guide.rst:191
+msgid ""
+"Documentation **must** accurately reflect the current state of the master "
+"branch on Github."
+msgstr ""
+
+#: ../../../style-guide.rst:192
+msgid ""
+"New functionality **must not** be added without corresponding documentation "
+"updates."
+msgstr ""
+
+#: ../../../style-guide.rst:195
+msgid "Writing Style"
+msgstr ""
+
+#: ../../../style-guide.rst:197
+msgid ""
+"We use imperative, present tense to describe APIs: “return” not “returns”. "
+"One way to test if we have it right is to complete the following sentence:"
+msgstr ""
+
+#: ../../../style-guide.rst:199
+msgid "\"If we call this API it will: ...\""
+msgstr ""
+
+#: ../../../style-guide.rst:201
+msgid ""
+"For narrative style documentation, we prefer the use of first-person \"we\" "
+"form over second-person \"you\" form."
+msgstr ""
+
+#: ../../../style-guide.rst:203
+msgid ""
+"Additionally, we **recommend** the following best practices when writing "
+"documentation:"
+msgstr ""
+
+#: ../../../style-guide.rst:205
+msgid "Use terms consistently."
+msgstr ""
+
+#: ../../../style-guide.rst:206
+msgid "Avoid ambiguous pronouns."
+msgstr ""
+
+#: ../../../style-guide.rst:207
+msgid "Eliminate unneeded words."
+msgstr ""
+
+#: ../../../style-guide.rst:208
+msgid "Establish key points at the start of a document."
+msgstr ""
+
+#: ../../../style-guide.rst:209
+msgid "Focus each paragraph on a single topic."
+msgstr ""
+
+#: ../../../style-guide.rst:210
+msgid "Focus each sentence on a single idea."
+msgstr ""
+
+#: ../../../style-guide.rst:211
+msgid ""
+"Use a numbered list when order is important and a bulleted list when order "
+"is irrelevant."
+msgstr ""
+
+#: ../../../style-guide.rst:212
+msgid "Introduce lists and tables appropriately."
+msgstr ""
+
+#: ../../../style-guide.rst:214
+msgid ""
+"Google's `technical writing courses <https://developers.google.com/tech-"
+"writing>`_ are a valuable resource. We recommend reviewing them before any "
+"significant documentation work."
+msgstr ""
+
+#: ../../../style-guide.rst:217
+msgid "API Directives"
+msgstr ""
+
+#: ../../../style-guide.rst:219
+msgid ""
+"All API documentation **must** use standard Python `directives <https://www."
+"sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-python-"
+"domain>`_."
+msgstr ""
+
+#: ../../../style-guide.rst:220
+msgid ""
+"Where possible, references to syntax **should** use appropriate `Python "
+"roles <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains."
+"html#cross-referencing-syntax>`_."
+msgstr ""
+
+#: ../../../style-guide.rst:221
+msgid ""
+"External references **may** use `intersphinx roles <https://www.sphinx-doc."
+"org/en/master/usage/extensions/intersphinx.html>`_."
+msgstr ""
+
+#: ../../../style-guide.rst:224
+msgid "Headers"
+msgstr ""
+
+#: ../../../style-guide.rst:226
+msgid ""
+"Each documentation section **must** begin with a `label <https://www.sphinx-"
+"doc.org/en/stable/usage/restructuredtext/roles.html#cross-referencing-"
+"arbitrary-locations>`_ of the same name as the filename for that section. "
+"For example, this section's filename is ``style-guide.rst``, so the RST "
+"opens with a label ``_style-guide``."
+msgstr ""
+
+#: ../../../style-guide.rst:227
+msgid ""
+"Section headers **should** use the following sequence, from top to bottom: "
+"``#``, ``=``, ``-``, ``*``, ``^``."
+msgstr ""
+
+#: ../../../style-guide.rst:230
+msgid "Internal Documentation"
+msgstr ""
+
+#: ../../../style-guide.rst:232
+msgid ""
+"Internal documentation is vital to aid other contributors in understanding "
+"the layout of the Vyper codebase."
+msgstr ""
+
+#: ../../../style-guide.rst:234
+msgid "We handle internal documentation in the following ways:"
+msgstr ""
+
+#: ../../../style-guide.rst:236
+msgid ""
+"A ``README.md`` **must** be included in each first-level subdirectory of the "
+"Vyper package. The readme explain the purpose, organization and control flow "
+"of the subdirectory."
+msgstr ""
+
+#: ../../../style-guide.rst:237
+msgid ""
+"All publicly exposed classes and methods **must** include detailed "
+"docstrings."
+msgstr ""
+
+#: ../../../style-guide.rst:238
+msgid "Internal methods **should** include docstrings, or at minimum comments."
+msgstr ""
+
+#: ../../../style-guide.rst:239
+msgid ""
+"Any code that may be considered \"clever\" or \"magic\" **must** include "
+"comments explaining exactly what is happening."
+msgstr ""
+
+#: ../../../style-guide.rst:241
+msgid ""
+"Docstrings **should** be formatted according to the `NumPy docstring style "
+"<https://numpydoc.readthedocs.io/en/latest/format.html>`_."
+msgstr ""
+
+#: ../../../style-guide.rst:244
+msgid "Commit Messages"
+msgstr "送交訊息"
+
+#: ../../../style-guide.rst:246
+msgid ""
+"Contributors **should** adhere to the following standards and best practices "
+"when making commits to be merged into the Vyper codebase."
+msgstr ""
+
+#: ../../../style-guide.rst:248
+msgid ""
+"Maintainers  **may** request a rebase, or choose to squash merge pull "
+"requests that do not follow these standards."
+msgstr ""
+
+#: ../../../style-guide.rst:251
+msgid "Conventional Commits"
+msgstr ""
+
+#: ../../../style-guide.rst:253
+msgid ""
+"Commit messages **should** adhere to the `Conventional Commits <https://www."
+"conventionalcommits.org/>`_ standard. A conventional commit message is "
+"structured as follows:"
+msgstr ""
+
+#: ../../../style-guide.rst:257
+msgid ""
+"<type>[optional scope]: <description>\n"
+"\n"
+"[optional body]\n"
+"\n"
+"[optional footer]"
+msgstr ""
+
+#: ../../../style-guide.rst:263
+msgid ""
+"The commit contains the following elements, to communicate intent to the "
+"consumers of your library:"
+msgstr ""
+
+#: ../../../style-guide.rst:265
+msgid ""
+"**fix**: a commit of the *type* ``fix`` patches a bug in your codebase (this "
+"correlates with ``PATCH`` in semantic versioning)."
+msgstr ""
+
+#: ../../../style-guide.rst:266
+msgid ""
+"**feat**: a commit of the *type* ``feat`` introduces a new feature to the "
+"codebase (this correlates with ``MINOR`` in semantic versioning)."
+msgstr ""
+
+#: ../../../style-guide.rst:267
+msgid ""
+"**BREAKING CHANGE**: a commit that has the text ``BREAKING CHANGE:`` at the "
+"beginning of its optional body or footer section introduces a breaking API "
+"change (correlating with ``MAJOR`` in semantic versioning). A BREAKING "
+"CHANGE can be part of commits of any *type*."
+msgstr ""
+
+#: ../../../style-guide.rst:269
+msgid ""
+"The use of commit types other than ``fix:`` and ``feat:`` is recommended. "
+"For example: ``docs:``, ``style:``, ``refactor:``, ``test:``, ``chore:``, or "
+"``improvement:``. These tags are not mandated by the specification and have "
+"no implicit effect in semantic versioning."
+msgstr ""
+
+#: ../../../style-guide.rst:274
+msgid ""
+"We **recommend** the following best practices for commit messages (taken "
+"from `How To Write a Commit Message <https://chris.beams.io/posts/git-commit/"
+">`_):"
+msgstr ""
+
+#: ../../../style-guide.rst:276
+msgid "Limit the subject line to 50 characters."
+msgstr ""
+
+#: ../../../style-guide.rst:277
+msgid "Use imperative, present tense in the subject line."
+msgstr ""
+
+#: ../../../style-guide.rst:278
+msgid "Capitalize the subject line."
+msgstr ""
+
+#: ../../../style-guide.rst:279
+msgid "Do not end the subject line with a period."
+msgstr ""
+
+#: ../../../style-guide.rst:280
+msgid "Separate the subject from the body with a blank line."
+msgstr ""
+
+#: ../../../style-guide.rst:281
+msgid "Wrap the body at 72 characters."
+msgstr ""
+
+#: ../../../style-guide.rst:282
+msgid "Use the body to explain what and why vs. how."
+msgstr ""
+
+#: ../../../style-guide.rst:284
+msgid "Here's an example commit message adhering to the above practices::"
+msgstr ""
+
+#: ../../../style-guide.rst:286
+msgid ""
+"Summarize changes in around 50 characters or less\n"
+"\n"
+"More detailed explanatory text, if necessary. Wrap it to about 72\n"
+"characters or so. In some contexts, the first line is treated as the\n"
+"subject of the commit and the rest of the text as the body. The\n"
+"blank line separating the summary from the body is critical (unless\n"
+"you omit the body entirely); various tools like `log`, `shortlog`\n"
+"and `rebase` can get confused if you run the two together.\n"
+"\n"
+"Explain the problem that this commit is solving. Focus on why you\n"
+"are making this change as opposed to how (the code explains that).\n"
+"Are there side effects or other unintuitive consequences of this\n"
+"change? Here's the place to explain them.\n"
+"\n"
+"Further paragraphs come after blank lines.\n"
+"\n"
+" - Bullet points are okay, too\n"
+"\n"
+" - Typically a hyphen or asterisk is used for the bullet, preceded\n"
+"   by a single space, with blank lines in between, but conventions\n"
+"   vary here\n"
+"\n"
+"If you use an issue tracker, put references to them at the bottom,\n"
+"like this:\n"
+"\n"
+"Resolves: #XXX\n"
+"See also: #XXY, #XXXZ"
+msgstr ""
