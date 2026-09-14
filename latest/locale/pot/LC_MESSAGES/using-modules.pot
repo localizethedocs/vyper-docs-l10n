@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vyper latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-22 03:40+0000\n"
+"POT-Creation-Date: 2026-09-14 14:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,11 +209,17 @@ msgid ""
 "methods of an :ref:`abstract module <abstract-modules>`."
 msgstr ""
 
-#: ../../../using-modules.rst:118
-msgid "The ``uses`` statement"
+#: ../../../using-modules.rst:115
+msgid ""
+"The compiler will raise an error when trying to initialize a module which "
+"has no state, and isn't abstract (since initializing it would do nothing)."
 msgstr ""
 
 #: ../../../using-modules.rst:120
+msgid "The ``uses`` statement"
+msgstr ""
+
+#: ../../../using-modules.rst:122
 msgid ""
 "Another way of using a contract's state without directly initializing it is "
 "to use the ``uses`` keyword. This is a more advanced usage which is expected "
@@ -223,11 +229,11 @@ msgid ""
 "question)."
 msgstr ""
 
-#: ../../../using-modules.rst:122
+#: ../../../using-modules.rst:124
 msgid "This is best illustrated with an example:"
 msgstr ""
 
-#: ../../../using-modules.rst:124
+#: ../../../using-modules.rst:126
 msgid ""
 "# ownable_2step.vy\n"
 "import ownable\n"
@@ -256,7 +262,7 @@ msgid ""
 "    self.pending_owner = empty(address)"
 msgstr ""
 
-#: ../../../using-modules.rst:152
+#: ../../../using-modules.rst:154
 msgid ""
 "Here, the ``ownable_2step`` module does not want to seal off access to "
 "calling the ``ownable`` module's ``__init__()`` function. So, it utilizes "
@@ -269,31 +275,31 @@ msgid ""
 "`initializing dependencies <init-dependencies>`)."
 msgstr ""
 
-#: ../../../using-modules.rst:154
+#: ../../../using-modules.rst:156
 msgid ""
 "The ``uses`` statement is also required when calling abstract methods of "
 "another module. See :ref:`Calling abstract methods <abstract-modules>` for "
 "details."
 msgstr ""
 
-#: ../../../using-modules.rst:156
+#: ../../../using-modules.rst:158
 msgid ""
 "Whether to ``use`` or ``initialize`` a module is a choice which is left up "
 "to the library designer."
 msgstr ""
 
-#: ../../../using-modules.rst:159
+#: ../../../using-modules.rst:161
 msgid "Technical notes on the design"
 msgstr ""
 
-#: ../../../using-modules.rst:161
+#: ../../../using-modules.rst:163
 msgid ""
 "This section contains some notes on the design from a language design "
 "perspective. It can be safely skipped if you are just interested in how to "
 "use modules, and not necessarily in programming language theory."
 msgstr ""
 
-#: ../../../using-modules.rst:163
+#: ../../../using-modules.rst:165
 msgid ""
 "The design of the module system takes inspiration from (but is not directly "
 "related to) the rust language's `borrow checker <https://doc.rust-lang."
@@ -303,34 +309,34 @@ msgid ""
 "compilation target. In practice, what this means is:"
 msgstr ""
 
-#: ../../../using-modules.rst:165
+#: ../../../using-modules.rst:167
 msgid ""
 "A module must be \"used\" or \"initialized\" before its state can be "
 "accessed in an import"
 msgstr ""
 
-#: ../../../using-modules.rst:166
+#: ../../../using-modules.rst:168
 msgid "A module may be \"used\" many times"
 msgstr ""
 
-#: ../../../using-modules.rst:167
+#: ../../../using-modules.rst:169
 msgid ""
 "A module which is \"used\" or its state touched must be \"initialized\" "
 "exactly once"
 msgstr ""
 
-#: ../../../using-modules.rst:169
+#: ../../../using-modules.rst:171
 msgid ""
 "To read more about the design background of Vyper's module system, please "
 "see its original `design document <https://github.com/vyperlang/vyper/"
 "issues/3722>`_."
 msgstr ""
 
-#: ../../../using-modules.rst:174
+#: ../../../using-modules.rst:176
 msgid "Initializing a module with dependencies"
 msgstr ""
 
-#: ../../../using-modules.rst:176
+#: ../../../using-modules.rst:178
 msgid ""
 "Sometimes, you may encounter a module which itself ``uses`` other modules. "
 "Vyper's module system is designed to allow this, but it requires you make "
@@ -340,7 +346,7 @@ msgid ""
 "(aka \"walrus\") syntax, and look something like this:"
 msgstr ""
 
-#: ../../../using-modules.rst:178
+#: ../../../using-modules.rst:180
 msgid ""
 "import ownable\n"
 "import ownable_2step\n"
@@ -359,7 +365,7 @@ msgid ""
 "exports: ownable_2step.__interface__"
 msgstr ""
 
-#: ../../../using-modules.rst:197
+#: ../../../using-modules.rst:199
 msgid ""
 "In normal usage, you should make sure that ``__init__()`` functions are "
 "called in dependency order. In the above example, you can get unexpected "
@@ -367,11 +373,11 @@ msgid ""
 "__init__()``! The compiler may enforce this behavior in the future."
 msgstr ""
 
-#: ../../../using-modules.rst:203
+#: ../../../using-modules.rst:205
 msgid "Exporting functions"
 msgstr ""
 
-#: ../../../using-modules.rst:205
+#: ../../../using-modules.rst:207
 msgid ""
 "In Vyper, ``@external`` functions are not automatically exposed (i.e., "
 "included in the runtime code) in the importing contract. This is a safety "
@@ -379,7 +385,7 @@ msgid ""
 "explicitly defined in the top-level of the compilation target."
 msgstr ""
 
-#: ../../../using-modules.rst:207
+#: ../../../using-modules.rst:209
 msgid ""
 "So, exporting external functions from modules is accomplished using the "
 "``exports`` keyword. In Vyper, functions can be exported individually, or, a "
@@ -388,12 +394,12 @@ msgid ""
 "which automatically includes all the functions in a module."
 msgstr ""
 
-#: ../../../using-modules.rst:209
+#: ../../../using-modules.rst:211
 msgid ""
 "The following are all ways of exporting functions from an imported module."
 msgstr ""
 
-#: ../../../using-modules.rst:211
+#: ../../../using-modules.rst:213
 msgid ""
 "# export a single function from `ownable_2step`\n"
 "exports: ownable_2step.transfer_ownership\n"
@@ -412,7 +418,7 @@ msgid ""
 "exports: ownable_2step.__interface__"
 msgstr ""
 
-#: ../../../using-modules.rst:230
+#: ../../../using-modules.rst:232
 msgid ""
 "Any exported interfaces must be implemented by the module. For example, in "
 "the above example, ``base_token`` must contain ``implements: IERC20``, or "
