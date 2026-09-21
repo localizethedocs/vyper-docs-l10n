@@ -1,0 +1,292 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper stable\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 08:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../natspec.rst:4
+msgid "NatSpec Metadata"
+msgstr ""
+
+#: ../../../natspec.rst:6
+msgid ""
+"Vyper contracts can use a special form of docstring to provide rich "
+"documentation for functions, return variables and more. This special form is "
+"named the Ethereum Natural Language Specification Format (NatSpec)."
+msgstr ""
+
+#: ../../../natspec.rst:8
+msgid ""
+"This documentation is segmented into developer-focused messages and end-user-"
+"facing messages. These messages may be shown to the end user (the human) at "
+"the time that they will interact with the contract (i.e. sign a transaction)."
+msgstr ""
+
+#: ../../../natspec.rst:11
+msgid "Example"
+msgstr ""
+
+#: ../../../natspec.rst:13
+msgid ""
+"Vyper supports structured documentation for contracts and external functions "
+"using the doxygen notation format."
+msgstr ""
+
+#: ../../../natspec.rst:17
+msgid ""
+"The compiler does not parse docstrings of internal functions. You are "
+"welcome to NatSpec in comments for internal functions, however they are not "
+"processed or included in the compiler output."
+msgstr ""
+
+#: ../../../natspec.rst:20
+msgid ""
+"\"\"\"\n"
+"@title A simulator for Bug Bunny, the most famous Rabbit\n"
+"@license MIT\n"
+"@author Warned Bros\n"
+"@notice You can use this contract for only the most basic simulation\n"
+"@dev\n"
+"    Simply chewing a carrot does not count, carrots must pass\n"
+"    the throat to be considered eaten\n"
+"\"\"\"\n"
+"\n"
+"@external\n"
+"@payable\n"
+"def doesEat(food: string[30], qty: uint256) -> bool:\n"
+"    \"\"\"\n"
+"    @notice Determine if Bugs will accept `qty` of `food` to eat\n"
+"    @dev Compares the entire string and does not rely on a hash\n"
+"    @param food The name of a food to evaluate (in English)\n"
+"    @param qty The number of food items to evaluate\n"
+"    @return True if Bugs will eat it, False otherwise\n"
+"    \"\"\""
+msgstr ""
+
+#: ../../../natspec.rst:44
+msgid "Tags"
+msgstr ""
+
+#: ../../../natspec.rst:46
+msgid ""
+"All tags are optional. The following table explains the purpose of each "
+"NatSpec tag and where it may be used:"
+msgstr ""
+
+#: ../../../natspec.rst:49
+msgid "Tag"
+msgstr ""
+
+#: ../../../natspec.rst:49
+msgid "Description"
+msgstr ""
+
+#: ../../../natspec.rst:49
+msgid "Context"
+msgstr ""
+
+#: ../../../natspec.rst:51
+msgid "``@title``"
+msgstr ""
+
+#: ../../../natspec.rst:51
+msgid "Title that describes the contract"
+msgstr ""
+
+#: ../../../natspec.rst:51 ../../../natspec.rst:52
+msgid "contract"
+msgstr ""
+
+#: ../../../natspec.rst:52
+msgid "``@license``"
+msgstr ""
+
+#: ../../../natspec.rst:52
+msgid "License of the contract"
+msgstr ""
+
+#: ../../../natspec.rst:53
+msgid "``@author``"
+msgstr ""
+
+#: ../../../natspec.rst:53
+msgid "Name of the author"
+msgstr ""
+
+#: ../../../natspec.rst:53 ../../../natspec.rst:54 ../../../natspec.rst:55
+#: ../../../natspec.rst:58
+msgid "contract, function"
+msgstr ""
+
+#: ../../../natspec.rst:54
+msgid "``@notice``"
+msgstr ""
+
+#: ../../../natspec.rst:54
+msgid "Explain to an end user what this does"
+msgstr ""
+
+#: ../../../natspec.rst:55
+msgid "``@dev``"
+msgstr ""
+
+#: ../../../natspec.rst:55
+msgid "Explain to a developer any extra details"
+msgstr ""
+
+#: ../../../natspec.rst:56
+msgid "``@param``"
+msgstr ""
+
+#: ../../../natspec.rst:56
+msgid "Documents a single parameter"
+msgstr ""
+
+#: ../../../natspec.rst:56 ../../../natspec.rst:57
+msgid "function"
+msgstr ""
+
+#: ../../../natspec.rst:57
+msgid "``@return``"
+msgstr ""
+
+#: ../../../natspec.rst:57
+msgid "Documents one or all return variable(s)"
+msgstr ""
+
+#: ../../../natspec.rst:58
+msgid "``@custom:...``"
+msgstr ""
+
+#: ../../../natspec.rst:58
+msgid "Custom tag, semantics is application-defined"
+msgstr ""
+
+#: ../../../natspec.rst:61
+msgid "Some rules / restrictions:"
+msgstr ""
+
+#: ../../../natspec.rst:63
+msgid ""
+"A single tag description may span multiple lines. All whitespace between "
+"lines is interpreted as a single space."
+msgstr ""
+
+#: ../../../natspec.rst:64
+msgid ""
+"If a docstring is included with no NatSpec tags, it is interpreted as a "
+"``@notice``."
+msgstr ""
+
+#: ../../../natspec.rst:65
+msgid ""
+"Each use of ``@param`` must be followed by the name of an input argument. "
+"Including invalid or duplicate argument names raises a :func:"
+"`NatSpecSyntaxException<NatSpecSyntaxException>`."
+msgstr ""
+
+#: ../../../natspec.rst:66
+msgid ""
+"The preferred use of ``@return`` is one entry for each output value, however "
+"you may also use it once for all outputs. Including more ``@return`` values "
+"than output values raises a :func:"
+"`NatSpecSyntaxException<NatSpecSyntaxException>`."
+msgstr ""
+
+#: ../../../natspec.rst:69
+msgid "Documentation Output"
+msgstr ""
+
+#: ../../../natspec.rst:71
+msgid ""
+"When parsed by the compiler, documentation such as the one from the above "
+"example will produce two different JSON outputs. One is meant to be consumed "
+"by the end user as a notice when a function is executed and the other to be "
+"used by the developer."
+msgstr ""
+
+#: ../../../natspec.rst:73
+msgid ""
+"If the above contract is saved as ``carrots.vy`` then you can generate the "
+"documentation using:"
+msgstr ""
+
+#: ../../../natspec.rst:75
+msgid "$ vyper -f userdoc,devdoc carrots.vy"
+msgstr ""
+
+#: ../../../natspec.rst:80
+msgid "User Documentation"
+msgstr ""
+
+#: ../../../natspec.rst:82
+msgid ""
+"The above documentation will produce the following user documentation JSON "
+"as output:"
+msgstr ""
+
+#: ../../../natspec.rst:84
+msgid ""
+"{\n"
+"  \"methods\": {\n"
+"    \"doesEat(string,uint256)\": {\n"
+"      \"notice\": \"Determine if Bugs will accept `qty` of `food` to eat\"\n"
+"    }\n"
+"  },\n"
+"  \"notice\": \"You can use this contract for only the most basic "
+"simulation\"\n"
+"}"
+msgstr ""
+
+#: ../../../natspec.rst:95
+msgid ""
+"Note that the key by which to find the methods is the function's canonical "
+"signature as defined in the contract ABI, not simply the function's name."
+msgstr ""
+
+#: ../../../natspec.rst:100
+msgid "Developer Documentation"
+msgstr ""
+
+#: ../../../natspec.rst:102
+msgid ""
+"Apart from the user documentation file, a developer documentation JSON file "
+"should also be produced and should look like this:"
+msgstr ""
+
+#: ../../../natspec.rst:105
+msgid ""
+"{\n"
+"  \"author\": \"Warned Bros\",\n"
+"  \"license\": \"MIT\",\n"
+"  \"details\": \"Simply chewing a carrot does not count, carrots must pass "
+"the throat to be considered eaten\",\n"
+"  \"methods\": {\n"
+"    \"doesEat(string,uint256)\": {\n"
+"      \"details\" : \"Compares the entire string and does not rely on a "
+"hash\",\n"
+"      \"params\": {\n"
+"        \"food\": \"The name of a food to evaluate (in English)\",\n"
+"        \"qty\": \"The number of food items to evaluate\"\n"
+"      },\n"
+"      \"returns\": {\n"
+"        \"_0\": \"True if Bugs will eat it, False otherwise\"\n"
+"      }\n"
+"    }\n"
+"  },\n"
+"  \"title\" : \"A simulator for Bug Bunny, the most famous Rabbit\"\n"
+"}"
+msgstr ""
