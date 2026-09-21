@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-06-16 15:47:22 +0000",
-      "hash" : "66caaca9ba3c584ef65593ab9a278a68af1ad25c",
-      "title" : "chore[build]: bump github-actions group (#5128)"
+      "date" : "2026-09-21 13:04:10 +0000",
+      "hash" : "8f6b7fb0bf1a495fc67c7fc77dc4589d58a50394",
+      "title" : "fix[venom]: fix clean_stack_from_cfg_in for incorrect dead items in stack (#5253)"
     }
   },
   "type" : "branch",
