@@ -1,0 +1,454 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Vyper Versioning Guideline - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="prev" title="風格指南" href="style-guide.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/versioning.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/versioning.html"/>
+<meta property="og:title" content="Vyper Versioning Guideline"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">開始使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速開始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">與 Solidity 的區別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">工廠模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">數學模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">抽象模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">深度驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#version-types">&#29256;&#26412;&#22411;&#21029;</a><ul>
+<li><a class="reference internal" href="#major-release-x-0-0">Major Release <code class="docutils literal notranslate"><span class="pre">X.0.0</span></code></a></li>
+<li><a class="reference internal" href="#minor-release-x-y-0">Minor Release <code class="docutils literal notranslate"><span class="pre">x.Y.0</span></code></a></li>
+<li><a class="reference internal" href="#patch-release-x-y-z">Patch Release <code class="docutils literal notranslate"><span class="pre">x.y.Z</span></code></a></li>
+<li><a class="reference internal" href="#vyper-security">Vyper Security</a></li>
+<li><a class="reference internal" href="#pre-release-versions">Pre-Release Versions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
+<li><a class="reference internal" href="#communication">Communication</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/versioning.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Vyper Versioning Guideline</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="vyper-versioning-guideline">
+<span id="versioning"></span><h1>Vyper Versioning Guideline<a class="headerlink" href="#vyper-versioning-guideline" title="Link to this heading">¶</a></h1>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">¶</a></h2>
+<p>Vyper has different groups that are considered 「users」:</p>
+<ul class="simple">
+<li><p>Smart Contract Developers (Developers)</p></li>
+<li><p>Package Integrators (Integrators)</p></li>
+<li><p>Security Professionals (Auditors)</p></li>
+</ul>
+<p>Each set of users must understand which changes to the compiler may require their
+attention, and how these changes may impact their use of the compiler.
+This guide defines what scope each compiler change may have and its potential impact based
+on the type of user, so that users can stay informed about the progress of Vyper.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>How they use Vyper</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Developers</p></td>
+<td><p>Write smart contracts in Vyper</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integrators</p></td>
+<td><p>Integrating Vyper package or CLI into tools</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditors</p></td>
+<td><p>Aware of Vyper features and security issues</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A big part of Vyper’s 「public API」 is the language grammar.
+The syntax of the language is the main touchpoint all parties have with Vyper,
+so it’s important to discuss changes to the language from the viewpoint of dependability.
+Users expect that all contracts written in an earlier version of Vyper will work seamlessly
+with later versions, or that they will be reasonably informed when this isn’t possible.
+The Vyper package itself and its CLI utilities also has a fairly well-defined public API,
+which consists of the available features in Vyper’s
+<a class="reference external" href="https://github.com/vyperlang/vyper/blob/master/vyper/__init__.py">exported package</a>,
+the top level modules under the package, and all CLI scripts.</p>
+</section>
+<section id="version-types">
+<h2>版本型別<a class="headerlink" href="#version-types" title="Link to this heading">¶</a></h2>
+<p>This guide was adapted from <a class="reference external" href="https://semver.org/">semantic versioning</a>.
+It defines a format for version numbers that looks like <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH[-STAGE.DEVNUM]</span></code>.
+We will periodically release updates according to this format, with the release decided via
+the following guidelines.</p>
+<section id="major-release-x-0-0">
+<h3>Major Release <code class="docutils literal notranslate"><span class="pre">X.0.0</span></code><a class="headerlink" href="#major-release-x-0-0" title="Link to this heading">¶</a></h3>
+<p>Changes to the grammar cannot be made in a backwards incompatible way without changing Major
+versions (e.g. <code class="docutils literal notranslate"><span class="pre">v1.x</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>).
+It is to be expected that breaking changes to many features will occur when updating to a new Major release,
+primarily for Developers that use Vyper to compile their contracts.
+Major releases will have an audit performed prior to release (e.g. <code class="docutils literal notranslate"><span class="pre">x.0.0</span></code> releases) and all
+<code class="docutils literal notranslate"><span class="pre">moderate</span></code> or <code class="docutils literal notranslate"><span class="pre">severe</span></code> vulnerabilities will be addressed that are reported in the audit report.
+<code class="docutils literal notranslate"><span class="pre">minor</span></code> or <code class="docutils literal notranslate"><span class="pre">informational</span></code> vulnerabilities <em>should</em> be addressed as well, although this may be
+left up to the maintainers of Vyper to decide.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Look For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Developers</p></td>
+<td><p>Syntax deprecation, new features</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integrators</p></td>
+<td><p>No changes</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditors</p></td>
+<td><p>Audit report w/ resolved changes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="minor-release-x-y-0">
+<h3>Minor Release <code class="docutils literal notranslate"><span class="pre">x.Y.0</span></code><a class="headerlink" href="#minor-release-x-y-0" title="Link to this heading">¶</a></h3>
+<p>Minor version updates may add new features or fix a <code class="docutils literal notranslate"><span class="pre">moderate</span></code> or <code class="docutils literal notranslate"><span class="pre">severe</span></code> vulnerability,
+and these will be detailed in the Release Notes for that release.
+Minor releases may change the features or functionality offered by the package and CLI scripts in a
+backwards-incompatible way that requires attention from an integrator.
+Minor releases are required to fix a <code class="docutils literal notranslate"><span class="pre">moderate</span></code> or <code class="docutils literal notranslate"><span class="pre">severe</span></code> vulnerability,
+but a <code class="docutils literal notranslate"><span class="pre">minor</span></code> or <code class="docutils literal notranslate"><span class="pre">informational</span></code> vulnerability can be fixed in Patch releases,
+alongside documentation updates.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Look For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Developers</p></td>
+<td><p>New features, security bug fixes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integrators</p></td>
+<td><p>Changes to external API</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">moderate</span></code> or <code class="docutils literal notranslate"><span class="pre">severe</span></code> patches</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="patch-release-x-y-z">
+<h3>Patch Release <code class="docutils literal notranslate"><span class="pre">x.y.Z</span></code><a class="headerlink" href="#patch-release-x-y-z" title="Link to this heading">¶</a></h3>
+<p>Patch version releases will be released to fix documentation issues, usage bugs,
+and <code class="docutils literal notranslate"><span class="pre">minor</span></code> or <code class="docutils literal notranslate"><span class="pre">informational</span></code> vulnerabilities found in Vyper.
+Patch releases should only update error messages and documentation issues
+relating to its external API.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Look For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Developers</p></td>
+<td><p>Doc updates, usage bug fixes, error messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integrators</p></td>
+<td><p>Doc updates, usage bug fixes, error messages</p></td>
+</tr>
+<tr class="row-even"><td><p>Auditors</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">minor</span></code> or <code class="docutils literal notranslate"><span class="pre">informational</span></code> patches</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="vyper-security">
+<h3>Vyper Security<a class="headerlink" href="#vyper-security" title="Link to this heading">¶</a></h3>
+<p>As Vyper develops, it is very likely that we will encounter inconsistencies in how certain
+language features can be used, and software bugs in the code the compiler generates.
+Some of them may be quite serious, and can render a user’s compiled contract vulnerable to
+exploitation for financial gain.
+As we become aware of these vulnerabilities, we will work according to our
+<a class="reference external" href="https://github.com/vyperlang/vyper/security/policy">security policy</a> to resolve these issues,
+and eventually will publish the details of all reported vulnerabilities
+<a class="reference external" href="https://github.com/vyperlang/vyper/security/advisories?state=published">here</a>.
+Fixes for these issues will also be noted in the <a class="reference internal" href="release-notes.html#release-notes"><span class="std std-ref">Release Notes</span></a>.</p>
+</section>
+<section id="pre-release-versions">
+<h3>Pre-Release Versions<a class="headerlink" href="#pre-release-versions" title="Link to this heading">¶</a></h3>
+<p>Any branches of work outside of what is being tracked via <code class="docutils literal notranslate"><span class="pre">master</span></code>
+will use the <code class="docutils literal notranslate"><span class="pre">-alpha.[release</span> <span class="pre">#]</span></code> (Alpha) to denote WIP updates,
+and <code class="docutils literal notranslate"><span class="pre">-beta.[release</span> <span class="pre">#]</span></code> (Beta) to describe work that is eventually intended for release.
+<code class="docutils literal notranslate"><span class="pre">-rc.[release</span> <span class="pre">#]</span></code> (Release Candidate) will only be used to denote candidate builds
+prior to a Major release. An audit will be solicited for <code class="docutils literal notranslate"><span class="pre">-rc.1</span></code> builds,
+and subsequent releases <em>may</em> incorporate feedback during the audit.
+The last Release Candidate will become the next Major release,
+and will be made available alongside the full audit report summarizing the findings.</p>
+</section>
+</section>
+<section id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Link to this heading">¶</a></h2>
+<p>Pull Requests should be opened against the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
+</section>
+<section id="communication">
+<h2>Communication<a class="headerlink" href="#communication" title="Link to this heading">¶</a></h2>
+<p>Major and Minor versions should be communicated on appropriate communications channels to end users,
+and Patch updates will usually not be discussed, unless there is a relevant reason to do so.</p>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="style-guide.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">風格指南</div>
+        
+      </div>
+    </a>
+  </div>
+  
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>

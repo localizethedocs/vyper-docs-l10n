@@ -1,0 +1,480 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Interfaces - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="事件日誌紀錄" href="event-logging.html" /><link rel="prev" title="抽象模組" href="abstract-modules.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/interfaces.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/interfaces.html"/>
+<meta property="og:title" content="Interfaces"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">開始使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速開始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">與 Solidity 的區別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">工廠模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">數學模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">抽象模組</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">深度驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#declaring-and-using-interfaces">Declaring and using Interfaces</a></li>
+<li><a class="reference internal" href="#built-in-interfaces">Built-in Interfaces</a></li>
+<li><a class="reference internal" href="#implementing-an-interface">Implementing an Interface</a></li>
+<li><a class="reference internal" href="#standalone-interfaces">Standalone Interfaces</a></li>
+<li><a class="reference internal" href="#extracting-interfaces">Extracting Interfaces</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/interfaces.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Interfaces</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="interfaces">
+<span id="id1"></span><h1>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading">¶</a></h1>
+<p>An interface is a set of function definitions used to enable communication between smart contracts. A contract interface defines all of that contract’s externally available functions. By importing the interface, your contract now knows how to call these functions in other contracts.</p>
+<section id="declaring-and-using-interfaces">
+<h2>Declaring and using Interfaces<a class="headerlink" href="#declaring-and-using-interfaces" title="Link to this heading">¶</a></h2>
+<p>Interfaces can be added to contracts either through inline definition, or by importing them from a separate file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">interface</span></code> keyword is used to define an inline external interface:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">interface</span><span class="w"> </span><span class="nc">FooBar</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span><span class="w"> </span><span class="kd">view</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">():</span><span class="w"> </span><span class="kd">nonpayable</span>
+</span></pre></div>
+</div>
+<p>The defined interface can then be used to make external calls, given a contract address:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="nv">foobar:</span><span class="w"> </span><span class="n">FooBar</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">extcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">test1</span><span class="p">()</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">test2</span><span class="p">(</span><span class="nv">foobar:</span><span class="w"> </span><span class="n">FooBar</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">staticcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">calculate</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>The interface name can also be used as a type annotation for storage variables. You then assign an address value to the variable to access that interface. Note that casting an address to an interface is possible, e.g. <code class="docutils literal notranslate"><span class="pre">FooBar(&lt;address_var&gt;)</span></code>:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">foobar_contract:</span><span class="w"> </span><span class="n">FooBar</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@deploy</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">(</span><span class="nv">foobar_address:</span><span class="w"> </span><span class="kt">address</span><span class="p">):</span>
+</span><span id="1-5"><span class="w">    </span><span class="na">self</span><span class="p">.</span><span class="n">foobar_contract</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FooBar</span><span class="p">(</span><span class="n">foobar_address</span><span class="p">)</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">():</span>
+</span><span id="1-9"><span class="w">    </span><span class="n">extcall</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">foobar_contract</span><span class="p">.</span><span class="n">test1</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Specifying <code class="docutils literal notranslate"><span class="pre">payable</span></code> or <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> annotation in the interface indicates that the call made to the external contract will be able to alter storage, whereas <code class="docutils literal notranslate"><span class="pre">view</span></code> and <code class="docutils literal notranslate"><span class="pre">pure</span></code> calls will use a <code class="docutils literal notranslate"><span class="pre">STATICCALL</span></code> ensuring no storage can be altered during execution. Additionally, <code class="docutils literal notranslate"><span class="pre">payable</span></code> allows non-zero value to be sent along with the call.</p>
+<p>Either the <code class="docutils literal notranslate"><span class="pre">extcall</span></code> or <code class="docutils literal notranslate"><span class="pre">staticcall</span></code> keyword is required to precede the external call to distinguish it from internal calls. The keyword must match the visibility of the function, <code class="docutils literal notranslate"><span class="pre">staticcall</span></code> for <code class="docutils literal notranslate"><span class="pre">pure</span></code> and <code class="docutils literal notranslate"><span class="pre">view</span></code> functions, and <code class="docutils literal notranslate"><span class="pre">extcall</span></code> for <code class="docutils literal notranslate"><span class="pre">payable</span></code> and <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> functions. Additionally, the output of a <code class="docutils literal notranslate"><span class="pre">staticcall</span></code> must be assigned to a result.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>If the signature in an interface does not match the actual signature of the called contract, you can get runtime errors or undefined behavior. For instance, if you accidentally mark a <code class="docutils literal notranslate"><span class="pre">nonpayable</span></code> function as <code class="docutils literal notranslate"><span class="pre">view</span></code>, calling that function may result in the EVM reverting execution in the called contract.</p>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">interface</span><span class="w"> </span><span class="nc">FooBar</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span><span class="w"> </span><span class="kd">pure</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">query</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span><span class="w"> </span><span class="kd">view</span>
+</span><span id="1-4"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">():</span><span class="w"> </span><span class="kd">nonpayable</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">pay</span><span class="p">():</span><span class="w"> </span><span class="n">payable</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="nv">foobar:</span><span class="w"> </span><span class="n">FooBar</span><span class="p">):</span>
+</span><span id="1-9"><span class="w">    </span><span class="nv">s:</span><span class="w"> </span><span class="kt">uint256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">staticcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">calculate</span><span class="p">()</span><span class="w">  </span><span class="c1"># cannot change storage</span>
+</span><span id="1-10"><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">staticcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">query</span><span class="p">()</span><span class="w">  </span><span class="c1"># cannot change storage, but reads itself</span>
+</span><span id="1-11"><span class="w">    </span><span class="n">extcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">update</span><span class="p">()</span><span class="w">  </span><span class="c1"># storage can be altered</span>
+</span><span id="1-12"><span class="w">    </span><span class="n">extcall</span><span class="w"> </span><span class="n">foobar</span><span class="p">.</span><span class="n">pay</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1"># storage can be altered, and value can be sent</span>
+</span></pre></div>
+</div>
+<p>Vyper offers the option to set the following additional keyword arguments when making external calls:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>關鍵字</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gas</span></code></p></td>
+<td><p>Specify gas value for the call</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p>Specify amount of ether sent with the call</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">skip_contract_check</span></code></p></td>
+<td><p>Drop <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> check (but keep <code class="docutils literal notranslate"><span class="pre">RETURNDATASIZE</span></code> check)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default_return_value</span></code></p></td>
+<td><p>Specify a default return value if no value is returned</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">default_return_value</span></code> parameter can be used to handle ERC20 tokens affected by the missing return value bug in a way similar to OpenZeppelin’s <code class="docutils literal notranslate"><span class="pre">safeTransfer</span></code> for Solidity:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">extcall</span><span class="w"> </span><span class="n">IERC20</span><span class="p">(</span><span class="n">USDT</span><span class="p">).</span><span class="n">transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">default_return_value</span><span class="o">=</span><span class="n">True</span><span class="p">)</span><span class="w"> </span><span class="c1"># returns True</span>
+</span><span id="1-2"><span class="n">extcall</span><span class="w"> </span><span class="n">IERC20</span><span class="p">(</span><span class="n">USDT</span><span class="p">).</span><span class="n">transfer</span><span class="p">(</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1"># reverts because nothing returned</span>
+</span></pre></div>
+</div>
+</section>
+<section id="built-in-interfaces">
+<h2>Built-in Interfaces<a class="headerlink" href="#built-in-interfaces" title="Link to this heading">¶</a></h2>
+<p>Vyper includes common built-in interfaces such as <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-20">IERC20</a> and <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-721">IERC721</a>. These are imported from <code class="docutils literal notranslate"><span class="pre">ethereum.ercs</span></code>:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">from</span><span class="w"> </span><span class="n">ethereum</span><span class="p">.</span><span class="n">ercs</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">IERC20</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">IERC20</span>
+</span></pre></div>
+</div>
+<p>You can see all the available built-in interfaces in the <a class="reference external" href="https://github.com/vyperlang/vyper/tree/master/vyper/builtins/interfaces">Vyper GitHub</a> repo.</p>
+</section>
+<section id="implementing-an-interface">
+<h2>Implementing an Interface<a class="headerlink" href="#implementing-an-interface" title="Link to this heading">¶</a></h2>
+<p>You can define an interface for your contract with the <code class="docutils literal notranslate"><span class="pre">implements</span></code> statement:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">import</span><span class="w"> </span><span class="n">an_interface</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">FooBarInterface</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">FooBarInterface</span>
+</span></pre></div>
+</div>
+<p>This imports the defined interface from the vyper file at <code class="docutils literal notranslate"><span class="pre">an_interface.vyi</span></code> (or <code class="docutils literal notranslate"><span class="pre">an_interface.json</span></code> if using ABI json interface type) and ensures your current contract implements all the necessary external functions. If any interface functions are not included in the contract, it will fail to compile. This is especially useful when developing contracts around well-defined standards such as ERC20.</p>
+<p>Multiple <code class="docutils literal notranslate"><span class="pre">implements</span></code> statements can be grouped into one:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">Foo</span>
+</span><span id="1-2"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">Bar</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="c1"># Equivalent to:</span>
+</span><span id="1-5">
+</span><span id="1-6"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="p">(</span>
+</span><span id="1-7"><span class="w">    </span><span class="n">Foo</span><span class="p">,</span>
+</span><span id="1-8"><span class="w">    </span><span class="n">Bar</span><span class="p">,</span>
+</span><span id="1-9"><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Functions involving length-bounded types (<code class="docutils literal notranslate"><span class="pre">Bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">DynArray</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>) follow standard variance rules:</p>
+<ul class="simple">
+<li><p><strong>Return types are covariant</strong>: if the interface declares <code class="docutils literal notranslate"><span class="pre">String[10]</span></code>, the implementation’s declared maximum must be <strong>at most</strong> 10 (it may be narrower).</p></li>
+<li><p><strong>Parameter types are contravariant</strong>: if the interface declares <code class="docutils literal notranslate"><span class="pre">Bytes[10]</span></code>, the implementation’s declared maximum must be <strong>at least</strong> 10 (it may be wider).</p></li>
+</ul>
+<p>For example, given the interface:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">interface</span><span class="w"> </span><span class="nc">IFoo</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">Bytes[10]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span><span class="w"> </span><span class="kd">view</span>
+</span></pre></div>
+</div>
+<p>the following implementation is accepted:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">implements</span><span class="p">:</span><span class="w"> </span><span class="n">IFoo</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="nd">@view</span>
+</span><span id="1-5"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">x:</span><span class="w"> </span><span class="kt">Bytes[20]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span><span class="w">  </span><span class="c1"># wider parameter, narrower return</span>
+</span><span id="1-6"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span></pre></div>
+</div>
+<p>Matching bounds are also valid: an implementation declared as <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">foo(x:</span> <span class="pre">Bytes[10])</span> <span class="pre">-&gt;</span> <span class="pre">String[10]</span></code> satisfies the same interface.</p>
+<p>Think of a function as a funnel. To swap it for another, the input has to be at least as wide (the new function must accept everything the original did, and may accept more), and the output has to be no wider (whatever it produces must still fit where the original output went). A narrower input would let some valid arguments fall through, and a wider output would exceed what the caller is prepared to receive.</p>
+<p>To declare 「any length」 in an interface, use the wildcard <code class="docutils literal notranslate"><span class="pre">...</span></code> with one of the length-bounded types: <code class="docutils literal notranslate"><span class="pre">Bytes[...]</span></code>, <code class="docutils literal notranslate"><span class="pre">DynArray[uint256,</span> <span class="pre">...]</span></code>, or <code class="docutils literal notranslate"><span class="pre">String[...]</span></code>. The wildcard is only valid inside interface declarations and only for these types; static arrays (e.g. <code class="docutils literal notranslate"><span class="pre">uint256[5]</span></code>) still require a concrete length.</p>
+<p>At the call site, a wildcard in a return type resolves against the type Vyper infers from context (e.g. an assignment target). If there is no such type (for example when the return value is discarded), it resolves to an unbounded length.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">...</span></code> leaves the actual bound up to the implementation, the call-site type check accepts arguments of any declared length. If the value the caller passes is longer than the implementation’s declared bound, the callee reverts when decoding the argument. For example, given an interface <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">foo(x:</span> <span class="pre">String[...])</span></code> and an implementation <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">foo(x:</span> <span class="pre">String[2])</span></code> at address <code class="docutils literal notranslate"><span class="pre">addr</span></code>, calling <code class="docutils literal notranslate"><span class="pre">IFoo(addr).foo(&quot;hello&quot;)</span></code> passes the call-site type check but reverts at the callee, because the value’s length (5) exceeds the implementation’s bound (2). A concrete bound in the interface (e.g. <code class="docutils literal notranslate"><span class="pre">String[5]</span></code>) is checked at compile time instead. The compiler rejects arguments whose declared type allows lengths greater than 5 before the contract is deployed. In this sense <code class="docutils literal notranslate"><span class="pre">...</span></code> is less safe than a concrete bound, where 「safe」 means 「program might revert unexpectedly」, not 「program is vulnerable to attackers」.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Prior to v0.4.0, <code class="docutils literal notranslate"><span class="pre">implements</span></code> required that events defined in an interface were re-defined in the 「implementing」 contract. As of v0.4.0, this is no longer required because events can be used just by importing them. Any events used in a contract will automatically be exported in the ABI output.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>An interface function with default parameters (e.g. <code class="docutils literal notranslate"><span class="pre">deposit(assets:</span> <span class="pre">uint256,</span> <span class="pre">receiver:</span> <span class="pre">address</span> <span class="pre">=</span> <span class="pre">msg.sender)</span></code>) implies that the contract being interfaced with supports these default arguments via the ABI-encoded function signatures (e.g. <code class="docutils literal notranslate"><span class="pre">keccak256(&quot;deposit(uint256,address)&quot;)[:4]</span></code> and <code class="docutils literal notranslate"><span class="pre">keccak256(&quot;deposit(uint256)&quot;)[:4]</span></code>). It is the responsibility of the callee to implement the behavior associated with these defaults.</p>
+</div>
+</section>
+<section id="standalone-interfaces">
+<h2>Standalone Interfaces<a class="headerlink" href="#standalone-interfaces" title="Link to this heading">¶</a></h2>
+<p>Standalone interfaces are written using a variant of standard Vyper syntax. The body of each function must be an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>). Interface files must have a <code class="docutils literal notranslate"><span class="pre">.vyi</span></code> suffix in order to be found by an import statement.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># ISomeInterface.vyi</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="p">...</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">uint256</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="p">...</span>
+</span></pre></div>
+</div>
+</section>
+<section id="extracting-interfaces">
+<h2>Extracting Interfaces<a class="headerlink" href="#extracting-interfaces" title="Link to this heading">¶</a></h2>
+<p>Vyper has a built-in format option to allow you to easily export a Vyper interface from a pre-existing contract.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">$ vyper -f interface examples/voting/ballot.vy
+</span><span id="1-2">
+</span><span id="1-3"># Functions
+</span><span id="1-4">
+</span><span id="1-5">@view
+</span><span id="1-6">@external
+</span><span id="1-7">def delegated(addr: address) -&gt; bool:
+</span><span id="1-8">    ...
+</span><span id="1-9">
+</span><span id="1-10"># ...
+</span></pre></div>
+</div>
+<p>If you want to export it as an inline interface, Vyper provides a utility to extract that as well.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span id="1-1">$ vyper -f external_interface examples/voting/ballot.vy
+</span><span id="1-2">
+</span><span id="1-3"># 外部合約
+</span><span id="1-4">interface Ballot:
+</span><span id="1-5">    def delegated(addr: address) -&gt; bool: view
+</span><span id="1-6">    def directlyVoted(addr: address) -&gt; bool: view
+</span><span id="1-7">    def giveRightToVote(voter: address): nonpayable
+</span><span id="1-8">    def forwardWeight(delegate_with_weight_to_forward: address): nonpayable
+</span><span id="1-9">    # ...
+</span></pre></div>
+</div>
+<p>The output can then easily be copy-pasted directly in a regular vyper file.</p>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="abstract-modules.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">抽象模組</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="event-logging.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">事件日誌紀錄</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
