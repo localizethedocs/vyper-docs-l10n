@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-06-16 15:47:22 +0000",
-      "hash" : "66caaca9ba3c584ef65593ab9a278a68af1ad25c",
-      "title" : "chore[build]: bump github-actions group (#5128)"
+      "date" : "2026-09-26 15:14:22 +0300",
+      "hash" : "e5117a867928d1ea360f0f11b8651f9591269457",
+      "title" : "fix[venom]: retpc_param handle in inliner fix (#5254)"
     }
   },
   "type" : "branch",
