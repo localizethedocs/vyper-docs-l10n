@@ -37,9 +37,9 @@
     "branch" : "master",
     "commit" : 
     {
-      "date" : "2026-06-16 15:47:22 +0000",
-      "hash" : "66caaca9ba3c584ef65593ab9a278a68af1ad25c",
-      "title" : "chore[build]: bump github-actions group (#5128)"
+      "date" : "2026-10-02 18:59:34 +0300",
+      "hash" : "17e925db6b33352338f0b94099f3dd1d65e30554",
+      "title" : "fix[codegen]: complex tuple wrap abi decode (#5286)"
     }
   },
   "type" : "branch",
