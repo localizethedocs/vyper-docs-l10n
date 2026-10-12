@@ -435,8 +435,6 @@ msgid ""
 "If the returned call data exceeds this length, only this number of bytes is "
 "returned. (Optional, default ``0``)"
 msgstr ""
-"``max_outsize``：從呼叫回傳的位元組陣列的最大長度。如果回傳的呼叫資料超過此長"
-"度，則只回傳此數量的位元組。（選用，默認 ``0``）"
 
 #: ../../../built-in-functions.rst:185
 msgid ""
