@@ -1,0 +1,496 @@
+
+  <!DOCTYPE html>
+<html lang="en-US" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Scoping and Declarations - Vyper documentation</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Built-in Functions" href="built-in-functions.html" /><link rel="prev" title="Control Structures" href="control-structures.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/scoping-and-declarations.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/scoping-and-declarations.html"/>
+<meta property="og:title" content="Scoping and Declarations"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="Switch to light color mode"
+        data-aria-light="Switch to dark color mode"
+        data-aria-dark="Switch to auto color mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">Installing Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">Differences from Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">Factory Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Description</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">Environment Variables and Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">Control Structures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">Built-in Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">Math Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">Abstract Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-logging.html">Event Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Compiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">Compiling a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">Compiler Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">Deploying a Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">Testing a Contract</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Other resources and learning material</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">Deep Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>On this page</h3>
+    <ul>
+<li><a class="reference internal" href="#variable-declaration">Variable Declaration</a><ul>
+<li><a class="reference internal" href="#declaring-public-variables">Declaring Public Variables</a></li>
+<li><a class="reference internal" href="#declaring-immutable-variables">Declaring Immutable Variables</a></li>
+<li><a class="reference internal" href="#tuple-assignment">Tuple Assignment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#storage-layout">Storage Layout</a></li>
+<li><a class="reference internal" href="#scoping-rules">Scoping Rules</a><ul>
+<li><a class="reference internal" href="#module-scope">Module Scope</a><ul>
+<li><a class="reference internal" href="#accessing-module-scope-from-functions">Accessing Module Scope from Functions</a></li>
+<li><a class="reference internal" href="#name-shadowing">Name Shadowing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function-scope">Function Scope</a></li>
+<li><a class="reference internal" href="#block-scopes">Block Scopes</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/scoping-and-declarations.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">Scoping and Declarations</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="scoping-and-declarations">
+<span id="scoping"></span><h1>Scoping and Declarations<a class="headerlink" href="#scoping-and-declarations" title="Link to this heading">¶</a></h1>
+<section id="variable-declaration">
+<h2>Variable Declaration<a class="headerlink" href="#variable-declaration" title="Link to this heading">¶</a></h2>
+<p>The first time a variable is referenced you must declare its <a class="reference internal" href="types.html#types"><span class="std std-ref">type</span></a>:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">data:</span><span class="w"> </span><span class="kt">int128</span>
+</span></pre></div>
+</div>
+<p>In the above example, we declare the variable <code class="docutils literal notranslate"><span class="pre">data</span></code> with a type of <code class="docutils literal notranslate"><span class="pre">int128</span></code>.</p>
+<p>Depending on the active scope, an initial value may or may not be assigned:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For storage variables (declared in the module scope), an initial value <strong>cannot</strong> be set</p></li>
+<li><p>For memory variables (declared within a function), an initial value <strong>must</strong> be set</p></li>
+<li><p>For calldata variables (function input arguments), a default value <strong>may</strong> be given</p></li>
+</ul>
+</div></blockquote>
+<section id="declaring-public-variables">
+<h3>Declaring Public Variables<a class="headerlink" href="#declaring-public-variables" title="Link to this heading">¶</a></h3>
+<p>Storage variables can be marked as <code class="docutils literal notranslate"><span class="pre">public</span></code> during declaration:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">data:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">int128</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>The compiler automatically creates getter functions for all public storage variables. For the example above, the compiler will generate a function called <code class="docutils literal notranslate"><span class="pre">data</span></code> that does not take any arguments and returns an <code class="docutils literal notranslate"><span class="pre">int128</span></code>, the value of the state variable data.</p>
+<p>For public arrays, you can only retrieve a single element via the generated getter. This mechanism exists to avoid high gas costs when returning an entire array. The getter will accept an argument to specify which element to return, for example <code class="docutils literal notranslate"><span class="pre">data(0)</span></code>.</p>
+</section>
+<section id="declaring-immutable-variables">
+<span id="immutable-variables"></span><h3>Declaring Immutable Variables<a class="headerlink" href="#declaring-immutable-variables" title="Link to this heading">¶</a></h3>
+<p>Variables can be marked as <code class="docutils literal notranslate"><span class="pre">immutable</span></code> during declaration:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">DATA:</span><span class="w"> </span><span class="kd">immutable</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@deploy</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">(</span><span class="nv">_data:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-5"><span class="w">    </span><span class="n">DATA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_data</span>
+</span></pre></div>
+</div>
+<p>Variables declared as immutable are similar to constants, except they are assigned a value in the constructor of the contract. Immutable values must be assigned a value at construction and cannot be assigned a value after construction.</p>
+<p>The contract creation code generated by the compiler will modify the contract’s runtime code before it is returned by appending all values assigned to immutables to the runtime code returned by the constructor. This is important if you are comparing the runtime code generated by the compiler with the one actually stored in the blockchain.</p>
+</section>
+<section id="tuple-assignment">
+<h3>Tuple Assignment<a class="headerlink" href="#tuple-assignment" title="Link to this heading">¶</a></h3>
+<p>You cannot directly declare tuple types. However, in certain cases you can use literal tuples during assignment. For example, when a function returns multiple values:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@internal</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="kt">int128</span><span class="p">,</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">():</span>
+</span><span id="1-7"><span class="w">    </span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="1-8"><span class="w">    </span><span class="nv">b:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="1-9">
+</span><span id="1-10"><span class="w">    </span><span class="c1"># the return value of `foo` is assigned using a tuple</span>
+</span><span id="1-11"><span class="w">    </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-12">
+</span><span id="1-13"><span class="w">    </span><span class="c1"># Can also skip the parenthesis</span>
+</span><span id="1-14"><span class="w">    </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="storage-layout">
+<h2>Storage Layout<a class="headerlink" href="#storage-layout" title="Link to this heading">¶</a></h2>
+<p>Storage variables are located within a smart contract at specific storage slots. By default, the compiler allocates the first variable to be stored at <code class="docutils literal notranslate"><span class="pre">slot</span> <span class="pre">0</span></code>; subsequent variables are stored in order after that.</p>
+<p>There are cases where it is necessary to override this pattern and to allocate storage variables in custom slots. This behaviour is often required for upgradeable contracts, to ensure that both contracts (the old contract, and the new contract) store the same variable within the same slot.</p>
+<p>This can be performed when compiling  via <code class="docutils literal notranslate"><span class="pre">vyper</span></code> by including the <code class="docutils literal notranslate"><span class="pre">--storage-layout-file</span></code> flag.</p>
+<p>For example, consider upgrading the following contract:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># old_contract.vy</span>
+</span><span id="1-2"><span class="nv">owner:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-3"><span class="nv">balanceOf:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">])</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># new_contract.vy</span>
+</span><span id="1-2"><span class="nv">owner:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-3"><span class="nv">minter:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4"><span class="nv">balanceOf:</span><span class="w"> </span><span class="kd">public</span><span class="p">(</span><span class="n">HashMap</span><span class="p">[</span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="kt">uint256</span><span class="p">])</span>
+</span></pre></div>
+</div>
+<p>This would cause an issue when upgrading, as the <code class="docutils literal notranslate"><span class="pre">balanceOf</span></code> mapping would be located at <code class="docutils literal notranslate"><span class="pre">slot1</span></code> in the old contract, and <code class="docutils literal notranslate"><span class="pre">slot2</span></code> in the new contract.</p>
+<p>This issue can be avoided by allocating <code class="docutils literal notranslate"><span class="pre">balanceOf</span></code> to <code class="docutils literal notranslate"><span class="pre">slot1</span></code> using the storage layout overrides. The contract can be compiled with <code class="docutils literal notranslate"><span class="pre">vyper</span> <span class="pre">new_contract.vy</span> <span class="pre">--storage-layout-file</span> <span class="pre">new_contract_storage.json</span></code> where <code class="docutils literal notranslate"><span class="pre">new_contract_storage.json</span></code> contains the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="p">{</span>
+</span><span id="1-2"><span class="w">    </span><span class="nt">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;address&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;n_slots&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;slot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+</span><span id="1-3"><span class="w">    </span><span class="nt">&quot;minter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;address&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;n_slots&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;slot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+</span><span id="1-4"><span class="w">    </span><span class="nt">&quot;balanceOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HashMap[address, uint256]&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;n_slots&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;slot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span>
+</span><span id="1-5"><span class="p">}</span>
+</span></pre></div>
+</div>
+<p>When creating a custom storage layout, you must also include <code class="docutils literal notranslate"><span class="pre">n_slots</span></code> for each storage variable. This tells the compiler how many 32 byte slots to allocate from the <code class="docutils literal notranslate"><span class="pre">slot</span></code> storage offset.</p>
+<p>For further information on generating the storage layout, see <a class="reference internal" href="compiling-a-contract.html#compiler-storage-layout"><span class="std std-ref">Storage Layout</span></a>.</p>
+</section>
+<section id="scoping-rules">
+<h2>Scoping Rules<a class="headerlink" href="#scoping-rules" title="Link to this heading">¶</a></h2>
+<p>Vyper follows C99 scoping rules. Variables are visible from the point right after their declaration until the end of the smallest block that contains the declaration.</p>
+<section id="module-scope">
+<span id="scoping-module"></span><h3>Module Scope<a class="headerlink" href="#module-scope" title="Link to this heading">¶</a></h3>
+<p>Variables and other items declared outside of a code block (functions, constants, event and struct definitions, …), are visible even before they were declared. This means you can use module-scoped items before they are declared.</p>
+<section id="accessing-module-scope-from-functions">
+<h4>Accessing Module Scope from Functions<a class="headerlink" href="#accessing-module-scope-from-functions" title="Link to this heading">¶</a></h4>
+<p>Values that are declared in the module scope of a contract, such as storage variables and functions, are accessed via the <code class="docutils literal notranslate"><span class="pre">self</span></code> object:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@internal</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">42</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="nv">b:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">foo</span><span class="p">()</span>
+</span><span id="1-10"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="na">self</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</span></pre></div>
+</div>
+</section>
+<section id="name-shadowing">
+<h4>Name Shadowing<a class="headerlink" href="#name-shadowing" title="Link to this heading">¶</a></h4>
+<p>It is not permitted for a memory or calldata variable to shadow the name of an immutable or constant value. The following examples will not compile:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">a:</span><span class="w"> </span><span class="kd">constant</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@external</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-5"><span class="w">    </span><span class="c1"># memory variable cannot have the same name as a constant or immutable variable</span>
+</span><span id="1-6"><span class="w">    </span><span class="nv">a:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nv">a:</span><span class="w"> </span><span class="kd">immutable</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="nd">@deploy</span>
+</span><span id="1-4"><span class="k">def</span><span class="w"> </span><span class="nf">__init__</span><span class="p">():</span>
+</span><span id="1-5"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="nd">@external</span>
+</span><span id="1-8"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-9"><span class="w">    </span><span class="c1"># input argument cannot have the same name as a constant or immutable variable</span>
+</span><span id="1-10"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+<section id="function-scope">
+<h3>Function Scope<a class="headerlink" href="#function-scope" title="Link to this heading">¶</a></h3>
+<p>Variables that are declared within a function, or given as function input arguments, are visible within the body of that function. For example, the following contract is valid because each declaration of <code class="docutils literal notranslate"><span class="pre">a</span></code> only exists within one function’s body.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">pass</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">):</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">pass</span>
+</span><span id="1-8">
+</span><span id="1-9"><span class="nd">@external</span>
+</span><span id="1-10"><span class="k">def</span><span class="w"> </span><span class="nf">baz</span><span class="p">():</span>
+</span><span id="1-11"><span class="w">    </span><span class="nv">a:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span>
+</span></pre></div>
+</div>
+<p>The following examples will not compile:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="c1"># `a` has already been declared as an input argument</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span>
+</span></pre></div>
+</div>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="p">):</span>
+</span><span id="1-3"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="nd">@external</span>
+</span><span id="1-6"><span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">():</span>
+</span><span id="1-7"><span class="w">    </span><span class="c1"># `a` has not been declared within this function</span>
+</span><span id="1-8"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">12</span>
+</span></pre></div>
+</div>
+</section>
+<section id="block-scopes">
+<span id="scoping-block"></span><h3>Block Scopes<a class="headerlink" href="#block-scopes" title="Link to this heading">¶</a></h3>
+<p>Logical blocks created by <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code> statements have their own scope. For example, the following contract is valid because <code class="docutils literal notranslate"><span class="pre">x</span></code> only exists within the block scopes for each branch of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">a:</span>
+</span><span id="1-4"><span class="w">        </span><span class="nv">x:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="1-5"><span class="w">    </span><span class="k">else</span><span class="p">:</span>
+</span><span id="1-6"><span class="w">        </span><span class="nv">x:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+</span></pre></div>
+</div>
+<p>In a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement, the target variable exists within the scope of the loop. For example, the following contract is valid because <code class="docutils literal notranslate"><span class="pre">i</span></code> is no longer available upon exiting the loop:</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">        </span><span class="k">pass</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">i:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span>
+</span></pre></div>
+</div>
+<p>The following contract fails to compile because <code class="docutils literal notranslate"><span class="pre">a</span></code> has not been declared outside of the loop.</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="nd">@external</span>
+</span><span id="1-2"><span class="k">def</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="nv">a:</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int128</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nv">i:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]:</span>
+</span><span id="1-4"><span class="w">        </span><span class="nv">a:</span><span class="w"> </span><span class="kt">int128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+</span><span id="1-5"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="control-structures.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>Previous</span>
+        
+        <div class="title">Control Structures</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="built-in-functions.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">Built-in Functions</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=ccd1e645"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
