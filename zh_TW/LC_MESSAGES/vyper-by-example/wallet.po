@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/wallet.rst:4
+msgid "Multi-Signature Wallet"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:10
+msgid ""
+"This is example code for learning purposes. Do not use in production without "
+"thorough review and testing."
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:12
+msgid ""
+"A multi-signature wallet requiring multiple owner approvals to execute "
+"transactions."
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:14
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"###########################################################################\n"
+"## THIS IS EXAMPLE CODE, NOT MEANT TO BE USED IN PRODUCTION! CAVEAT EMPTOR!\n"
+"###########################################################################\n"
+"\n"
+"# An example of how you can implement a wallet in Vyper.\n"
+"\n"
+"# A list of the owners addresses (there are a maximum of 5 owners)\n"
+"owners: public(address[5])\n"
+"# The number of owners required to approve a transaction\n"
+"threshold: int128\n"
+"# The number of transactions that have been approved\n"
+"seq: public(int128)\n"
+"\n"
+"\n"
+"@deploy\n"
+"def __init__(_owners: address[5], _threshold: int128):\n"
+"    for i: uint256 in range(5):\n"
+"        if _owners[i] != empty(address):\n"
+"            self.owners[i] = _owners[i]\n"
+"    self.threshold = _threshold\n"
+"\n"
+"\n"
+"@external\n"
+"def testEcrecover(h: bytes32, v:uint8, r:bytes32, s:bytes32) -> address:\n"
+"    return ecrecover(h, v, r, s)\n"
+"\n"
+"\n"
+"# `@payable` allows functions to receive ether\n"
+"@external\n"
+"@payable\n"
+"def approve(_seq: int128, to: address, _value: uint256, data: Bytes[4096], "
+"sigdata: uint256[3][5]) -> Bytes[4096]:\n"
+"    # Throws if the value sent to the contract is less than the sum of the "
+"value to be sent\n"
+"    assert msg.value >= _value\n"
+"    # Every time the number of approvals starts at 0 (multiple signatures "
+"can be added through the sigdata argument)\n"
+"    approvals: int128 = 0\n"
+"    # Starts by combining:\n"
+"    # 1) The number of transactions approved thus far.\n"
+"    # 2) The address the transaction is going to be sent to (can be a "
+"contract or a user).\n"
+"    # 3) The value in wei that will be sent with this transaction.\n"
+"    # 4) The data to be sent with this transaction (usually data is used to "
+"deploy contracts or to call functions on contracts, but you can put whatever "
+"you want in it).\n"
+"    # Takes the keccak256 hash of the combination\n"
+"    h: bytes32 = keccak256(concat(convert(_seq, bytes32), convert(to, "
+"bytes32), convert(_value, bytes32), data))\n"
+"    # Then we combine the Ethereum Signed message with our previous hash\n"
+"    # Owners will have to sign the below message\n"
+"    h2: bytes32 = keccak256(concat(b\"\\x19Ethereum Signed Message:\\n32\", "
+"h))\n"
+"    # Verifies that the caller of approve has entered the correct "
+"transaction number\n"
+"    assert self.seq == _seq\n"
+"    # # Iterates through all the owners and verifies that there signatures,\n"
+"    # # given as the sigdata argument are correct\n"
+"    for i: uint256 in range(5):\n"
+"        if sigdata[i][0] != 0:\n"
+"            # If an invalid signature is given for an owner then the "
+"contract throws\n"
+"            assert ecrecover(h2, sigdata[i][0], sigdata[i][1], sigdata[i]"
+"[2]) == self.owners[i]\n"
+"            # ecrecover handles multiple types\n"
+"            assert ecrecover(h2, convert(sigdata[i][0], uint8), "
+"convert(sigdata[i][1], bytes32), convert(sigdata[i][2], bytes32)) == self."
+"owners[i]\n"
+"            # For every valid signature increase the number of approvals by "
+"1\n"
+"            approvals += 1\n"
+"    # Throw if the number of approvals is less then the number of approvals "
+"required (the threshold)\n"
+"    assert approvals >= self.threshold\n"
+"    # The transaction has been approved\n"
+"    # Increase the number of approved transactions by 1\n"
+"    self.seq += 1\n"
+"    # Use raw_call to send the transaction\n"
+"    return raw_call(to, data, max_outsize=4096, gas=3_000_000, "
+"value=_value)\n"
+"\n"
+"\n"
+"@external\n"
+"@payable\n"
+"def __default__():\n"
+"    pass\n"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:18
+msgid "Key concepts:"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:20
+msgid ""
+"**Threshold signatures**: Requires ``threshold`` out of 5 owners to approve"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:21
+msgid ""
+"**Signature verification**: Uses ``ecrecover`` to verify owner signatures"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:22
+msgid "**Replay protection**: ``seq`` counter prevents transaction replay"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:23
+msgid ""
+"**Arbitrary calls**: ``raw_call`` executes any transaction once approved"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:25
+msgid "The approval process:"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:27
+msgid "Owners sign a hash of (sequence number, destination, value, data)"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:28
+msgid "Anyone can call ``approve()`` with the collected signatures"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:29
+msgid "If enough valid signatures are provided, the transaction executes"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:33
+msgid ""
+"This demonstrates signature verification patterns. Production multisigs need "
+"additional safeguards like time locks and nonce management."
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:1
+msgid "wallet"
+msgstr ""
+
+#: ../../../vyper-by-example/wallet.rst:1
+msgid "multisig"
+msgstr ""
