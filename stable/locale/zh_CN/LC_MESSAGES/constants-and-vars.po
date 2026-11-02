@@ -217,8 +217,8 @@ msgstr ""
 msgid ""
 "``msg.data`` requires the usage of :func:`slice <slice>` to explicitly "
 "extract a section of calldata. If the extracted section exceeds the bounds "
-"of calldata, this will throw. You can check the size of ``msg.data`` using :"
-"func:`len <len>`."
+"of calldata, this will throw. You can check the size of ``msg.data`` "
+"using :func:`len <len>`."
 msgstr ""
 
 #: ../../../constants-and-vars.rst:47

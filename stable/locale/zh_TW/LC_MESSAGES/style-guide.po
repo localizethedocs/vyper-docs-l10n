@@ -161,8 +161,8 @@ msgstr ""
 
 #: ../../../style-guide.rst:53
 msgid ""
-"Methods that return a single boolean **should** use the :py:class:"
-"`@property<property>` decorator."
+"Methods that return a single boolean **should** use "
+"the :py:class:`@property<property>` decorator."
 msgstr ""
 
 #: ../../../style-guide.rst:56
@@ -596,22 +596,22 @@ msgstr ""
 
 #: ../../../style-guide.rst:219
 msgid ""
-"All API documentation **must** use standard Python `directives <https://www."
-"sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-python-"
+"All API documentation **must** use standard Python `directives <https://"
+"www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-python-"
 "domain>`_."
 msgstr ""
 
 #: ../../../style-guide.rst:220
 msgid ""
 "Where possible, references to syntax **should** use appropriate `Python "
-"roles <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains."
-"html#cross-referencing-syntax>`_."
+"roles <https://www.sphinx-doc.org/en/master/usage/restructuredtext/"
+"domains.html#cross-referencing-syntax>`_."
 msgstr ""
 
 #: ../../../style-guide.rst:221
 msgid ""
-"External references **may** use `intersphinx roles <https://www.sphinx-doc."
-"org/en/master/usage/extensions/intersphinx.html>`_."
+"External references **may** use `intersphinx roles <https://www.sphinx-"
+"doc.org/en/master/usage/extensions/intersphinx.html>`_."
 msgstr ""
 
 #: ../../../style-guide.rst:224
@@ -698,8 +698,8 @@ msgstr ""
 
 #: ../../../style-guide.rst:253
 msgid ""
-"Commit messages **should** adhere to the `Conventional Commits <https://www."
-"conventionalcommits.org/>`_ standard. A conventional commit message is "
+"Commit messages **should** adhere to the `Conventional Commits <https://"
+"www.conventionalcommits.org/>`_ standard. A conventional commit message is "
 "structured as follows:"
 msgstr ""
 

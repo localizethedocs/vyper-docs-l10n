@@ -162,8 +162,8 @@ msgstr ""
 
 #: ../../../installing-vyper.rst:95
 msgid ""
-"Vyper can be downloaded as docker image from `dockerhub <https://hub.docker."
-"com/r/vyperlang/vyper/tags?page=1&ordering=last_updated>`_: ::"
+"Vyper can be downloaded as docker image from `dockerhub <https://"
+"hub.docker.com/r/vyperlang/vyper/tags?page=1&ordering=last_updated>`_: ::"
 msgstr ""
 
 #: ../../../installing-vyper.rst:98

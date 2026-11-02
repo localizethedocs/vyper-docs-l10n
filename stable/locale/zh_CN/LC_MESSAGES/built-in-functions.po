@@ -308,9 +308,9 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:148
 msgid ""
-"It is recommended to deploy blueprints with an `ERC-5202 <https://eips."
-"ethereum.org/EIPS/eip-5202>`_ preamble like ``0xFE7100`` to guard them from "
-"being called as regular contracts. This is particularly important for "
+"It is recommended to deploy blueprints with an `ERC-5202 <https://"
+"eips.ethereum.org/EIPS/eip-5202>`_ preamble like ``0xFE7100`` to guard them "
+"from being called as regular contracts. This is particularly important for "
 "factories where the constructor has side effects (including "
 "``SELFDESTRUCT``!), as those could get executed by *anybody* calling the "
 "blueprint contract directly. The ``code_offset=`` kwarg is provided (and "
@@ -445,11 +445,11 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:225
 msgid ""
-"Regarding \"forwarding all gas\", note that, while Vyper will provide ``msg."
-"gas`` to the call, in practice, there are some subtleties around forwarding "
-"all remaining gas on the EVM which are out of scope of this documentation "
-"and could be subject to change. For instance, see the language in EIP-150 "
-"around \"all but one 64th\"."
+"Regarding \"forwarding all gas\", note that, while Vyper will provide "
+"``msg.gas`` to the call, in practice, there are some subtleties around "
+"forwarding all remaining gas on the EVM which are out of scope of this "
+"documentation and could be subject to change. For instance, see the language "
+"in EIP-150 around \"all but one 64th\"."
 msgstr ""
 
 #: ../../../built-in-functions.rst:229
@@ -656,8 +656,8 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:360
 msgid ""
-">>> ExampleContract."
-"foo('0x6c9c5e133b8aafb2ea74f524a5263495e7ae5701c7248805f7b511d973dc7055',\n"
+">>> "
+"ExampleContract.foo('0x6c9c5e133b8aafb2ea74f524a5263495e7ae5701c7248805f7b511d973dc7055',\n"
 "     28,\n"
 "     78616903610408968922803823221221116251138855211764625814919875002740131251724,\n"
 "     37668412420813231458864536126575229553064045345107737433087067088194345044408\n"
@@ -817,8 +817,8 @@ msgstr ""
 
 #: ../../../built-in-functions.rst:474
 msgid ""
-">>> ExampleContract."
-"foo(\"0x0000000000000000000000009f8F72aA9304c8B593d555F12eF6589cC3A579A2\")\n"
+">>> "
+"ExampleContract.foo(\"0x0000000000000000000000009f8F72aA9304c8B593d555F12eF6589cC3A579A2\")\n"
 "\"0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2\""
 msgstr ""
 
@@ -1610,8 +1610,8 @@ msgid ""
 "if ``x()`` and ``y()`` both touch the same data. For this reason, it is best "
 "to avoid calling functions with side-effects inside of builtins. For more "
 "information, see `GHSA-g2xh-c426-v8mf <https://github.com/vyperlang/vyper/"
-"security/advisories/GHSA-g2xh-c426-v8mf>`_ and `issue #4019 <https://github."
-"com/vyperlang/vyper/issues/4019>`_."
+"security/advisories/GHSA-g2xh-c426-v8mf>`_ and `issue #4019 <https://"
+"github.com/vyperlang/vyper/issues/4019>`_."
 msgstr ""
 
 #: ../../../built-in-functions.rst:1

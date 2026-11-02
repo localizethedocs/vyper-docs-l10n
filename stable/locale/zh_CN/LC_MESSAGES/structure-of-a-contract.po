@@ -261,9 +261,9 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:132
 msgid ""
-"When compiling from a :ref:`.vyz archive file <vyper-archives>` or :ref:"
-"`standard json input <vyper-json>`, the search path is already part of the "
-"bundle, it cannot be changed from the command line."
+"When compiling from a :ref:`.vyz archive file <vyper-archives>` "
+"or :ref:`standard json input <vyper-json>`, the search path is already part "
+"of the bundle, it cannot be changed from the command line."
 msgstr ""
 
 #: ../../../structure-of-a-contract.rst:137
@@ -313,9 +313,9 @@ msgstr ""
 
 #: ../../../structure-of-a-contract.rst:166
 msgid ""
-"Functions may be called internally or externally depending on their :ref:"
-"`visibility <function-visibility>`. Functions may accept input arguments and "
-"return variables in order to pass values between them."
+"Functions may be called internally or externally depending on "
+"their :ref:`visibility <function-visibility>`. Functions may accept input "
+"arguments and return variables in order to pass values between them."
 msgstr ""
 
 #: ../../../structure-of-a-contract.rst:168
