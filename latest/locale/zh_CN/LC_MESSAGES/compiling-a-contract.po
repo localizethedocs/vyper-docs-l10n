@@ -70,11 +70,9 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:32
 msgid ""
-"$ vyper -f abi,abi_python,bytecode,bytecode_runtime,blueprint_bytecode,cfg,"
-"cfg_runtime,interface,external_interface,ast,annotated_ast,integrity,ir,"
-"ir_json,ir_runtime,asm,opcodes,opcodes_runtime,source_map,source_map_runtime,"
-"archive,solc_json,method_identifiers,userdoc,devdoc,metadata,combined_json,"
-"layout yourFileName.vy"
+"$ vyper -f "
+"abi,abi_python,bytecode,bytecode_runtime,blueprint_bytecode,cfg,cfg_runtime,interface,external_interface,ast,annotated_ast,integrity,ir,ir_json,ir_runtime,asm,opcodes,opcodes_runtime,source_map,source_map_runtime,archive,solc_json,method_identifiers,userdoc,devdoc,metadata,combined_json,layout "
+"yourFileName.vy"
 msgstr ""
 
 #: ../../../compiling-a-contract.rst:37
@@ -136,9 +134,9 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:73
 msgid ""
-"``vyper-json`` provides a JSON interface for the compiler. It expects a :ref:"
-"`JSON formatted input<vyper-json-input>` and returns the compilation result "
-"in a :ref:`JSON formatted output<vyper-json-output>`."
+"``vyper-json`` provides a JSON interface for the compiler. It expects "
+"a :ref:`JSON formatted input<vyper-json-input>` and returns the compilation "
+"result in a :ref:`JSON formatted output<vyper-json-output>`."
 msgstr ""
 
 #: ../../../compiling-a-contract.rst:75
@@ -362,8 +360,8 @@ msgstr ""
 
 #: ../../../compiling-a-contract.rst:189
 msgid ""
-"``block.difficulty`` is deprecated in favor of its new alias, ``block."
-"prevrandao``."
+"``block.difficulty`` is deprecated in favor of its new alias, "
+"``block.prevrandao``."
 msgstr ""
 
 #: ../../../compiling-a-contract.rst:193
@@ -430,8 +428,8 @@ msgid ""
 "A Vyper archive is a compileable bundle of input sources and settings. "
 "Technically, it is a `ZIP file <https://en.wikipedia.org/wiki/"
 "ZIP_(file_format)>`_, with a special structure to make it useable as input "
-"to the compiler. It can use any suffix, but the convention is to use a ``."
-"zip`` suffix or ``.vyz`` suffix. It must contain a ``MANIFEST/`` folder, "
+"to the compiler. It can use any suffix, but the convention is to use a "
+"``.zip`` suffix or ``.vyz`` suffix. It must contain a ``MANIFEST/`` folder, "
 "with the following directory structure."
 msgstr ""
 
@@ -713,8 +711,8 @@ msgid ""
 "suffix\n"
 "            \"source_file\": {\n"
 "                // The Ethereum Contract ABI.\n"
-"                // See https://docs.soliditylang.org/en/latest/abi-spec."
-"html\n"
+"                // See https://docs.soliditylang.org/en/latest/abi-"
+"spec.html\n"
 "                \"abi\": [],\n"
 "                // Natspec developer documentation\n"
 "                \"devdoc\": {},\n"

@@ -23,8 +23,8 @@ msgstr "測試合約"
 
 #: ../../../testing-contracts.rst:6
 msgid ""
-"For testing Vyper contracts we recommend the use of `pytest <https://docs."
-"pytest.org/en/latest/contents.html>`_ along with one of the following "
+"For testing Vyper contracts we recommend the use of `pytest <https://"
+"docs.pytest.org/en/latest/contents.html>`_ along with one of the following "
 "frameworks:"
 msgstr ""
 

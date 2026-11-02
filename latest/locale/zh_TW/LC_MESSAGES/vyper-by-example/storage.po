@@ -71,8 +71,8 @@ msgstr ""
 #: ../../../vyper-by-example/storage.rst:28
 msgid ""
 "The ``public`` modifier on ``storedData`` automatically creates a getter "
-"function, so external contracts can read the value by calling ``contract."
-"storedData()``."
+"function, so external contracts can read the value by calling "
+"``contract.storedData()``."
 msgstr ""
 
 #: ../../../vyper-by-example/storage.rst:36

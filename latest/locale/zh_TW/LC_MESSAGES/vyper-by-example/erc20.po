@@ -197,8 +197,8 @@ msgstr ""
 
 #: ../../../vyper-by-example/erc20.rst:20
 msgid ""
-"Implements the ``IERC20`` and ``IERC20Detailed`` interfaces from ``ethereum."
-"ercs``"
+"Implements the ``IERC20`` and ``IERC20Detailed`` interfaces from "
+"``ethereum.ercs``"
 msgstr ""
 
 #: ../../../vyper-by-example/erc20.rst:21

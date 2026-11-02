@@ -47,9 +47,9 @@ msgstr "改善文件"
 
 #: ../../../contributing.rst:18
 msgid ""
-"Responding to questions from other users on `StackExchange <https://ethereum."
-"stackexchange.com>`_ and `Discussions <https://github.com/vyperlang/vyper/"
-"discussions>`_"
+"Responding to questions from other users on `StackExchange <https://"
+"ethereum.stackexchange.com>`_ and `Discussions <https://github.com/vyperlang/"
+"vyper/discussions>`_"
 msgstr ""
 
 #: ../../../contributing.rst:20
@@ -85,9 +85,9 @@ msgstr "如何回報議題"
 
 #: ../../../contributing.rst:33
 msgid ""
-"To report an issue, please use the `GitHub issues tracker <https://github."
-"com/vyperlang/vyper/issues>`_. When reporting issues, please mention the "
-"following details:"
+"To report an issue, please use the `GitHub issues tracker <https://"
+"github.com/vyperlang/vyper/issues>`_. When reporting issues, please mention "
+"the following details:"
 msgstr ""
 
 #: ../../../contributing.rst:37
@@ -215,8 +215,8 @@ msgstr ""
 #: ../../../contributing.rst:87
 msgid ""
 "If you are making a larger change, please consult first with the `Vyper "
-"(Smart Contract Programming Language) Discord <https://discord."
-"gg/6tw7PTM7C2>`_ ``#compiler-dev`` channel."
+"(Smart Contract Programming Language) Discord <https://discord.gg/"
+"6tw7PTM7C2>`_ ``#compiler-dev`` channel."
 msgstr ""
 
 #: ../../../contributing.rst:89

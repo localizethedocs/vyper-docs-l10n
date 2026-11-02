@@ -106,8 +106,8 @@ msgstr ""
 
 #: ../../../quickstart.rst:40
 msgid ""
-"If you're new to Python or having environment issues, see :ref:"
-"`troubleshooting-python` at the bottom of this page."
+"If you're new to Python or having environment issues, "
+"see :ref:`troubleshooting-python` at the bottom of this page."
 msgstr ""
 
 #: ../../../quickstart.rst:43

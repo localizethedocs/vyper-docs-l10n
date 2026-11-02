@@ -124,8 +124,8 @@ msgstr ""
 
 #: ../../../resources.rst:36
 msgid ""
-"`VyperPunk – learn to secure and hack Vyper smart contracts <https://github."
-"com/defcongroup0532/VyperPunk>`_"
+"`VyperPunk – learn to secure and hack Vyper smart contracts <https://"
+"github.com/defcongroup0532/VyperPunk>`_"
 msgstr ""
 
 #: ../../../resources.rst:39

@@ -154,8 +154,8 @@ msgid ""
 "To find out more about virtual environments, check out: `virtualenv guide "
 "<https://docs.python.org/3/library/venv.html>`_."
 msgstr ""
-"要了解更多關於虛擬環境的資訊，請參閱：`virtualenv 指南 <https://docs.python."
-"org/3/library/venv.html>`_。"
+"要了解更多關於虛擬環境的資訊，請參閱：`virtualenv 指南 <https://"
+"docs.python.org/3/library/venv.html>`_。"
 
 #: ../../../installing-vyper.rst:77
 msgid ""
@@ -202,8 +202,8 @@ msgstr "Docker"
 
 #: ../../../installing-vyper.rst:101
 msgid ""
-"Vyper can be downloaded as docker image from `dockerhub <https://hub.docker."
-"com/r/vyperlang/vyper/tags?page=1&ordering=last_updated>`_: ::"
+"Vyper can be downloaded as docker image from `dockerhub <https://"
+"hub.docker.com/r/vyperlang/vyper/tags?page=1&ordering=last_updated>`_: ::"
 msgstr ""
 "Vyper 可以從 `dockerhub <https://hub.docker.com/r/vyperlang/vyper/tags?"
 "page=1&ordering=last_updated>`_ 下載為 docker 映像檔： ::"

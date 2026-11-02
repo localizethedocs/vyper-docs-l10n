@@ -384,9 +384,9 @@ msgstr ""
 #: ../../../vyper-by-example/company-stock.rst:100
 msgid ""
 "The ``_getHolding()`` is another ``@view`` method that takes an ``address`` "
-"and returns its corresponding stock holdings by keying into ``self."
-"holdings``. Again, an external function ``getHolding()`` is included to "
-"allow access."
+"and returns its corresponding stock holdings by keying into "
+"``self.holdings``. Again, an external function ``getHolding()`` is included "
+"to allow access."
 msgstr ""
 
 #: ../../../vyper-by-example/company-stock.rst:104

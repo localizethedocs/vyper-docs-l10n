@@ -271,8 +271,8 @@ msgid ""
 "module, but it is not a valid contract (that is, it cannot produce bytecode) "
 "because it does not initialize the ``ownable`` module. To make a valid "
 "contract, the user of the ``ownable_2step`` module would be responsible for "
-"initializing the ``ownable`` module themselves (as in the next section: :ref:"
-"`initializing dependencies <init-dependencies>`)."
+"initializing the ``ownable`` module themselves (as in the next "
+"section: :ref:`initializing dependencies <init-dependencies>`)."
 msgstr ""
 
 #: ../../../using-modules.rst:156
@@ -302,8 +302,8 @@ msgstr ""
 #: ../../../using-modules.rst:165
 msgid ""
 "The design of the module system takes inspiration from (but is not directly "
-"related to) the rust language's `borrow checker <https://doc.rust-lang."
-"org/1.8.0/book/references-and-borrowing.html>`_. In the language of type "
+"related to) the rust language's `borrow checker <https://doc.rust-lang.org/"
+"1.8.0/book/references-and-borrowing.html>`_. In the language of type "
 "systems, module initialization is modeled as an affine constraint which is "
 "promoted to a linear constraint if the module's state is touched in the "
 "compilation target. In practice, what this means is:"
@@ -328,8 +328,8 @@ msgstr ""
 #: ../../../using-modules.rst:171
 msgid ""
 "To read more about the design background of Vyper's module system, please "
-"see its original `design document <https://github.com/vyperlang/vyper/"
-"issues/3722>`_."
+"see its original `design document <https://github.com/vyperlang/vyper/issues/"
+"3722>`_."
 msgstr ""
 
 #: ../../../using-modules.rst:176
@@ -369,8 +369,8 @@ msgstr ""
 msgid ""
 "In normal usage, you should make sure that ``__init__()`` functions are "
 "called in dependency order. In the above example, you can get unexpected "
-"behavior if ``ownable_2step.__init__()`` is called before ``ownable."
-"__init__()``! The compiler may enforce this behavior in the future."
+"behavior if ``ownable_2step.__init__()`` is called before "
+"``ownable.__init__()``! The compiler may enforce this behavior in the future."
 msgstr ""
 
 #: ../../../using-modules.rst:205

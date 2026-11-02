@@ -150,8 +150,8 @@ msgstr ""
 msgid ""
 "To achieve these properties, Vyper excludes features that obscure control "
 "flow or make code difficult to reason about. Each omission is a deliberate "
-"tradeoff: less flexibility in exchange for explicit behavior. See :ref:"
-"`Principles <design-principles>` for the full rationale."
+"tradeoff: less flexibility in exchange for explicit behavior. "
+"See :ref:`Principles <design-principles>` for the full rationale."
 msgstr ""
 
 #: ../../../solidity-differences.rst:51
@@ -258,9 +258,9 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:109
 msgid ""
-"Vyper excludes inline assembly. For low-level operations, use the :ref:"
-"`built-in functions <built_in_functions>`: ``raw_call``, ``raw_create``, "
-"``create_minimal_proxy_to``, ``create_from_blueprint``."
+"Vyper excludes inline assembly. For low-level operations, use "
+"the :ref:`built-in functions <built_in_functions>`: ``raw_call``, "
+"``raw_create``, ``create_minimal_proxy_to``, ``create_from_blueprint``."
 msgstr ""
 
 #: ../../../solidity-differences.rst:111
@@ -330,8 +330,8 @@ msgstr ""
 #: ../../../solidity-differences.rst:148
 msgid ""
 "Vyper's bounded loops and lack of recursion make gas costs statically "
-"analyzable—every function call has a calculable upper bound (see :ref:"
-"`design-principles`)."
+"analyzable—every function call has a calculable upper bound "
+"(see :ref:`design-principles`)."
 msgstr ""
 
 #: ../../../solidity-differences.rst:151
@@ -674,9 +674,9 @@ msgstr ""
 
 #: ../../../solidity-differences.rst:362
 msgid ""
-"Interfaces can also be defined in separate ``.vyi`` files (see :ref:"
-"`interfaces`). Vyper ships with built-in interfaces for ERC20, ERC721, etc. "
-"via ``from ethereum.ercs import IERC20``."
+"Interfaces can also be defined in separate ``.vyi`` files "
+"(see :ref:`interfaces`). Vyper ships with built-in interfaces for ERC20, "
+"ERC721, etc. via ``from ethereum.ercs import IERC20``."
 msgstr ""
 
 #: ../../../solidity-differences.rst:365
