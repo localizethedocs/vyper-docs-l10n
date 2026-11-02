@@ -194,16 +194,16 @@ msgstr ""
 #: ../../../natspec.rst:65
 msgid ""
 "Each use of ``@param`` must be followed by the name of an input argument. "
-"Including invalid or duplicate argument names raises a :func:"
-"`NatSpecSyntaxException<NatSpecSyntaxException>`."
+"Including invalid or duplicate argument names raises "
+"a :func:`NatSpecSyntaxException<NatSpecSyntaxException>`."
 msgstr ""
 
 #: ../../../natspec.rst:66
 msgid ""
 "The preferred use of ``@return`` is one entry for each output value, however "
 "you may also use it once for all outputs. Including more ``@return`` values "
-"than output values raises a :func:"
-"`NatSpecSyntaxException<NatSpecSyntaxException>`."
+"than output values raises "
+"a :func:`NatSpecSyntaxException<NatSpecSyntaxException>`."
 msgstr ""
 
 #: ../../../natspec.rst:69

@@ -571,8 +571,8 @@ msgstr ""
 msgid ""
 "``_address.code`` requires the usage of :func:`slice <slice>` to explicitly "
 "extract a section of contract bytecode. If the extracted section exceeds the "
-"bounds of bytecode, this will throw. You can check the size of ``_address."
-"code`` using ``_address.codesize``."
+"bounds of bytecode, this will throw. You can check the size of "
+"``_address.code`` using ``_address.codesize``."
 msgstr ""
 
 #: ../../../types.rst:322
@@ -1183,9 +1183,9 @@ msgstr "旗標只能從 ``uint256`` 轉換和轉換為 ``uint256``。"
 msgid ""
 "A small Python reference implementation is maintained as part of Vyper's "
 "test suite, it can be found `here <https://github.com/vyperlang/vyper/blob/"
-"c4c6afd07801a0cc0038cdd4007cc43860c54193/tests/parser/functions/test_convert."
-"py#L318>`__. The motivation and more detailed discussion of the rules can be "
-"found `here <https://github.com/vyperlang/vyper/issues/2507>`__."
+"c4c6afd07801a0cc0038cdd4007cc43860c54193/tests/parser/functions/"
+"test_convert.py#L318>`__. The motivation and more detailed discussion of the "
+"rules can be found `here <https://github.com/vyperlang/vyper/issues/2507>`__."
 msgstr ""
 
 #: ../../../types.rst:1

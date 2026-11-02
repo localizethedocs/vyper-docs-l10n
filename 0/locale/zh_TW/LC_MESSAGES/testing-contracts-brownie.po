@@ -54,10 +54,10 @@ msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:19
 msgid ""
-"This will create an empty `project structure <https://eth-brownie."
-"readthedocs.io/en/stable/structure.html#structure>`_ within the directory. "
-"Store your contract sources within the project's ``contracts/`` directory "
-"and your tests within ``tests/``."
+"This will create an empty `project structure <https://eth-"
+"brownie.readthedocs.io/en/stable/structure.html#structure>`_ within the "
+"directory. Store your contract sources within the project's ``contracts/`` "
+"directory and your tests within ``tests/``."
 msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:22
@@ -135,14 +135,15 @@ msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:65
 msgid ""
-"``accounts`` provides access to the :py:class:`Accounts <brownie.network."
-"account.Accounts>` container, containing all of your local accounts"
+"``accounts`` provides access to the :py:class:`Accounts "
+"<brownie.network.account.Accounts>` container, containing all of your local "
+"accounts"
 msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:66
 msgid ""
-"``Storage`` is a dynamically named fixture that provides access to a :py:"
-"class:`ContractContainer <brownie.network.contract.ContractContainer>` "
+"``Storage`` is a dynamically named fixture that provides access to "
+"a :py:class:`ContractContainer <brownie.network.contract.ContractContainer>` "
 "object, used to deploy your contract"
 msgstr ""
 
@@ -195,10 +196,11 @@ msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:82
 msgid ""
-"To test events, we examine the :py:class:`TransactionReceipt <brownie."
-"network.transaction.TransactionReceipt>` object which is returned after each "
-"successful transaction. It contains an :py:class:`events <brownie.network."
-"event.EventDict>` member with information about events that fired."
+"To test events, we examine the :py:class:`TransactionReceipt "
+"<brownie.network.transaction.TransactionReceipt>` object which is returned "
+"after each successful transaction. It contains an :py:class:`events "
+"<brownie.network.event.EventDict>` member with information about events that "
+"fired."
 msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:84
@@ -233,11 +235,11 @@ msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:114
 msgid ""
-"Transactions that revert raise a :py:class:`VirtualMachineError <brownie."
-"exceptions.VirtualMachineError>` exception. To write assertions around this "
-"you can use :py:class:`brownie.reverts <brownie.test.plugin."
-"RevertContextManager>` as a context manager. It functions very similarly to :"
-"py:func:`pytest.raises <pytest.raises>`."
+"Transactions that revert raise a :py:class:`VirtualMachineError "
+"<brownie.exceptions.VirtualMachineError>` exception. To write assertions "
+"around this you can use :py:class:`brownie.reverts "
+"<brownie.test.plugin.RevertContextManager>` as a context manager. It "
+"functions very similarly to :py:func:`pytest.raises <pytest.raises>`."
 msgstr ""
 
 #: ../../../testing-contracts-brownie.rst:116
