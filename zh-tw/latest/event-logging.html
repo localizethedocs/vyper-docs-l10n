@@ -1,0 +1,368 @@
+
+  <!DOCTYPE html>
+<html lang="zh-TW" data-accent-color="purple" data-content_root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>事件日誌紀錄 - Vyper 說明文件</title>
+    <link rel="shortcut icon" href="_static/logo.svg"/><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜尋" href="search.html" /><link rel="next" title="NatSpec Metadata" href="natspec.html" /><link rel="prev" title="Interfaces" href="interfaces.html" />
+      <link rel="canonical" href="https://projects.localizethedocs.org/vyper-docs-l10n/event-logging.html" />
+
+  <script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(sessionStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="_static/pygments.css?v=aecf457f" />
+    <link rel="stylesheet" type="text/css" href="_static/shibuya.css?v=db2d6636" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://projects.localizethedocs.org/vyper-docs-l10n/event-logging.html"/>
+<meta property="og:title" content="事件日誌紀錄"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@vyperlang"/>
+<meta name="twitter:site" content="@vyperlang"/>
+<script type="text/javascript" src="ltd-provenance.js"></script>
+<script type="text/javascript" src="ltd-current.js"></script>
+<script type="text/javascript" src="../../ltd-config.js"></script>
+<script type="text/javascript" src="../../ltd-flyout.js"></script>
+</head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand mr-4" href="toctree.html">
+      <img class="light-logo" src="_static/logo-light.svg" alt="Vyper" height="28" />
+      <img class="dark-logo" src="_static/logo-dark.svg" alt="Vyper" height="28" />
+      <strong>Vyper</strong>
+    </a>
+    <div class="sy-head-links" id="NavLinks">
+      <nav class="sy-head-nav"></nav>
+      <div class="sy-head-extra flex items-center print:hidden">
+<form class="searchbox flex items-center" action="search.html" method="get">
+  <input type="text" name="q" placeholder="搜尋" />
+  <kbd>/</kbd>
+</form>
+        
+        
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/vyperlang" aria-label="GitHub">
+              <i class="i-icon github"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
+      <button class="js-theme theme-switch flex items-center"
+        data-aria-auto="切換到亮色模式"
+        data-aria-light="切換到暗黑模式"
+        data-aria-dark="切換到自動模式">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">概覽</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">開始使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing-vyper.html">安裝 Vyper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速開始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-differences.html">與 Solidity 的區別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vyper-by-example/index.html">Vyper by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/simple-auction.html">Simple Open Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/blind-auction.html">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/safe-remote-purchase.html">Safe Remote Purchases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/crowdfund.html">Crowdfund</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/voting.html">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/company-stock.html">Company Stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/storage.html">Storage Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/name-registry.html">Name Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc20.html">ERC20 Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc721.html">ERC721 Non-Fungible Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc1155.html">ERC1155 Multi-Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/erc4626.html">ERC4626 Tokenized Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/market-maker.html">On-Chain Market Maker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/factory.html">工廠模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vyper-by-example/wallet.html">Multi-Signature Wallet</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">語言描述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure-of-a-contract.html">合約結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">型別</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants-and-vars.html">環境變數與常數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statements.html">陳述句</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-structures.html">控制結構</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoping-and-declarations.html">Scoping and Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="built-in-functions.html">內建函數</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib-math.html">數學模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-modules.html">模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-modules.html">抽象模組</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">Interfaces</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">事件日誌紀錄</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natspec.html">NatSpec Metadata</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">使用編譯器</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="compiling-a-contract.html">編譯合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler-exceptions.html">編譯器例外</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploying-contracts.html">部署合約</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing-contracts.html">測試合約</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">額外資源</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">其他資源與學習材料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep-verification.html">深度驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">發行備註</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">參與貢獻</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">風格指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versioning.html">Vyper Versioning Guideline</a></li>
+</ul>
+
+        </div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>該頁內容</h3>
+    <ul>
+<li><a class="reference internal" href="#example-of-logging">&#26085;&#35468;&#32000;&#37636;&#31684;&#20363;</a></li>
+<li><a class="reference internal" href="#declaring-events">&#23459;&#21578;&#20107;&#20214;</a></li>
+<li><a class="reference internal" href="#logging-events">&#26085;&#35468;&#32000;&#37636;&#20107;&#20214;</a></li>
+<li><a class="reference internal" href="#listening-for-events">&#30435;&#32893;&#20107;&#20214;</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/vyperlang/vyper"
+  data-type="github" data-user="vyperlang" data-repo="vyper">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>vyperlang/vyper</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/vyperlang/vyper/blob/master/docs/event-logging.rst">編輯此頁面</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-icon menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList">
+      
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="toctree.html"><span itemprop="name">Vyper</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li>
+      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">事件日誌紀錄</strong>
+        <meta itemprop="position" content="2" />
+      </li>
+      
+      
+    </ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-icon outdent"></i>
+      </button>
+    </div>
+  </div>
+</div>
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="event-logging">
+<span id="id1"></span><h1>事件日誌紀錄<a class="headerlink" href="#event-logging" title="Link to this heading">¶</a></h1>
+<p>Vyper 可以記錄事件，以便由使用者介面捕獲和顯示。</p>
+<section id="example-of-logging">
+<h2>日誌紀錄範例<a class="headerlink" href="#example-of-logging" title="Link to this heading">¶</a></h2>
+<p>此範例取自 <a class="reference external" href="https://github.com/vyperlang/vyper/blob/master/examples/tokens/ERC20.vy">ERC20 合約範例</a>，展示了事件日誌紀錄的基本流程：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># Events of the token.</span>
+</span><span id="1-2"><span class="k">event</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">:</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">sender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">receiver:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-5"><span class="w">    </span><span class="nv">value:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-6">
+</span><span id="1-7"><span class="k">event</span><span class="w"> </span><span class="nc">Approval</span><span class="p">:</span>
+</span><span id="1-8"><span class="w">    </span><span class="nv">owner:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-9"><span class="w">    </span><span class="nv">spender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-10"><span class="w">    </span><span class="nv">value:</span><span class="w"> </span><span class="kt">uint256</span>
+</span><span id="1-11">
+</span><span id="1-12"><span class="c1"># Transfer some tokens from message sender to another address</span>
+</span><span id="1-13"><span class="nd">@external</span>
+</span><span id="1-14"><span class="k">def</span><span class="w"> </span><span class="nf">transfer</span><span class="p">(</span><span class="n">_to</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">address</span><span class="p">,</span><span class="w"> </span><span class="n">_value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">uint256</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+</span><span id="1-15">
+</span><span id="1-16"><span class="w">   </span><span class="p">...</span><span class="w"> </span><span class="n">Logic</span><span class="w"> </span><span class="n">here</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="p">...</span>
+</span><span id="1-17">
+</span><span id="1-18"><span class="w">   </span><span class="c1"># All done, log the event for listeners</span>
+</span><span id="1-19"><span class="w">   </span><span class="k">log</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>讓我們看看這段程式碼在做什麼。</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>我們宣告了兩個要記錄的事件型別。這兩個事件相似之處在於都包含兩個已索引的地址欄位。已索引欄位不構成事件資料本身的一部分，但可以由想要捕獲事件的客戶端進行搜尋。此外，每個事件都包含一個資料欄位，在每個案例中稱為 <code class="docutils literal notranslate"><span class="pre">value</span></code>。事件可以包含多個任意名稱的引數。</p></li>
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">transfer</span></code> 函數中，在我們執行完必要的工作後，我們記錄事件。我們傳遞三個引數，對應 Transfer 事件宣告的三個引數。</p></li>
+</ol>
+</div></blockquote>
+<p>監聽事件的客戶端將使用 <a class="reference external" href="https://solidity.readthedocs.io/en/latest/contracts.html#events">如 web3.js 的函式庫</a> 來宣告和處理他們感興趣的事件：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kd">var</span><span class="w"> </span><span class="nx">abi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* abi as generated by the compiler */</span><span class="p">;</span>
+</span><span id="1-2"><span class="kd">var</span><span class="w"> </span><span class="nx">MyToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">contract</span><span class="p">(</span><span class="nx">abi</span><span class="p">);</span>
+</span><span id="1-3"><span class="kd">var</span><span class="w"> </span><span class="nx">myToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MyToken</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="s2">&quot;0x1234...ab67&quot;</span><span class="w"> </span><span class="cm">/* address */</span><span class="p">);</span>
+</span><span id="1-4">
+</span><span id="1-5"><span class="c1">// watch for changes in the callback</span>
+</span><span id="1-6"><span class="kd">var</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myToken</span><span class="p">.</span><span class="nx">Transfer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-7"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="1-8"><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">returnValues</span><span class="p">;</span>
+</span><span id="1-9"><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;value transferred = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">_amount</span><span class="p">);</span>
+</span><span id="1-10"><span class="w">    </span><span class="p">}</span>
+</span><span id="1-11"><span class="p">});</span>
+</span></pre></div>
+</div>
+<p>在此範例中，監聽客戶端宣告了要監聽的事件。每當合約發送此日誌事件時，回呼就會被呼叫。</p>
+</section>
+<section id="declaring-events">
+<h2>宣告事件<a class="headerlink" href="#declaring-events" title="Link to this heading">¶</a></h2>
+<p>讓我們更詳細地看看事件宣告。</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">event</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">:</span>
+</span><span id="1-2"><span class="w">    </span><span class="nv">sender:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-3"><span class="w">    </span><span class="nv">receiver:</span><span class="w"> </span><span class="k">indexed</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+</span><span id="1-4"><span class="w">    </span><span class="nv">value:</span><span class="w"> </span><span class="kt">uint256</span>
+</span></pre></div>
+</div>
+<p>EVM 目前有五個用於發送事件日誌的 opcode：<code class="docutils literal notranslate"><span class="pre">LOG0</span></code>、<code class="docutils literal notranslate"><span class="pre">LOG1</span></code>、<code class="docutils literal notranslate"><span class="pre">LOG2</span></code>、<code class="docutils literal notranslate"><span class="pre">LOG3</span></code> 和 <code class="docutils literal notranslate"><span class="pre">LOG4</span></code>。這些 opcode 可用於建立日誌記錄，其中每個日誌記錄由**主題（topics）**和**資料（data）**組成。主題是 32 位元組的「字組」，用於描述事件中發生的情況。雖然主題是可搜尋的，但資料不是。然而事件資料不受限制，這意味著您可以包含大型或複雜的資料，如陣列或字串。不同的 opcode（<code class="docutils literal notranslate"><span class="pre">LOG0</span></code> 到 <code class="docutils literal notranslate"><span class="pre">LOG4</span></code>）允許不同數量的主題。例如，<code class="docutils literal notranslate"><span class="pre">LOG1</span></code> 包含一個主題，<code class="docutils literal notranslate"><span class="pre">LOG2</span></code> 包含兩個主題，依此類推。事件宣告看起來類似於結構宣告，包含一個或多個傳遞給事件的引數。典型的事件將包含兩種引數：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>已索引**引數（主題），可以被監聽器搜尋。每個已索引引數由 <code class="docutils literal notranslate"><span class="pre">indexed</span></code> 關鍵字標識。在此處，每個已索引引數都是一個地址。您最多可以有四個已索引引數（<code class="docutils literal notranslate"><span class="pre">LOG4</span></code>），但已索引引數不會直接傳遞給監聽器，儘管其中一些資訊（如發送者）可能在監聽器的 <cite>results</cite> 物件中可用。</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>值**引數（資料），會直接傳遞給監聽器。您可以有任意數量的值引數，且它們可以具有任意名稱。</p></li>
+</ul>
+</div></blockquote>
+<p>請注意，日誌記錄的第一個主題由已發生事件名稱的簽名組成，包括其參數的型別。也可以建立沒有引數的事件。在這種情況下，請使用 <code class="docutils literal notranslate"><span class="pre">pass</span></code> 陳述式：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">event</span><span class="w"> </span><span class="nc">Foo</span><span class="p">:</span><span class="w"> </span><span class="k">pass</span>
+</span></pre></div>
+</div>
+</section>
+<section id="logging-events">
+<h2>日誌紀錄事件<a class="headerlink" href="#logging-events" title="Link to this heading">¶</a></h2>
+<p>一旦事件被宣告，您就可以記錄（發送）事件。您可以根據需要多次發送事件。請注意，事件儲存在交易日誌中而非合約狀態儲存中，這使其比儲存操作便宜得多。然而，缺點是事件對合約不可用，僅對客戶端可用。</p>
+<p>記錄事件是使用 <code class="docutils literal notranslate"><span class="pre">log</span></code> 陳述式完成的：</p>
+<div class="highlight-vyper notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">log</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="bp">msg.sender</span><span class="p">,</span><span class="w"> </span><span class="n">receiver</span><span class="o">=</span><span class="n">_to</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="n">_value</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>給定的引數型別必須與宣告事件時使用的型別相符。使用關鍵字引數時（如上所示），順序不重要。</p>
+</section>
+<section id="listening-for-events">
+<h2>監聽事件<a class="headerlink" href="#listening-for-events" title="Link to this heading">¶</a></h2>
+<p>在上面的監聽器範例中，<code class="docutils literal notranslate"><span class="pre">result</span></code> 引數實際上傳遞了`大量資訊 &lt;<a class="reference external" href="https://web3js.readthedocs.io/en/v1.2.6/web3-eth-contract.html#contract-events-return">https://web3js.readthedocs.io/en/v1.2.6/web3-eth-contract.html#contract-events-return</a>&gt;`_。這裡我們最感興趣的是 <code class="docutils literal notranslate"><span class="pre">result.returnValues</span></code>。這是一個屬性與事件中宣告的屬性相符的物件。請注意，此物件不包含已索引的屬性，這些屬性只能在建立回呼的原始 <code class="docutils literal notranslate"><span class="pre">myToken.Transfer</span></code> 中進行搜尋。</p>
+</section>
+</section>
+
+        </article>
+        
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="interfaces.html">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>上一頁</span>
+        
+        <div class="title">Interfaces</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="natspec.html">
+      <div class="page-info">
+        <span>下一頁</span>
+        <div class="title">NatSpec Metadata</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2017-2024 CC-BY-4.0 Vyper Team</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/vyperlang" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/vyperlang" aria-label="X (Twitter)"><i class="i-icon x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script src="_static/documentation_options.js?v=0d9984b1"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=d9a6981e"></script>
+      <script src="_static/shibuya.js?v=ccb09f80"></script>
+    
+</body>
+</html>
