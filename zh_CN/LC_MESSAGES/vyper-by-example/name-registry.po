@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2024 CC-BY-4.0 Vyper Team
+# This file is distributed under the same license as the Vyper package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Vyper latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-27 10:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../vyper-by-example/name-registry.rst:4
+msgid "Name Registry"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:10
+msgid ""
+"This is example code for learning purposes. Do not use in production without "
+"thorough review and testing."
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:12
+msgid ""
+"A minimal name registry that maps names to addresses. Once a name is "
+"registered, it cannot be changed."
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:15
+msgid ""
+"#pragma version >0.3.10\n"
+"\n"
+"registry: HashMap[Bytes[100], address]\n"
+"\n"
+"@external\n"
+"def register(name: Bytes[100], owner: address):\n"
+"    assert self.registry[name] == empty(address)  # check name has not been "
+"set yet.\n"
+"    self.registry[name] = owner\n"
+"\n"
+"\n"
+"@view\n"
+"@external\n"
+"def lookup(name: Bytes[100]) -> address:\n"
+"    return self.registry[name]\n"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:19
+msgid "This pattern is useful for:"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:21
+msgid "ENS-like name services"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:22
+msgid "Service discovery"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:23
+msgid "Any first-come-first-served registration system"
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:25
+msgid ""
+"The ``assert self.registry[name] == empty(address)`` check ensures names "
+"cannot be overwritten."
+msgstr ""
+
+#: ../../../vyper-by-example/name-registry.rst:1
+msgid "name registry"
+msgstr ""
